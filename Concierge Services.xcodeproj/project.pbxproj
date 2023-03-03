@@ -11,6 +11,12 @@
 		0445A0EC29B1EEE300DA8D50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0EB29B1EEE300DA8D50 /* ContentView.swift */; };
 		0445A0EE29B1EEE500DA8D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */; };
 		0445A0F129B1EEE500DA8D50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0445A0F029B1EEE500DA8D50 /* Preview Assets.xcassets */; };
+		0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0FF29B207B600DA8D50 /* TimelineView.swift */; };
+		0445A10229B207C400DA8D50 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10129B207C400DA8D50 /* ChatView.swift */; };
+		0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10329B207CE00DA8D50 /* BalanceView.swift */; };
+		0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10529B207E000DA8D50 /* SettingsView.swift */; };
+		0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10729B207F200DA8D50 /* DashboardView.swift */; };
+		0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10929B2095F00DA8D50 /* TabbarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		0445A0EB29B1EEE300DA8D50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0445A0F029B1EEE500DA8D50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0445A0FF29B207B600DA8D50 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		0445A10129B207C400DA8D50 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		0445A10329B207CE00DA8D50 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
+		0445A10529B207E000DA8D50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0445A10729B207F200DA8D50 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		0445A10929B2095F00DA8D50 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +67,12 @@
 				0445A0EB29B1EEE300DA8D50 /* ContentView.swift */,
 				0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */,
 				0445A0EF29B1EEE500DA8D50 /* Preview Content */,
+				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
+				0445A10129B207C400DA8D50 /* ChatView.swift */,
+				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
+				0445A10529B207E000DA8D50 /* SettingsView.swift */,
+				0445A10729B207F200DA8D50 /* DashboardView.swift */,
+				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
 			);
 			path = "Concierge Services";
 			sourceTree = "<group>";
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
+				0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */,
+				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* ContentView.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
+				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
+				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
+				0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

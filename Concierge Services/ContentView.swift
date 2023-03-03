@@ -1,5 +1,10 @@
 import SwiftUI
 
+class UserSettings: ObservableObject {
+    @Published var loggedIn : Bool = false
+    @Published var navigateNowToLogIn: Bool = false
+    @Published var navigateNowToSignup: Bool = false
+}
 let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 let primaryBlack = Color(red: 31.0/255.0, green: 34.0/255.0, blue: 41.0/255.0, opacity: 1.0)
 
@@ -8,29 +13,45 @@ struct ContentView : View {
     @State var email: String = ""
     @State var password: String = ""
     
+    @State var isPresented = false
+    
     var body: some View {
         
-        VStack {
-            WelcomeText()
-            UserImage()
-            TextField("Email", text: $email)
-                .padding()
-                .background(lightGreyColor)
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
-            SecureField("Password", text: $password)
-                .padding()
-                .background(lightGreyColor)
-                .cornerRadius(5.0)
-                .padding(.bottom, 20)
-            ForgotPasswordText()
-            Button(action: {print("Button tapped")}) {
-               LoginButtonContent()
+        NavigationStack {
+            VStack {
+                WelcomeText()
+                
+                UserImage()
+                
+                TextField("Email", text: $email)
+                    .padding()
+                    .background(lightGreyColor)
+                    .cornerRadius(5.0)
+                    .padding(.bottom, 20)
+                SecureField("Password", text: $password)
+                    .padding()
+                    .background(lightGreyColor)
+                    .cornerRadius(5.0)
+                    .padding(.bottom, 20)
+                ForgotPasswordText()
+                
+                        Button(action: {
+                            print("Login success")
+                            isPresented = true
+                        }) {
+                            LoginButtonContent()
+                        }
+                        .navigationDestination(isPresented: $isPresented) {
+                            TabbarView()
+                        }
+                
+                OrText()
+                
+                AppleLogo()
+                
             }
-            OrText()
-            AppleLogo()
+            .padding()
         }
-        .padding()
     }
 }
 
