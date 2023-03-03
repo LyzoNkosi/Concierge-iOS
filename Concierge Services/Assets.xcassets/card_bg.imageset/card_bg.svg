@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="371"
+   height="198"
+   viewBox="0 0 371 198"
+   version="1.1"
+   id="svg21"
+   sodipodi:docname="card.svg"
+   inkscape:export-filename="card_bg.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview23"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false" />
+  <defs
+     id="defs14">
+    <linearGradient
+       id="linear-gradient"
+       x1="0.068000004"
+       y1="0.546"
+       x2="1.199"
+       y2="0.704"
+       gradientUnits="objectBoundingBox">
+      <stop
+         offset="0"
+         stop-color="#f68749"
+         id="stop2" />
+      <stop
+         offset="1"
+         stop-color="#fda271"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-2"
+       x1="255.85361"
+       y1="110.58079"
+       x2="10.841254"
+       y2="170.74976"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="scale(1.3688453,0.73054276)">
+      <stop
+         offset="0"
+         stop-color="#5d9ef9"
+         id="stop7" />
+      <stop
+         offset="1"
+         stop-color="#2f53f2"
+         id="stop9" />
+    </linearGradient>
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rectangle_2141"
+         data-name="Rectangle 2141"
+         width="371"
+         height="198"
+         rx="15"
+         fill="url(#linear-gradient)"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <rect
+     id="Rectangle_2140"
+     data-name="Rectangle 2140"
+     width="371"
+     height="198"
+     rx="15"
+     fill="url(#linear-gradient-2)"
+     x="0"
+     y="0"
+     style="fill:url(#linear-gradient-2)" />
+  <g
+     id="Mask_Group_74"
+     data-name="Mask Group 74"
+     clip-path="url(#clip-path)">
+    <g
+       id="Group_3209"
+       data-name="Group 3209"
+       transform="translate(237.068,-1.083)">
+      <ellipse
+         id="Ellipse_168"
+         data-name="Ellipse 168"
+         cx="67.5"
+         cy="72"
+         rx="67.5"
+         ry="72"
+         transform="translate(16.932,0.083)"
+         fill="#ffffff"
+         opacity="0.07" />
+      <ellipse
+         id="Ellipse_169"
+         data-name="Ellipse 169"
+         cx="67"
+         cy="72"
+         rx="67"
+         ry="72"
+         transform="translate(-0.068,92.083)"
+         fill="#ffffff"
+         opacity="0.07" />
+    </g>
+  </g>
+</svg>
