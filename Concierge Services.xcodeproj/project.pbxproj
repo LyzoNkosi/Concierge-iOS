@@ -17,6 +17,14 @@
 		0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10529B207E000DA8D50 /* SettingsView.swift */; };
 		0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10729B207F200DA8D50 /* DashboardView.swift */; };
 		0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10929B2095F00DA8D50 /* TabbarView.swift */; };
+		0445A11129B2311E00DA8D50 /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10E29B2311E00DA8D50 /* ChatHelper.swift */; };
+		0445A11229B2311E00DA8D50 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10F29B2311E00DA8D50 /* KeyboardResponder.swift */; };
+		0445A11329B2311E00DA8D50 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11029B2311E00DA8D50 /* ViewExtension.swift */; };
+		0445A11529B2316500DA8D50 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11429B2316500DA8D50 /* Message.swift */; };
+		0445A11729B2318200DA8D50 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11629B2318200DA8D50 /* User.swift */; };
+		0445A11B29B232DF00DA8D50 /* ContentMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11929B232DF00DA8D50 /* ContentMessageView.swift */; };
+		0445A11C29B232DF00DA8D50 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11A29B232DF00DA8D50 /* MessageView.swift */; };
+		0445A11E29B235D400DA8D50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11D29B235D400DA8D50 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +39,14 @@
 		0445A10529B207E000DA8D50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0445A10729B207F200DA8D50 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		0445A10929B2095F00DA8D50 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		0445A10E29B2311E00DA8D50 /* ChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
+		0445A10F29B2311E00DA8D50 /* KeyboardResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		0445A11029B2311E00DA8D50 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		0445A11429B2316500DA8D50 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		0445A11629B2318200DA8D50 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0445A11929B232DF00DA8D50 /* ContentMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentMessageView.swift; sourceTree = "<group>"; };
+		0445A11A29B232DF00DA8D50 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		0445A11D29B235D400DA8D50 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +79,8 @@
 		0445A0E829B1EEE300DA8D50 /* Concierge Services */ = {
 			isa = PBXGroup;
 			children = (
+				0445A11D29B235D400DA8D50 /* SceneDelegate.swift */,
+				0445A10B29B230BB00DA8D50 /* Chat */,
 				0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */,
 				0445A0EB29B1EEE300DA8D50 /* ContentView.swift */,
 				0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */,
@@ -83,6 +101,36 @@
 				0445A0F029B1EEE500DA8D50 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0445A10B29B230BB00DA8D50 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				0445A11829B232DF00DA8D50 /* View */,
+				0445A11629B2318200DA8D50 /* User.swift */,
+				0445A11429B2316500DA8D50 /* Message.swift */,
+				0445A10D29B2311E00DA8D50 /* Helper */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		0445A10D29B2311E00DA8D50 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0445A10E29B2311E00DA8D50 /* ChatHelper.swift */,
+				0445A10F29B2311E00DA8D50 /* KeyboardResponder.swift */,
+				0445A11029B2311E00DA8D50 /* ViewExtension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		0445A11829B232DF00DA8D50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0445A11929B232DF00DA8D50 /* ContentMessageView.swift */,
+				0445A11A29B232DF00DA8D50 /* MessageView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,12 +203,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0445A11B29B232DF00DA8D50 /* ContentMessageView.swift in Sources */,
+				0445A11729B2318200DA8D50 /* User.swift in Sources */,
 				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
+				0445A11129B2311E00DA8D50 /* ChatHelper.swift in Sources */,
 				0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */,
+				0445A11229B2311E00DA8D50 /* KeyboardResponder.swift in Sources */,
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
+				0445A11E29B235D400DA8D50 /* SceneDelegate.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* ContentView.swift in Sources */,
+				0445A11329B2311E00DA8D50 /* ViewExtension.swift in Sources */,
+				0445A11C29B232DF00DA8D50 /* MessageView.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
+				0445A11529B2316500DA8D50 /* Message.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
 				0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */,
 			);
