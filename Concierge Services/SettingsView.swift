@@ -55,7 +55,7 @@ struct SettingsView: View {
                     }
                 }
                 .navigationTitle("Settings")
-                .environment(\.defaultMinListRowHeight, 75)
+                .environment(\.defaultMinListRowHeight, 50)
             }
         }
 }
