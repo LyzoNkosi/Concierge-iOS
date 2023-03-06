@@ -15,6 +15,8 @@ struct ContentView : View {
     
     @State var isPresented = false
     
+    @State private var showingForgotPasswordAlert = false
+    
     var body: some View {
         
         NavigationStack {
@@ -33,9 +35,19 @@ struct ContentView : View {
                     .background(lightGreyColor)
                     .cornerRadius(5.0)
                     .padding(.bottom, 20)
-                ForgotPasswordText()
                 
-                        Button(action: {
+                    ForgotPasswordText().onTapGesture(perform: {
+                        showingForgotPasswordAlert = true
+                    }).alert("Forgot Password?", isPresented: $showingForgotPasswordAlert, actions: {
+                        // Any view other than Button would be ignored
+                        TextField("TextField", text: $email)
+                            .background(lightGreyColor)
+                    }, message: {
+                        // Any view other than Text would be ignored
+                        TextField("TextField", text: .constant("Enter your email"))
+                    })
+                
+                Button(action: {
                             print("Login success")
                             isPresented = true
                         }) {

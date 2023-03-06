@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E7A4729B60ED900AB2737 /* TaskDetailView.swift */; };
 		0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */; };
 		0445A0EC29B1EEE300DA8D50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0EB29B1EEE300DA8D50 /* ContentView.swift */; };
 		0445A0EE29B1EEE500DA8D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043E7A4729B60ED900AB2737 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		0445A0E629B1EEE300DA8D50 /* Concierge Services.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concierge Services.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concierge_ServicesApp.swift; sourceTree = "<group>"; };
 		0445A0EB29B1EEE300DA8D50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				0445A10529B207E000DA8D50 /* SettingsView.swift */,
 				0445A10729B207F200DA8D50 /* DashboardView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
+				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
 			);
 			path = "Concierge Services";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
 				0445A11B29B232DF00DA8D50 /* ContentMessageView.swift in Sources */,
 				0445A11729B2318200DA8D50 /* User.swift in Sources */,
 				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
@@ -343,6 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
+				DEVELOPMENT_TEAM = U6J63PSS52;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -371,6 +376,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
+				DEVELOPMENT_TEAM = U6J63PSS52;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

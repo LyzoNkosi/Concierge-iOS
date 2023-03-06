@@ -75,9 +75,11 @@ struct BalanceView: View {
             
             .safeAreaInset(edge: .bottom) {
                 PayButtonContent()
-            }
+            } .padding(12)
+            
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        .navigationTitle("Balance")
     }
 }
 

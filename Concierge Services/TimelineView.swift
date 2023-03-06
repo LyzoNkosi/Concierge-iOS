@@ -19,7 +19,7 @@ struct TimelineView: View {
                 List {
                     ForEach(0..<5) { toto in
                         NavigationLink(
-                            destination: dummyView()
+                            destination: TaskDetailView()
                         ) {
                             HStack(alignment: .top, spacing: 0) {
                                 VStack(alignment: .center, spacing: 0){
@@ -67,7 +67,8 @@ struct TimelineView: View {
                         }
                     }
                 }
-            }.navigationTitle("Timeline")
+            }
+            .navigationTitle("Timeline")
         }
     }
 }
