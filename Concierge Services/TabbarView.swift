@@ -14,7 +14,7 @@ struct TabbarView: View {
             }
             
             NavigationView {
-                ChatView()
+                ChatView().environmentObject(ChatHelper())
             }
             .tag(1)
             .tabItem {

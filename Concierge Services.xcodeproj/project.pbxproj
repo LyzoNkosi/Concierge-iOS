@@ -24,7 +24,6 @@
 		0445A11729B2318200DA8D50 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11629B2318200DA8D50 /* User.swift */; };
 		0445A11B29B232DF00DA8D50 /* ContentMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11929B232DF00DA8D50 /* ContentMessageView.swift */; };
 		0445A11C29B232DF00DA8D50 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11A29B232DF00DA8D50 /* MessageView.swift */; };
-		0445A11E29B235D400DA8D50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A11D29B235D400DA8D50 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +45,6 @@
 		0445A11629B2318200DA8D50 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0445A11929B232DF00DA8D50 /* ContentMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentMessageView.swift; sourceTree = "<group>"; };
 		0445A11A29B232DF00DA8D50 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		0445A11D29B235D400DA8D50 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +77,6 @@
 		0445A0E829B1EEE300DA8D50 /* Concierge Services */ = {
 			isa = PBXGroup;
 			children = (
-				0445A11D29B235D400DA8D50 /* SceneDelegate.swift */,
 				0445A10B29B230BB00DA8D50 /* Chat */,
 				0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */,
 				0445A0EB29B1EEE300DA8D50 /* ContentView.swift */,
@@ -210,7 +207,6 @@
 				0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */,
 				0445A11229B2311E00DA8D50 /* KeyboardResponder.swift in Sources */,
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
-				0445A11E29B235D400DA8D50 /* SceneDelegate.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* ContentView.swift in Sources */,
 				0445A11329B2311E00DA8D50 /* ViewExtension.swift in Sources */,
 				0445A11C29B232DF00DA8D50 /* MessageView.swift in Sources */,
