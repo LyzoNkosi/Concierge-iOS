@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "balance.svg",
+      "filename" : "balance-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "balance-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "balance-3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

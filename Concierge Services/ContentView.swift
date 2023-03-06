@@ -43,6 +43,8 @@ struct ContentView : View {
                         }
                         .navigationDestination(isPresented: $isPresented) {
                             TabbarView()
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)
                         }
                 
                 OrText()
