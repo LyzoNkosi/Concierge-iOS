@@ -48,7 +48,7 @@ struct ContentView : View {
                     })
                 
                 Button(action: {
-                            print("Login success")
+                            print("Login success!")
                             isPresented = true
                         }) {
                             LoginButtonContent()
