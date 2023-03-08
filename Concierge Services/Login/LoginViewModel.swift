@@ -9,8 +9,8 @@ struct AuthUser {
 
 class LoginViewModel: ObservableObject{
     
-    @Published var email = "user@email.com"
-    @Published var password = "1234567"
+    @Published var email = ""
+    @Published var password = ""
     @Published private var _currentAuthUser : AuthUser? = nil
     @Published var hasError = false
     @Published var errorMessage = ""
