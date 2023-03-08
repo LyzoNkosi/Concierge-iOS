@@ -18,6 +18,7 @@
 		0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10529B207E000DA8D50 /* SettingsView.swift */; };
 		0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10729B207F200DA8D50 /* DashboardView.swift */; };
 		0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10929B2095F00DA8D50 /* TabbarView.swift */; };
+		04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791B5D29B8BD25007D0890 /* LoginViewModel.swift */; };
 		04B21D1C29B733EE00829AD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */; };
 		04B21D1D29B733EE00829AD7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21D1329B733EE00829AD7 /* Message.swift */; };
 		04B21D1E29B733EE00829AD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21D1429B733EE00829AD7 /* User.swift */; };
@@ -45,6 +46,7 @@
 		0445A10529B207E000DA8D50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0445A10729B207F200DA8D50 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		0445A10929B2095F00DA8D50 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
+		04791B5D29B8BD25007D0890 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04B21D1329B733EE00829AD7 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		04B21D1429B733EE00829AD7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -89,19 +91,18 @@
 		0445A0E829B1EEE300DA8D50 /* Concierge Services */ = {
 			isa = PBXGroup;
 			children = (
+				04791B5C29B8BCF0007D0890 /* Login */,
+				04791B5B29B8BCDC007D0890 /* TaskDetail */,
+				04791B5A29B8BCC2007D0890 /* Tabbar */,
+				04791B5929B8BBF5007D0890 /* Dashboard */,
+				04791B5829B8BBE7007D0890 /* Settings */,
+				04791B5729B8BBD9007D0890 /* Balance */,
+				04791B5629B8BBB2007D0890 /* Timeline */,
 				04B21D1229B733EE00829AD7 /* Chat */,
 				04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */,
 				0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */,
-				0445A0EB29B1EEE300DA8D50 /* ContentView.swift */,
 				0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */,
 				0445A0EF29B1EEE500DA8D50 /* Preview Content */,
-				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
-				0445A10129B207C400DA8D50 /* ChatView.swift */,
-				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
-				0445A10529B207E000DA8D50 /* SettingsView.swift */,
-				0445A10729B207F200DA8D50 /* DashboardView.swift */,
-				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
-				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
 			);
 			path = "Concierge Services";
 			sourceTree = "<group>";
@@ -114,9 +115,67 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		04791B5629B8BBB2007D0890 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		04791B5729B8BBD9007D0890 /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
+			);
+			path = Balance;
+			sourceTree = "<group>";
+		};
+		04791B5829B8BBE7007D0890 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				0445A10529B207E000DA8D50 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		04791B5929B8BBF5007D0890 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				0445A10729B207F200DA8D50 /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		04791B5A29B8BCC2007D0890 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		04791B5B29B8BCDC007D0890 /* TaskDetail */ = {
+			isa = PBXGroup;
+			children = (
+				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
+			);
+			path = TaskDetail;
+			sourceTree = "<group>";
+		};
+		04791B5C29B8BCF0007D0890 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0445A0EB29B1EEE300DA8D50 /* ContentView.swift */,
+				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		04B21D1229B733EE00829AD7 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				0445A10129B207C400DA8D50 /* ChatView.swift */,
 				04B21D1329B733EE00829AD7 /* Message.swift */,
 				04B21D1429B733EE00829AD7 /* User.swift */,
 				04B21D1529B733EE00829AD7 /* View */,
@@ -234,6 +293,7 @@
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
 				04B21D2229B733EE00829AD7 /* KeyboardResponder.swift in Sources */,
+				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
 				04B21D1D29B733EE00829AD7 /* Message.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
@@ -372,6 +432,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Savante;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -381,7 +442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.a;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -405,6 +466,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Savante;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -414,7 +476,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.a;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
