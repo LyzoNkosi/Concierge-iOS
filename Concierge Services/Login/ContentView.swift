@@ -67,16 +67,9 @@ struct ContentView : View {
                     Button(action: {
                         Task {
                             await loginViewModel.signIn()
-                            print("Login success!")
-                            isPresented = true
                         }
                      }) {
                      LoginButtonContent()
-                     }
-                     .navigationDestination(isPresented: $isPresented) {
-                     TabbarView()
-                     .navigationBarTitle("")
-                     .navigationBarHidden(true)
                      }
                     
                     OrText()
