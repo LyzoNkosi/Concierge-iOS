@@ -78,6 +78,10 @@ struct ContentView : View {
                     
                 }
             }
+            .alert("Error", isPresented: $loginViewModel.hasError) {
+            } message: {
+                Text(loginViewModel.errorMessage)
+            }
             .padding()
         }
             
