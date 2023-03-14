@@ -9,11 +9,11 @@ struct SettingsView: View {
             if(loginViewModel.isLoggedIn) {
                 List {
                     // 1
-                    HStack {
-                        Image(systemName: "person")
-                        Text("User Details")
-                        Image(systemName: "chevron.right")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    NavigationLink(destination: UserProfileView()){
+                        HStack {
+                            Image(systemName: "person")
+                            Text("User Details")
+                        }
                     }
                     // 2
                     HStack {
