@@ -4,39 +4,46 @@ struct TabbarView: View {
     var body: some View {
         TabView {
             NavigationView {
-                TimelineView()
+                DashboardView()
             }
             .tag(0)
             .tabItem {
-                Image("home")
-                    .resizable()
+                Image(systemName: "house")
+                Text("Home")
+            }
+            NavigationView {
+                TimelineView()
+            }
+            .tag(1)
+            .tabItem {
+                Image(systemName: "calendar.day.timeline.left")
                 Text("Timeline")
             }
             
             NavigationView {
                 ChatView().environmentObject(ChatHelper())
             }
-            .tag(1)
+            .tag(2)
             .tabItem {
-                Image("chat")
+                Image(systemName: "ellipsis.message")
                 Text("Chat")
             }
             
             NavigationView {
                      BalanceView()
                   }
-                   .tag(2)
+                   .tag(3)
                     .tabItem {
-                    Image("wallet")
+                    Image(systemName: "creditcard")
                     Text("Balance")
                 }
             
             NavigationView {
                      SettingsView()
                   }
-                   .tag(3)
+                   .tag(4)
                     .tabItem {
-                    Image("settings")
+                    Image(systemName: "gearshape")
                     Text("Settings")
                 }
             

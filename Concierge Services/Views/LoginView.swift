@@ -8,7 +8,7 @@ class UserSettings: ObservableObject {
 let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 let primaryBlack = Color(red: 31.0/255.0, green: 34.0/255.0, blue: 41.0/255.0, opacity: 1.0)
 
-struct ContentView : View {
+struct LoginView : View {
     
     @State var email: String = ""
     //@State var password: String = ""
@@ -23,9 +23,9 @@ struct ContentView : View {
         
         NavigationStack {
             VStack {
-                if(loginViewModel.isLoggedIn){
+                if(loginViewModel.isLoggedIn) {
                     TabbarView()
-                } else{
+                } else {
                     
                     WelcomeText()
                     
@@ -163,9 +163,9 @@ struct ContentView : View {
 }
 
 #if DEBUG
-struct ContentView_Previews : PreviewProvider {
+struct LoginView_Previews : PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView()
     }
 }
 #endif

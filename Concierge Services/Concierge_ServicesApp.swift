@@ -6,7 +6,7 @@ struct Concierge_ServicesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }*/
@@ -32,7 +32,7 @@ struct Concierge_ServicesApp: App {
     // MARK: - UI Elements
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
         }
     }
 }
