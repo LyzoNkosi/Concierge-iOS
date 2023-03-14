@@ -50,6 +50,13 @@ struct SettingsView: View {
                         Image(systemName: "chevron.right")
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
+                    // Admin
+                    HStack {
+                        Image(systemName: "gearshape")
+                        Text("Admin")
+                        Image(systemName: "chevron.right")
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
                     // 6
                     HStack {
                         Image(systemName: "pip.exit")
