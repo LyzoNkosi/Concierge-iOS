@@ -30,22 +30,22 @@ struct TabbarView: View {
             }
             
             NavigationView {
-                     BalanceView()
-                  }
-                   .tag(3)
-                    .tabItem {
-                    Image(systemName: "creditcard")
-                    Text("Balance")
-                }
+                BalanceView()
+            }
+            .tag(3)
+            .tabItem {
+                Image(systemName: "creditcard")
+                Text("Balance")
+            }
             
             NavigationView {
-                     SettingsView()
-                  }
-                   .tag(4)
-                    .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Settings")
-                }
+                SettingsView()
+            }
+            .tag(4)
+            .tabItem {
+                Image(systemName: "gearshape")
+                Text("Settings")
+            }
             
         }
     }

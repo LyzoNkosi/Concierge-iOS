@@ -1,10 +1,3 @@
-//
-//  TimelineView.swift
-//  Concierge Services
-//
-//  Created by Mac on 2023/03/03.
-//
-
 import SwiftUI
 
 struct TimelineView: View {

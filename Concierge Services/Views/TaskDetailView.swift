@@ -1,10 +1,3 @@
-//
-//  TaskDetailView.swift
-//  Concierge Services
-//
-//  Created by Mac on 2023/03/06.
-//
-
 import SwiftUI
 
 struct TaskDetailView: View {

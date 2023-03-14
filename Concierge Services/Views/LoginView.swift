@@ -68,9 +68,9 @@ struct LoginView : View {
                         Task {
                             await loginViewModel.signIn()
                         }
-                     }) {
-                     LoginButtonContent()
-                     }
+                    }) {
+                        LoginButtonContent()
+                    }
                     
                     OrText()
                     
@@ -84,16 +84,16 @@ struct LoginView : View {
             }
             .padding()
         }
-            
+        
     }
-       
-       /*fileprivate func EmailInput() -> some View {
-           TextField("Email", text: $loginViewModel.email)
-               .keyboardType(.emailAddress)
-               .disableAutocorrection(true)
-               .autocapitalization(.none)
-               .textFieldStyle(.roundedBorder)
-       }*/
+    
+    /*fileprivate func EmailInput() -> some View {
+     TextField("Email", text: $loginViewModel.email)
+     .keyboardType(.emailAddress)
+     .disableAutocorrection(true)
+     .autocapitalization(.none)
+     .textFieldStyle(.roundedBorder)
+     }*/
     
     fileprivate func EmailInput() -> some View {
         TextField("Email", text: $loginViewModel.email)
@@ -106,60 +106,60 @@ struct LoginView : View {
             .autocapitalization(.none)
     }
     
-       
-       fileprivate func PasswordInput() -> some View {
-           SecureField("Password", text: $loginViewModel.password)
-               .padding()
-               .background(lightGreyColor)
-               .cornerRadius(5.0)
-               .padding(.bottom, 20)
-       }
-       
-       fileprivate func LoginButton() -> some View {
-           Button(action: {
-               Task {
-                   await loginViewModel.signIn()
-               }
-           }) {
-               LoginButtonContent()
-           }
-       }
     
-       /*fileprivate func LogoutButton() -> some View {
-           Button(action: {
-               Task {
-                   await loginViewModel.signOut()
-               }
-           }) {
-               Text("Log Out")
-           }
-       }*/
-       
-       /*fileprivate func UserInfo() -> some View {
-           VStack{
-               Text("UID: \(loginViewModel.currentAuthUser.uid)")
-               Text("Email: \(loginViewModel.currentAuthUser.email)")
-               LogoutButton()
-           }
-           
-       }*/
-       
-       /*var body: some View {
-           VStack {
-               if(loginViewModel.isLoggedIn){
-                   UserInfo()
-               }else{
-                   EmailInput()
-                   PasswordInput()
-                   LoginButton()
-               }
-           }
-           .alert("Error", isPresented: $loginViewModel.hasError) {
-           } message: {
-               Text(loginViewModel.errorMessage)
-           }
-           .padding()
-       }*/
+    fileprivate func PasswordInput() -> some View {
+        SecureField("Password", text: $loginViewModel.password)
+            .padding()
+            .background(lightGreyColor)
+            .cornerRadius(5.0)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func LoginButton() -> some View {
+        Button(action: {
+            Task {
+                await loginViewModel.signIn()
+            }
+        }) {
+            LoginButtonContent()
+        }
+    }
+    
+    /*fileprivate func LogoutButton() -> some View {
+     Button(action: {
+     Task {
+     await loginViewModel.signOut()
+     }
+     }) {
+     Text("Log Out")
+     }
+     }*/
+    
+    /*fileprivate func UserInfo() -> some View {
+     VStack{
+     Text("UID: \(loginViewModel.currentAuthUser.uid)")
+     Text("Email: \(loginViewModel.currentAuthUser.email)")
+     LogoutButton()
+     }
+     
+     }*/
+    
+    /*var body: some View {
+     VStack {
+     if(loginViewModel.isLoggedIn){
+     UserInfo()
+     }else{
+     EmailInput()
+     PasswordInput()
+     LoginButton()
+     }
+     }
+     .alert("Error", isPresented: $loginViewModel.hasError) {
+     } message: {
+     Text(loginViewModel.errorMessage)
+     }
+     .padding()
+     }*/
 }
 
 #if DEBUG

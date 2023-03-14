@@ -1,16 +1,6 @@
 import SwiftUI
 import Firebase
 
-/*@main
-struct Concierge_ServicesApp: App {
-    
-    var body: some Scene {
-        WindowGroup {
-            LoginView()
-        }
-    }
-}*/
-
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     // MARK: - Methods
@@ -23,12 +13,12 @@ struct Concierge_ServicesApp: App {
     
     // MARK: - Properties
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  
+    
     // MARK: - Life Cycle
     init() {
         FirebaseApp.configure()
     }
-  
+    
     // MARK: - UI Elements
     var body: some Scene {
         WindowGroup {

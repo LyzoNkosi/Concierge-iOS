@@ -1,10 +1,3 @@
-//
-//  DashboardView.swift
-//  Concierge Services
-//
-//  Created by Mac on 2023/03/03.
-//
-
 import SwiftUI
 
 struct DashboardView: View {
@@ -28,14 +21,14 @@ struct EmptyBoxImage : View {
 }
 
 struct ChatButtonContent : View {
-        var body: some View {
-            return Text("Chat with Agent")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 220, height: 60)
-                .background(primaryBlack)
-                .cornerRadius(15.0)
+    var body: some View {
+        return Text("Chat with Agent")
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 220, height: 60)
+            .background(primaryBlack)
+            .cornerRadius(15.0)
     }
 }
 

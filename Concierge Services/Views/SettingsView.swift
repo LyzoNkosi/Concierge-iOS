@@ -61,11 +61,12 @@ struct SettingsView: View {
                             await loginViewModel.signOut()
                         }
                     }
+                    
                     //LogoutButton()
                 }
                 .navigationTitle("Settings")
                 .environment(\.defaultMinListRowHeight, 50)
-            } else{
+            } else {
                 LoginView()
             }
         }
@@ -85,17 +86,5 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-    }
-}
-
-struct LogoutButtonContent : View {
-    var body: some View {
-        return Text("Logout")
-            .font(.headline)
-            .foregroundColor(.white)
-            .padding()
-            .frame(width: 220, height: 60)
-            .background(Color.red)
-            .cornerRadius(15.0)
     }
 }

@@ -27,10 +27,10 @@ struct ChatView: View {
                     }
                 }.frame(minHeight: CGFloat(50)).padding()
             }.navigationBarTitle(Text(DataSource.firstUser.name), displayMode: .inline)
-            .padding(.bottom, keyboard.currentHeight)
-            .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
+                .padding(.bottom, keyboard.currentHeight)
+                .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
         }.onTapGesture {
-                self.endEditing(true)
+            self.endEditing(true)
         }
     }
     

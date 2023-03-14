@@ -6,9 +6,9 @@ struct MessageView : View {
         HStack(alignment: .bottom, spacing: 15) {
             if !currentMessage.user.isCurrentUser {
                 Image(currentMessage.user.avatar)
-                .resizable()
-                .frame(width: 40, height: 40, alignment: .center)
-                .cornerRadius(20)
+                    .resizable()
+                    .frame(width: 40, height: 40, alignment: .center)
+                    .cornerRadius(20)
             } else {
                 Spacer()
             }
