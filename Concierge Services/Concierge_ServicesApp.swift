@@ -11,6 +11,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Concierge_ServicesApp: App {
     
+    @StateObject var firestoreManager = FirestoreManager()
+    
     // MARK: - Properties
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
@@ -23,6 +25,7 @@ struct Concierge_ServicesApp: App {
     var body: some Scene {
         WindowGroup {
             LoginView()
+                .environmentObject(firestoreManager)
         }
     }
 }

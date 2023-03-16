@@ -17,6 +17,8 @@ struct LoginView : View {
     
     @State private var showingForgotPasswordAlert = false
     
+    @EnvironmentObject var firestoreManager: FirestoreManager
+    
     @ObservedObject var loginViewModel = LoginViewModel()
     
     var body: some View {
@@ -24,7 +26,7 @@ struct LoginView : View {
         NavigationStack {
             VStack {
                 if(loginViewModel.isLoggedIn) {
-                    TabbarView()
+                    TabbarView().environmentObject(firestoreManager)
                 } else {
                     
                     WelcomeText()
@@ -66,7 +68,7 @@ struct LoginView : View {
                     
                     Button(action: {
                         Task {
-                            await loginViewModel.signIn()
+                            await loginViewModel.signIn(firestoreManager: firestoreManager)
                         }
                     }) {
                         LoginButtonContent()
@@ -118,7 +120,7 @@ struct LoginView : View {
     fileprivate func LoginButton() -> some View {
         Button(action: {
             Task {
-                await loginViewModel.signIn()
+                await loginViewModel.signIn(firestoreManager: firestoreManager)
             }
         }) {
             LoginButtonContent()

@@ -16,6 +16,11 @@ class LoginViewModel: ObservableObject{
     @Published var errorMessage = ""
     @Published var isLoggedIn = false
     
+    let domain = Bundle.main.bundleIdentifier!
+    let defaults = UserDefaults.standard
+    
+    var firestoreManager: FirestoreManager? = nil
+    
     private var handler = Auth.auth().addStateDidChangeListener{_,_ in }
     
     var currentAuthUser: AuthUser {
@@ -27,6 +32,14 @@ class LoginViewModel: ObservableObject{
             if let authUser = authUser {
                 self._currentAuthUser = AuthUser(uid: authUser.uid, email: authUser.email!)
                 self.isLoggedIn = true
+                
+                self.defaults.set(authUser.uid, forKey: "firebase_uid")
+                self.defaults.set(authUser.email, forKey: "user_email")
+                self.defaults.set(true, forKey: "user_logged_in")
+                self.defaults.synchronize()
+                
+                self.firestoreManager?.fetchUserDetails(userID: authUser.uid)
+                
             } else {
                 self._currentAuthUser = nil
                 self.isLoggedIn = false
@@ -34,7 +47,9 @@ class LoginViewModel: ObservableObject{
         }
     }
     
-    func signIn() async {
+    func signIn(firestoreManager: FirestoreManager) async {
+        self.firestoreManager = firestoreManager
+        
         hasError = false
         do{
             try await Auth.auth().signIn(withEmail: email, password: password)
@@ -48,6 +63,8 @@ class LoginViewModel: ObservableObject{
         hasError = false
         do{
             try Auth.auth().signOut()
+            
+            self.defaults.removePersistentDomain(forName: domain)
             
         }catch{
             hasError = true

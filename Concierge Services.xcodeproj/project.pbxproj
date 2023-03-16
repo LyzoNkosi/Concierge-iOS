@@ -37,6 +37,8 @@
 		04D8688029C0601900027E73 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8687F29C0601900027E73 /* UserProfileView.swift */; };
 		04D8688329C0637A00027E73 /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 04D8688229C0637A00027E73 /* SVGKitSwift */; };
 		04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8688429C07C8600027E73 /* UserProfileViewModel.swift */; };
+		F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEF829C315F000973290 /* FirestoreManager.swift */; };
+		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,7 @@
 		04B9CF9329C0B446009FB454 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		04D8687F29C0601900027E73 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04D8688429C07C8600027E73 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 				04D8688329C0637A00027E73 /* SVGKitSwift in Frameworks */,
 				04B21D3629B737EA00829AD7 /* FirebaseAuth in Frameworks */,
 				04B21D3429B737EA00829AD7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +93,7 @@
 			children = (
 				0445A0E829B1EEE300DA8D50 /* Concierge Services */,
 				0445A0E729B1EEE300DA8D50 /* Products */,
+				F48CBEFA29C3185500973290 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,8 +181,16 @@
 		04D8687E29C05C4300027E73 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				F48CBEF829C315F000973290 /* FirestoreManager.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		F48CBEFA29C3185500973290 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +215,7 @@
 				04B21D3529B737EA00829AD7 /* FirebaseAuth */,
 				04B21D3729B737EA00829AD7 /* FirebaseCrashlytics */,
 				04D8688229C0637A00027E73 /* SVGKitSwift */,
+				F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */,
 			);
 			productName = "Concierge Services";
 			productReference = 0445A0E629B1EEE300DA8D50 /* Concierge Services.app */;
@@ -262,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
 				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
@@ -539,6 +554,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04D8688129C0637A00027E73 /* XCRemoteSwiftPackageReference "SVGKit" */;
 			productName = SVGKitSwift;
+		};
+		F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

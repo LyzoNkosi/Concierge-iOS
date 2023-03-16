@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct AdminTasksView: View {
+    
+    @EnvironmentObject var firestoreManager: FirestoreManager
+    
     var body: some View {
         NavigationView {
             List {
@@ -12,14 +15,14 @@ struct AdminTasksView: View {
                     }
                 }
                 // 2
-                NavigationLink(destination: UsersListView()){
+                NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "note.text.badge.plus")
                         Text("Create Task")
                     }
                 }
                 // 3
-                NavigationLink(destination: UsersListView()){
+                NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "message.badge")
                         Text("Client Chat")

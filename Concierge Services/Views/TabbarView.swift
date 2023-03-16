@@ -1,10 +1,13 @@
 import SwiftUI
 
 struct TabbarView: View {
+    
+    @EnvironmentObject var firestoreManager: FirestoreManager
+    
     var body: some View {
         TabView {
             NavigationView {
-                DashboardView()
+                DashboardView().environmentObject(firestoreManager)
             }
             .tag(0)
             .tabItem {
@@ -12,7 +15,7 @@ struct TabbarView: View {
                 Text("Home")
             }
             NavigationView {
-                TimelineView()
+                TimelineView().environmentObject(firestoreManager)
             }
             .tag(1)
             .tabItem {
@@ -21,7 +24,7 @@ struct TabbarView: View {
             }
             
             NavigationView {
-                ChatView().environmentObject(ChatHelper())
+                ChatView().environmentObject(ChatHelper()).environmentObject(firestoreManager)
             }
             .tag(2)
             .tabItem {
@@ -30,7 +33,7 @@ struct TabbarView: View {
             }
             
             NavigationView {
-                BalanceView()
+                BalanceView().environmentObject(firestoreManager)
             }
             .tag(3)
             .tabItem {
@@ -39,7 +42,7 @@ struct TabbarView: View {
             }
             
             NavigationView {
-                SettingsView()
+                SettingsView().environmentObject(firestoreManager)
             }
             .tag(4)
             .tabItem {

@@ -4,12 +4,14 @@ struct SettingsView: View {
     
     @ObservedObject var loginViewModel = LoginViewModel()
     
+    @EnvironmentObject var firestoreManager: FirestoreManager
+    
     var body: some View {
         NavigationView {
             if(loginViewModel.isLoggedIn) {
                 List {
                     // 1
-                    NavigationLink(destination: UserProfileView()){
+                    NavigationLink(destination: UserProfileView().environmentObject(firestoreManager)){
                         HStack {
                             Image(systemName: "person")
                             Text("User Details")
@@ -51,11 +53,11 @@ struct SettingsView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                     // Admin
-                    HStack {
-                        Image(systemName: "gearshape")
-                        Text("Admin")
-                        Image(systemName: "chevron.right")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
+                        HStack {
+                            Image(systemName: "gearshape")
+                            Text("Admin")
+                        }
                     }
                     // 6
                     HStack {

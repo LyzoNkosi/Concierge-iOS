@@ -4,6 +4,10 @@ import SVGKit
 
 struct UserProfileView: View {
     
+    let defaults = UserDefaults.standard
+    
+    @EnvironmentObject var firestoreManager: FirestoreManager
+    
     @State var userFullName: String = ""
     @State var email: String = ""
     
@@ -25,8 +29,15 @@ struct UserProfileView: View {
         .navigationTitle("Profile")
     }
     
+    fileprivate func GetUserDetails() -> String
+    {
+        var firstName = defaults.value(forKey: "first_name") as! String
+        var lastName = defaults.value(forKey: "last_name") as! String
+        return firstName + " " + lastName
+    }
+    
     fileprivate func UserNameInput() -> some View {
-        TextField("Name", text: $userFullName)
+        TextField(GetUserDetails(), text: $userFullName)
             .padding()
             .background(lightGreyColor)
             .cornerRadius(5.0)
@@ -35,7 +46,7 @@ struct UserProfileView: View {
     }
     
     fileprivate func UserEmailInput() -> some View {
-        TextField("Email", text: $email)
+        TextField(defaults.value(forKey: "user_email") as! String, text: $email)
             .padding()
             .background(lightGreyColor)
             .cornerRadius(5.0)
