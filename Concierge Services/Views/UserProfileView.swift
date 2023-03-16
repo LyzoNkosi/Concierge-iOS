@@ -31,8 +31,8 @@ struct UserProfileView: View {
     
     fileprivate func GetUserDetails() -> String
     {
-        var firstName = defaults.value(forKey: "first_name") as! String
-        var lastName = defaults.value(forKey: "last_name") as! String
+        let firstName = defaults.value(forKey: "first_name") as! String
+        let lastName = defaults.value(forKey: "last_name") as! String
         return firstName + " " + lastName
     }
     

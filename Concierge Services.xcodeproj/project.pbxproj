@@ -39,6 +39,8 @@
 		04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8688429C07C8600027E73 /* UserProfileViewModel.swift */; };
 		F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEF829C315F000973290 /* FirestoreManager.swift */; };
 		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
+		F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFD29C32A1100973290 /* Ticket.swift */; };
+		F48CBF0029C32B6E00973290 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFF29C32B6E00973290 /* Client.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		04D8687F29C0601900027E73 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04D8688429C07C8600027E73 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		F48CBEFD29C32A1100973290 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		F48CBEFF29C32B6E00973290 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 			children = (
 				04B21D1329B733EE00829AD7 /* Message.swift */,
 				04B21D1429B733EE00829AD7 /* User.swift */,
+				F48CBEFD29C32A1100973290 /* Ticket.swift */,
+				F48CBEFF29C32B6E00973290 /* Client.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
+				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
 				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
 				04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */,
 				0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */,
@@ -295,6 +302,7 @@
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
 				04B21D1D29B733EE00829AD7 /* Message.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
+				F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */,
 				04B21D2129B733EE00829AD7 /* ChatHelper.swift in Sources */,
 				04B9CF9029C0AA63009FB454 /* AdminTasksView.swift in Sources */,
 				0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */,

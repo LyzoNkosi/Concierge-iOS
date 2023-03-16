@@ -17,3 +17,8 @@ struct DataSource {
         Message(content: "Cool cool.", user: DataSource.firstUser)
     ]
 }
+
+enum MessageType: Int{
+    case TYPE_SENT = 0
+    case TYPE_RECEIVED = 1
+}
