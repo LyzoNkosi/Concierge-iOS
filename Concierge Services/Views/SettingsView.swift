@@ -54,7 +54,7 @@ struct SettingsView: View {
                     }
                     // Admin
                     if(UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ){
-                        NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
+                        NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)){
                             HStack {
                                 Image(systemName: "gearshape")
                                 Text("Admin")

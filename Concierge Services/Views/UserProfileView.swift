@@ -1,5 +1,4 @@
 import SwiftUI
-import SVGKit
 
 
 struct UserProfileView: View {

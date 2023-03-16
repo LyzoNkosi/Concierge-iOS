@@ -15,14 +15,14 @@ struct AdminTasksView: View {
                     }
                 }
                 // 2
-                NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
+                NavigationLink(destination: UsersListView(selectedView: "Create Task").environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "note.text.badge.plus")
                         Text("Create Task")
                     }
                 }
                 // 3
-                NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
+                NavigationLink(destination: UsersListView(selectedView: "Client Chat").environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "message.badge")
                         Text("Client Chat")
