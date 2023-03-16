@@ -1,7 +1,20 @@
-struct Ticket {
-    let id: String
-    let name: String
-    let status: String
+import Foundation
+import RealmSwift
+
+class Ticket: Object, Identifiable {
+    @Persisted var id: String? = ""
+    @Persisted var name: String? = ""
+    @Persisted var status: Int = TicketStatus.STATUS_NOT_STARTED.rawValue
+    
+    override init() {
+        
+    }
+    
+    init(id: String? = nil, name: String? = nil, status: Int = TicketStatus.STATUS_NOT_STARTED.rawValue) {
+        self.id = id
+        self.name = name
+        self.status = status
+    }
 }
 
 enum TicketStatus: Int{

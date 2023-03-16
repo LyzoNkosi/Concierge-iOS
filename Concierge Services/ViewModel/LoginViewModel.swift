@@ -1,6 +1,6 @@
 import Foundation
 import FirebaseAuth
-
+import RealmSwift
 
 struct AuthUser {
     let uid: String
@@ -53,6 +53,11 @@ class LoginViewModel: ObservableObject{
         hasError = false
         do{
             try await Auth.auth().signIn(withEmail: email, password: password)
+            
+            firestoreManager.getAgentClients()
+            firestoreManager.getTickets()
+            firestoreManager.getMyChatMessages()
+            
         }catch{
             hasError = true
             errorMessage = error.localizedDescription
@@ -65,6 +70,16 @@ class LoginViewModel: ObservableObject{
             try Auth.auth().signOut()
             
             self.defaults.removePersistentDomain(forName: domain)
+            
+            do{
+                let realm = try await Realm()
+                
+                try! realm.write{
+                    realm.deleteAll()
+                }
+            } catch let realmError as NSError{
+                print("error - \(realmError.localizedDescription)")
+            }
             
         }catch{
             hasError = true

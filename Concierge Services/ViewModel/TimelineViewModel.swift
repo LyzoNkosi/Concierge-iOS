@@ -1,8 +1,10 @@
-//
-//  TimelineViewModel.swift
-//  Concierge Services
-//
-//  Created by Van Lee Chigwada on 2023/03/16.
-//
-
 import Foundation
+import RealmSwift
+
+class TimelineViewModel: ObservableObject{
+    
+    func getTickets(firestoreManager: FirestoreManager) -> Results<Ticket>{
+        let realm = try! Realm()
+        return realm.objects(Ticket.self)
+    }
+}

@@ -20,7 +20,13 @@ struct Concierge_ServicesApp: App {
     init() {
         FirebaseApp.configure()
         
-        firestoreManager.getAgentClients()
+        if(isKeyPresentInUserDefaults(key: "user_logged_in")){
+            let _firestoreManager = FirestoreManager()
+            
+            _firestoreManager.getAgentClients()
+            _firestoreManager.getTickets()
+            _firestoreManager.getMyChatMessages()
+        }
     }
     
     // MARK: - UI Elements
@@ -30,4 +36,8 @@ struct Concierge_ServicesApp: App {
                 .environmentObject(firestoreManager)
         }
     }
+}
+
+func isKeyPresentInUserDefaults(key: String) -> Bool {
+    return UserDefaults.standard.object(forKey: key) != nil
 }

@@ -54,21 +54,38 @@ class FirestoreManager: ObservableObject{
     func getTickets(){
         let database = Firestore.firestore()
         
-        database.collection("tickets").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("tickets").getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID): \(document.data())")
+        do{
+            let realm = try Realm()
+            let objectsToDelete = realm.objects(Ticket.self)
+            
+            try! realm.write{
+                realm.delete(objectsToDelete)
+            }
+            
+            database.collection("tickets").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("tickets").getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        
+                        let ticket = Ticket(id: document.documentID, name: document["ticket_name"] as? String ?? "", status: document["ticket_status"] as! Int)
+                        
+                        try! realm.write{
+                            realm.add(ticket)
+                        }
+                        print("\(document.documentID): \(document.data())")
+                    }
                 }
             }
+        } catch let realmError as NSError{
+            print("error - \(realmError.localizedDescription)")
         }
     }
     
     func createTicket(clientId: String, ticket: Ticket){
         let database = Firestore.firestore()
         
-        let data: [String: Any] = ["ticket_name" : ticket.name,
+        let data: [String: Any] = ["ticket_name" : ticket.name!,
                                    "ticket_status" : TicketStatus.STATUS_NOT_STARTED]
         
         let ref = database.collection("tickets").document(clientId).collection("tickets").document()
