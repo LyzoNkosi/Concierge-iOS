@@ -81,18 +81,25 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func getAgentClients(){
+    func getAgentClients() -> [Client]{
         let database = Firestore.firestore()
         
-        database.collection("agent_clients").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("clients").getDocuments() { (querySnapshot, error) in
+        var clients: [Client] = []
+        
+        let clientsRef = database.collection("agent_clients").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("clients")
+        
+        clientsRef.getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
                 for document in querySnapshot!.documents {
+                    //let client = Client(id: document.documentID, firstName: document.data("first_name"), lastName: document.data("last_name"))
                     print("\(document.documentID): \(document.data())")
                 }
             }
         }
+        
+        return clients
     }
     
     func getClientChatMessages(clientId: String){
