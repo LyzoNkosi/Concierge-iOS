@@ -1,5 +1,6 @@
 import Firebase
 import FirebaseFirestore
+import RealmSwift
 
 class FirestoreManager: ObservableObject{
     
@@ -81,25 +82,47 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func getAgentClients() -> [Client]{
+    func getAgentClients(){
         let database = Firestore.firestore()
         
-        var clients: [Client] = []
-        
-        let clientsRef = database.collection("agent_clients").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("clients")
-        
-        clientsRef.getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    //let client = Client(id: document.documentID, firstName: document.data("first_name"), lastName: document.data("last_name"))
-                    print("\(document.documentID): \(document.data())")
+        do{
+            let realm = try Realm()
+            let clientsToDelete = realm.objects(Client.self)
+            
+            try! realm.write{
+                realm.delete(clientsToDelete)
+            }
+            
+            database.collection("agent_clients").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("clients").getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let userRef = database.collection("users").document(document.documentID)
+                        
+                        userRef.getDocument { (userDocument, userError) in
+                            guard userError == nil else {
+                                print("error", userError ?? "")
+                                return
+                            }
+                            
+                            if let userDoc = userDocument, userDoc.exists {
+                                let userData = userDoc.data()
+                                if let userData = userData {
+                                    let client = Client(id: document.documentID, firstName: userData["first_name"] as? String ?? "", lastName: userData["last_name"] as? String ?? "")
+                                    
+                                    try! realm.write{
+                                        realm.add(client)
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
+        } catch let realmError as NSError{
+            print("error - \(realmError.localizedDescription)")
         }
-        
-        return clients
     }
     
     func getClientChatMessages(clientId: String){

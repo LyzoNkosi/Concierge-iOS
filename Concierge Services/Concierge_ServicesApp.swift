@@ -19,6 +19,8 @@ struct Concierge_ServicesApp: App {
     // MARK: - Life Cycle
     init() {
         FirebaseApp.configure()
+        
+        firestoreManager.getAgentClients()
     }
     
     // MARK: - UI Elements

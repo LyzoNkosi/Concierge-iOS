@@ -47,6 +47,7 @@
 		F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0B29C3346200973290 /* DashboardViewModel.swift */; };
 		F48CBF0E29C340F300973290 /* CreateTaskViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */; };
 		F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0F29C351F500973290 /* ClientChatView.swift */; };
+		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */,
 				04B21D3229B737EA00829AD7 /* FirebaseAnalyticsSwift in Frameworks */,
 				04B21D3829B737EA00829AD7 /* FirebaseCrashlytics in Frameworks */,
 				04B21D3629B737EA00829AD7 /* FirebaseAuth in Frameworks */,
@@ -240,6 +242,7 @@
 				04B21D3529B737EA00829AD7 /* FirebaseAuth */,
 				04B21D3729B737EA00829AD7 /* FirebaseCrashlytics */,
 				F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */,
+				F4E9C06C29C3AD3000DF72A8 /* RealmSwift */,
 			);
 			productName = "Concierge Services";
 			productReference = 0445A0E629B1EEE300DA8D50 /* Concierge Services.app */;
@@ -271,6 +274,7 @@
 			mainGroup = 0445A0DD29B1EEE300DA8D50;
 			packageReferences = (
 				04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 0445A0E729B1EEE300DA8D50 /* Products */;
 			projectDirPath = "";
@@ -551,6 +555,14 @@
 				minimumVersion = 9.6.0;
 			};
 		};
+		F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -578,6 +590,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		F4E9C06C29C3AD3000DF72A8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,6 +10,8 @@ struct UsersListView: View {
     
     var body: some View {
         
+        let clients = usersViewModel.getClients(firestoreManager: firestoreManager)
+        
         switch(selectedView){
         case "Create Task":
             /*ForEach(usersViewModel.clients) { client in
@@ -26,9 +28,9 @@ struct UsersListView: View {
              }.padding(8)
              }*/
             
-            List(usersViewModel.clients) { client in
+            List(clients) { client in
                 
-                let fullName = client.firstName + " " + client.lastName
+                let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
                 
                 HStack {
                     NavigationLink(destination: CreateTaskView(selectedClient: client).environmentObject(firestoreManager)){
@@ -44,9 +46,9 @@ struct UsersListView: View {
             }
             
         case "Client Chat":
-            List(usersViewModel.clients) { client in
+            List(clients) { client in
                 
-                let fullName = client.firstName + " " + client.lastName
+                let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
                 
                 HStack {
                     NavigationLink(destination: ClientChatView(selectedClient: client).environmentObject(ChatHelper()).environmentObject(firestoreManager)){
