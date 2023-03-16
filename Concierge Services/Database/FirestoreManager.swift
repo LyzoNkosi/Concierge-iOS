@@ -23,6 +23,7 @@ class FirestoreManager: ObservableObject{
                     print("data", data)
                     defaults.set(data["first_name"] as? String ?? "", forKey: "first_name")
                     defaults.set(data["last_name"] as? String ?? "", forKey: "last_name")
+                    defaults.set(data["role"] as? Int ?? "", forKey: "user_role")
                     
                     defaults.synchronize()
                 }

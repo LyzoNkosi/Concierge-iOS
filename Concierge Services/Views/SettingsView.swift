@@ -53,10 +53,12 @@ struct SettingsView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                     // Admin
-                    NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
-                        HStack {
-                            Image(systemName: "gearshape")
-                            Text("Admin")
+                    if(UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ){
+                        NavigationLink(destination: UsersListView().environmentObject(firestoreManager)){
+                            HStack {
+                                Image(systemName: "gearshape")
+                                Text("Admin")
+                            }
                         }
                     }
                     // 6

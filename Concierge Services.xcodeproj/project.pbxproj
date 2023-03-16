@@ -41,6 +41,11 @@
 		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
 		F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFD29C32A1100973290 /* Ticket.swift */; };
 		F48CBF0029C32B6E00973290 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFF29C32B6E00973290 /* Client.swift */; };
+		F48CBF0429C333E200973290 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0329C333E200973290 /* ChatViewModel.swift */; };
+		F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0529C333F500973290 /* TimelineViewModel.swift */; };
+		F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */; };
+		F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0929C3344100973290 /* ClientsViewModel.swift */; };
+		F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0B29C3346200973290 /* DashboardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +78,11 @@
 		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		F48CBEFD29C32A1100973290 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		F48CBEFF29C32B6E00973290 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		F48CBF0329C333E200973290 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0529C333F500973290 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0929C3344100973290 /* ClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0B29C3346200973290 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,11 @@
 			children = (
 				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
 				04D8688429C07C8600027E73 /* UserProfileViewModel.swift */,
+				F48CBF0329C333E200973290 /* ChatViewModel.swift */,
+				F48CBF0529C333F500973290 /* TimelineViewModel.swift */,
+				F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */,
+				F48CBF0929C3344100973290 /* ClientsViewModel.swift */,
+				F48CBF0B29C3346200973290 /* DashboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,10 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48CBF0429C333E200973290 /* ChatViewModel.swift in Sources */,
 				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
 				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
+				F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */,
 				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
 				04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */,
 				0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */,
@@ -296,9 +313,12 @@
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
 				04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */,
+				F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */,
 				04B21D2229B733EE00829AD7 /* KeyboardResponder.swift in Sources */,
+				F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */,
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
+				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
 				04B21D1D29B733EE00829AD7 /* Message.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,

@@ -8,7 +8,7 @@ struct AdminTasksView: View {
         NavigationView {
             List {
                 // 1
-                NavigationLink(destination: CreateAccountView()){
+                NavigationLink(destination: CreateAccountView().environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "person.badge.plus")
                         Text("Create Account")

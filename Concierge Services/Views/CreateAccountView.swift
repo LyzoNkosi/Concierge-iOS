@@ -1,10 +1,3 @@
-//
-//  CreateAccountView.swift
-//  Concierge Services
-//
-//  Created by Mac on 2023/03/14.
-//
-
 import SwiftUI
 
 struct CreateAccountView: View {
@@ -13,6 +6,8 @@ struct CreateAccountView: View {
     @State var lastName: String = ""
     @State var email: String = ""
     @State var password: String = ""
+    
+    @EnvironmentObject var firestoreManager: FirestoreManager
     
     var body: some View {
         
