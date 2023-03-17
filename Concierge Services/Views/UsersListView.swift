@@ -32,8 +32,19 @@ struct UsersListView: View {
                 
                 let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
                 
-                HStack {
+                /*HStack {
                     NavigationLink(destination: CreateTaskView(selectedClient: client).environmentObject(firestoreManager)){
+                        HStack {
+                            Image(systemName: "person")
+                            
+                            Text(fullName)
+                        }
+                    }
+                    .navigationTitle("Create Task")
+                }.padding(8)*/
+                
+                HStack {
+                    NavigationLink(destination: ClientTicketsView(selectedClient: client).environmentObject(firestoreManager)){
                         HStack {
                             Image(systemName: "person")
                             

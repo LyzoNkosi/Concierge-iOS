@@ -53,7 +53,7 @@ struct SettingsView: View {
                             .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                     // Admin
-                    if(UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ){
+                    if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ){
                         NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)){
                             HStack {
                                 Image(systemName: "gearshape")

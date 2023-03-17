@@ -54,9 +54,11 @@ class LoginViewModel: ObservableObject{
         do{
             try await Auth.auth().signIn(withEmail: email, password: password)
             
-            firestoreManager.getAgentClients()
-            firestoreManager.getTickets()
-            firestoreManager.getMyChatMessages()
+            DispatchQueue.main.sync(execute:  {
+                firestoreManager.getAgentClients()
+                firestoreManager.getTickets()
+                firestoreManager.getMyChatMessages()
+            })
             
         }catch{
             hasError = true
@@ -74,9 +76,11 @@ class LoginViewModel: ObservableObject{
             do{
                 let realm = try await Realm()
                 
-                try! realm.write{
-                    realm.deleteAll()
-                }
+                DispatchQueue.main.async(execute:  {
+                    try! realm.write{
+                        realm.deleteAll()
+                    }
+                })
             } catch let realmError as NSError{
                 print("error - \(realmError.localizedDescription)")
             }

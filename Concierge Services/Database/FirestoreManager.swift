@@ -21,7 +21,6 @@ class FirestoreManager: ObservableObject{
             if let document = document, document.exists {
                 let data = document.data()
                 if let data = data {
-                    print("data", data)
                     defaults.set(data["first_name"] as? String ?? "", forKey: "first_name")
                     defaults.set(data["last_name"] as? String ?? "", forKey: "last_name")
                     defaults.set(data["role"] as? Int ?? "", forKey: "user_role")
@@ -73,12 +72,61 @@ class FirestoreManager: ObservableObject{
                         try! realm.write{
                             realm.add(ticket)
                         }
-                        print("\(document.documentID): \(document.data())")
+                        //print("\(document.documentID): \(document.data())")
                     }
                 }
             }
         } catch let realmError as NSError{
             print("error - \(realmError.localizedDescription)")
+        }
+    }
+    
+    /*func getClientTickets(clientId: String) -> [Ticket] {
+     let database = Firestore.firestore()
+     
+     var ticketsToReturn: [Ticket] = []
+     
+     database.collection("tickets").document(clientId).collection("tickets").getDocuments() { (querySnapshot, error) in
+     if let error = error {
+     print("Error getting documents: \(error)")
+     } else {
+     var tickets: [Ticket] = []
+     
+     for document in querySnapshot!.documents {
+     
+     let ticket = Ticket(id: document.documentID, name: document["ticket_name"] as? String ?? "", status: document["ticket_status"] as! Int)
+     
+     tickets.append(ticket)
+     }
+     ticketsToReturn = tickets
+     }
+     }
+     return ticketsToReturn
+     }*/
+    
+    func getClientTickets(clientId: String, loadedTickets:@escaping ([Ticket]) -> ()){
+        let database = Firestore.firestore()
+        
+        database.collection("tickets").document(clientId).collection("tickets").getDocuments() { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+                loadedTickets([])
+            } else {
+                var ticketsToReturn: [Ticket] = []
+                for document in querySnapshot!.documents {
+                    
+                    let ticket = Ticket(id: document.documentID, name: document["ticket_name"] as? String ?? "", status: document["ticket_status"] as! Int)
+                    ticketsToReturn.append(ticket)
+                }
+                loadedTickets(ticketsToReturn)
+            }
+        }
+    }
+    
+    func getAgentClientTickets(finished: @escaping (String) -> ()){
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            print("Getting your client tickets")
+            finished("Ticket values go here")
         }
     }
     
@@ -150,7 +198,7 @@ class FirestoreManager: ObservableObject{
                 print("Error getting documents: \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID): \(document.data())")
+                    //print("\(document.documentID): \(document.data())")
                 }
             }
         }
@@ -212,7 +260,7 @@ class FirestoreManager: ObservableObject{
                 print("Error getting documents: \(error)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID): \(document.data())")
+                    //print("\(document.documentID): \(document.data())")
                 }
             }
         }

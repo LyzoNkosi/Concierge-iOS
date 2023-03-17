@@ -23,9 +23,11 @@ struct Concierge_ServicesApp: App {
         if(isKeyPresentInUserDefaults(key: "user_logged_in")){
             let _firestoreManager = FirestoreManager()
             
-            _firestoreManager.getAgentClients()
-            _firestoreManager.getTickets()
-            _firestoreManager.getMyChatMessages()
+            DispatchQueue.main.async(execute:  {
+                _firestoreManager.getAgentClients()
+                _firestoreManager.getTickets()
+                _firestoreManager.getMyChatMessages()
+            })
         }
     }
     
