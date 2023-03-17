@@ -34,8 +34,12 @@ struct Concierge_ServicesApp: App {
     // MARK: - UI Elements
     var body: some Scene {
         WindowGroup {
-            LoginView()
-                .environmentObject(firestoreManager)
+            if(isKeyPresentInUserDefaults(key: "user_logged_in")){
+                TabbarView().environmentObject(firestoreManager)
+            } else {
+                LoginView()
+                    .environmentObject(firestoreManager)
+            }
         }
     }
 }

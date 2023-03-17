@@ -249,7 +249,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func sendChatMessage(message: String){
+    func sendChatMessage(messageText: String, messageSent: @escaping (ChatMessage?) -> ()){
         let database = Firestore.firestore()
         
         let now = Date()
@@ -258,18 +258,44 @@ class FirestoreManager: ObservableObject{
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let dateString = formatter.string(from: now)
         
-        let data: [String: Any] = ["type" : MessageType.TYPE_SENT,
-                                   "message" : message,
+        let data: [String: Any] = ["type" : MessageType.TYPE_SENT.rawValue,
+                                   "message" : messageText,
                                    "timestamp" : dateString]
         
         let ref = database.collection("chats").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("messages").document()
         
+        let messageId = ref.documentID
+        
         ref.setData(data){ error in
             if let error = error{
                 print("Error writing document: \(error)")
+                messageSent(nil)
             } else {
                 print("Document successfully written!")
+                
+                let message = ChatMessage(
+                    id: messageId,
+                    messageType: MessageType.TYPE_SENT.rawValue,
+                    message: messageText,
+                    dateTime: dateString)
+                
+                self.updateLocalMessageStore(message: message)
+                
+                messageSent(message)
             }
+        }
+    }
+    
+    private func updateLocalMessageStore(message: ChatMessage){
+        do{
+            let realm = try Realm()
+            
+            try! realm.write{
+                realm.add(message)
+            }
+            
+        } catch let realmError as NSError{
+            print("error - \(realmError.localizedDescription)")
         }
     }
     
