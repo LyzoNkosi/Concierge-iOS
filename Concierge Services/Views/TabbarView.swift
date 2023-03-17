@@ -24,7 +24,7 @@ struct TabbarView: View {
             }
             
             NavigationView {
-                ChatView().environmentObject(ChatHelper()).environmentObject(firestoreManager)
+                ChatView().environmentObject(firestoreManager)
             }
             .tag(2)
             .tabItem {

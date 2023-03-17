@@ -7,7 +7,8 @@ struct ClientChatView: View {
     @State var selectedClient: Client
     
     @State var typingMessage: String = ""
-    @EnvironmentObject var chatHelper: ChatHelper
+   // @EnvironmentObject var chatHelper: ChatHelper
+    @StateObject var chatsViewModel: ChatsViewModel = ChatsViewModel()
     @ObservedObject private var keyboard = KeyboardResponder()
     
     init(selectedClient: Client) {
@@ -21,7 +22,7 @@ struct ClientChatView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(chatHelper.realTimeMessages, id: \.self) { msg in
+                    ForEach(chatsViewModel.getChatMessages(firestoreManager: firestoreManager), id: \.self) { msg in
                         MessageView(currentMessage: msg)
                     }
                 }
@@ -42,7 +43,7 @@ struct ClientChatView: View {
     }
     
     func sendMessage() {
-        chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
+        //chatHelper.sendMessage(Cha(content: typingMessage, user: DataSource.secondUser))
         typingMessage = ""
     }
 }

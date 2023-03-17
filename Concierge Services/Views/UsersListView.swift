@@ -62,7 +62,7 @@ struct UsersListView: View {
                 let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
                 
                 HStack {
-                    NavigationLink(destination: ClientChatView(selectedClient: client).environmentObject(ChatHelper()).environmentObject(firestoreManager)){
+                    NavigationLink(destination: ClientChatView(selectedClient: client).environmentObject(firestoreManager)){
                         HStack {
                             Image(systemName: "person")
                             
