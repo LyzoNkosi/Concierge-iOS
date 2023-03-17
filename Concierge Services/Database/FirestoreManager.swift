@@ -182,7 +182,10 @@ class FirestoreManager: ObservableObject{
                             if let userDoc = userDocument, userDoc.exists {
                                 let userData = userDoc.data()
                                 if let userData = userData {
-                                    let client = Client(id: document.documentID, firstName: userData["first_name"] as? String ?? "", lastName: userData["last_name"] as? String ?? "")
+                                    let client = Client(
+                                        id: document.documentID,
+                                        firstName: userData["first_name"] as? String ?? "",
+                                        lastName: userData["last_name"] as? String ?? "")
                                     
                                     try! realm.write{
                                         realm.add(client)
@@ -198,16 +201,26 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func getClientChatMessages(clientId: String){
+    func getClientChatMessages(clientId: String, loadedMessages:@escaping ([ChatMessage]) -> ()){
         let database = Firestore.firestore()
         
         database.collection("chats").document(clientId).collection("messages").getDocuments() { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
+                var chatsToReturn: [ChatMessage] = []
                 for document in querySnapshot!.documents {
                     //print("\(document.documentID): \(document.data())")
+                    let message: ChatMessage = ChatMessage(
+                        id: document.documentID,
+                        messageType: document["type"] as! Int,
+                        message: document["message"] as? String,
+                        dateTime: document["timestamp"] as? String)
+                    
+                    chatsToReturn.append(message)
+                    
                 }
+                loadedMessages(chatsToReturn)
             }
         }
     }
@@ -263,14 +276,34 @@ class FirestoreManager: ObservableObject{
     func getMyChatMessages(){
         let database = Firestore.firestore()
         
-        database.collection("chats").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("messages").getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                for document in querySnapshot!.documents {
-                    //print("\(document.documentID): \(document.data())")
+        do{
+            let realm = try Realm()
+            let messagesToDelete = realm.objects(ChatMessage.self)
+            
+            try! realm.write{
+                realm.delete(messagesToDelete)
+            }
+            
+            database.collection("chats").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("messages").getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        //print("\(document.documentID): \(document.data())")
+                        let message: ChatMessage = ChatMessage(
+                            id: document.documentID,
+                            messageType: document["type"] as! Int,
+                            message: document["message"] as? String,
+                            dateTime: document["timestamp"] as? String)
+                        
+                        try! realm.write{
+                            realm.add(message)
+                        }
+                    }
                 }
             }
+        } catch let realmError as NSError{
+            print("error - \(realmError.localizedDescription)")
         }
     }
 }

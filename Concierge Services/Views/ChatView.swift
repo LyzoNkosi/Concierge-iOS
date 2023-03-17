@@ -2,7 +2,12 @@ import SwiftUI
 
 struct ChatView: View {
     @State var typingMessage: String = ""
-    @EnvironmentObject var chatHelper: ChatHelper
+    //@EnvironmentObject var chatHelper: ChatHelper
+    
+    @EnvironmentObject var firestoreManager: FirestoreManager
+    
+    @StateObject var chatsViewModel: ChatsViewModel = ChatsViewModel()
+    
     @ObservedObject private var keyboard = KeyboardResponder()
     
     init() {
@@ -14,8 +19,8 @@ struct ChatView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(chatHelper.realTimeMessages, id: \.self) { msg in
-                        MessageView(currentMessage: msg)
+                    ForEach(chatsViewModel.getChatMessages(firestoreManager: firestoreManager), id: \.self) { message in
+                        MessageView(currentMessage: message)
                     }
                 }
                 HStack {
@@ -35,8 +40,8 @@ struct ChatView: View {
     }
     
     func sendMessage() {
-        chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
-        typingMessage = ""
+        //chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
+        //typingMessage = ""
     }
 }
 

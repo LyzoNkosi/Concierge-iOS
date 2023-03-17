@@ -40,7 +40,6 @@
 		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
 		F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFD29C32A1100973290 /* Ticket.swift */; };
 		F48CBF0029C32B6E00973290 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFF29C32B6E00973290 /* Client.swift */; };
-		F48CBF0429C333E200973290 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0329C333E200973290 /* ChatViewModel.swift */; };
 		F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0529C333F500973290 /* TimelineViewModel.swift */; };
 		F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */; };
 		F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0929C3344100973290 /* ClientsViewModel.swift */; };
@@ -49,6 +48,8 @@
 		F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0F29C351F500973290 /* ClientChatView.swift */; };
 		F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */; };
 		F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */; };
+		F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */; };
+		F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */; };
 		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +83,6 @@
 		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		F48CBEFD29C32A1100973290 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		F48CBEFF29C32B6E00973290 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		F48CBF0329C333E200973290 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		F48CBF0529C333F500973290 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatViewModel.swift; sourceTree = "<group>"; };
 		F48CBF0929C3344100973290 /* ClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewModel.swift; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		F48CBF0F29C351F500973290 /* ClientChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatView.swift; sourceTree = "<group>"; };
 		F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsView.swift; sourceTree = "<group>"; };
 		F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsViewModel.swift; sourceTree = "<group>"; };
+		F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +156,7 @@
 		04D8687A29C05C0F00027E73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F48CBF0329C333E200973290 /* ChatViewModel.swift */,
+				F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */,
 				F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */,
 				F48CBF0929C3344100973290 /* ClientsViewModel.swift */,
 				F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */,
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				F48CBEFF29C32B6E00973290 /* Client.swift */,
+				F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */,
 				04B21D1329B733EE00829AD7 /* Message.swift */,
 				F48CBEFD29C32A1100973290 /* Ticket.swift */,
 				04B21D1429B733EE00829AD7 /* User.swift */,
@@ -309,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F48CBF0429C333E200973290 /* ChatViewModel.swift in Sources */,
 				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
@@ -330,6 +332,7 @@
 				F48CBF0E29C340F300973290 /* CreateTaskViewView.swift in Sources */,
 				F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */,
 				04B21D2229B733EE00829AD7 /* KeyboardResponder.swift in Sources */,
+				F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */,
 				F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */,
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
@@ -337,6 +340,7 @@
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
 				04B21D1D29B733EE00829AD7 /* Message.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
+				F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */,
 				F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */,
 				04B21D2129B733EE00829AD7 /* ChatHelper.swift in Sources */,
 				04B9CF9029C0AA63009FB454 /* AdminTasksView.swift in Sources */,
