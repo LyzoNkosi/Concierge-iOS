@@ -9,7 +9,6 @@ struct ClientTicketsView: View {
     @State var selectedClient: Client
     
     var body: some View {
-        //let tasks: [String] = ["Sky diving trip", "Laundry run", "Flight to Mali", "Golf", "Birthday Present Delivery"]
         NavigationView{
             VStack{
                 
@@ -62,19 +61,6 @@ struct ClientTicketsView: View {
                        }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                    }
                }
-                
-                /*clientTicketsViewModel.getClientTickets(firestoreManager: firestoreManager, clientId: selectedClient.id!) { loadedTickets in
-                 
-                 TasksListView(tasks: loadedTickets)
-                 
-                 CreateTaskButtonContent()
-                 }*/
-                /*.onAppear {
-                 /*clientTicketsViewModel.getClientTickets(firestoreManager: firestoreManager, clientId: selectedClient.id! ){ stringToProcess in
-                  print(stringToProcess)
-                  }*/
-                 
-                 }*/
             }
             .onAppear{
                 clientTicketsViewModel.getClientTickets(firestoreManager: firestoreManager, clientId: selectedClient.id!)

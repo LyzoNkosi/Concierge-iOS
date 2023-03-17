@@ -7,8 +7,7 @@ struct ClientChatView: View {
     @State var selectedClient: Client
     
     @State var typingMessage: String = ""
-   // @EnvironmentObject var chatHelper: ChatHelper
-    @StateObject var chatsViewModel: ChatsViewModel = ChatsViewModel()
+    @StateObject var chatsViewModel: ClientChatViewModel = ClientChatViewModel()
     @ObservedObject private var keyboard = KeyboardResponder()
     
     init(selectedClient: Client) {
@@ -21,10 +20,8 @@ struct ClientChatView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List {
-                    ForEach(chatsViewModel.getChatMessages(firestoreManager: firestoreManager), id: \.self) { msg in
-                        MessageView(currentMessage: msg)
-                    }
+                List(chatsViewModel.messages) { message in
+                    ClientMessageView(currentMessage: message)
                 }
                 HStack {
                     TextField("Message...", text: $typingMessage)
@@ -37,6 +34,9 @@ struct ClientChatView: View {
             }.navigationBarTitle(Text((selectedClient.firstName ?? "") + " " + (selectedClient.lastName ?? "")), displayMode: .inline)
                 .padding(.bottom, keyboard.currentHeight)
                 .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
+                .onAppear{
+                    chatsViewModel.getClientChats(firestoreManager: firestoreManager, clientId: selectedClient.id!)
+                }
         }.onTapGesture {
             self.endEditing(true)
         }

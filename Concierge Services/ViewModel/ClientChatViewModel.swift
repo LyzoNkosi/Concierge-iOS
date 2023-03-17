@@ -1,8 +1,13 @@
-//
-//  ClientChatViewModel.swift
-//  Concierge Services
-//
-//  Created by Van Lee Chigwada on 2023/03/16.
-//
-
 import Foundation
+import RealmSwift
+
+class ClientChatViewModel: ObservableObject{
+    
+    @Published var messages: [ChatMessage] = []
+    
+    func getClientChats(firestoreManager: FirestoreManager, clientId: String) {
+        firestoreManager.getClientChatMessages(clientId: clientId) { messageList in
+            self.messages = messageList
+        }
+    }
+}

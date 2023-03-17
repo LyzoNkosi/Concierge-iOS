@@ -31,7 +31,7 @@ struct ChatView: View {
                         Text("Send")
                     }
                 }.frame(minHeight: CGFloat(50)).padding()
-            }.navigationBarTitle(Text(DataSource.firstUser.name), displayMode: .inline)
+            }.navigationBarTitle(Text("Chat"), displayMode: .inline)
                 .padding(.bottom, keyboard.currentHeight)
                 .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
         }.onTapGesture {

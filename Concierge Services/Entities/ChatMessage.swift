@@ -18,3 +18,8 @@ class ChatMessage: Object, Identifiable {
         self.dateTime = dateTime
     }
 }
+
+enum MessageType: Int{
+    case TYPE_SENT = 0
+    case TYPE_RECEIVED = 1
+}
