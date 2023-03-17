@@ -225,7 +225,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func sendClientChatMessage(clientId: String, messageText: String){
+    func sendClientChatMessage(clientId: String, messageText: String, messageSent: @escaping (ChatMessage?) -> ()){
         let database = Firestore.firestore()
         
         let now = Date()
@@ -234,17 +234,27 @@ class FirestoreManager: ObservableObject{
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
         let dateString = formatter.string(from: now)
         
-        let data: [String: Any] = ["type" : MessageType.TYPE_RECEIVED,
+        let data: [String: Any] = ["type" : MessageType.TYPE_RECEIVED.rawValue,
                                    "message" : messageText,
                                    "timestamp" : dateString]
         
         let ref = database.collection("chats").document(clientId).collection("messages").document()
+        let messageId = ref.documentID
         
         ref.setData(data){ error in
             if let error = error{
                 print("Error writing document: \(error)")
+                messageSent(nil)
             } else {
                 print("Document successfully written!")
+                
+                let message = ChatMessage(
+                    id: messageId,
+                    messageType: MessageType.TYPE_RECEIVED.rawValue,
+                    message: messageText,
+                    dateTime: dateString)
+                
+                messageSent(message)
             }
         }
     }

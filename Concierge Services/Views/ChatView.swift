@@ -3,11 +3,10 @@ import AlertToast
 
 struct ChatView: View {
     @State var typingMessage: String = ""
-    //@EnvironmentObject var chatHelper: ChatHelper
     
     @EnvironmentObject var firestoreManager: FirestoreManager
     
-    @StateObject var chatsViewModel: ChatsViewModel = ChatsViewModel()
+    @ObservedObject var chatsViewModel: ChatsViewModel = ChatsViewModel()
     
     @ObservedObject private var keyboard = KeyboardResponder()
     

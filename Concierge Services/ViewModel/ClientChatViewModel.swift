@@ -7,7 +7,7 @@ class ClientChatViewModel: ObservableObject{
     
     func getClientChats(firestoreManager: FirestoreManager, clientId: String) {
         firestoreManager.getClientChatMessages(clientId: clientId) { messageList in
-            self.messages = messageList
+            self.messages = messageList.sorted { $0.dateTime! < $1.dateTime! }
         }
     }
 }

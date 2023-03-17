@@ -17,6 +17,10 @@ class ChatMessage: Object, Identifiable {
         self.message = message
         self.dateTime = dateTime
     }
+    
+    static func == (lhs: ChatMessage, rhs: ChatMessage) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 enum MessageType: Int{

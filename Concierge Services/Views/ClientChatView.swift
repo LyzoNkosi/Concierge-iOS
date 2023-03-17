@@ -7,7 +7,9 @@ struct ClientChatView: View {
     @State var selectedClient: Client
     
     @State var typingMessage: String = ""
-    @StateObject var chatsViewModel: ClientChatViewModel = ClientChatViewModel()
+    
+    @ObservedObject var chatsViewModel: ClientChatViewModel = ClientChatViewModel()
+    
     @ObservedObject private var keyboard = KeyboardResponder()
     
     init(selectedClient: Client) {
@@ -43,8 +45,22 @@ struct ClientChatView: View {
     }
     
     func sendMessage() {
-        //chatHelper.sendMessage(Cha(content: typingMessage, user: DataSource.secondUser))
-        typingMessage = ""
+        if(!typingMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+            //chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
+            let messageToSend = typingMessage.trimmingCharacters(in: .whitespacesAndNewlines)
+            typingMessage = ""
+            
+            firestoreManager.sendClientChatMessage(clientId: selectedClient.id!, messageText: messageToSend) { message in
+                if(message != nil){
+                    
+                } else {
+                    //chatsViewModel.getChatMessages(firestoreManager: firestoreManager)
+                }
+                
+            }
+        } else {
+            
+        }
     }
 }
 
