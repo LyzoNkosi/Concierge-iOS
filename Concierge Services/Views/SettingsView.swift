@@ -18,39 +18,39 @@ struct SettingsView: View {
                         }
                     }
                     // 2
-                    HStack {
-                        Image(systemName: "creditcard")
-                        Text("Payment Methods")
-                        Image(systemName: "chevron.right")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                    }
-                    // 2
-                    HStack {
-                        Image(systemName: "lock.rotation")
-                        Text("Change Password")
-                        Image(systemName: "chevron.right")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    NavigationLink(destination: PlaceholderView()){
+                        HStack {
+                            Image(systemName: "creditcard")
+                            Text("Payment Methods")
+                        }
                     }
                     // 3
-                    HStack {
-                        Image(systemName: "lock.doc")
-                        Text("Privacy Policy")
-                        Image(systemName: "chevron.right")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    NavigationLink(destination: PlaceholderView()){
+                        HStack {
+                            Image(systemName: "lock.rotation")
+                            Text("Change Password")
+                        }
                     }
                     // 4
-                    HStack {
-                        Image(systemName: "doc.badge.ellipsis")
-                        Text("Terms of Service")
-                        Image(systemName: "chevron.right")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    NavigationLink(destination: PlaceholderView()){
+                        HStack {
+                            Image(systemName: "lock.doc")
+                            Text("Privacy Policy")
+                        }
                     }
                     // 5
-                    HStack {
-                        Image(systemName: "info.circle")
-                        Text("About")
-                        Image(systemName: "chevron.right")
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    NavigationLink(destination: PlaceholderView()){
+                        HStack {
+                            Image(systemName: "doc.badge.ellipsis")
+                            Text("Terms of Service")
+                        }
+                    }
+                    // 6
+                    NavigationLink(destination: PlaceholderView()){
+                        HStack {
+                            Image(systemName: "info.circle")
+                            Text("About")
+                        }
                     }
                     // Admin
                     if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ){
@@ -61,7 +61,7 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    // 6
+                    // 7
                     HStack {
                         Image(systemName: "pip.exit")
                         Text("Logout")
@@ -72,7 +72,6 @@ struct SettingsView: View {
                             await loginViewModel.signOut()
                         }
                     }
-                    
                     //LogoutButton()
                 }
                 .navigationTitle("Settings")

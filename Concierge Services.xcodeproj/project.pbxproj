@@ -51,6 +51,7 @@
 		F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */; };
 		F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */; };
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
+		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
 		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
+		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */,
+				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
 				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
+				F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */,
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
 				F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */,
