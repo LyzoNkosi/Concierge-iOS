@@ -173,6 +173,7 @@
 				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
 				0445A10129B207C400DA8D50 /* ChatView.swift */,
 				F48CBF0F29C351F500973290 /* ClientChatView.swift */,
+				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
 				F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */,
@@ -186,7 +187,6 @@
 				04D8687F29C0601900027E73 /* UserProfileView.swift */,
 				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
-				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

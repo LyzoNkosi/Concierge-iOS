@@ -1,13 +1,16 @@
 import SwiftUI
 
 struct TaskDetailView: View {
+    
+    var selectedTask: Ticket
+    
     var body: some View {
         NavigationView{
             VStack (alignment: .leading, spacing: 8){
                 
                 HStack {
-                    Image(systemName: "car").frame(width: 24, height: 24)
-                    Text("Trip to Mars on Amazon Blue space-flight")
+                    Image(systemName: "hourglass.bottomhalf.filled").frame(width: 24, height: 24)
+                    Text(selectedTask.name!)
                         .font(.title2)
                         .multilineTextAlignment(.leading)
                 }
@@ -15,18 +18,10 @@ struct TaskDetailView: View {
                 
                 VStack(alignment: .leading, spacing: 8){
                     Label {
-                        Text("14:04")
+                        Text(selectedTask.startDate!)
                             .font(.subheadline)
                     } icon: {
                         Image(systemName: "calendar.badge.clock")
-                    }
-                    .padding()
-                    
-                    Label {
-                        Text("Boarding Pass")
-                            .font(.subheadline)
-                    } icon: {
-                        Image(systemName: "square.and.arrow.down")
                     }
                     .padding()
                     
@@ -77,6 +72,6 @@ struct CancelTaskButtonContent : View {
 
 struct TaskDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetailView()
+        TaskDetailView(selectedTask: Ticket(id: "123456", name: "Task Name"))
     }
 }

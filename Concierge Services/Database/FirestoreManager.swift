@@ -67,7 +67,11 @@ class FirestoreManager: ObservableObject{
                 } else {
                     for document in querySnapshot!.documents {
                         
-                        let ticket = Ticket(id: document.documentID, name: document["ticket_name"] as? String ?? "", status: document["ticket_status"] as! Int)
+                        let ticket = Ticket(
+                            id: document.documentID,
+                            name: document["ticket_name"] as? String ?? "",
+                            startDate: document["start_date"] as? String ?? "",
+                            status: document["ticket_status"] as! Int)
                         
                         try! realm.write{
                             realm.add(ticket)
@@ -115,7 +119,11 @@ class FirestoreManager: ObservableObject{
                 var ticketsToReturn: [Ticket] = []
                 for document in querySnapshot!.documents {
                     
-                    let ticket = Ticket(id: document.documentID, name: document["ticket_name"] as? String ?? "", status: document["ticket_status"] as! Int)
+                    let ticket = Ticket(
+                        id: document.documentID,
+                        name: document["ticket_name"] as? String ?? "",
+                        startDate: document["start_date"] as? String ?? "",
+                        status: document["ticket_status"] as! Int)
                     ticketsToReturn.append(ticket)
                 }
                 loadedTickets(ticketsToReturn)

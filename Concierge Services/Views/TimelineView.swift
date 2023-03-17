@@ -17,7 +17,7 @@ struct TimelineView: View {
             VStack{
                 List(tasks) { task in
                     NavigationLink(
-                        destination: TaskDetailView()
+                        destination: TaskDetailView(selectedTask: task)
                     ) {
                         HStack(alignment: .top, spacing: 0) {
                             VStack(alignment: .center, spacing: 0){
@@ -30,7 +30,7 @@ struct TimelineView: View {
                                 Circle()
                                     .frame(width: 30, height: 30)
                                     .overlay(
-                                        Image(systemName: "car")
+                                        Image(systemName: "hourglass.bottomhalf.filled")
                                             .foregroundColor(.white)
                                             .font(.system(size: 16, weight: .light , design: .rounded))
                                             .frame(width: 30, height: 30)
@@ -49,7 +49,7 @@ struct TimelineView: View {
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(1)
                                 Label {
-                                    Text("14:04")
+                                    Text(task.startDate!)
                                         .font(.caption2)
                                 } icon: {
                                     Image(systemName: "calendar.badge.clock")
