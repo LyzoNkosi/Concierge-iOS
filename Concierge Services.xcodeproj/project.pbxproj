@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E7A4729B60ED900AB2737 /* TaskDetailView.swift */; };
 		0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */; };
-		0445A0EC29B1EEE300DA8D50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0EB29B1EEE300DA8D50 /* ContentView.swift */; };
+		0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0EB29B1EEE300DA8D50 /* LoginView.swift */; };
 		0445A0EE29B1EEE500DA8D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */; };
 		0445A0F129B1EEE500DA8D50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0445A0F029B1EEE500DA8D50 /* Preview Assets.xcassets */; };
 		0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0FF29B207B600DA8D50 /* TimelineView.swift */; };
@@ -20,7 +20,6 @@
 		0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10929B2095F00DA8D50 /* TabbarView.swift */; };
 		04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791B5D29B8BD25007D0890 /* LoginViewModel.swift */; };
 		04B21D1C29B733EE00829AD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */; };
-		04B21D1D29B733EE00829AD7 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21D1329B733EE00829AD7 /* Message.swift */; };
 		04B21D1E29B733EE00829AD7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21D1429B733EE00829AD7 /* User.swift */; };
 		04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21D1629B733EE00829AD7 /* ContentMessageView.swift */; };
 		04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B21D1729B733EE00829AD7 /* MessageView.swift */; };
@@ -31,13 +30,36 @@
 		04B21D3429B737EA00829AD7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 04B21D3329B737EA00829AD7 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		04B21D3629B737EA00829AD7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 04B21D3529B737EA00829AD7 /* FirebaseAuth */; };
 		04B21D3829B737EA00829AD7 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04B21D3729B737EA00829AD7 /* FirebaseCrashlytics */; };
+		04B9CF9029C0AA63009FB454 /* AdminTasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9CF8F29C0AA63009FB454 /* AdminTasksView.swift */; };
+		04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */; };
+		04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9CF9329C0B446009FB454 /* UsersListView.swift */; };
+		04D8688029C0601900027E73 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8687F29C0601900027E73 /* UserProfileView.swift */; };
+		04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8688429C07C8600027E73 /* UserProfileViewModel.swift */; };
+		F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEF829C315F000973290 /* FirestoreManager.swift */; };
+		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
+		F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFD29C32A1100973290 /* Ticket.swift */; };
+		F48CBF0029C32B6E00973290 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFF29C32B6E00973290 /* Client.swift */; };
+		F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0529C333F500973290 /* TimelineViewModel.swift */; };
+		F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */; };
+		F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0929C3344100973290 /* ClientsViewModel.swift */; };
+		F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0B29C3346200973290 /* DashboardViewModel.swift */; };
+		F48CBF0E29C340F300973290 /* CreateTaskViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */; };
+		F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0F29C351F500973290 /* ClientChatView.swift */; };
+		F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */; };
+		F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */; };
+		F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */; };
+		F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */; };
+		F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */; };
+		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
+		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
+		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		043E7A4729B60ED900AB2737 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		0445A0E629B1EEE300DA8D50 /* Concierge Services.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concierge Services.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concierge_ServicesApp.swift; sourceTree = "<group>"; };
-		0445A0EB29B1EEE300DA8D50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0445A0EB29B1EEE300DA8D50 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0445A0F029B1EEE500DA8D50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0445A0FF29B207B600DA8D50 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
@@ -48,13 +70,32 @@
 		0445A10929B2095F00DA8D50 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		04791B5D29B8BD25007D0890 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		04B21D1329B733EE00829AD7 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		04B21D1429B733EE00829AD7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04B21D1629B733EE00829AD7 /* ContentMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentMessageView.swift; sourceTree = "<group>"; };
 		04B21D1729B733EE00829AD7 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		04B21D1929B733EE00829AD7 /* ChatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
 		04B21D1A29B733EE00829AD7 /* KeyboardResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 		04B21D1B29B733EE00829AD7 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		04B9CF8F29C0AA63009FB454 /* AdminTasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTasksView.swift; sourceTree = "<group>"; };
+		04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		04B9CF9329C0B446009FB454 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
+		04D8687F29C0601900027E73 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		04D8688429C07C8600027E73 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		F48CBEFD29C32A1100973290 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		F48CBEFF29C32B6E00973290 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		F48CBF0529C333F500973290 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0929C3344100973290 /* ClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0B29C3346200973290 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewView.swift; sourceTree = "<group>"; };
+		F48CBF0F29C351F500973290 /* ClientChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatView.swift; sourceTree = "<group>"; };
+		F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsView.swift; sourceTree = "<group>"; };
+		F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsViewModel.swift; sourceTree = "<group>"; };
+		F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
+		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +103,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */,
+				F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */,
 				04B21D3229B737EA00829AD7 /* FirebaseAnalyticsSwift in Frameworks */,
 				04B21D3829B737EA00829AD7 /* FirebaseCrashlytics in Frameworks */,
 				04B21D3629B737EA00829AD7 /* FirebaseAuth in Frameworks */,
 				04B21D3429B737EA00829AD7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				0445A0E829B1EEE300DA8D50 /* Concierge Services */,
+				F48CBEFA29C3185500973290 /* Frameworks */,
 				0445A0E729B1EEE300DA8D50 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,18 +136,15 @@
 		0445A0E829B1EEE300DA8D50 /* Concierge Services */ = {
 			isa = PBXGroup;
 			children = (
-				04791B5C29B8BCF0007D0890 /* Login */,
-				04791B5B29B8BCDC007D0890 /* TaskDetail */,
-				04791B5A29B8BCC2007D0890 /* Tabbar */,
-				04791B5929B8BBF5007D0890 /* Dashboard */,
-				04791B5829B8BBE7007D0890 /* Settings */,
-				04791B5729B8BBD9007D0890 /* Balance */,
-				04791B5629B8BBB2007D0890 /* Timeline */,
-				04B21D1229B733EE00829AD7 /* Chat */,
-				04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */,
-				0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */,
 				0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */,
+				0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */,
+				04D8687E29C05C4300027E73 /* Database */,
+				04D8687C29C05C2400027E73 /* Entities */,
+				04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */,
 				0445A0EF29B1EEE500DA8D50 /* Preview Content */,
+				04D8687D29C05C3C00027E73 /* Utils */,
+				04D8687A29C05C0F00027E73 /* ViewModel */,
+				04D8687B29C05C1C00027E73 /* Views */,
 			);
 			path = "Concierge Services";
 			sourceTree = "<group>";
@@ -115,92 +157,81 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		04791B5629B8BBB2007D0890 /* Timeline */ = {
+		04D8687A29C05C0F00027E73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
-			);
-			path = Timeline;
-			sourceTree = "<group>";
-		};
-		04791B5729B8BBD9007D0890 /* Balance */ = {
-			isa = PBXGroup;
-			children = (
-				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
-			);
-			path = Balance;
-			sourceTree = "<group>";
-		};
-		04791B5829B8BBE7007D0890 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				0445A10529B207E000DA8D50 /* SettingsView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		04791B5929B8BBF5007D0890 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				0445A10729B207F200DA8D50 /* DashboardView.swift */,
-			);
-			path = Dashboard;
-			sourceTree = "<group>";
-		};
-		04791B5A29B8BCC2007D0890 /* Tabbar */ = {
-			isa = PBXGroup;
-			children = (
-				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
-			);
-			path = Tabbar;
-			sourceTree = "<group>";
-		};
-		04791B5B29B8BCDC007D0890 /* TaskDetail */ = {
-			isa = PBXGroup;
-			children = (
-				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
-			);
-			path = TaskDetail;
-			sourceTree = "<group>";
-		};
-		04791B5C29B8BCF0007D0890 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				0445A0EB29B1EEE300DA8D50 /* ContentView.swift */,
+				F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */,
+				F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */,
+				F48CBF0929C3344100973290 /* ClientsViewModel.swift */,
+				F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */,
+				F48CBF0B29C3346200973290 /* DashboardViewModel.swift */,
 				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
+				F48CBF0529C333F500973290 /* TimelineViewModel.swift */,
+				04D8688429C07C8600027E73 /* UserProfileViewModel.swift */,
 			);
-			path = Login;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		04B21D1229B733EE00829AD7 /* Chat */ = {
+		04D8687B29C05C1C00027E73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04B9CF8F29C0AA63009FB454 /* AdminTasksView.swift */,
+				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
 				0445A10129B207C400DA8D50 /* ChatView.swift */,
-				04B21D1329B733EE00829AD7 /* Message.swift */,
-				04B21D1429B733EE00829AD7 /* User.swift */,
-				04B21D1529B733EE00829AD7 /* View */,
-				04B21D1829B733EE00829AD7 /* Helper */,
+				F48CBF0F29C351F500973290 /* ClientChatView.swift */,
+				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
+				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
+				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
+				F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */,
+				0445A10729B207F200DA8D50 /* DashboardView.swift */,
+				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
+				04B21D1729B733EE00829AD7 /* MessageView.swift */,
+				0445A10529B207E000DA8D50 /* SettingsView.swift */,
+				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
+				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
+				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
+				04D8687F29C0601900027E73 /* UserProfileView.swift */,
+				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
+				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
+				F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */,
+				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
 			);
-			path = Chat;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		04B21D1529B733EE00829AD7 /* View */ = {
+		04D8687C29C05C2400027E73 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
-				04B21D1729B733EE00829AD7 /* MessageView.swift */,
+				F48CBEFF29C32B6E00973290 /* Client.swift */,
+				F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */,
+				F48CBEFD29C32A1100973290 /* Ticket.swift */,
+				04B21D1429B733EE00829AD7 /* User.swift */,
 			);
-			path = View;
+			path = Entities;
 			sourceTree = "<group>";
 		};
-		04B21D1829B733EE00829AD7 /* Helper */ = {
+		04D8687D29C05C3C00027E73 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				04B21D1929B733EE00829AD7 /* ChatHelper.swift */,
 				04B21D1A29B733EE00829AD7 /* KeyboardResponder.swift */,
-				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 			);
-			path = Helper;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		04D8687E29C05C4300027E73 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				F48CBEF829C315F000973290 /* FirestoreManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		F48CBEFA29C3185500973290 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +255,9 @@
 				04B21D3329B737EA00829AD7 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				04B21D3529B737EA00829AD7 /* FirebaseAuth */,
 				04B21D3729B737EA00829AD7 /* FirebaseCrashlytics */,
+				F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */,
+				F4E9C06C29C3AD3000DF72A8 /* RealmSwift */,
+				F4BC090829C4F7BF00745EFB /* AlertToast */,
 			);
 			productName = "Concierge Services";
 			productReference = 0445A0E629B1EEE300DA8D50 /* Concierge Services.app */;
@@ -255,6 +289,8 @@
 			mainGroup = 0445A0DD29B1EEE300DA8D50;
 			packageReferences = (
 				04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				F4BC090729C4F7BF00745EFB /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 0445A0E729B1EEE300DA8D50 /* Products */;
 			projectDirPath = "";
@@ -283,23 +319,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
+				F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
+				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
+				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
+				F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */,
 				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
+				04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */,
 				0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */,
+				F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */,
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
-				0445A0EC29B1EEE300DA8D50 /* ContentView.swift in Sources */,
+				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
 				04B21D2329B733EE00829AD7 /* ViewExtension.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
+				F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */,
+				04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */,
+				F48CBF0E29C340F300973290 /* CreateTaskViewView.swift in Sources */,
+				F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */,
 				04B21D2229B733EE00829AD7 /* KeyboardResponder.swift in Sources */,
+				F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */,
+				F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */,
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
-				04B21D1D29B733EE00829AD7 /* Message.swift in Sources */,
+				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
+				F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */,
+				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
+				F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */,
+				F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */,
 				04B21D2129B733EE00829AD7 /* ChatHelper.swift in Sources */,
+				04B9CF9029C0AA63009FB454 /* AdminTasksView.swift in Sources */,
 				0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */,
 				04B21D1E29B733EE00829AD7 /* User.swift in Sources */,
+				F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +575,22 @@
 				minimumVersion = 9.6.0;
 			};
 		};
+		F4BC090729C4F7BF00745EFB /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -542,6 +613,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		F4BC090829C4F7BF00745EFB /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4BC090729C4F7BF00745EFB /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		F4E9C06C29C3AD3000DF72A8 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

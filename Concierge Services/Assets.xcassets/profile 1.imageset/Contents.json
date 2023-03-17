@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "wallet 2.svg",
+      "filename" : "profile.svg",
       "idiom" : "universal"
     }
   ],
@@ -10,7 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "preserves-vector-representation" : true,
-    "template-rendering-intent" : "template"
+    "preserves-vector-representation" : true
   }
 }

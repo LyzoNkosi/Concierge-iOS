@@ -1,16 +1,6 @@
 import SwiftUI
 import Firebase
 
-/*@main
-struct Concierge_ServicesApp: App {
-    
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}*/
-
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     // MARK: - Methods
@@ -21,18 +11,39 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Concierge_ServicesApp: App {
     
+    @StateObject var firestoreManager = FirestoreManager()
+    
     // MARK: - Properties
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  
+    
     // MARK: - Life Cycle
     init() {
         FirebaseApp.configure()
+        
+        if(isKeyPresentInUserDefaults(key: "user_logged_in")){
+            let _firestoreManager = FirestoreManager()
+            
+            DispatchQueue.main.async(execute:  {
+                _firestoreManager.getAgentClients()
+                _firestoreManager.getTickets()
+                _firestoreManager.getMyChatMessages()
+            })
+        }
     }
-  
+    
     // MARK: - UI Elements
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if(isKeyPresentInUserDefaults(key: "user_logged_in")){
+                TabbarView().environmentObject(firestoreManager)
+            } else {
+                LoginView()
+                    .environmentObject(firestoreManager)
+            }
         }
     }
+}
+
+func isKeyPresentInUserDefaults(key: String) -> Bool {
+    return UserDefaults.standard.object(forKey: key) != nil
 }
