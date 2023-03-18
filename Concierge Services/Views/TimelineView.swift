@@ -10,16 +10,18 @@ struct TimelineView: View {
     @StateObject var ticketsViewModel: TimelineViewModel = TimelineViewModel()
     
     var body: some View {
-        //let tasks: [String] = ["Sky diving trip", "Laundry run", "Flight to Mali", "Golf", "Birthday Present Delivery"]
         let tasks = ticketsViewModel.getTickets(firestoreManager: firestoreManager)
         
-        NavigationView{
-            VStack{
+        NavigationView {
+            VStack {
                 List(tasks) { task in
                     NavigationLink(
                         destination: TaskDetailView(selectedTask: task)
                     ) {
-                        HStack(alignment: .top, spacing: 0) {
+                        VStack{
+                            Text("Click to nav")
+                        }
+                        /*HStack(alignment: .top, spacing: 0) {
                             VStack(alignment: .center, spacing: 0){
                                 Rectangle()
                                     .frame(width: 1, height: 30, alignment: .center)
@@ -61,11 +63,11 @@ struct TimelineView: View {
                                 }
                                 
                             })
-                        }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))*/
                     }
                 }
             }
-            .navigationTitle("Timeline")
+            //.navigationTitle("Timeline")
         }
     }
 }
