@@ -10,18 +10,17 @@ struct TabbarView: View {
         NavigationView {
             TabView(selection: $tabSelection) {
                 
-                VStack {
                     DashboardView().environmentObject(firestoreManager)
-                }
+                
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
                 .tag(Tabs.homeTab)
                 
-                VStack {
-                    TimelineView().environmentObject(firestoreManager)
-                }
+                
+                        TimelineView().environmentObject(firestoreManager)
+                
                 .tabItem {
                     Image(systemName: "calendar.day.timeline.left")
                     Text("Timeline")
@@ -46,20 +45,19 @@ struct TabbarView: View {
                 }
                 .tag(Tabs.balanceTab)
                 
-                VStack {
                     SettingsView().environmentObject(firestoreManager)
-                }
+                
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")
                 }
                 .tag(Tabs.settingsTab)
             }
-            .navigationBarTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
+            //.navigationTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
         }
     }
     
-    enum Tabs{
+    enum Tabs {
         case homeTab, timelineTab, chatTab, balanceTab, settingsTab
     }
     

@@ -73,7 +73,8 @@ struct SettingsView: View {
                 }
                 //LogoutButton()
             }
-            .navigationTitle("Settings")
+            //.navigationTitle("Settings")
+            .navigationBarTitle("Settings")
             .environment(\.defaultMinListRowHeight, 50)
         } else {
             LoginView()

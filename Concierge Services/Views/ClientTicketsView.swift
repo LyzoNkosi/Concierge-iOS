@@ -9,7 +9,6 @@ struct ClientTicketsView: View {
     @State var selectedClient: Client
     
     var body: some View {
-        NavigationView{
             VStack{
                 
                 List(clientTicketsViewModel.tickets) { task in
@@ -65,7 +64,6 @@ struct ClientTicketsView: View {
             .onAppear{
                 clientTicketsViewModel.getClientTickets(firestoreManager: firestoreManager, clientId: selectedClient.id!)
             }
-        }
     }
 }
 
