@@ -32,7 +32,6 @@ struct TaskDetailView: View {
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
             .padding()
-            .navigationTitle("Task Details")
             
             .safeAreaInset(edge: .bottom) {
                 HStack(alignment: .center, spacing: 8){

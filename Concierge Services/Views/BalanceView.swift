@@ -1,10 +1,3 @@
-//
-//  BalanceView.swift
-//  Concierge Services
-//
-//  Created by Mac on 2023/03/03.
-//
-
 import SwiftUI
 
 struct BalanceView: View {
@@ -73,9 +66,9 @@ struct BalanceView: View {
             
             Spacer()
             
-            .safeAreaInset(edge: .bottom) {
-                PayButtonContent()
-            } .padding(12)
+                .safeAreaInset(edge: .bottom) {
+                    PayButtonContent()
+                } .padding(12)
             
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
@@ -90,13 +83,13 @@ struct BalanceView_Previews: PreviewProvider {
 }
 
 struct PayButtonContent : View {
-        var body: some View {
-            return Text("Make Payment")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 220, height: 60)
-                .background(primaryBlack)
-                .cornerRadius(15.0)
+    var body: some View {
+        return Text("Make Payment")
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 220, height: 60)
+            .background(primaryBlack)
+            .cornerRadius(15.0)
     }
 }

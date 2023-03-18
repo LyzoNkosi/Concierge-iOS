@@ -12,66 +12,58 @@ struct TimelineView: View {
     var body: some View {
         let tasks = ticketsViewModel.getTickets(firestoreManager: firestoreManager)
         
-        NavigationView {
-            VStack {
-                List(tasks) { task in
-                    NavigationLink(
-                        destination: TaskDetailView(selectedTask: task)
-                    ) {
-                        VStack{
-                            Text("Click to nav")
+        VStack {
+            List(tasks) { task in
+                NavigationLink(
+                    destination: TaskDetailView(selectedTask: task)
+                ) {
+                    HStack(alignment: .top, spacing: 0) {
+                        VStack(alignment: .center, spacing: 0){
+                            Rectangle()
+                                .frame(width: 1, height: 30, alignment: .center)
+                            Circle()
+                                .frame(width: 10, height: 10)
+                            Rectangle()
+                                .frame(width: 1, height: 20, alignment: .center)
+                            Circle()
+                                .frame(width: 30, height: 30)
+                                .overlay(
+                                    Image(systemName: "hourglass.bottomhalf.filled")
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 16, weight: .light , design: .rounded))
+                                        .frame(width: 30, height: 30)
+                                )
+                            Rectangle()
+                                .frame(width: 1, height: 40, alignment: .center)
+                                .foregroundColor(primaryBlack)
                         }
-                        /*HStack(alignment: .top, spacing: 0) {
-                            VStack(alignment: .center, spacing: 0){
-                                Rectangle()
-                                    .frame(width: 1, height: 30, alignment: .center)
-                                Circle()
-                                    .frame(width: 10, height: 10)
-                                Rectangle()
-                                    .frame(width: 1, height: 20, alignment: .center)
-                                Circle()
-                                    .frame(width: 30, height: 30)
-                                    .overlay(
-                                        Image(systemName: "hourglass.bottomhalf.filled")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .light , design: .rounded))
-                                            .frame(width: 30, height: 30)
-                                    )
-                                Rectangle()
-                                    .frame(width: 1, height: 40, alignment: .center)
-                                    .foregroundColor(primaryBlack)
+                        .frame(width: 32, height: 80, alignment: .center)
+                        .foregroundColor(primaryBlack)
+                        
+                        VStack(alignment: .leading, spacing: 8, content: {
+                            Text(task.name ?? "")
+                                .font(.subheadline)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(1)
+                            Label {
+                                Text(task.startDate!)
+                                    .font(.caption2)
+                            } icon: {
+                                Image(systemName: "calendar.badge.clock")
                             }
-                            .frame(width: 32, height: 80, alignment: .center)
-                            .foregroundColor(primaryBlack)
                             
+                            HStack {
+                                // Add attachments here
+                                
+                            }
                             
-                            VStack(alignment: .leading, spacing: 8, content: {
-                                Text(task.name ?? "")
-                                    .font(.subheadline)
-                                    .multilineTextAlignment(.leading)
-                                    .lineLimit(1)
-                                Label {
-                                    Text(task.startDate!)
-                                        .font(.caption2)
-                                } icon: {
-                                    Image(systemName: "calendar.badge.clock")
-                                }
-                                
-                                HStack {
-                                    // Add attachments here
-                                    
-                                }
-                                
-                            })
-                        }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))*/
-                    }
+                        })
+                    }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
             }
-            //.navigationTitle("Timeline")
         }
     }
 }
-
 
 
 struct TimelineView_Previews: PreviewProvider {

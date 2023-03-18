@@ -18,33 +18,31 @@ struct ChatView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                List(chatsViewModel.messages) { chat in
-                    MessageView(currentMessage: chat)
+        VStack {
+            List(chatsViewModel.messages) { chat in
+                MessageView(currentMessage: chat)
+            }
+            HStack {
+                TextField("Message...", text: $typingMessage)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(minHeight: CGFloat(30))
+                Button(action: sendMessage) {
+                    Text("Send")
                 }
-                HStack {
-                    TextField("Message...", text: $typingMessage)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(minHeight: CGFloat(30))
-                    Button(action: sendMessage) {
-                        Text("Send")
-                    }
-                }.frame(minHeight: CGFloat(50)).padding()
-            }.navigationBarTitle(Text("Chat"), displayMode: .inline)
-                .padding(.bottom, keyboard.currentHeight)
-                .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
-                .onAppear{
-                    chatsViewModel.getChatMessages(firestoreManager: firestoreManager)
-                }
-                .toast(isPresenting: $showToast){
-                    
-                    AlertToast(type: .regular, title: "Please type in a message")
-                    
-                }
-        }.onTapGesture {
-            self.endEditing(true)
-        }
+            }.frame(minHeight: CGFloat(50)).padding()
+        }.navigationBarTitle(Text("Chat"), displayMode: .inline)
+            .padding(.bottom, keyboard.currentHeight)
+            .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
+            .onAppear{
+                chatsViewModel.getChatMessages(firestoreManager: firestoreManager)
+            }
+            .toast(isPresenting: $showToast){
+                
+                AlertToast(type: .regular, title: "Please type in a message")
+                
+            }.onTapGesture {
+                self.endEditing(true)
+            }
     }
     
     func sendMessage() {
