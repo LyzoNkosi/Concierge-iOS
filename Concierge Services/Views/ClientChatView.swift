@@ -20,24 +20,25 @@ struct ClientChatView: View {
     }
     
     var body: some View {
-            VStack {
-                List(chatsViewModel.messages) { message in
-                    ClientMessageView(currentMessage: message)
+        VStack {
+            List(chatsViewModel.messages) { message in
+                ClientMessageView(currentMessage: message)
+            }
+            HStack {
+                TextField("Message...", text: $typingMessage)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(minHeight: CGFloat(30))
+                Button(action: sendMessage) {
+                    Text("Send")
                 }
-                HStack {
-                    TextField("Message...", text: $typingMessage)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .frame(minHeight: CGFloat(30))
-                    Button(action: sendMessage) {
-                        Text("Send")
-                    }
-                }.frame(minHeight: CGFloat(50)).padding()
-            }.navigationBarTitle(Text((selectedClient.firstName ?? "") + " " + (selectedClient.lastName ?? "")), displayMode: .inline)
-                .padding(.bottom, keyboard.currentHeight)
-                .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
-                .onAppear{
-                    chatsViewModel.getClientChats(firestoreManager: firestoreManager, clientId: selectedClient.id!)
-                }
+            }.frame(minHeight: CGFloat(50)).padding()
+            
+        }.navigationBarTitle(Text((selectedClient.firstName ?? "") + " " + (selectedClient.lastName ?? "")), displayMode: .inline)
+            .padding(.bottom, keyboard.currentHeight)
+            .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
+            .onAppear {
+                chatsViewModel.getClientChats(firestoreManager: firestoreManager, clientId: selectedClient.id!)
+            }
         
     }
     
@@ -48,7 +49,7 @@ struct ClientChatView: View {
             typingMessage = ""
             
             firestoreManager.sendClientChatMessage(clientId: selectedClient.id!, messageText: messageToSend) { message in
-                if(message != nil){
+                if(message != nil) {
                     
                 } else {
                     //chatsViewModel.getChatMessages(firestoreManager: firestoreManager)
