@@ -3,11 +3,17 @@ import RealmSwift
 
 class ClientsViewModel: ObservableObject{
     
-    //@Published var clients: [Client] = [Client(id: "1234567890", firstName: "Mary", lastName: "Jane"),
-    //                                    Client(id: "112233445566", firstName: "Spokes", lastName: "H")]
+    @Published var clients: [Client] = []
     
-    func getClients(firestoreManager: FirestoreManager) -> Results<Client>{
+    func getClients(firestoreManager: FirestoreManager, clientsLoaded: @escaping (Bool) -> ()) {
         let realm = try! Realm()
-        return realm.objects(Client.self)
+        var realmClients: [Client] = []
+        
+        for client in realm.objects(Client.self) {
+            realmClients.append(client)
+        }
+        
+        clientsLoaded(true)
+        self.clients = realmClients
     }
 }

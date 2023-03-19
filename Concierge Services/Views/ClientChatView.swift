@@ -20,7 +20,6 @@ struct ClientChatView: View {
     }
     
     var body: some View {
-        NavigationView {
             VStack {
                 List(chatsViewModel.messages) { message in
                     ClientMessageView(currentMessage: message)
@@ -39,9 +38,7 @@ struct ClientChatView: View {
                 .onAppear{
                     chatsViewModel.getClientChats(firestoreManager: firestoreManager, clientId: selectedClient.id!)
                 }
-        }.onTapGesture {
-            self.endEditing(true)
-        }
+        
     }
     
     func sendMessage() {

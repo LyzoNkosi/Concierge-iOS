@@ -1,5 +1,6 @@
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 import RealmSwift
 
 class FirestoreManager: ObservableObject{
@@ -32,7 +33,26 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func addNewUser(userId: String, firstName: String, lastName: String){
+    func createAuthUser(email: String, password: String, firstName: String, lastName: String, newAuthUserCreated: @escaping (Bool) -> ()) {
+        Auth.auth().createUser(withEmail: email.lowercased(), password: password, completion: { (user, error) in
+            //Check that user isn't NIL
+            if user != nil {
+                //User is found
+                self.addNewUser(userId: user?.user.uid ?? "", firstName: firstName, lastName: lastName) { userAdded in
+                    if(userAdded) {
+                        newAuthUserCreated(true)
+                    } else {
+                        newAuthUserCreated(false)
+                    }
+                }
+            }
+            else {
+                newAuthUserCreated(false)
+            }
+        })
+    }
+    
+    private func addNewUser(userId: String, firstName: String, lastName: String, createdNewUser: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
         let data: [String: Any] = ["first_name" : firstName,
@@ -40,17 +60,51 @@ class FirestoreManager: ObservableObject{
                                    "role" : 1]
         
         let ref = database.collection("users").document(userId)
-        ref.setData(data){ error in
-            if let error = error{
+        ref.setData(data) { error in
+            if let error = error {
                 print("Error writing document: \(error)")
+                createdNewUser(false)
             } else {
                 print("Document successfully written!")
+                
+                self.assignUserToAgent(agentId: UserDefaults.standard.value(forKey: "firebase_uid") as! String, userId: userId) { userAssigned in
+                    if(userAssigned) {
+                        createdNewUser(true)
+                    } else {
+                        createdNewUser(false)
+                    }
+                }
             }
         }
-        
     }
     
-    func getTickets(){
+    func assignUserToAgent(agentId: String, userId: String, userAssigned: @escaping (Bool) -> ()) {
+        let database = Firestore.firestore()
+        let ref = database.collection("agent_clients").document(agentId).collection("clients").document(userId)
+        
+        print("Agent id: \(agentId)")
+        print("User id: \(userId)")
+        
+        ref.setData([String: String]()) { error in
+            if let error = error {
+                print("Error writing document: \(error)")
+                userAssigned(false)
+            } else {
+                print("Document successfully written!")
+                self.getAgentClients() { clientsSynced in
+                    if(clientsSynced) {
+                        userAssigned(true)
+                    } else {
+                        print("Error assigning client")
+                        
+                        userAssigned(false)
+                    }
+                }
+            }
+        }
+    }
+    
+    func getTickets() {
         let database = Firestore.firestore()
         
         do{
@@ -85,29 +139,6 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    /*func getClientTickets(clientId: String) -> [Ticket] {
-     let database = Firestore.firestore()
-     
-     var ticketsToReturn: [Ticket] = []
-     
-     database.collection("tickets").document(clientId).collection("tickets").getDocuments() { (querySnapshot, error) in
-     if let error = error {
-     print("Error getting documents: \(error)")
-     } else {
-     var tickets: [Ticket] = []
-     
-     for document in querySnapshot!.documents {
-     
-     let ticket = Ticket(id: document.documentID, name: document["ticket_name"] as? String ?? "", status: document["ticket_status"] as! Int)
-     
-     tickets.append(ticket)
-     }
-     ticketsToReturn = tickets
-     }
-     }
-     return ticketsToReturn
-     }*/
-    
     func getClientTickets(clientId: String, loadedTickets:@escaping ([Ticket]) -> ()){
         let database = Firestore.firestore()
         
@@ -131,31 +162,34 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func getAgentClientTickets(finished: @escaping (String) -> ()){
+    func getAgentClientTickets(finished: @escaping (String) -> ()) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             print("Getting your client tickets")
             finished("Ticket values go here")
         }
     }
     
-    func createTicket(clientId: String, ticket: Ticket){
+    func createTicket(clientId: String, ticket: Ticket, ticketCreated: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
         let data: [String: Any] = ["ticket_name" : ticket.name!,
-                                   "ticket_status" : TicketStatus.STATUS_NOT_STARTED]
+                                   "start_date" : ticket.startDate!,
+                                   "ticket_status" : TicketStatus.STATUS_NOT_STARTED.rawValue]
         
         let ref = database.collection("tickets").document(clientId).collection("tickets").document()
         
-        ref.setData(data){ error in
-            if let error = error{
+        ref.setData(data) { error in
+            if let error = error {
                 print("Error writing document: \(error)")
+                ticketCreated(false)
             } else {
                 print("Document successfully written!")
+                ticketCreated(true)
             }
         }
     }
     
-    func getAgentClients(){
+    func getAgentClients(clientsSynced: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
         do{
@@ -176,6 +210,7 @@ class FirestoreManager: ObservableObject{
                         userRef.getDocument { (userDocument, userError) in
                             guard userError == nil else {
                                 print("error", userError ?? "")
+                                clientsSynced(false)
                                 return
                             }
                             
@@ -187,13 +222,14 @@ class FirestoreManager: ObservableObject{
                                         firstName: userData["first_name"] as? String ?? "",
                                         lastName: userData["last_name"] as? String ?? "")
                                     
-                                    try! realm.write{
+                                    try! realm.write {
                                         realm.add(client)
                                     }
                                 }
                             }
                         }
                     }
+                    clientsSynced(true)
                 }
             }
         } catch let realmError as NSError{
@@ -309,7 +345,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func getMyChatMessages(){
+    func getMyChatMessages() {
         let database = Firestore.firestore()
         
         do{

@@ -1,13 +1,10 @@
-//
-//  BalanceView.swift
-//  Concierge Services
-//
-//  Created by Mac on 2023/03/03.
-//
-
 import SwiftUI
+import AlertToast
 
 struct BalanceView: View {
+    
+    @State private var showToast = false
+    @State private var toastMessage = ""
     
     var body: some View {
         VStack {
@@ -71,15 +68,21 @@ struct BalanceView: View {
             .padding(.horizontal)
             .padding(.top, 8)
             
-            Spacer()
-            
-            .safeAreaInset(edge: .bottom) {
-                PayButtonContent()
-            } .padding(12)
-            
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-        .navigationTitle("Balance")
+        .safeAreaInset(edge: .bottom) {
+            
+            PayButtonContent()
+                .onTapGesture {
+                    self.toastMessage = "This feature is coming soon"
+                    self.showToast = true
+                }
+            
+        } .padding(12)
+            .toast(isPresenting: $showToast) {
+                AlertToast(type: .regular, title: toastMessage)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .navigationTitle("Balance")
     }
 }
 
@@ -90,13 +93,13 @@ struct BalanceView_Previews: PreviewProvider {
 }
 
 struct PayButtonContent : View {
-        var body: some View {
-            return Text("Make Payment")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 220, height: 60)
-                .background(primaryBlack)
-                .cornerRadius(15.0)
+    var body: some View {
+        return Text("Make Payment")
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 220, height: 60)
+            .background(primaryBlack)
+            .cornerRadius(15.0)
     }
 }

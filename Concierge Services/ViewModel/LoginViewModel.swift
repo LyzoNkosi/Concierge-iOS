@@ -7,6 +7,7 @@ struct AuthUser {
     let email: String
 }
 
+@MainActor
 class LoginViewModel: ObservableObject{
     
     @Published var email = ""
@@ -21,29 +22,37 @@ class LoginViewModel: ObservableObject{
     
     var firestoreManager: FirestoreManager? = nil
     
-    private var handler = Auth.auth().addStateDidChangeListener{_,_ in }
+    // private var handler = Auth.auth().addStateDidChangeListener {_,_ in }
     
     var currentAuthUser: AuthUser {
         return _currentAuthUser ?? AuthUser(uid: "", email: "")
     }
     
-    init(){
-        handler = Auth.auth().addStateDidChangeListener{ auth, authUser in
-            if let authUser = authUser {
-                self._currentAuthUser = AuthUser(uid: authUser.uid, email: authUser.email!)
-                self.isLoggedIn = true
-                
-                self.defaults.set(authUser.uid, forKey: "firebase_uid")
-                self.defaults.set(authUser.email, forKey: "user_email")
-                self.defaults.set(true, forKey: "user_logged_in")
-                self.defaults.synchronize()
-                
-                self.firestoreManager?.fetchUserDetails(userID: authUser.uid)
-                
-            } else {
-                self._currentAuthUser = nil
-                self.isLoggedIn = false
-            }
+    /*init() {
+     handler = Auth.auth().addStateDidChangeListener { auth, authUser in
+     if let authUser = authUser {
+     self._currentAuthUser = AuthUser(uid: authUser.uid, email: authUser.email!)
+     self.isLoggedIn = true
+     
+     self.defaults.set(authUser.uid, forKey: "firebase_uid")
+     self.defaults.set(authUser.email, forKey: "user_email")
+     self.defaults.set(true, forKey: "user_logged_in")
+     self.defaults.synchronize()
+     
+     self.firestoreManager?.fetchUserDetails(userID: authUser.uid)
+     
+     } else {
+     self._currentAuthUser = nil
+     self.isLoggedIn = false
+     }
+     }
+     }*/
+    
+    init() {
+        if(isUserLoggedIn()) {
+            self.isLoggedIn = true
+        } else {
+            self.isLoggedIn = false
         }
     }
     
@@ -51,16 +60,47 @@ class LoginViewModel: ObservableObject{
         self.firestoreManager = firestoreManager
         
         hasError = false
-        do{
-            try await Auth.auth().signIn(withEmail: email, password: password)
+        do {
+            // try await Auth.auth().signIn(withEmail: email, password: password)
             
-            DispatchQueue.main.sync(execute:  {
-                firestoreManager.getAgentClients()
+            Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                if (error != nil) {
+                    // Error. If error.code == .MissingOrInvalidNonce, make sure
+                    // you're sending the SHA256-hashed nonce as a hex string with
+                    // your request to Apple.
+                    print(error?.localizedDescription as Any)
+                    self.hasError = true
+                }
+                
+                let authUser = authResult?.user
+                // Signed in
+                self._currentAuthUser = AuthUser(uid: authUser!.uid, email: authUser!.email!)
+                self.isLoggedIn = true
+                
+                self.defaults.set(authUser!.uid, forKey: "firebase_uid")
+                self.defaults.set(authUser!.email, forKey: "user_email")
+                self.defaults.set(true, forKey: "user_logged_in")
+                self.defaults.synchronize()
+                
+                self.firestoreManager?.fetchUserDetails(userID: authUser!.uid)
+                
+                //DispatchQueue.main.sync(execute:  {
+                firestoreManager.getAgentClients() { clientsSynced in
+                    if(clientsSynced) {
+                        print("Clients synced")
+                    } else {
+                        print("Clients sync error")
+                    }
+                }
+                
                 firestoreManager.getTickets()
                 firestoreManager.getMyChatMessages()
-            })
+                
+                self.isLoggedIn = true
+                
+            }
             
-        }catch{
+        } catch {
             hasError = true
             errorMessage = error.localizedDescription
         }
@@ -68,7 +108,7 @@ class LoginViewModel: ObservableObject{
     
     func signOut() async {
         hasError = false
-        do{
+        do {
             try Auth.auth().signOut()
             
             self.defaults.removePersistentDomain(forName: domain)
@@ -85,14 +125,22 @@ class LoginViewModel: ObservableObject{
                 print("error - \(realmError.localizedDescription)")
             }
             
-        }catch{
+        } catch {
             hasError = true
             errorMessage = error.localizedDescription
         }
-        
+        self.isLoggedIn = false
     }
     
-    deinit{
-        Auth.auth().removeStateDidChangeListener(handler)
+    private func isUserLoggedIn () -> Bool {
+        if(isKeyPresentInUserDefaults(key: "user_logged_in")) {
+            if(UserDefaults.standard.object(forKey: "user_logged_in") as! Bool) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
     }
 }

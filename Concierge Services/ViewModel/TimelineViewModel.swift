@@ -3,8 +3,16 @@ import RealmSwift
 
 class TimelineViewModel: ObservableObject{
     
-    func getTickets(firestoreManager: FirestoreManager) -> Results<Ticket>{
+    @Published var tickets: [Ticket] = []
+    
+    func getTickets(firestoreManager: FirestoreManager) {
+        var realmTickets: [Ticket] = []
+        
         let realm = try! Realm()
-        return realm.objects(Ticket.self)
+        
+        for realmTicket in realm.objects(Ticket.self) {
+            realmTickets.append(realmTicket)
+        }
+        tickets = realmTickets
     }
 }
