@@ -169,19 +169,22 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func createTicket(clientId: String, ticket: Ticket){
+    func createTicket(clientId: String, ticket: Ticket, ticketCreated: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
         let data: [String: Any] = ["ticket_name" : ticket.name!,
-                                   "ticket_status" : TicketStatus.STATUS_NOT_STARTED]
+                                   "start_date" : ticket.startDate!,
+                                   "ticket_status" : TicketStatus.STATUS_NOT_STARTED.rawValue]
         
         let ref = database.collection("tickets").document(clientId).collection("tickets").document()
         
-        ref.setData(data){ error in
-            if let error = error{
+        ref.setData(data) { error in
+            if let error = error {
                 print("Error writing document: \(error)")
+                ticketCreated(false)
             } else {
                 print("Document successfully written!")
+                ticketCreated(true)
             }
         }
     }

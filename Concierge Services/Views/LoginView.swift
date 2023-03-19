@@ -31,23 +31,6 @@ struct LoginView : View {
                 
                 UserImage()
                 
-                /*fileprivate func EmailInput() -> some View {
-                 TextField("Email", text: $email)
-                 .padding()
-                 .background(lightGreyColor)
-                 .cornerRadius(5.0)
-                 .padding(.bottom, 20)
-                 .keyboardType(.emailAddress)
-                 .disableAutocorrection(true)
-                 .autocapitalization(.none)
-                 }*/
-                
-                /*SecureField("Password", text: $password)
-                 .padding()
-                 .background(lightGreyColor)
-                 .cornerRadius(5.0)
-                 .padding(.bottom, 20)*/
-                
                 EmailInput()
                 PasswordInput()
                 

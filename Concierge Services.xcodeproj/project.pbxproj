@@ -43,7 +43,7 @@
 		F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */; };
 		F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0929C3344100973290 /* ClientsViewModel.swift */; };
 		F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0B29C3346200973290 /* DashboardViewModel.swift */; };
-		F48CBF0E29C340F300973290 /* CreateTaskViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */; };
+		F48CBF0E29C340F300973290 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0D29C340F300973290 /* CreateTaskView.swift */; };
 		F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0F29C351F500973290 /* ClientChatView.swift */; };
 		F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */; };
 		F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */; };
@@ -90,7 +90,7 @@
 		F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatViewModel.swift; sourceTree = "<group>"; };
 		F48CBF0929C3344100973290 /* ClientsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewModel.swift; sourceTree = "<group>"; };
 		F48CBF0B29C3346200973290 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewView.swift; sourceTree = "<group>"; };
+		F48CBF0D29C340F300973290 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		F48CBF0F29C351F500973290 /* ClientChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatView.swift; sourceTree = "<group>"; };
 		F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsView.swift; sourceTree = "<group>"; };
 		F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsViewModel.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
-				F48CBF0D29C340F300973290 /* CreateTaskViewView.swift */,
+				F48CBF0D29C340F300973290 /* CreateTaskView.swift */,
 				0445A10729B207F200DA8D50 /* DashboardView.swift */,
 				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
@@ -345,7 +345,7 @@
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
 				F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */,
 				04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */,
-				F48CBF0E29C340F300973290 /* CreateTaskViewView.swift in Sources */,
+				F48CBF0E29C340F300973290 /* CreateTaskView.swift in Sources */,
 				F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */,
 				04B21D2229B733EE00829AD7 /* KeyboardResponder.swift in Sources */,
 				F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */,
