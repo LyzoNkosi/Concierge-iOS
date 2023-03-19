@@ -7,6 +7,7 @@ struct AuthUser {
     let email: String
 }
 
+@MainActor
 class LoginViewModel: ObservableObject{
     
     @Published var email = ""

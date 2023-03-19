@@ -17,13 +17,13 @@ struct TabbarView: View {
                         
                         
                     }
-                }
-                .safeAreaInset(edge: .bottom) {
-                    ChatButtonContent()
-                        .onTapGesture {
-                            tabSelection = .chatTab
-                        }
-                        .padding(8)
+                    .safeAreaInset(edge: .bottom) {
+                        ChatButtonContent()
+                            .onTapGesture {
+                                tabSelection = .chatTab
+                            }
+                            .padding(8)
+                    }
                 }
                 .tabItem {
                     Image(systemName: "house")

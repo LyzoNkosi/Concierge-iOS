@@ -12,7 +12,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct Concierge_ServicesApp: App {
     
     @StateObject var firestoreManager = FirestoreManager()
-    @ObservedObject var loginViewModel = LoginViewModel()
+    @StateObject var loginViewModel = LoginViewModel()
     
     // MARK: - Properties
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -43,7 +43,7 @@ struct Concierge_ServicesApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                ApplicationSwitcher(firestoreManager: firestoreManager, loginViewModel: loginViewModel)
+                ApplicationSwitcher(firestoreManager: firestoreManager).environmentObject(loginViewModel)
             }
             /*if(isLoggedIn()) {
              TabbarView().environmentObject(firestoreManager)
@@ -69,13 +69,13 @@ struct Concierge_ServicesApp: App {
 struct ApplicationSwitcher: View {
     
     @StateObject var firestoreManager: FirestoreManager
-    @ObservedObject var loginViewModel: LoginViewModel
+    @EnvironmentObject var loginViewModel: LoginViewModel
     
     var body: some View {
         if (loginViewModel.isLoggedIn) {
             TabbarView().environmentObject(firestoreManager)
         } else {
-            LoginView().environmentObject(firestoreManager)
+            LoginView().environmentObject(firestoreManager).environmentObject(loginViewModel)
         }
         
     }

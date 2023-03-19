@@ -74,6 +74,7 @@ struct CreateAccountView: View {
                     }
                     
                     firestoreManager.createAuthUser(email: email, password: password, firstName: firstName, lastName: lastName) { newAuthUserCreated in
+                        
                         if(newAuthUserCreated) {
                             self.toastMessage = "New user created"
                             self.showToast = true

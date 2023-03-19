@@ -19,7 +19,7 @@ struct LoginView : View {
     
     @EnvironmentObject var firestoreManager: FirestoreManager
     
-    @ObservedObject var loginViewModel = LoginViewModel()
+    @EnvironmentObject var loginViewModel: LoginViewModel
     
     var body: some View {
         VStack {
