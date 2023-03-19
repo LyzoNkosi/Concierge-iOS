@@ -1,7 +1,10 @@
 import SwiftUI
 import AlertToast
+import ActivityIndicatorView
 
 struct CreateAccountView: View {
+    
+    let primaryBlack = Color(red: 31.0/255.0, green: 34.0/255.0, blue: 41.0/255.0, opacity: 1.0)
     
     @Environment(\.presentationMode) var createAccountPresentation
     
@@ -15,9 +18,15 @@ struct CreateAccountView: View {
     
     @EnvironmentObject var firestoreManager: FirestoreManager
     
+    @State private var showLoadingIndicator: Bool = false
+    
     var body: some View {
         
         VStack {
+            
+            ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
+                .frame(width: 64, height: 64)
+                .foregroundColor(primaryBlack)
             
             CreateAccountLabelText()
             
@@ -37,54 +46,65 @@ struct CreateAccountView: View {
             CreateAccountButtonContent()
                 .onTapGesture {
                     
-                    if(self.firstName.isEmpty) {
-                        self.toastMessage = "Please enter first name"
-                        self.showToast = true
-                        return
-                    }
-                    
-                    if(self.lastName.isEmpty) {
-                        self.toastMessage = "Please enter last name"
-                        self.showToast = true
-                        return
-                    }
-                    
-                    if(self.email.isEmpty) {
-                        self.toastMessage = "Please enter email"
-                        self.showToast = true
-                        return
-                    }
-                    
-                    if(self.email.count < 5 || !self.email.contains("@") || !self.email.contains(".")) {
-                        self.toastMessage = "Please enter valid email"
-                        self.showToast = true
-                        return
-                    }
-                    
-                    if(self.password.isEmpty) {
-                        self.toastMessage = "Please enter password"
-                        self.showToast = true
-                        return
-                    }
-                    
-                    if(self.password.count < 8) {
-                        self.toastMessage = "Password must be at least 8 characters"
-                        self.showToast = true
-                        return
-                    }
-                    
-                    firestoreManager.createAuthUser(email: email, password: password, firstName: firstName, lastName: lastName) { newAuthUserCreated in
+                    if(!showLoadingIndicator) {
                         
-                        if(newAuthUserCreated) {
-                            self.toastMessage = "New user created"
+                        if(self.firstName.isEmpty) {
+                            self.toastMessage = "Please enter first name"
                             self.showToast = true
-                            self.createAccountPresentation.wrappedValue.dismiss()
-                        } else {
-                            self.toastMessage = "Error creating user"
-                            self.showToast = true
+                            return
                         }
+                        
+                        if(self.lastName.isEmpty) {
+                            self.toastMessage = "Please enter last name"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(self.email.isEmpty) {
+                            self.toastMessage = "Please enter email"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(self.email.count < 5 || !self.email.contains("@") || !self.email.contains(".")) {
+                            self.toastMessage = "Please enter valid email"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(self.password.isEmpty) {
+                            self.toastMessage = "Please enter password"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(self.password.count < 8) {
+                            self.toastMessage = "Password must be at least 8 characters"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        self.showLoadingIndicator = true
+                        
+                        firestoreManager.createAuthUser(email: email, password: password, firstName: firstName, lastName: lastName) { newAuthUserCreated in
+                            
+                            if(newAuthUserCreated) {
+                                self.toastMessage = "New user created"
+                                self.showToast = true
+                                self.showLoadingIndicator = false
+                                
+                                self.createAccountPresentation.wrappedValue.dismiss()
+                            } else {
+                                self.toastMessage = "Error creating user"
+                                self.showToast = true
+                                
+                                self.showLoadingIndicator = false
+                            }
+                        }
+                    } else {
+                        self.toastMessage = "Account creation in progress"
+                        self.showToast = true
                     }
-                    
                 }
                 .padding(8)
             
@@ -101,6 +121,7 @@ struct CreateAccountView: View {
             .padding()
             .background(lightGreyColor)
             .cornerRadius(5.0)
+            .disableAutocorrection(true)
             .padding(.bottom, 20)
     }
     
@@ -109,6 +130,7 @@ struct CreateAccountView: View {
             .padding()
             .background(lightGreyColor)
             .cornerRadius(5.0)
+            .disableAutocorrection(true)
             .padding(.bottom, 20)
     }
     

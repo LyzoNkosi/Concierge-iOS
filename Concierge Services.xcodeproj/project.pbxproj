@@ -53,6 +53,7 @@
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
 		F4C7EE5929C721C7003B517F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7EE5829C721C7003B517F /* Utils.swift */; };
+		F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7EE5D29C79451003B517F /* ActivityIndicatorView */; };
 		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 			files = (
 				F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */,
 				F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */,
+				F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */,
 				04B21D3229B737EA00829AD7 /* FirebaseAnalyticsSwift in Frameworks */,
 				04B21D3829B737EA00829AD7 /* FirebaseCrashlytics in Frameworks */,
 				04B21D3629B737EA00829AD7 /* FirebaseAuth in Frameworks */,
@@ -261,6 +263,7 @@
 				F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */,
 				F4E9C06C29C3AD3000DF72A8 /* RealmSwift */,
 				F4BC090829C4F7BF00745EFB /* AlertToast */,
+				F4C7EE5D29C79451003B517F /* ActivityIndicatorView */,
 			);
 			productName = "Concierge Services";
 			productReference = 0445A0E629B1EEE300DA8D50 /* Concierge Services.app */;
@@ -294,6 +297,7 @@
 				04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F4BC090729C4F7BF00745EFB /* XCRemoteSwiftPackageReference "AlertToast" */,
+				F4C7EE5C29C79451003B517F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = 0445A0E729B1EEE300DA8D50 /* Products */;
 			projectDirPath = "";
@@ -587,6 +591,14 @@
 				minimumVersion = 1.3.0;
 			};
 		};
+		F4C7EE5C29C79451003B517F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -627,6 +639,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F4BC090729C4F7BF00745EFB /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		F4C7EE5D29C79451003B517F /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4C7EE5C29C79451003B517F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
 		};
 		F4E9C06C29C3AD3000DF72A8 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
