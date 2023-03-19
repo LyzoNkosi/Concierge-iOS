@@ -12,6 +12,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct Concierge_ServicesApp: App {
     
     @StateObject var firestoreManager = FirestoreManager()
+    @ObservedObject var loginViewModel = LoginViewModel()
     
     // MARK: - Properties
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -20,34 +21,63 @@ struct Concierge_ServicesApp: App {
     init() {
         FirebaseApp.configure()
         
-        if(isKeyPresentInUserDefaults(key: "user_logged_in")){
-            let _firestoreManager = FirestoreManager()
-            
-            DispatchQueue.main.async(execute:  {
-                _firestoreManager.getAgentClients() { clientsSynced in
-                    if(clientsSynced) {
-                        print("Clients synced")
-                    } else {
-                        print("Clients sync error")
-                    }
-                }
-                
-                _firestoreManager.getTickets()
-                _firestoreManager.getMyChatMessages()
-            })
-        }
+        /*if(isLoggedIn()) {
+         let _firestoreManager = FirestoreManager()
+         
+         DispatchQueue.main.async(execute:  {
+         _firestoreManager.getAgentClients() { clientsSynced in
+         if(clientsSynced) {
+         print("Clients synced")
+         } else {
+         print("Clients sync error")
+         }
+         }
+         
+         _firestoreManager.getTickets()
+         _firestoreManager.getMyChatMessages()
+         })
+         }*/
     }
     
     // MARK: - UI Elements
     var body: some Scene {
         WindowGroup {
-            if(isKeyPresentInUserDefaults(key: "user_logged_in")){
-                TabbarView().environmentObject(firestoreManager)
-            } else {
-                LoginView()
-                    .environmentObject(firestoreManager)
+            NavigationView {
+                ApplicationSwitcher(firestoreManager: firestoreManager, loginViewModel: loginViewModel)
             }
+            /*if(isLoggedIn()) {
+             TabbarView().environmentObject(firestoreManager)
+             } else {
+             LoginView().environmentObject(firestoreManager)
+             }*/
         }
+    }
+    
+    /*private func isLoggedIn () -> Bool {
+     if(isKeyPresentInUserDefaults(key: "user_logged_in")) {
+     if(UserDefaults.standard.object(forKey: "user_logged_in") as! Bool) {
+     return true
+     } else {
+     return false
+     }
+     } else {
+     return false
+     }
+     }*/
+}
+
+struct ApplicationSwitcher: View {
+    
+    @StateObject var firestoreManager: FirestoreManager
+    @ObservedObject var loginViewModel: LoginViewModel
+    
+    var body: some View {
+        if (loginViewModel.isLoggedIn) {
+            TabbarView().environmentObject(firestoreManager)
+        } else {
+            LoginView().environmentObject(firestoreManager)
+        }
+        
     }
 }
 

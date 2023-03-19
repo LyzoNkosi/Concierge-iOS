@@ -34,7 +34,7 @@ class FirestoreManager: ObservableObject{
     }
     
     func createAuthUser(email: String, password: String, firstName: String, lastName: String, newAuthUserCreated: @escaping (Bool) -> ()) {
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+        Auth.auth().createUser(withEmail: email.lowercased(), password: password, completion: { (user, error) in
             //Check that user isn't NIL
             if user != nil {
                 //User is found

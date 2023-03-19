@@ -22,80 +22,68 @@ struct LoginView : View {
     @ObservedObject var loginViewModel = LoginViewModel()
     
     var body: some View {
-        
-        NavigationStack {
-            VStack {
-                if(loginViewModel.isLoggedIn) {
-                    TabbarView().environmentObject(firestoreManager)
-                } else {
-                    
-                    WelcomeText()
-                    
-                    UserImage()
-                    
-                    /*fileprivate func EmailInput() -> some View {
-                     TextField("Email", text: $email)
-                     .padding()
-                     .background(lightGreyColor)
-                     .cornerRadius(5.0)
-                     .padding(.bottom, 20)
-                     .keyboardType(.emailAddress)
-                     .disableAutocorrection(true)
-                     .autocapitalization(.none)
-                     }*/
-                    
-                    /*SecureField("Password", text: $password)
-                     .padding()
-                     .background(lightGreyColor)
-                     .cornerRadius(5.0)
-                     .padding(.bottom, 20)*/
-                    
-                    EmailInput()
-                    PasswordInput()
-                    
-                    ForgotPasswordText().onTapGesture(perform: {
-                        showingForgotPasswordAlert = true
-                    }).alert("Forgot Password?", isPresented: $showingForgotPasswordAlert, actions: {
-                        // Any view other than Button would be ignored
-                        TextField("TextField", text: $email)
-                            .background(lightGreyColor)
-                    }, message: {
-                        // Any view other than Text would be ignored
-                        TextField("Forgot Password", text: .constant("Enter your email"))
-                    })
-                    
-                    //LoginButtonContent()
-                    
-                    Button(action: {
-                        Task {
-                            await loginViewModel.signIn(firestoreManager: firestoreManager)
-                        }
-                    }) {
-                        LoginButtonContent()
+        VStack {
+            if(loginViewModel.isLoggedIn) {
+                //TabbarView().environmentObject(firestoreManager)
+            } else {
+                
+                WelcomeText()
+                
+                UserImage()
+                
+                /*fileprivate func EmailInput() -> some View {
+                 TextField("Email", text: $email)
+                 .padding()
+                 .background(lightGreyColor)
+                 .cornerRadius(5.0)
+                 .padding(.bottom, 20)
+                 .keyboardType(.emailAddress)
+                 .disableAutocorrection(true)
+                 .autocapitalization(.none)
+                 }*/
+                
+                /*SecureField("Password", text: $password)
+                 .padding()
+                 .background(lightGreyColor)
+                 .cornerRadius(5.0)
+                 .padding(.bottom, 20)*/
+                
+                EmailInput()
+                PasswordInput()
+                
+                ForgotPasswordText().onTapGesture(perform: {
+                    showingForgotPasswordAlert = true
+                }).alert("Forgot Password?", isPresented: $showingForgotPasswordAlert, actions: {
+                    // Any view other than Button would be ignored
+                    TextField("TextField", text: $email)
+                        .background(lightGreyColor)
+                }, message: {
+                    // Any view other than Text would be ignored
+                    TextField("Forgot Password", text: .constant("Enter your email"))
+                })
+                
+                //LoginButtonContent()
+                
+                Button(action: {
+                    Task {
+                        await loginViewModel.signIn(firestoreManager: firestoreManager)
                     }
-                    
-                    OrText()
-                    
-                    AppleLogo()
-                    
+                }) {
+                    LoginButtonContent()
                 }
+                
+                OrText()
+                
+                AppleLogo()
             }
-            .alert("Error", isPresented: $loginViewModel.hasError) {
-            } message: {
-                Text(loginViewModel.errorMessage)
-            }
-            .padding()
         }
+        .alert("Error", isPresented: $loginViewModel.hasError) {
+        } message: {
+            Text(loginViewModel.errorMessage)
+        }
+        .padding()
         
     }
-    
-    /*fileprivate func EmailInput() -> some View {
-     TextField("Email", text: $loginViewModel.email)
-     .keyboardType(.emailAddress)
-     .disableAutocorrection(true)
-     .autocapitalization(.none)
-     .textFieldStyle(.roundedBorder)
-     }*/
     
     fileprivate func EmailInput() -> some View {
         TextField("Email", text: $loginViewModel.email)
@@ -127,41 +115,6 @@ struct LoginView : View {
         }
     }
     
-    /*fileprivate func LogoutButton() -> some View {
-     Button(action: {
-     Task {
-     await loginViewModel.signOut()
-     }
-     }) {
-     Text("Log Out")
-     }
-     }*/
-    
-    /*fileprivate func UserInfo() -> some View {
-     VStack{
-     Text("UID: \(loginViewModel.currentAuthUser.uid)")
-     Text("Email: \(loginViewModel.currentAuthUser.email)")
-     LogoutButton()
-     }
-     
-     }*/
-    
-    /*var body: some View {
-     VStack {
-     if(loginViewModel.isLoggedIn){
-     UserInfo()
-     }else{
-     EmailInput()
-     PasswordInput()
-     LoginButton()
-     }
-     }
-     .alert("Error", isPresented: $loginViewModel.hasError) {
-     } message: {
-     Text(loginViewModel.errorMessage)
-     }
-     .padding()
-     }*/
 }
 
 #if DEBUG

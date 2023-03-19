@@ -21,7 +21,7 @@ class LoginViewModel: ObservableObject{
     
     var firestoreManager: FirestoreManager? = nil
     
-    private var handler = Auth.auth().addStateDidChangeListener {_,_ in }
+    // private var handler = Auth.auth().addStateDidChangeListener {_,_ in }
     
     var currentAuthUser: AuthUser {
         return _currentAuthUser ?? AuthUser(uid: "", email: "")
@@ -46,6 +46,14 @@ class LoginViewModel: ObservableObject{
      }
      }
      }*/
+    
+    init() {
+        if(isUserLoggedIn()) {
+            self.isLoggedIn = true
+        } else {
+            self.isLoggedIn = false
+        }
+    }
     
     func signIn(firestoreManager: FirestoreManager) async {
         self.firestoreManager = firestoreManager
@@ -75,19 +83,19 @@ class LoginViewModel: ObservableObject{
                 
                 self.firestoreManager?.fetchUserDetails(userID: authUser!.uid)
                 
-                self.isLoggedIn = true
-                
                 //DispatchQueue.main.sync(execute:  {
-                    firestoreManager.getAgentClients() { clientsSynced in
-                        if(clientsSynced) {
-                            print("Clients synced")
-                        } else {
-                            print("Clients sync error")
-                        }
+                firestoreManager.getAgentClients() { clientsSynced in
+                    if(clientsSynced) {
+                        print("Clients synced")
+                    } else {
+                        print("Clients sync error")
                     }
-                    
-                    firestoreManager.getTickets()
-                    firestoreManager.getMyChatMessages()
+                }
+                
+                firestoreManager.getTickets()
+                firestoreManager.getMyChatMessages()
+                
+                self.isLoggedIn = true
                 
             }
             
@@ -99,7 +107,7 @@ class LoginViewModel: ObservableObject{
     
     func signOut() async {
         hasError = false
-        do{
+        do {
             try Auth.auth().signOut()
             
             self.defaults.removePersistentDomain(forName: domain)
@@ -116,14 +124,22 @@ class LoginViewModel: ObservableObject{
                 print("error - \(realmError.localizedDescription)")
             }
             
-        }catch{
+        } catch {
             hasError = true
             errorMessage = error.localizedDescription
         }
-        
+        self.isLoggedIn = false
     }
     
-    deinit{
-        Auth.auth().removeStateDidChangeListener(handler)
+    private func isUserLoggedIn () -> Bool {
+        if(isKeyPresentInUserDefaults(key: "user_logged_in")) {
+            if(UserDefaults.standard.object(forKey: "user_logged_in") as! Bool) {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
     }
 }

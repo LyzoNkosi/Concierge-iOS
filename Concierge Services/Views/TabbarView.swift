@@ -7,7 +7,7 @@ struct TabbarView: View {
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
             TabView(selection: $tabSelection) {
                 
                 ScrollView {
@@ -68,14 +68,14 @@ struct TabbarView: View {
                     .tag(Tabs.settingsTab)
             }
             .navigationTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
-        }
+        //}
     }
     
     enum Tabs {
         case homeTab, timelineTab, chatTab, balanceTab, settingsTab
     }
     
-    func returnNaviBarTitle(tabSelection: Tabs) -> String{
+    func returnNaviBarTitle(tabSelection: Tabs) -> String {
         switch tabSelection{
         case .homeTab: return "Home"
         case .timelineTab: return "Timeline"
