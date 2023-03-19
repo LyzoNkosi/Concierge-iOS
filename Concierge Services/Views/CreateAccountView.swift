@@ -1,6 +1,12 @@
 import SwiftUI
+import AlertToast
 
 struct CreateAccountView: View {
+    
+    @Environment(\.presentationMode) var presentation
+    
+    @State private var showToast = false
+    @State private var toastMessage = ""
     
     @State var firstName: String = ""
     @State var lastName: String = ""
@@ -11,27 +17,81 @@ struct CreateAccountView: View {
     
     var body: some View {
         
-        NavigationView {
+        VStack {
             
-            VStack {
+            CreateAccountLabelText()
+            
+            ScrollView {
                 
-                ScrollView {
-                    
-                    CreateAccountLabelText()
-                    
-                    FirstNameInput()
-                    LastNameInput()
-                    EmailInput()
-                    PasswordInput()
-                    
-                }
+                FirstNameInput()
+                LastNameInput()
+                EmailInput()
+                PasswordInput()
                 
             }
-            .padding()
+            
         }
+        .padding()
         .safeAreaInset(edge: .bottom) {
+            
             CreateAccountButtonContent()
-        } .padding(12)
+                .onTapGesture {
+                    
+                    if(self.firstName.isEmpty) {
+                        self.toastMessage = "Please enter first name"
+                        self.showToast = true
+                        return
+                    }
+                    
+                    if(self.lastName.isEmpty) {
+                        self.toastMessage = "Please enter last name"
+                        self.showToast = true
+                        return
+                    }
+                    
+                    if(self.email.isEmpty) {
+                        self.toastMessage = "Please enter email"
+                        self.showToast = true
+                        return
+                    }
+                    
+                    if(self.email.count < 5 || !self.email.contains("@") || !self.email.contains(".")) {
+                        self.toastMessage = "Please enter valid email"
+                        self.showToast = true
+                        return
+                    }
+                    
+                    if(self.password.isEmpty) {
+                        self.toastMessage = "Please enter password"
+                        self.showToast = true
+                        return
+                    }
+                    
+                    if(self.password.count < 8) {
+                        self.toastMessage = "Password must be at least 8 characters"
+                        self.showToast = true
+                        return
+                    }
+                    
+                    firestoreManager.createAuthUser(email: email, password: password, firstName: firstName, lastName: lastName) { newAuthUserCreated in
+                        if(newAuthUserCreated) {
+                            self.toastMessage = "New user created"
+                            self.showToast = true
+                            self.presentation.wrappedValue.dismiss()
+                        } else {
+                            self.toastMessage = "Error creating user"
+                            self.showToast = true
+                        }
+                    }
+                    
+                }
+                .padding(8)
+            
+        }
+        .toast(isPresenting: $showToast) {
+            AlertToast(type: .regular, title: toastMessage)
+        }
+        .padding(12)
         .navigationBarTitle("Add New Member")
     }
     

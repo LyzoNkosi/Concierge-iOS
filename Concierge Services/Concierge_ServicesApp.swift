@@ -24,7 +24,14 @@ struct Concierge_ServicesApp: App {
             let _firestoreManager = FirestoreManager()
             
             DispatchQueue.main.async(execute:  {
-                _firestoreManager.getAgentClients()
+                _firestoreManager.getAgentClients() { clientsSynced in
+                    if(clientsSynced) {
+                        print("Clients synced")
+                    } else {
+                        print("Clients sync error")
+                    }
+                }
+                
                 _firestoreManager.getTickets()
                 _firestoreManager.getMyChatMessages()
             })

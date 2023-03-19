@@ -11,14 +11,19 @@ struct TabbarView: View {
             TabView(selection: $tabSelection) {
                 
                 ScrollView {
+                    
                     VStack {
                         EmptyBoxImage()
                         
-                        ChatButtonContent()
-                            .onTapGesture {
-                                tabSelection = .chatTab
-                            }
+                        
                     }
+                }
+                .safeAreaInset(edge: .bottom) {
+                    ChatButtonContent()
+                        .onTapGesture {
+                            tabSelection = .chatTab
+                        }
+                        .padding(8)
                 }
                 .tabItem {
                     Image(systemName: "house")

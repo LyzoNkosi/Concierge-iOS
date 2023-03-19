@@ -52,6 +52,7 @@
 		F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */; };
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
+		F4C7EE5929C721C7003B517F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7EE5829C721C7003B517F /* Utils.swift */; };
 		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
 		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
 		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		F4C7EE5829C721C7003B517F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			children = (
 				04B21D1929B733EE00829AD7 /* ChatHelper.swift */,
 				04B21D1A29B733EE00829AD7 /* KeyboardResponder.swift */,
+				F4C7EE5829C721C7003B517F /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
+				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
 				04B21D2329B733EE00829AD7 /* ViewExtension.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
