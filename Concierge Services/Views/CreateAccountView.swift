@@ -3,7 +3,7 @@ import AlertToast
 
 struct CreateAccountView: View {
     
-    @Environment(\.presentationMode) var presentation
+    @Environment(\.presentationMode) var createAccountPresentation
     
     @State private var showToast = false
     @State private var toastMessage = ""
@@ -78,7 +78,7 @@ struct CreateAccountView: View {
                         if(newAuthUserCreated) {
                             self.toastMessage = "New user created"
                             self.showToast = true
-                            self.presentation.wrappedValue.dismiss()
+                            self.createAccountPresentation.wrappedValue.dismiss()
                         } else {
                             self.toastMessage = "Error creating user"
                             self.showToast = true

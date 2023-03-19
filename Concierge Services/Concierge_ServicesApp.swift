@@ -73,7 +73,7 @@ struct ApplicationSwitcher: View {
     
     var body: some View {
         if (loginViewModel.isLoggedIn) {
-            TabbarView().environmentObject(firestoreManager)
+            TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel)
         } else {
             LoginView().environmentObject(firestoreManager).environmentObject(loginViewModel)
         }

@@ -6,6 +6,8 @@ struct SettingsView: View {
     
     @EnvironmentObject var firestoreManager: FirestoreManager
     
+    @Environment(\.presentationMode) var settingsPresentation
+    
     var body: some View {
         VStack {
             List {
@@ -69,7 +71,7 @@ struct SettingsView: View {
                 }.onTapGesture {
                     Task {
                         await loginViewModel.signOut()
-                        
+                        self.settingsPresentation.wrappedValue.dismiss()
                     }
                 }
                 //.navigationTitle("Settings")
