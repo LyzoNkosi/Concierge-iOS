@@ -11,27 +11,28 @@ struct CreateAccountView: View {
     
     var body: some View {
         
-        NavigationStack {
+        NavigationView {
             
             VStack {
                 
-                CreateAccountLabelText()
-                
-                FirstNameInput()
-                LastNameInput()
-                EmailInput()
-                PasswordInput()
+                ScrollView {
+                    
+                    CreateAccountLabelText()
+                    
+                    FirstNameInput()
+                    LastNameInput()
+                    EmailInput()
+                    PasswordInput()
+                    
+                }
                 
             }
             .padding()
-            
-            Spacer()
-            
-            .safeAreaInset(edge: .bottom) {
-                CreateAccountButtonContent()
-            } .padding(12)
         }
-        .navigationTitle("Add New Member")
+        .safeAreaInset(edge: .bottom) {
+            CreateAccountButtonContent()
+        } .padding(12)
+        .navigationBarTitle("Add New Member")
     }
     
     fileprivate func FirstNameInput() -> some View {
@@ -81,14 +82,14 @@ struct CreateAccountLabelText : View {
 }
 
 struct CreateAccountButtonContent : View {
-        var body: some View {
-            return Text("Create Account")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(width: 220, height: 60)
-                .background(primaryBlack)
-                .cornerRadius(15.0)
+    var body: some View {
+        return Text("Create Account")
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 220, height: 60)
+            .background(primaryBlack)
+            .cornerRadius(15.0)
     }
 }
 

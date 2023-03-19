@@ -10,16 +10,25 @@ struct TabbarView: View {
         NavigationView {
             TabView(selection: $tabSelection) {
                 
-                    DashboardView().environmentObject(firestoreManager)
-                
+                ScrollView {
+                    VStack {
+                        EmptyBoxImage()
+                        
+                        ChatButtonContent()
+                            .onTapGesture {
+                                tabSelection = .chatTab
+                            }
+                    }
+                }
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
                 .tag(Tabs.homeTab)
                 
-                
-                        TimelineView().environmentObject(firestoreManager)
+                VStack {
+                    TimelineView().environmentObject(firestoreManager)
+                }
                 
                 .tabItem {
                     Image(systemName: "calendar.day.timeline.left")
@@ -36,7 +45,7 @@ struct TabbarView: View {
                 }
                 .tag(Tabs.chatTab)
                 
-                VStack {
+                ScrollView {
                     BalanceView().environmentObject(firestoreManager)
                 }
                 .tabItem {
@@ -45,15 +54,15 @@ struct TabbarView: View {
                 }
                 .tag(Tabs.balanceTab)
                 
-                    SettingsView().environmentObject(firestoreManager)
+                SettingsView().environmentObject(firestoreManager)
                 
-                .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("Settings")
-                }
-                .tag(Tabs.settingsTab)
+                    .tabItem {
+                        Image(systemName: "gearshape")
+                        Text("Settings")
+                    }
+                    .tag(Tabs.settingsTab)
             }
-            //.navigationTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
+            .navigationTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
         }
     }
     
@@ -71,6 +80,37 @@ struct TabbarView: View {
         }
     }
 }
+
+/*
+ Start Dashboard Content
+ */
+struct EmptyBoxImage : View {
+    
+    var body: some View {
+        return Image("empty_box")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 196, height: 196)
+            .clipped()
+            .padding(.bottom, 75)
+    }
+}
+
+struct ChatButtonContent : View {
+    var body: some View {
+        return Text("Chat with Agent")
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 220, height: 60)
+            .background(primaryBlack)
+            .cornerRadius(15.0)
+    }
+}
+
+/*
+ End Dashboard Content
+ */
 
 struct TabbarView_Previews: PreviewProvider {
     static var previews: some View {

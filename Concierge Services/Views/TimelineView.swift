@@ -10,10 +10,9 @@ struct TimelineView: View {
     @StateObject var ticketsViewModel: TimelineViewModel = TimelineViewModel()
     
     var body: some View {
-        let tasks = ticketsViewModel.getTickets(firestoreManager: firestoreManager)
         
         VStack {
-            List(tasks) { task in
+            List(ticketsViewModel.tickets) { task in
                 NavigationLink(
                     destination: TaskDetailView(selectedTask: task)
                 ) {
@@ -61,6 +60,9 @@ struct TimelineView: View {
                     }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
             }
+        }
+        .onAppear {
+            ticketsViewModel.getTickets(firestoreManager: firestoreManager)
         }
     }
 }

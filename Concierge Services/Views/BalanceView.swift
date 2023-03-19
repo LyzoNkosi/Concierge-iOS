@@ -1,6 +1,10 @@
 import SwiftUI
+import AlertToast
 
 struct BalanceView: View {
+    
+    @State private var showToast = false
+    @State private var toastMessage = ""
     
     var body: some View {
         VStack {
@@ -67,9 +71,18 @@ struct BalanceView: View {
             Spacer()
             
                 .safeAreaInset(edge: .bottom) {
+                    
                     PayButtonContent()
+                        .onTapGesture {
+                            self.toastMessage = "This feature is coming soon"
+                            self.showToast = true
+                        }
+                    
                 } .padding(12)
             
+        }
+        .toast(isPresenting: $showToast) {
+            AlertToast(type: .regular, title: toastMessage)
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .navigationTitle("Balance")

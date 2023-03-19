@@ -11,6 +11,7 @@ struct ChatView: View {
     @ObservedObject private var keyboard = KeyboardResponder()
     
     @State private var showToast = false
+    @State private var toastMessage = ""
     
     init() {
         UITableView.appearance().separatorStyle = .none
@@ -40,9 +41,7 @@ struct ChatView: View {
             self.endEditing(true)
         }
         .toast(isPresenting: $showToast){
-            
-            AlertToast(type: .regular, title: "Please type in a message")
-            
+            AlertToast(type: .regular, title: toastMessage)
         }
     }
     
@@ -61,7 +60,8 @@ struct ChatView: View {
                 
             }
         } else {
-            
+            self.toastMessage = "Please type in a message"
+            self.showToast = true
         }
     }
 }

@@ -5,7 +5,9 @@ struct AdminTasksView: View {
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     var body: some View {
-        NavigationView {
+        
+        VStack {
+            
             List {
                 // 1
                 NavigationLink(destination: CreateAccountView().environmentObject(firestoreManager)){
@@ -29,9 +31,9 @@ struct AdminTasksView: View {
                     }
                 }
             }
-            .navigationTitle("Admin")
-            .environment(\.defaultMinListRowHeight, 50)
         }
+        .navigationBarTitle("Admin")
+        .environment(\.defaultMinListRowHeight, 50)
     }
 }
 
