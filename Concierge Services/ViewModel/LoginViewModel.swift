@@ -22,31 +22,9 @@ class LoginViewModel: ObservableObject{
     
     var firestoreManager: FirestoreManager? = nil
     
-    // private var handler = Auth.auth().addStateDidChangeListener {_,_ in }
-    
     var currentAuthUser: AuthUser {
         return _currentAuthUser ?? AuthUser(uid: "", email: "")
     }
-    
-    /*init() {
-     handler = Auth.auth().addStateDidChangeListener { auth, authUser in
-     if let authUser = authUser {
-     self._currentAuthUser = AuthUser(uid: authUser.uid, email: authUser.email!)
-     self.isLoggedIn = true
-     
-     self.defaults.set(authUser.uid, forKey: "firebase_uid")
-     self.defaults.set(authUser.email, forKey: "user_email")
-     self.defaults.set(true, forKey: "user_logged_in")
-     self.defaults.synchronize()
-     
-     self.firestoreManager?.fetchUserDetails(userID: authUser.uid)
-     
-     } else {
-     self._currentAuthUser = nil
-     self.isLoggedIn = false
-     }
-     }
-     }*/
     
     init() {
         if(isUserLoggedIn()) {
@@ -69,7 +47,15 @@ class LoginViewModel: ObservableObject{
                     // you're sending the SHA256-hashed nonce as a hex string with
                     // your request to Apple.
                     print(error?.localizedDescription as Any)
+                    self.errorMessage = error?.localizedDescription as? String ?? "Error logging in, please try again"
                     self.hasError = true
+                    return
+                }
+                
+                if(authResult?.user == nil) {
+                    self.errorMessage = error?.localizedDescription as? String ?? "Error logging in, please try again"
+                    self.hasError = true
+                    return
                 }
                 
                 let authUser = authResult?.user
@@ -84,7 +70,6 @@ class LoginViewModel: ObservableObject{
                 
                 self.firestoreManager?.fetchUserDetails(userID: authUser!.uid)
                 
-                //DispatchQueue.main.sync(execute:  {
                 firestoreManager.getAgentClients() { clientsSynced in
                     if(clientsSynced) {
                         print("Clients synced")

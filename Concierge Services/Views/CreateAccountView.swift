@@ -110,7 +110,8 @@ struct CreateAccountView: View {
             
         }
         .toast(isPresenting: $showToast) {
-            AlertToast(type: .regular, title: toastMessage)
+            AlertToast(type: .regular, title: toastMessage,
+                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
         .padding(12)
         .navigationBarTitle("Add New Member")
@@ -119,7 +120,7 @@ struct CreateAccountView: View {
     fileprivate func FirstNameInput() -> some View {
         TextField("First Name", text: $firstName)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .disableAutocorrection(true)
             .padding(.bottom, 20)
@@ -128,7 +129,7 @@ struct CreateAccountView: View {
     fileprivate func LastNameInput() -> some View {
         TextField("Last Name", text: $lastName)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .disableAutocorrection(true)
             .padding(.bottom, 20)
@@ -137,7 +138,7 @@ struct CreateAccountView: View {
     fileprivate func EmailInput() -> some View {
         TextField("Email", text: $email)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
             .keyboardType(.emailAddress)
@@ -149,7 +150,7 @@ struct CreateAccountView: View {
     fileprivate func PasswordInput() -> some View {
         SecureField("Password", text: $password)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
     }
@@ -171,7 +172,7 @@ struct CreateAccountButtonContent : View {
             .foregroundColor(.white)
             .padding()
             .frame(width: 220, height: 60)
-            .background(primaryBlack)
+            .background(Color.ColorPrimary)
             .cornerRadius(15.0)
     }
 }

@@ -38,7 +38,7 @@ struct UserProfileView: View {
     fileprivate func UserNameInput() -> some View {
         TextField(GetUserDetails(), text: $userFullName)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .padding()
             .disabled(true)
@@ -47,7 +47,7 @@ struct UserProfileView: View {
     fileprivate func UserEmailInput() -> some View {
         TextField(defaults.value(forKey: "user_email") as! String, text: $email)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .padding()
             .disabled(true)

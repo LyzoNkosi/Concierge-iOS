@@ -261,7 +261,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func sendClientChatMessage(clientId: String, messageText: String, messageSent: @escaping (ChatMessage?) -> ()){
+    func sendClientChatMessage(clientId: String, messageText: String, messageSent: @escaping (ChatMessage?) -> ()) {
         let database = Firestore.firestore()
         
         let now = Date()

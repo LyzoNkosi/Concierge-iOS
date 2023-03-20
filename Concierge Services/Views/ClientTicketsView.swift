@@ -16,7 +16,7 @@ struct ClientTicketsView: View {
                     destination: TaskDetailView(selectedTask: task)
                 ) {
                     HStack(alignment: .top, spacing: 0) {
-                        VStack(alignment: .center, spacing: 0){
+                        VStack(alignment: .center, spacing: 0) {
                             Rectangle()
                                 .frame(width: 1, height: 30, alignment: .center)
                             Circle()
@@ -33,23 +33,26 @@ struct ClientTicketsView: View {
                                 )
                             Rectangle()
                                 .frame(width: 1, height: 40, alignment: .center)
-                                .foregroundColor(primaryBlack)
+                                .foregroundColor(Color.ColorPrimary)
                         }
                         .frame(width: 32, height: 80, alignment: .center)
-                        .foregroundColor(primaryBlack)
-                        
+                        .foregroundColor(Color.ColorPrimary)
                         
                         VStack(alignment: .leading, spacing: 8, content: {
-                            Text(task.name ?? "")
-                                .font(.subheadline)
-                                .multilineTextAlignment(.leading)
-                                .lineLimit(1)
                             Label {
                                 Text(task.startDate!)
-                                    .font(.caption2)
+                                    .font(Font.custom("Poppins-Regular", size: 14))
+                                    .foregroundColor(Color.ColorPrimary)
                             } icon: {
                                 Image(systemName: "calendar.badge.clock")
+                                    .foregroundColor(Color.ColorPrimary)
                             }
+                            
+                            Text(task.name ?? "")
+                                .font(Font.custom("Poppins-Medium", size: 16))
+                                .foregroundColor(Color.ColorPrimary)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(1)
                             
                             HStack {
                                 // Add attachments here
@@ -87,7 +90,7 @@ struct CreateTaskButtonContent : View {
             .foregroundColor(.white)
             .padding()
             .frame(width: 220, height: 60)
-            .background(primaryBlack)
+            .background(Color.ColorPrimary)
             .cornerRadius(15.0)
     }
 }

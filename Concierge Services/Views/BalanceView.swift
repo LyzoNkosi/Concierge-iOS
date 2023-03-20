@@ -61,7 +61,7 @@ struct BalanceView: View {
                     .resizable()
             )
             .overlay(RoundedRectangle(cornerRadius: 12)
-                .stroke(primaryBlack.opacity(0.0), lineWidth: 0.5)
+                .stroke(Color.ColorPrimary.opacity(0.0), lineWidth: 0.5)
             )
             .cornerRadius(6)
             .shadow(radius: 5)
@@ -95,11 +95,11 @@ struct BalanceView_Previews: PreviewProvider {
 struct PayButtonContent : View {
     var body: some View {
         return Text("Make Payment")
-            .font(.headline)
-            .foregroundColor(.white)
+            .font(Font.custom("Poppins-Medium", size: 18))
+            .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 220, height: 60)
-            .background(primaryBlack)
+            .background(Color.ColorPrimary)
             .cornerRadius(15.0)
     }
 }

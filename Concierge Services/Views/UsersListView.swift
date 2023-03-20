@@ -20,34 +20,10 @@ struct UsersListView: View {
             
             switch(selectedView) {
             case "Create Task":
-                /*ForEach(usersViewModel.clients) { client in
-                 HStack {
-                 NavigationLink(destination: CreateTaskView(client).environmentObject(firestoreManager)){
-                 HStack {
-                 Image(systemName: "person")
-                 
-                 let fullName = usersViewModel.clients[index].firstName + " " + usersViewModel.clients[index].lastName
-                 
-                 Text(fullName)
-                 }
-                 }
-                 }.padding(8)
-                 }*/
                 
                 List(usersViewModel.clients) { client in
                     
                     let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
-                    
-                    /*HStack {
-                     NavigationLink(destination: CreateTaskView(selectedClient: client).environmentObject(firestoreManager)){
-                     HStack {
-                     Image(systemName: "person")
-                     
-                     Text(fullName)
-                     }
-                     }
-                     .navigationTitle("Create Task")
-                     }.padding(8)*/
                     
                     HStack {
                         NavigationLink(destination: ClientTicketsView(selectedClient: client).environmentObject(firestoreManager)){
@@ -55,6 +31,8 @@ struct UsersListView: View {
                                 Image(systemName: "person")
                                 
                                 Text(fullName)
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         .navigationTitle("Create Task")
@@ -62,13 +40,13 @@ struct UsersListView: View {
                     
                 }
                 /*.refreshable {
-                    if(!refreshing) {
-                        refreshClients()
-                    } else {
-                        self.toastMessage = "Refresh already in progress"
-                        self.showToast = true
-                    }
-                }*/
+                 if(!refreshing) {
+                 refreshClients()
+                 } else {
+                 self.toastMessage = "Refresh already in progress"
+                 self.showToast = true
+                 }
+                 }*/
                 
             case "Client Chat":
                 List(usersViewModel.clients) { client in
@@ -81,6 +59,8 @@ struct UsersListView: View {
                                 Image(systemName: "person")
                                 
                                 Text(fullName)
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         .navigationTitle("Chat")
@@ -88,13 +68,13 @@ struct UsersListView: View {
                     
                 }
                 /*.refreshable {
-                    if(!refreshing) {
-                        refreshClients()
-                    } else {
-                        self.toastMessage = "Refresh already in progress"
-                        self.showToast = true
-                    }
-                }*/
+                 if(!refreshing) {
+                 refreshClients()
+                 } else {
+                 self.toastMessage = "Refresh already in progress"
+                 self.showToast = true
+                 }
+                 }*/
                 
             default:
                 EmptyView()
@@ -102,7 +82,8 @@ struct UsersListView: View {
             }
         }
         .toast(isPresenting: $showToast) {
-            AlertToast(type: .regular, title: toastMessage)
+            AlertToast(type: .regular, title: toastMessage,
+                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
         .onAppear {
             refreshRealmClients()

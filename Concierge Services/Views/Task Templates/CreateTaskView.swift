@@ -1,9 +1,9 @@
 import SwiftUI
 import ActivityIndicatorView
 import AlertToast
+import Combine
 
 struct CreateTaskView: View {
-    
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @Environment(\.presentationMode) var createTaskPresentation
@@ -13,7 +13,7 @@ struct CreateTaskView: View {
     @State private var showToast = false
     @State private var toastMessage = ""
     
-    @State var selectedClient: Client
+    @State var selectedClient: Client?
     
     @State var ticketName: String = ""
     
@@ -27,9 +27,11 @@ struct CreateTaskView: View {
     var body: some View {
         
         VStack {
+            Color.BackgroundColorList.edgesIgnoringSafeArea(.all)
+            
             ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
                 .frame(width: 64, height: 64)
-                .foregroundColor(primaryBlack)
+                .foregroundColor(Color.ColorPrimary)
             
             CreateTaskLabelText()
             
@@ -56,7 +58,7 @@ struct CreateTaskView: View {
                         
                         let ticket = Ticket(id: "", name: ticketName, startDate: dateString, status: TicketStatus.STATUS_NOT_STARTED.rawValue)
                         
-                        firestoreManager.createTicket(clientId: selectedClient.id!, ticket: ticket) { ticketCreated in
+                        firestoreManager.createTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
                             if(ticketCreated) {
                                 self.showLoadingIndicator = false
                                 self.toastMessage = "Task created"
@@ -82,7 +84,8 @@ struct CreateTaskView: View {
                 }
         }
         .toast(isPresenting: $showToast) {
-            AlertToast(type: .regular, title: toastMessage)
+            AlertToast(type: .regular, title: toastMessage,
+                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
         .padding(12)
         .navigationBarTitle("Create Task")
@@ -91,7 +94,7 @@ struct CreateTaskView: View {
     fileprivate func TaskNameInput() -> some View {
         TextField("Task Name", text: $ticketName)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .disableAutocorrection(true)
             .padding(.bottom, 20)
@@ -101,9 +104,10 @@ struct CreateTaskView: View {
 struct CreateTaskLabelText : View {
     var body: some View {
         return Text("Create Task")
-            .font(.subheadline)
+            .font(Font.custom("Poppins-Regular", size: 20))
             .fontWeight(.semibold)
             .padding(.bottom, 20)
+            .foregroundColor(Color.TextColorSecondary).font(Font.custom("Poppins-Regular", size: 15))
     }
 }
 

@@ -1,10 +1,7 @@
 import SwiftUI
 
 struct TimelineView: View {
-    
-    let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
-    let primaryBlack = Color(red: 31.0/255.0, green: 34.0/255.0, blue: 41.0/255.0, opacity: 1.0)
-    
+
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @StateObject var ticketsViewModel: TimelineViewModel = TimelineViewModel()
@@ -34,22 +31,26 @@ struct TimelineView: View {
                                 )
                             Rectangle()
                                 .frame(width: 1, height: 40, alignment: .center)
-                                .foregroundColor(primaryBlack)
+                                .foregroundColor(Color.ColorPrimary)
                         }
                         .frame(width: 32, height: 80, alignment: .center)
-                        .foregroundColor(primaryBlack)
+                        .foregroundColor(Color.ColorPrimary)
                         
                         VStack(alignment: .leading, spacing: 8, content: {
-                            Text(task.name ?? "")
-                                .font(.subheadline)
-                                .multilineTextAlignment(.leading)
-                                .lineLimit(1)
                             Label {
                                 Text(task.startDate!)
-                                    .font(.caption2)
+                                    .font(Font.custom("Poppins-Regular", size: 14))
+                                    .foregroundColor(Color.ColorPrimary)
                             } icon: {
                                 Image(systemName: "calendar.badge.clock")
+                                    .foregroundColor(Color.ColorPrimary)
                             }
+                            
+                            Text(task.name ?? "")
+                                .font(Font.custom("Poppins-Medium", size: 16))
+                                .foregroundColor(Color.ColorPrimary)
+                                .multilineTextAlignment(.leading)
+                                .lineLimit(1)
                             
                             HStack {
                                 // Add attachments here
