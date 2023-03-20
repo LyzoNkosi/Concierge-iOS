@@ -1,9 +1,9 @@
 import SwiftUI
 import ActivityIndicatorView
 import AlertToast
+import Combine
 
 struct CreateTaskView: View {
-    
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @Environment(\.presentationMode) var createTaskPresentation
@@ -13,7 +13,7 @@ struct CreateTaskView: View {
     @State private var showToast = false
     @State private var toastMessage = ""
     
-    @State var selectedClient: Client
+    @State var selectedClient: Client?
     
     @State var ticketName: String = ""
     
@@ -27,6 +27,8 @@ struct CreateTaskView: View {
     var body: some View {
         
         VStack {
+            Color.BackgroundColorList.edgesIgnoringSafeArea(.all)
+            
             ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
                 .frame(width: 64, height: 64)
                 .foregroundColor(primaryBlack)
@@ -56,7 +58,7 @@ struct CreateTaskView: View {
                         
                         let ticket = Ticket(id: "", name: ticketName, startDate: dateString, status: TicketStatus.STATUS_NOT_STARTED.rawValue)
                         
-                        firestoreManager.createTicket(clientId: selectedClient.id!, ticket: ticket) { ticketCreated in
+                        firestoreManager.createTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
                             if(ticketCreated) {
                                 self.showLoadingIndicator = false
                                 self.toastMessage = "Task created"
@@ -101,9 +103,10 @@ struct CreateTaskView: View {
 struct CreateTaskLabelText : View {
     var body: some View {
         return Text("Create Task")
-            .font(.subheadline)
+            .font(Font.custom("Poppins-Regular", size: 20))
             .fontWeight(.semibold)
             .padding(.bottom, 20)
+            .foregroundColor(Color.TextColorSecondary).font(Font.custom("Poppins-Regular", size: 15))
     }
 }
 

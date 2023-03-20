@@ -1,4 +1,5 @@
 import SwiftUI
+import AlertToast
 
 class UserSettings: ObservableObject {
     @Published var loggedIn : Bool = false
@@ -9,6 +10,8 @@ let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255
 let primaryBlack = Color(red: 31.0/255.0, green: 34.0/255.0, blue: 41.0/255.0, opacity: 1.0)
 
 struct LoginView : View {
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @State private var isDarkModeOn = false
     
     @State var email: String = ""
     //@State var password: String = ""
@@ -21,13 +24,37 @@ struct LoginView : View {
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     
+    @State private var showToast = false
+    @State private var toastMessage = ""
+    
+    func setAppTheme() {
+        //MARK: use saved device theme from toggle
+        isDarkModeOn = UserDefaultsUtils.shared.getDarkMode()
+        //MARK: or use device theme
+        
+        if (colorScheme == .dark)
+        {
+            isDarkModeOn = true
+        }
+        else {
+            isDarkModeOn = false
+        }
+        
+        //changeDarkMode(state: isDarkModeOn)
+    }
+    
+    func changeDarkMode(state: Bool) {
+        (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first!.overrideUserInterfaceStyle = state ? .dark : .light
+        UserDefaultsUtils.shared.setDarkMode(enable: state)
+    }
+    
     var body: some View {
-        VStack {
+        ScrollView {
             if(loginViewModel.isLoggedIn) {
                 //TabbarView().environmentObject(firestoreManager)
             } else {
                 
-                WelcomeText()
+                // WelcomeText()
                 
                 UserImage()
                 
@@ -49,20 +76,49 @@ struct LoginView : View {
                 
                 Button(action: {
                     Task {
+                        if(loginViewModel.email.isEmpty) {
+                            self.toastMessage = "Please enter email address"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(loginViewModel.password.isEmpty) {
+                            self.toastMessage = "Please enter password"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(loginViewModel.email.count < 5 || !loginViewModel.email.contains("@") || !loginViewModel.email.contains(".")) {
+                            self.toastMessage = "Please enter valid email"
+                            self.showToast = true
+                            return
+                        }
+                        
                         await loginViewModel.signIn(firestoreManager: firestoreManager)
                     }
                 }) {
                     LoginButtonContent()
                 }
                 
-                OrText()
+                // OrText()
                 
-                AppleLogo()
+                // AppleLogo()
             }
         }
+        .background(Color.BackgroundColorList)
+        .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(perform: {
+            setAppTheme()
+        })
         .alert("Error", isPresented: $loginViewModel.hasError) {
         } message: {
             Text(loginViewModel.errorMessage)
+                .font(Font.custom("Poppins-Light", size: 12))
+                .foregroundColor(Color.TextColorPrimary)
+        }
+        .toast(isPresenting: $showToast) {
+            AlertToast(type: .regular, title: toastMessage,
+                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
         .padding()
         
@@ -100,18 +156,17 @@ struct LoginView : View {
     
 }
 
-#if DEBUG
 struct LoginView_Previews : PreviewProvider {
     static var previews: some View {
         LoginView()
     }
 }
-#endif
 
 struct WelcomeText : View {
     var body: some View {
-        return Text("Savante")
-            .font(.largeTitle)
+        return Text("African Sun")
+            .font(Font.custom("Poppins-Bold", size: 46))
+            .foregroundColor(Color.ColorPrimary)
             .fontWeight(.semibold)
             .padding(.bottom, 20)
     }
@@ -119,12 +174,11 @@ struct WelcomeText : View {
 
 struct UserImage : View {
     var body: some View {
-        return Image("tuxedo")
+        return Image("AfricanSun")
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: 150, height: 150)
+            .frame(width: 256, height: 256)
             .clipped()
-            .cornerRadius(48)
             .padding(.bottom, 75)
     }
 }
@@ -132,8 +186,8 @@ struct UserImage : View {
 struct ForgotPasswordText : View {
     var body: some View {
         return Text("Forgot Password?")
-            .font(.body)
-            .fontWeight(.semibold)
+            .font(Font.custom("Poppins-Bold", size: 18))
+            .foregroundColor(Color.ColorPrimary)
             .padding(.bottom, 16)
             .frame(maxWidth: .infinity, alignment: .trailing)
     }
@@ -142,8 +196,8 @@ struct ForgotPasswordText : View {
 struct LoginButtonContent : View {
     var body: some View {
         return Text("Login")
-            .font(.headline)
-            .foregroundColor(.white)
+            .font(Font.custom("Poppins-Medium", size: 18))
+            .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 220, height: 60)
             .background(primaryBlack)
@@ -154,8 +208,8 @@ struct LoginButtonContent : View {
 struct OrText : View {
     var body: some View {
         return Text("OR")
-            .font(.body)
-            .fontWeight(.semibold)
+            .font(Font.custom("Poppins-Bold", size: 14))
+            .foregroundColor(Color.ColorPrimary)
             .padding(16)
     }
 }

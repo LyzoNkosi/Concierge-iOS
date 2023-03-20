@@ -49,6 +49,14 @@
 		F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */; };
 		F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */; };
 		F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */; };
+		F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF6529C82A280036C06F /* CreateFlightTaskView.swift */; };
+		F4BBAF6929C832510036C06F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF6829C832510036C06F /* Color.swift */; };
+		F4BBAF6F29C834A70036C06F /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BBAF6B29C834A60036C06F /* Poppins-Bold.ttf */; };
+		F4BBAF7029C834A70036C06F /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BBAF6C29C834A60036C06F /* Poppins-Light.ttf */; };
+		F4BBAF7129C834A70036C06F /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BBAF6D29C834A70036C06F /* Poppins-Medium.ttf */; };
+		F4BBAF7229C834A70036C06F /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BBAF6E29C834A70036C06F /* Poppins-Regular.ttf */; };
+		F4BBAF7429C834D20036C06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7329C834D20036C06F /* Constants.swift */; };
+		F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */; };
 		F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */; };
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
@@ -96,6 +104,15 @@
 		F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsViewModel.swift; sourceTree = "<group>"; };
 		F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		F4BBAF6529C82A280036C06F /* CreateFlightTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlightTaskView.swift; sourceTree = "<group>"; };
+		F4BBAF6829C832510036C06F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		F4BBAF6B29C834A60036C06F /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		F4BBAF6C29C834A60036C06F /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		F4BBAF6D29C834A70036C06F /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		F4BBAF6E29C834A70036C06F /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		F4BBAF7329C834D20036C06F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
+		F4BBAF7729C869F30036C06F /* Concierge-Services-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Concierge-Services-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
 		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		F4C7EE5829C721C7003B517F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -140,6 +157,9 @@
 		0445A0E829B1EEE300DA8D50 /* Concierge Services */ = {
 			isa = PBXGroup;
 			children = (
+				F4BBAF7729C869F30036C06F /* Concierge-Services-Info.plist */,
+				F4BBAF6A29C832AA0036C06F /* Fonts */,
+				F4BBAF6729C8323C0036C06F /* Extensions */,
 				0445A0ED29B1EEE500DA8D50 /* Assets.xcassets */,
 				0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */,
 				04D8687E29C05C4300027E73 /* Database */,
@@ -187,7 +207,6 @@
 				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
-				F48CBF0D29C340F300973290 /* CreateTaskView.swift */,
 				0445A10729B207F200DA8D50 /* DashboardView.swift */,
 				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
@@ -199,6 +218,7 @@
 				04D8687F29C0601900027E73 /* UserProfileView.swift */,
 				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
+				F4BBAF6429C829F30036C06F /* Task Templates */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +240,8 @@
 				04B21D1929B733EE00829AD7 /* ChatHelper.swift */,
 				04B21D1A29B733EE00829AD7 /* KeyboardResponder.swift */,
 				F4C7EE5829C721C7003B517F /* Utils.swift */,
+				F4BBAF7329C834D20036C06F /* Constants.swift */,
+				F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -237,6 +259,34 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4BBAF6429C829F30036C06F /* Task Templates */ = {
+			isa = PBXGroup;
+			children = (
+				F48CBF0D29C340F300973290 /* CreateTaskView.swift */,
+				F4BBAF6529C82A280036C06F /* CreateFlightTaskView.swift */,
+			);
+			path = "Task Templates";
+			sourceTree = "<group>";
+		};
+		F4BBAF6729C8323C0036C06F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F4BBAF6829C832510036C06F /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F4BBAF6A29C832AA0036C06F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F4BBAF6B29C834A60036C06F /* Poppins-Bold.ttf */,
+				F4BBAF6C29C834A60036C06F /* Poppins-Light.ttf */,
+				F4BBAF6D29C834A70036C06F /* Poppins-Medium.ttf */,
+				F4BBAF6E29C834A70036C06F /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,8 +364,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0445A0F129B1EEE500DA8D50 /* Preview Assets.xcassets in Resources */,
+				F4BBAF7029C834A70036C06F /* Poppins-Light.ttf in Resources */,
+				F4BBAF7229C834A70036C06F /* Poppins-Regular.ttf in Resources */,
 				0445A0EE29B1EEE500DA8D50 /* Assets.xcassets in Resources */,
+				F4BBAF7129C834A70036C06F /* Poppins-Medium.ttf in Resources */,
 				04B21D1C29B733EE00829AD7 /* GoogleService-Info.plist in Resources */,
+				F4BBAF6F29C834A70036C06F /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,8 +381,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
+				F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */,
 				F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
+				F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
 				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
 				F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */,
@@ -340,8 +396,10 @@
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
 				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
+				F4BBAF7429C834D20036C06F /* Constants.swift in Sources */,
 				04B21D2329B733EE00829AD7 /* ViewExtension.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
+				F4BBAF6929C832510036C06F /* Color.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
 				F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */,
 				04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */,
@@ -489,23 +547,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Savante;
+				INFOPLIST_FILE = "Concierge-Services-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "African Sun";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -523,23 +583,25 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Savante;
+				INFOPLIST_FILE = "Concierge-Services-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "African Sun";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

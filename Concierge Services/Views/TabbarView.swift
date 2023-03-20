@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct TabbarView: View {
-    
     @State var tabSelection: Tabs = .homeTab
     
     @EnvironmentObject var firestoreManager: FirestoreManager
@@ -33,6 +32,7 @@ struct TabbarView: View {
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
+                        .font(Font.custom("Poppins-Light", size: 10))
                 }
                 .tag(Tabs.homeTab)
                 
@@ -43,6 +43,7 @@ struct TabbarView: View {
                 .tabItem {
                     Image(systemName: "calendar.day.timeline.left")
                     Text("Timeline")
+                        .font(Font.custom("Poppins-Light", size: 10))
                 }
                 .tag(Tabs.timelineTab)
                 
@@ -52,6 +53,7 @@ struct TabbarView: View {
                 .tabItem {
                     Image(systemName: "ellipsis.message")
                     Text("Chat")
+                        .font(Font.custom("Poppins-Light", size: 10))
                 }
                 .tag(Tabs.chatTab)
                 
@@ -61,6 +63,7 @@ struct TabbarView: View {
                 .tabItem {
                     Image(systemName: "creditcard")
                     Text("Balance")
+                        .font(Font.custom("Poppins-Light", size: 10))
                 }
                 .tag(Tabs.balanceTab)
                 
@@ -72,6 +75,8 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "person")
                                 Text("User Details")
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.TextColorPrimary)
                             }
                         }
                         // 2
@@ -79,6 +84,9 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "creditcard")
                                 Text("Payment Methods")
+                                Text("User Details")
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.TextColorPrimary)
                             }
                         }
                         // 3
@@ -86,6 +94,9 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "lock.rotation")
                                 Text("Change Password")
+                                Text("User Details")
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.TextColorPrimary)
                             }
                         }
                         // 4
@@ -93,6 +104,9 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "lock.doc")
                                 Text("Privacy Policy")
+                                Text("User Details")
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.TextColorPrimary)
                             }
                         }
                         // 5
@@ -100,6 +114,9 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "doc.badge.ellipsis")
                                 Text("Terms of Service")
+                                Text("User Details")
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.TextColorPrimary)
                             }
                         }
                         // 6
@@ -107,6 +124,9 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "info.circle")
                                 Text("About")
+                                Text("User Details")
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.TextColorPrimary)
                             }
                         }
                         // Admin
@@ -115,6 +135,9 @@ struct TabbarView: View {
                                 HStack {
                                     Image(systemName: "gearshape")
                                     Text("Admin")
+                                    Text("User Details")
+                                        .font(Font.custom("Poppins-Regular", size: 16))
+                                        .foregroundColor(Color.TextColorPrimary)
                                 }
                             }
                         }
@@ -122,6 +145,9 @@ struct TabbarView: View {
                         HStack {
                             Image(systemName: "pip.exit")
                             Text("Logout")
+                            Text("User Details")
+                                .font(Font.custom("Poppins-Regular", size: 16))
+                                .foregroundColor(Color.TextColorPrimary)
                             Image(systemName: "chevron.right")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }.onTapGesture {
@@ -136,17 +162,19 @@ struct TabbarView: View {
                     }
                 }
                 
-                    .tabItem {
-                        Image(systemName: "gearshape")
-                        Text("Settings")
-                    }
-                    .tag(Tabs.settingsTab)
+                .tabItem {
+                    Image(systemName: "gearshape")
+                    Text("Settings")
+                        .font(Font.custom("Poppins-Light", size: 10))
+                }
+                .tag(Tabs.settingsTab)
             }
             .navigationTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
+            .font(Font.custom("Poppins-Regular", size: 20))
         } else {
             LoginView().environmentObject(loginViewModel).environmentObject(firestoreManager)
         }
-        //}
+        
     }
     
     enum Tabs {

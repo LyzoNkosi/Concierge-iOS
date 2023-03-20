@@ -69,7 +69,15 @@ class LoginViewModel: ObservableObject{
                     // you're sending the SHA256-hashed nonce as a hex string with
                     // your request to Apple.
                     print(error?.localizedDescription as Any)
+                    self.errorMessage = error?.localizedDescription as? String ?? "Error logging in, please try again"
                     self.hasError = true
+                    return
+                }
+                
+                if(authResult?.user == nil) {
+                    self.errorMessage = error?.localizedDescription as? String ?? "Error logging in, please try again"
+                    self.hasError = true
+                    return
                 }
                 
                 let authUser = authResult?.user
