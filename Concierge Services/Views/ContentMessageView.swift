@@ -7,6 +7,7 @@ struct ContentMessageView: View {
     var body: some View {
         Text(contentMessage)
             .padding(10)
+            .font(Font.custom("Poppins-Regular", size: 14))
             .foregroundColor(messageType == MessageType.TYPE_SENT.rawValue ? Color.white : Color.black)
             .background(messageType == MessageType.TYPE_SENT.rawValue  ? Color.blue : Color(UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)))
             .cornerRadius(10)

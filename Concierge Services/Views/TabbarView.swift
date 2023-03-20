@@ -68,6 +68,9 @@ struct TabbarView: View {
                 .tag(Tabs.balanceTab)
                 
                 //SettingsView().environmentObject(firestoreManager)
+                /*
+                 Start Settings Screen
+                 */
                 VStack {
                     List {
                         // 1
@@ -76,7 +79,7 @@ struct TabbarView: View {
                                 Image(systemName: "person")
                                 Text("User Details")
                                     .font(Font.custom("Poppins-Regular", size: 16))
-                                    .foregroundColor(Color.TextColorPrimary)
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         // 2
@@ -84,9 +87,8 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "creditcard")
                                 Text("Payment Methods")
-                                Text("User Details")
                                     .font(Font.custom("Poppins-Regular", size: 16))
-                                    .foregroundColor(Color.TextColorPrimary)
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         // 3
@@ -94,9 +96,8 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "lock.rotation")
                                 Text("Change Password")
-                                Text("User Details")
                                     .font(Font.custom("Poppins-Regular", size: 16))
-                                    .foregroundColor(Color.TextColorPrimary)
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         // 4
@@ -104,9 +105,8 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "lock.doc")
                                 Text("Privacy Policy")
-                                Text("User Details")
                                     .font(Font.custom("Poppins-Regular", size: 16))
-                                    .foregroundColor(Color.TextColorPrimary)
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         // 5
@@ -114,9 +114,8 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "doc.badge.ellipsis")
                                 Text("Terms of Service")
-                                Text("User Details")
                                     .font(Font.custom("Poppins-Regular", size: 16))
-                                    .foregroundColor(Color.TextColorPrimary)
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         // 6
@@ -124,9 +123,8 @@ struct TabbarView: View {
                             HStack {
                                 Image(systemName: "info.circle")
                                 Text("About")
-                                Text("User Details")
                                     .font(Font.custom("Poppins-Regular", size: 16))
-                                    .foregroundColor(Color.TextColorPrimary)
+                                    .foregroundColor(Color.ColorPrimary)
                             }
                         }
                         // Admin
@@ -135,9 +133,8 @@ struct TabbarView: View {
                                 HStack {
                                     Image(systemName: "gearshape")
                                     Text("Admin")
-                                    Text("User Details")
                                         .font(Font.custom("Poppins-Regular", size: 16))
-                                        .foregroundColor(Color.TextColorPrimary)
+                                        .foregroundColor(Color.ColorPrimary)
                                 }
                             }
                         }
@@ -145,9 +142,8 @@ struct TabbarView: View {
                         HStack {
                             Image(systemName: "pip.exit")
                             Text("Logout")
-                            Text("User Details")
                                 .font(Font.custom("Poppins-Regular", size: 16))
-                                .foregroundColor(Color.TextColorPrimary)
+                                .foregroundColor(Color.ColorPrimary)
                             Image(systemName: "chevron.right")
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                         }.onTapGesture {
@@ -162,6 +158,9 @@ struct TabbarView: View {
                     }
                 }
                 
+                /*
+                 End Settings Screen
+                 */
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings")
@@ -210,26 +209,14 @@ struct EmptyBoxImage : View {
 struct ChatButtonContent : View {
     var body: some View {
         return Text("Chat with Agent")
-            .font(.headline)
-            .foregroundColor(.white)
+            .font(Font.custom("Poppins-Medium", size: 18))
+            .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 220, height: 60)
-            .background(primaryBlack)
+            .background(Color.ColorPrimary)
             .cornerRadius(15.0)
     }
 }
-
-/*
- End Dashboard Content
- */
-
-/*
- Start Settings View
- */
-
-/*
- End Settings View
- */
 
 struct TabbarView_Previews: PreviewProvider {
     static var previews: some View {

@@ -14,6 +14,8 @@ struct AdminTasksView: View {
                     HStack {
                         Image(systemName: "person.badge.plus")
                         Text("Create Account")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundColor(Color.ColorPrimary)
                     }
                 }
                 // 2
@@ -21,6 +23,8 @@ struct AdminTasksView: View {
                     HStack {
                         Image(systemName: "note.text.badge.plus")
                         Text("Create Task")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundColor(Color.ColorPrimary)
                     }
                 }
                 // 3
@@ -28,11 +32,14 @@ struct AdminTasksView: View {
                     HStack {
                         Image(systemName: "message.badge")
                         Text("Client Chat")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundColor(Color.ColorPrimary)
                     }
                 }
             }
         }
         .navigationBarTitle("Admin")
+        .font(Font.custom("Poppins-Regular", size: 20))
         .environment(\.defaultMinListRowHeight, 50)
     }
 }

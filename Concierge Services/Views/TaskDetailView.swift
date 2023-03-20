@@ -16,15 +16,17 @@ struct TaskDetailView: View {
                     HStack {
                         Image(systemName: "hourglass.bottomhalf.filled").frame(width: 24, height: 24)
                         Text(selectedTask.name!)
-                            .font(.title2)
+                            .font(Font.custom("Poppins-Medium", size: 16))
+                            .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                     }
                     .padding()
                     
-                    VStack(alignment: .leading, spacing: 8){
+                    VStack(alignment: .leading, spacing: 8) {
                         Label {
                             Text(selectedTask.startDate!)
-                                .font(.subheadline)
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
                         } icon: {
                             Image(systemName: "calendar.badge.clock")
                         }
@@ -55,20 +57,23 @@ struct TaskDetailView: View {
                 } .padding(12)
             }
             .toast(isPresenting: $showToast) {
-                AlertToast(type: .regular, title: toastMessage)
+                AlertToast(type: .regular, title: toastMessage,
+                           style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
             }
-        }.navigationTitle("Task Detials")
+        }
+        .navigationTitle("Task Details")
+        .font(Font.custom("Poppins-Regular", size: 20))
     }
 }
 
 struct EditTaskButtonContent : View {
     var body: some View {
         return Text("Modify")
-            .font(.headline)
-            .foregroundColor(.white)
+            .font(Font.custom("Poppins-Medium", size: 18))
+            .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 160, height: 60)
-            .background(primaryBlack)
+            .background(Color.ColorPrimary)
             .cornerRadius(15.0)
     }
 }
@@ -76,11 +81,11 @@ struct EditTaskButtonContent : View {
 struct CancelTaskButtonContent : View {
     var body: some View {
         return Text("Cancel")
-            .font(.headline)
-            .foregroundColor(.white)
+            .font(Font.custom("Poppins-Medium", size: 18))
+            .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 160, height: 60)
-            .background(primaryBlack)
+            .background(Color.ColorPrimary)
             .cornerRadius(15.0)
     }
 }

@@ -6,8 +6,6 @@ class UserSettings: ObservableObject {
     @Published var navigateNowToLogIn: Bool = false
     @Published var navigateNowToSignup: Bool = false
 }
-let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
-let primaryBlack = Color(red: 31.0/255.0, green: 34.0/255.0, blue: 41.0/255.0, opacity: 1.0)
 
 struct LoginView : View {
     @Environment(\.colorScheme) private var colorScheme: ColorScheme
@@ -66,7 +64,7 @@ struct LoginView : View {
                 }).alert("Forgot Password?", isPresented: $showingForgotPasswordAlert, actions: {
                     // Any view other than Button would be ignored
                     TextField("TextField", text: $email)
-                        .background(lightGreyColor)
+                        .background(Color.LightGreyColor)
                 }, message: {
                     // Any view other than Text would be ignored
                     TextField("Forgot Password", text: .constant("Enter your email"))
@@ -127,7 +125,7 @@ struct LoginView : View {
     fileprivate func EmailInput() -> some View {
         TextField("Email", text: $loginViewModel.email)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
             .keyboardType(.emailAddress)
@@ -139,7 +137,7 @@ struct LoginView : View {
     fileprivate func PasswordInput() -> some View {
         SecureField("Password", text: $loginViewModel.password)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
     }
@@ -200,7 +198,7 @@ struct LoginButtonContent : View {
             .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 220, height: 60)
-            .background(primaryBlack)
+            .background(Color.ColorPrimary)
             .cornerRadius(15.0)
     }
 }

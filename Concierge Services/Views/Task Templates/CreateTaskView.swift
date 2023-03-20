@@ -31,7 +31,7 @@ struct CreateTaskView: View {
             
             ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
                 .frame(width: 64, height: 64)
-                .foregroundColor(primaryBlack)
+                .foregroundColor(Color.ColorPrimary)
             
             CreateTaskLabelText()
             
@@ -84,7 +84,8 @@ struct CreateTaskView: View {
                 }
         }
         .toast(isPresenting: $showToast) {
-            AlertToast(type: .regular, title: toastMessage)
+            AlertToast(type: .regular, title: toastMessage,
+                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
         .padding(12)
         .navigationBarTitle("Create Task")
@@ -93,7 +94,7 @@ struct CreateTaskView: View {
     fileprivate func TaskNameInput() -> some View {
         TextField("Task Name", text: $ticketName)
             .padding()
-            .background(lightGreyColor)
+            .background(Color.LightGreyColor)
             .cornerRadius(5.0)
             .disableAutocorrection(true)
             .padding(.bottom, 20)

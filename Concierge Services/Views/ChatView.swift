@@ -29,6 +29,7 @@ struct ChatView: View {
                     .frame(minHeight: CGFloat(30))
                 Button(action: sendMessage) {
                     Text("Send")
+                        .font(Font.custom("Poppins-Regular", size: 16))
                 }
             }.frame(minHeight: CGFloat(50)).padding()
         }//.navigationBarTitle(Text("Chat"), displayMode: .inline)
@@ -40,13 +41,14 @@ struct ChatView: View {
         .onTapGesture {
             self.endEditing(true)
         }
-        .toast(isPresenting: $showToast){
-            AlertToast(type: .regular, title: toastMessage)
+        .toast(isPresenting: $showToast) {
+            AlertToast(type: .regular, title: toastMessage,
+                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
     }
     
     func sendMessage() {
-        if(!typingMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+        if(!typingMessage.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
             //chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
             let messageToSend = typingMessage.trimmingCharacters(in: .whitespacesAndNewlines)
             typingMessage = ""
