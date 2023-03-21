@@ -27,23 +27,20 @@ struct CreateTaskView: View {
     var body: some View {
         
         VStack {
-            Color.BackgroundColorList.edgesIgnoringSafeArea(.all)
             
             ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
                 .frame(width: 64, height: 64)
                 .foregroundColor(Color.ColorPrimary)
             
-            CreateTaskLabelText()
+            TaskNameInput()
             
-            ScrollView {
-                
-                TaskNameInput()
-                
-                DatePicker("Start Date", selection: $date, in: dateClosedRange)
-                    .padding()
-            }
+            DatePicker("Start Date", selection: $date, in: dateClosedRange)
+                .padding()
+            
+            Spacer()
             
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .safeAreaInset(edge: .bottom) {
             
             CreateTaskButtonContent()
@@ -87,7 +84,7 @@ struct CreateTaskView: View {
             AlertToast(type: .regular, title: toastMessage,
                        style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
-        .padding(12)
+        .padding()
         .navigationBarTitle("Create Task")
     }
     

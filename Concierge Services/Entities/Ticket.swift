@@ -19,7 +19,7 @@ class Ticket: Object, Identifiable {
     }
 }
 
-enum TicketStatus: Int{
+enum TicketStatus: Int {
     case STATUS_NOT_STARTED = 0
     case STATUS_IN_PROGRESS = 1
     case STATUS_COMPLETE = 2

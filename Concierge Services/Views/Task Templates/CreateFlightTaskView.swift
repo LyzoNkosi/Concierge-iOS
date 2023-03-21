@@ -16,8 +16,13 @@ struct CreateFlightTaskView: View {
     @State var selectedClient: Client?
     
     @State var ticketName: String = ""
+    @State var destination: String = ""
+    @State var airport: String = ""
+    @State var returnAirport: String = ""
+    @State var bookReturn: Bool = false
     
-    @State private var date = Date()
+    @State private var departureDate = Date()
+    @State private var returnDate = Date()
     var dateClosedRange: ClosedRange<Date> {
         let min = Calendar.current.date(byAdding: .day, value: -0, to: Date())!
         let max = Calendar.current.date(byAdding: .day, value: 365, to: Date())!
@@ -27,23 +32,39 @@ struct CreateFlightTaskView: View {
     var body: some View {
         
         VStack {
-            Color.BackgroundColorList.edgesIgnoringSafeArea(.all)
             
             ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
                 .frame(width: 64, height: 64)
                 .foregroundColor(Color.ColorPrimary)
             
-            CreateTaskLabelText()
-            
             ScrollView {
                 
                 TaskNameInput()
                 
-                DatePicker("Start Date", selection: $date, in: dateClosedRange)
+                DatePicker("Departure Date", selection: $departureDate, in: dateClosedRange)
                     .padding()
+                
+                Toggle("Book Return", isOn: $bookReturn)
+                
+                if(bookReturn) {
+                    DatePicker("Return Date", selection: $returnDate, in: dateClosedRange)
+                        .padding()
+                }
+                
+                DestinationInput()
+                
+                AirportInput()
+                
+                if(bookReturn) {
+                    ReturnAirportInput()
+                }
+                
             }
             
+            Spacer()
+            
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
         .safeAreaInset(edge: .bottom) {
             
             CreateTaskButtonContent()
@@ -54,9 +75,10 @@ struct CreateFlightTaskView: View {
                         let formatter = DateFormatter()
                         formatter.timeZone = TimeZone.current
                         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-                        let dateString = formatter.string(from: self.date)
+                        let departureDateString = formatter.string(from: self.departureDate)
+                        let returnDateString = formatter.string(from: self.returnDate)
                         
-                        let ticket = Ticket(id: "", name: ticketName, startDate: dateString, status: TicketStatus.STATUS_NOT_STARTED.rawValue)
+                        let ticket = Ticket(id: "", name: ticketName, startDate: departureDateString, status: TicketStatus.STATUS_NOT_STARTED.rawValue)
                         
                         firestoreManager.createTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
                             if(ticketCreated) {
@@ -87,12 +109,39 @@ struct CreateFlightTaskView: View {
             AlertToast(type: .regular, title: toastMessage,
                        style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
-        .padding(12)
+        .padding()
         .navigationBarTitle("Create Flight Task")
     }
     
     fileprivate func TaskNameInput() -> some View {
         TextField("Task Name", text: $ticketName)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func DestinationInput() -> some View {
+        TextField("Destination", text: $destination)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func AirportInput() -> some View {
+        TextField("Departure Airport", text: $airport)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func ReturnAirportInput() -> some View {
+        TextField("Return Airport", text: $returnAirport)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
