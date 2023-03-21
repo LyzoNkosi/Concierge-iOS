@@ -1,33 +1,101 @@
 import SwiftUI
+import AlertToast
 
 struct TabbarView: View {
     @State var tabSelection: Tabs = .homeTab
     
     @EnvironmentObject var firestoreManager: FirestoreManager
     
+    @ObservedObject var dashboardViewModel: DashboardViewModel = DashboardViewModel()
+    
     @EnvironmentObject var loginViewModel: LoginViewModel
     
     @Environment(\.presentationMode) var settingsPresentation
     
+    @State private var showToast = false
+    @State private var toastMessage = ""
+    
     var body: some View {
-        //NavigationView {
+        
+        let columns = [
+            GridItem(.flexible()),
+            GridItem(.flexible()),
+        ]
+        
         if(loginViewModel.isLoggedIn) {
             TabView(selection: $tabSelection) {
                 
                 ScrollView {
                     
                     VStack {
-                        EmptyBoxImage()
                         
-                        
-                    }
-                    .safeAreaInset(edge: .bottom) {
-                        ChatButtonContent()
-                            .onTapGesture {
-                                tabSelection = .chatTab
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            
+                            // 1
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 170, height: 170)
+                                    .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                                    .cornerRadius(30)
+                                
+                                VStack() {
+                                    Text("You have")
+                                        .font(Font.custom("Poppins-Light", size: 20))
+                                        .padding(2)
+                                        .foregroundColor(Color.TextColorPrimary)
+                                    
+                                    Text(String(dashboardViewModel.numberOfPendingTasks))
+                                        .padding(2)
+                                        .font(Font.custom("Poppins-Medium", size: 24))
+                                        .foregroundColor(Color.TextColorPrimary)
+                                    
+                                    Text("upcoming tasks")
+                                        .padding(2)
+                                        .font(Font.custom("Poppins-Light", size: 16))
+                                        .foregroundColor(Color.TextColorPrimary)
+                                }
                             }
-                            .padding(8)
+                            
+                            // 2
+                            ZStack {
+                                Rectangle()
+                                    .frame(width: 170, height: 170)
+                                    .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                                    .cornerRadius(30)
+                                
+                                VStack() {
+                                    Text("Your balance")
+                                        .font(Font.custom("Poppins-Light", size: 20))
+                                        .padding(2)
+                                        .foregroundColor(Color.TextColorPrimary)
+                                    
+                                    Text("R123.45")
+                                        .padding(2)
+                                        .font(Font.custom("Poppins-Medium", size: 24))
+                                        .foregroundColor(Color.TextColorPrimary)
+                                    
+                                    let calendar = Calendar.current
+                                    let date1 = calendar.startOfDay(for: Date.now)
+                                    let date2 = calendar.startOfDay(for: Date().getThisMonthEnd() ?? Date.now)
+                                    let components = calendar.dateComponents([.day], from: date1, to: date2)
+                                    
+                                    Text("due in " + String(components.day ?? 0) + " days")
+                                        .padding(2)
+                                        .font(Font.custom("Poppins-Light", size: 16))
+                                        .foregroundColor(Color.TextColorPrimary)
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
                     }
+                    .cornerRadius(12)
+                    
+                }
+                .safeAreaInset(edge: .bottom) {
+                    
+                    ChatButtonContent()
+                        .padding(8)
+                    
                 }
                 .tabItem {
                     Image(systemName: "house")
@@ -60,6 +128,16 @@ struct TabbarView: View {
                 ScrollView {
                     BalanceView().environmentObject(firestoreManager)
                 }
+                .safeAreaInset(edge: .bottom) {
+                    
+                    PayButtonContent()
+                        .onTapGesture {
+                            self.toastMessage = "This feature is coming soon"
+                            self.showToast = true
+                        }
+                        .padding(8)
+                    
+                }
                 .tabItem {
                     Image(systemName: "creditcard")
                     Text("Balance")
@@ -83,7 +161,7 @@ struct TabbarView: View {
                             }
                         }
                         // 2
-                        NavigationLink(destination: PlaceholderView()){
+                        NavigationLink(destination: PlaceholderView()) {
                             HStack {
                                 Image(systemName: "creditcard")
                                 Text("Payment Methods")
@@ -92,7 +170,7 @@ struct TabbarView: View {
                             }
                         }
                         // 3
-                        NavigationLink(destination: PlaceholderView()){
+                        NavigationLink(destination: PlaceholderView()) {
                             HStack {
                                 Image(systemName: "lock.rotation")
                                 Text("Change Password")
@@ -101,7 +179,7 @@ struct TabbarView: View {
                             }
                         }
                         // 4
-                        NavigationLink(destination: PlaceholderView()){
+                        NavigationLink(destination: PlaceholderView()) {
                             HStack {
                                 Image(systemName: "lock.doc")
                                 Text("Privacy Policy")
@@ -110,7 +188,7 @@ struct TabbarView: View {
                             }
                         }
                         // 5
-                        NavigationLink(destination: PlaceholderView()){
+                        NavigationLink(destination: PlaceholderView()) {
                             HStack {
                                 Image(systemName: "doc.badge.ellipsis")
                                 Text("Terms of Service")
@@ -119,7 +197,7 @@ struct TabbarView: View {
                             }
                         }
                         // 6
-                        NavigationLink(destination: PlaceholderView()){
+                        NavigationLink(destination: PlaceholderView()) {
                             HStack {
                                 Image(systemName: "info.circle")
                                 Text("About")
@@ -128,7 +206,7 @@ struct TabbarView: View {
                             }
                         }
                         // Admin
-                        if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ){
+                        if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
                             NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)){
                                 HStack {
                                     Image(systemName: "gearshape")
@@ -152,7 +230,6 @@ struct TabbarView: View {
                                 self.settingsPresentation.wrappedValue.dismiss()
                             }
                         }
-                        //.navigationTitle("Settings")
                         .navigationBarTitle("Settings")
                         .environment(\.defaultMinListRowHeight, 50)
                     }
@@ -168,12 +245,18 @@ struct TabbarView: View {
                 }
                 .tag(Tabs.settingsTab)
             }
+            .onAppear {
+                dashboardViewModel.getNumberOfTickets(firestoreManager: firestoreManager)
+            }
+            .toast(isPresenting: $showToast) {
+                AlertToast(type: .regular, title: toastMessage,
+                           style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
+            }
             .navigationTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
             .font(Font.custom("Poppins-Regular", size: 20))
         } else {
             LoginView().environmentObject(loginViewModel).environmentObject(firestoreManager)
         }
-        
     }
     
     enum Tabs {

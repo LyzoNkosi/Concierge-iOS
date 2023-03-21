@@ -24,4 +24,5 @@ enum TicketStatus: Int{
     case STATUS_IN_PROGRESS = 1
     case STATUS_COMPLETE = 2
     case STATUS_RECURRING = 3
+    case STATUS_CANCELLED = 4
 }
