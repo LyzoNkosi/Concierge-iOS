@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class FlightTiket : Ticket {
+class FlightTicket : Ticket {
     @Persisted var bookReturn: Int = 0
     @Persisted var departureAirport: String? = ""
     @Persisted var returnAirport: String? = ""

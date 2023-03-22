@@ -30,10 +30,8 @@ struct TabbarView: View {
                     
                     VStack {
                         
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            
-                            if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
-                                
+                        if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
+                            LazyVGrid(columns: columns, spacing: 20) {
                                 // 1
                                 ZStack {
                                     Rectangle()
@@ -83,9 +81,12 @@ struct TabbarView: View {
                                             .foregroundColor(Color.TextColorPrimary)
                                     }
                                 }
-                                
-                                // Not admin
-                            } else {
+                            }
+                            .padding(.horizontal)
+                            
+                            // Not admin
+                        } else {
+                            LazyVGrid(columns: columns, spacing: 20) {
                                 // 1
                                 ZStack {
                                     Rectangle()
@@ -141,9 +142,8 @@ struct TabbarView: View {
                                     }
                                 }
                             }
-                            
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
                     }
                     .cornerRadius(12)
                     

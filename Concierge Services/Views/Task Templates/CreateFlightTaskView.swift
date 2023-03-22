@@ -114,7 +114,7 @@ struct CreateFlightTaskView: View {
                         let departureDateString = formatter.string(from: self.departureDate)
                         let returnDateString = formatter.string(from: self.returnDate)
                         
-                        let ticket = FlightTiket(id: "",
+                        let ticket = FlightTicket(id: "",
                                                  name: ticketName,
                                                  startDate: departureDateString,
                                                  status: TicketStatus.STATUS_NOT_STARTED.rawValue,

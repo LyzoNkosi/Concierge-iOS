@@ -72,12 +72,24 @@ struct ApplicationSwitcher: View {
     @EnvironmentObject var loginViewModel: LoginViewModel
     
     var body: some View {
+        
         if (loginViewModel.isLoggedIn) {
+            /*if(isUserAdmin()) {
+                
+            } */
+            
             TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel)
         } else {
             LoginView().environmentObject(firestoreManager).environmentObject(loginViewModel)
         }
         
+    }
+    
+    private func isUserAdmin() -> Bool {
+        if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
+            return true
+        }
+        return false
     }
 }
 

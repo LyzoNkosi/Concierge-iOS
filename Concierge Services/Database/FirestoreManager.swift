@@ -107,7 +107,7 @@ class FirestoreManager: ObservableObject{
     func getTickets() {
         let database = Firestore.firestore()
         
-        do{
+        do {
             let realm = try Realm()
             let objectsToDelete = realm.objects(Ticket.self)
             
@@ -123,7 +123,7 @@ class FirestoreManager: ObservableObject{
                     if let error = error {
                         print("Error getting documents: \(error)")
                     } else {
-                        let flightTicket = FlightTiket(id: flightDocument.documentID,
+                        let flightTicket = FlightTicket(id: flightDocument.documentID,
                                                        name: flightDocument["ticket_name"] as? String ?? "",
                                                        startDate: flightDocument["depart_date"] as? String ?? "",
                                                        status: flightDocument["ticket_status"] as! Int,
@@ -225,7 +225,7 @@ class FirestoreManager: ObservableObject{
                 if let error = error {
                     print("Error getting documents: \(error)")
                 } else {
-                    let flightTicket = FlightTiket(id: flightDocument.documentID,
+                    let flightTicket = FlightTicket(id: flightDocument.documentID,
                                                    name: flightDocument["ticket_name"] as? String ?? "",
                                                    startDate: flightDocument["depart_date"] as? String ?? "",
                                                    status: flightDocument["ticket_status"] as! Int,
@@ -288,7 +288,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func createFlightTicket(clientId: String, ticket: FlightTiket, ticketCreated: @escaping (Bool) -> ()) {
+    func createFlightTicket(clientId: String, ticket: FlightTicket, ticketCreated: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
         let data: [String: Any] = ["ticket_name" : ticket.name!,
