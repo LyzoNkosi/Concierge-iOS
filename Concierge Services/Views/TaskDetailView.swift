@@ -73,7 +73,7 @@ struct EditTaskButtonContent : View {
             .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 160, height: 60)
-            .background(Color.ColorPrimary)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
     }
 }
@@ -85,7 +85,7 @@ struct CancelTaskButtonContent : View {
             .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 160, height: 60)
-            .background(Color.ColorPrimary)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
     }
 }

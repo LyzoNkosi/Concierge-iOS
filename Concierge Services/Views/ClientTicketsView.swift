@@ -90,7 +90,7 @@ struct CreateTaskButtonContent : View {
             .foregroundColor(.white)
             .padding()
             .frame(width: 220, height: 60)
-            .background(Color.ColorPrimary)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
     }
 }

@@ -7,6 +7,7 @@ struct TabbarView: View {
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @ObservedObject var dashboardViewModel: DashboardViewModel = DashboardViewModel()
+    @ObservedObject var adminDashboardViewModel: AdminDashboardViewModel = AdminDashboardViewModel()
     
     @EnvironmentObject var loginViewModel: LoginViewModel
     
@@ -31,60 +32,116 @@ struct TabbarView: View {
                         
                         LazyVGrid(columns: columns, spacing: 20) {
                             
-                            // 1
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 170, height: 170)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-                                    .cornerRadius(30)
+                            if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
                                 
-                                VStack() {
-                                    Text("You have")
-                                        .font(Font.custom("Poppins-Light", size: 20))
-                                        .padding(2)
-                                        .foregroundColor(Color.TextColorPrimary)
+                                // 1
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 170, height: 170)
+                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                                        .cornerRadius(30)
                                     
-                                    Text(String(dashboardViewModel.numberOfPendingTasks))
-                                        .padding(2)
-                                        .font(Font.custom("Poppins-Medium", size: 24))
-                                        .foregroundColor(Color.TextColorPrimary)
+                                    VStack() {
+                                        Text("You have")
+                                            .font(Font.custom("Poppins-Light", size: 20))
+                                            .padding(2)
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        Text(String(adminDashboardViewModel.numberOfClients))
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Medium", size: 24))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        Text("clients")
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Light", size: 16))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                    }
+                                }
+                                
+                                // 2
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 170, height: 170)
+                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                                        .cornerRadius(30)
                                     
-                                    Text("upcoming tasks")
-                                        .padding(2)
-                                        .font(Font.custom("Poppins-Light", size: 16))
-                                        .foregroundColor(Color.TextColorPrimary)
+                                    VStack() {
+                                        Text("You've created")
+                                            .font(Font.custom("Poppins-Light", size: 20))
+                                            .padding(2)
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        Text("10")
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Medium", size: 24))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        Text("tasks")
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Light", size: 16))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                    }
+                                }
+                                
+                                // Not admin
+                            } else {
+                                // 1
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 170, height: 170)
+                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                                        .cornerRadius(30)
+                                    
+                                    VStack() {
+                                        Text("You have")
+                                            .font(Font.custom("Poppins-Light", size: 20))
+                                            .padding(2)
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        Text(String(dashboardViewModel.numberOfPendingTasks))
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Medium", size: 24))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        Text("upcoming tasks")
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Light", size: 16))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                    }
+                                }
+                                
+                                // 2
+                                ZStack {
+                                    Rectangle()
+                                        .frame(width: 170, height: 170)
+                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                                        .cornerRadius(30)
+                                    
+                                    VStack() {
+                                        Text("Your balance")
+                                            .font(Font.custom("Poppins-Light", size: 20))
+                                            .padding(2)
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        Text("R123.45")
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Medium", size: 24))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                        
+                                        let calendar = Calendar.current
+                                        let date1 = calendar.startOfDay(for: Date.now)
+                                        let date2 = calendar.startOfDay(for: Date().getThisMonthEnd() ?? Date.now)
+                                        let components = calendar.dateComponents([.day], from: date1, to: date2)
+                                        
+                                        Text("due in " + String(components.day ?? 0) + " days")
+                                            .padding(2)
+                                            .font(Font.custom("Poppins-Light", size: 16))
+                                            .foregroundColor(Color.TextColorPrimary)
+                                    }
                                 }
                             }
                             
-                            // 2
-                            ZStack {
-                                Rectangle()
-                                    .frame(width: 170, height: 170)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-                                    .cornerRadius(30)
-                                
-                                VStack() {
-                                    Text("Your balance")
-                                        .font(Font.custom("Poppins-Light", size: 20))
-                                        .padding(2)
-                                        .foregroundColor(Color.TextColorPrimary)
-                                    
-                                    Text("R123.45")
-                                        .padding(2)
-                                        .font(Font.custom("Poppins-Medium", size: 24))
-                                        .foregroundColor(Color.TextColorPrimary)
-                                    
-                                    let calendar = Calendar.current
-                                    let date1 = calendar.startOfDay(for: Date.now)
-                                    let date2 = calendar.startOfDay(for: Date().getThisMonthEnd() ?? Date.now)
-                                    let components = calendar.dateComponents([.day], from: date1, to: date2)
-                                    
-                                    Text("due in " + String(components.day ?? 0) + " days")
-                                        .padding(2)
-                                        .font(Font.custom("Poppins-Light", size: 16))
-                                        .foregroundColor(Color.TextColorPrimary)
-                                }
-                            }
                         }
                         .padding(.horizontal)
                     }
@@ -93,8 +150,19 @@ struct TabbarView: View {
                 }
                 .safeAreaInset(edge: .bottom) {
                     
-                    ChatButtonContent()
-                        .padding(8)
+                    if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
+                        NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)) {
+                            AdminButtonContent()
+                                .padding(8)
+                        }
+                        
+                    } else {
+                        ChatButtonContent()
+                            .onTapGesture {
+                                tabSelection = .chatTab
+                            }
+                            .padding(8)
+                    }
                     
                 }
                 .tabItem {
@@ -207,7 +275,7 @@ struct TabbarView: View {
                         }
                         // Admin
                         if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
-                            NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)){
+                            NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)) {
                                 HStack {
                                     Image(systemName: "gearshape")
                                     Text("Admin")
@@ -247,6 +315,7 @@ struct TabbarView: View {
             }
             .onAppear {
                 dashboardViewModel.getNumberOfTickets(firestoreManager: firestoreManager)
+                adminDashboardViewModel.getNumberOfClients(firestoreManager: firestoreManager)
             }
             .toast(isPresenting: $showToast) {
                 AlertToast(type: .regular, title: toastMessage,
@@ -296,7 +365,19 @@ struct ChatButtonContent : View {
             .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 220, height: 60)
-            .background(Color.ColorPrimary)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+            .cornerRadius(15.0)
+    }
+}
+
+struct AdminButtonContent : View {
+    var body: some View {
+        return Text("Admin")
+            .font(Font.custom("Poppins-Medium", size: 18))
+            .foregroundColor(Color.TextColorPrimary)
+            .padding()
+            .frame(width: 220, height: 60)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
     }
 }
