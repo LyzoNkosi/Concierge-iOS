@@ -46,6 +46,13 @@ struct CreateTaskView: View {
             CreateTaskButtonContent()
                 .onTapGesture {
                     if(!showLoadingIndicator) {
+                    
+                        if(self.ticketName.count < 5) {
+                            self.toastMessage = "Task name is too short"
+                            self.showToast = true
+                            return
+                        }
+                        
                         self.showLoadingIndicator = true
                         
                         let formatter = DateFormatter()
@@ -68,11 +75,6 @@ struct CreateTaskView: View {
                             }
                         }
                         
-                        if(self.ticketName.count < 5) {
-                            self.toastMessage = "Task name is too short"
-                            self.showToast = true
-                            return
-                        }
                         
                     } else {
                         self.toastMessage = "Task creation in progress"

@@ -69,7 +69,7 @@ struct ClientTicketsView: View {
         }
         .safeAreaInset(edge: .bottom) {
             
-            NavigationLink(destination: CreateTaskView(selectedClient: selectedClient).environmentObject(firestoreManager)) {
+            NavigationLink(destination: SelectTaskTypeView(selectedClient: selectedClient).environmentObject(firestoreManager)) {
                 CreateTaskButtonContent()
             }
             

@@ -45,6 +45,7 @@ struct CreateFlightTaskView: View {
                     .padding()
                 
                 Toggle("Book Return", isOn: $bookReturn)
+                    .padding(4)
                 
                 if(bookReturn) {
                     DatePicker("Return Date", selection: $returnDate, in: dateClosedRange)
@@ -70,6 +71,41 @@ struct CreateFlightTaskView: View {
             CreateTaskButtonContent()
                 .onTapGesture {
                     if(!showLoadingIndicator) {
+                        
+                        if(self.ticketName.count < 5) {
+                            self.toastMessage = "Task name is too short"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(self.destination.count < 3) {
+                            self.toastMessage = "Destination is too short"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(self.airport.count < 3) {
+                            self.toastMessage = "Departure airport name is too short"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        if(bookReturn) {
+                            if (departureDate == returnDate) {
+                                self.toastMessage = "Departure date is similar to return date"
+                                self.showToast = true
+                                return
+                            }
+                        }
+                        
+                        if(bookReturn) {
+                            if(self.returnAirport.count < 3) {
+                                self.toastMessage = "Return airport name is too short"
+                                self.showToast = true
+                                return
+                            }
+                        }
+                        
                         self.showLoadingIndicator = true
                         
                         let formatter = DateFormatter()
@@ -78,9 +114,17 @@ struct CreateFlightTaskView: View {
                         let departureDateString = formatter.string(from: self.departureDate)
                         let returnDateString = formatter.string(from: self.returnDate)
                         
-                        let ticket = Ticket(id: "", name: ticketName, startDate: departureDateString, status: TicketStatus.STATUS_NOT_STARTED.rawValue)
+                        let ticket = FlightTiket(id: "",
+                                                 name: ticketName,
+                                                 startDate: departureDateString,
+                                                 status: TicketStatus.STATUS_NOT_STARTED.rawValue,
+                                                 bookReturn: Int(exactly: NSNumber(value: false)) ?? 0,
+                                                 departureAirport: airport,
+                                                 returnAirport: returnAirport,
+                                                 returnDate: returnDateString,
+                                                 ticketType: TicketType.FLIGHT.rawValue)
                         
-                        firestoreManager.createTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
+                        firestoreManager.createFlightTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
                             if(ticketCreated) {
                                 self.showLoadingIndicator = false
                                 self.toastMessage = "Task created"
@@ -91,12 +135,6 @@ struct CreateFlightTaskView: View {
                                 self.toastMessage = "Error creating task"
                                 self.showToast = true
                             }
-                        }
-                        
-                        if(self.ticketName.count < 5) {
-                            self.toastMessage = "Task name is too short"
-                            self.showToast = true
-                            return
                         }
                         
                     } else {
