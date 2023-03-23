@@ -33,6 +33,8 @@
 		04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9CF9329C0B446009FB454 /* UsersListView.swift */; };
 		04D8688029C0601900027E73 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8687F29C0601900027E73 /* UserProfileView.swift */; };
 		04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8688429C07C8600027E73 /* UserProfileViewModel.swift */; };
+		F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */; };
+		F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */; };
 		F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEF829C315F000973290 /* FirestoreManager.swift */; };
 		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
 		F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFD29C32A1100973290 /* Ticket.swift */; };
@@ -91,6 +93,8 @@
 		04B9CF9329C0B446009FB454 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		04D8687F29C0601900027E73 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04D8688429C07C8600027E73 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUserDataView.swift; sourceTree = "<group>"; };
+		F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
 		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		F48CBEFD29C32A1100973290 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		F48CBEFF29C32B6E00973290 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
 				F48CBF0529C333F500973290 /* TimelineViewModel.swift */,
 				04D8688429C07C8600027E73 /* UserProfileViewModel.swift */,
+				F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
+				F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */,
 				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
@@ -404,6 +410,7 @@
 				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
 				F4BBAF7429C834D20036C06F /* Constants.swift in Sources */,
 				04B21D2329B733EE00829AD7 /* ViewExtension.swift in Sources */,
+				F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				F4BBAF6929C832510036C06F /* Color.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
@@ -417,6 +424,7 @@
 				F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */,
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
+				F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */,
 				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
 				F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */,
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,

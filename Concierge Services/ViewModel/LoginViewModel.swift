@@ -64,19 +64,6 @@ class LoginViewModel: ObservableObject{
                 UserDefaultsUtils.shared.setUserEmail(value: authUser!.email ?? "")
                 UserDefaultsUtils.shared.setUserLoggedIn(enable: true)
                 
-                self.firestoreManager?.fetchUserDetails(userID: authUser!.uid)
-                
-                firestoreManager.getAgentClients() { clientsSynced in
-                    if(clientsSynced) {
-                        print("Clients synced")
-                    } else {
-                        print("Clients sync error")
-                    }
-                }
-                
-                firestoreManager.getTickets()
-                firestoreManager.getMyChatMessages()
-                
                 self.isLoggedIn = true
                 
             }

@@ -4,6 +4,8 @@ import AlertToast
 struct TabbarView: View {
     @State var tabSelection: Tabs = .homeTab
     
+    @EnvironmentObject private var launchScreenState: LaunchScreenStateManager
+    
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @EnvironmentObject var loginViewModel: LoginViewModel
@@ -197,6 +199,7 @@ struct TabbarView: View {
                            style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
             }
             .navigationTitle(returnNaviBarTitle(tabSelection: self.tabSelection))
+            .navigationBarBackButtonHidden(true)
             .font(Font.custom("Poppins-Regular", size: 20))
         } else {
             LoginView().environmentObject(loginViewModel).environmentObject(firestoreManager)

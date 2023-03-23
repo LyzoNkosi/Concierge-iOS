@@ -39,12 +39,17 @@ struct ApplicationSwitcher: View {
     
     var body: some View {
         
-        if (loginViewModel.isLoggedIn) {            
-            TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel)
-        } else {
-            LoginView().environmentObject(firestoreManager).environmentObject(loginViewModel)
+        ZStack {
+            if (loginViewModel.isLoggedIn) {
+                // TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel)
+                
+                
+                LoadingUserDataView(firestoreManager: firestoreManager)
+                
+            } else {
+                LoginView().environmentObject(firestoreManager).environmentObject(loginViewModel)
+            }
         }
-        
     }
     
     private func isUserAdmin() -> Bool {

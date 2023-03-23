@@ -101,7 +101,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func getTickets() {
+    /*func getTickets() {
         let database = Firestore.firestore()
         
         do {
@@ -162,6 +162,92 @@ class FirestoreManager: ObservableObject{
         } catch let realmError as NSError{
             print("error - \(realmError.localizedDescription)")
         }
+    } */
+    
+    func getGeneralTickets(loadedGeneralTickets: @escaping (Bool) -> ()) {
+        let database = Firestore.firestore()
+        
+        do {
+            let realm = try Realm()
+            let generalTicketsToDelete = realm.objects(Ticket.self)
+            let flightTicketsToDelete = realm.objects(FlightTicket.self)
+            
+            try! realm.write{
+                realm.delete(generalTicketsToDelete)
+                realm.delete(flightTicketsToDelete)
+            }
+            
+            let ticketsRef = database.collection("tickets").document(UserDefaultsUtils.shared.getUserId()).collection("tickets")
+            
+            // Get General Tickets
+            ticketsRef.whereField("ticket_type", isEqualTo: TicketType.GENERAL.rawValue as Int).getDocuments() { (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                    loadedGeneralTickets(false)
+                } else {
+                    for ticketDocument in querySnapshot!.documents {
+                        // General ticket
+                        let ticket = Ticket(
+                            id: ticketDocument.documentID,
+                            name: ticketDocument["ticket_name"] as? String ?? "",
+                            startDate: ticketDocument["start_date"] as? String ?? "",
+                            status: ticketDocument["ticket_status"] as! Int,
+                            ticketType: ticketDocument["ticket_type"] as! Int)
+                        
+                        try! realm.write {
+                            realm.add(ticket)
+                        }
+                    }
+                    loadedGeneralTickets(true)
+                }
+            }
+        } catch let realmError as NSError{
+            print("error - \(realmError.localizedDescription)")
+        }
+    }
+    
+    func getFlightTickets(loadedFlightTickets: @escaping (Bool) -> ()) {
+        let database = Firestore.firestore()
+        
+        do {
+            let realm = try Realm()
+            let generalTicketsToDelete = realm.objects(Ticket.self)
+            let flightTicketsToDelete = realm.objects(FlightTicket.self)
+            
+            try! realm.write{
+                realm.delete(generalTicketsToDelete)
+                realm.delete(flightTicketsToDelete)
+            }
+            
+            let ticketsRef = database.collection("tickets").document(UserDefaultsUtils.shared.getUserId()).collection("tickets")
+            
+            // Get Flight Tickets
+            ticketsRef.whereField("ticket_type", isEqualTo: TicketType.FLIGHT.rawValue as Int).getDocuments() { (querySnapshot, error) in
+                for flightDocument in querySnapshot!.documents {
+                    if let error = error {
+                        print("Error getting documents: \(error)")
+                        loadedFlightTickets(false)
+                    } else {
+                        let flightTicket = FlightTicket(id: flightDocument.documentID,
+                                                        name: flightDocument["ticket_name"] as? String ?? "",
+                                                        startDate: flightDocument["depart_date"] as? String ?? "",
+                                                        status: flightDocument["ticket_status"] as! Int,
+                                                        bookReturn: flightDocument["book_return"] as! Int,
+                                                        departureAirport: flightDocument["depart_airport"] as? String ?? "",
+                                                        returnAirport: flightDocument["return_airport"] as? String ?? "",
+                                                        returnDate: flightDocument["return_date"] as? String ?? "",
+                                                        ticketType: flightDocument["ticket_type"] as! Int)
+                        
+                        try! realm.write {
+                            realm.add(flightTicket)
+                        }
+                    }
+                }
+                loadedFlightTickets(true)
+            }
+        } catch let realmError as NSError{
+            print("error - \(realmError.localizedDescription)")
+        }
     }
     
     func getClientTickets(clientId: String, loadedAllTickets:@escaping ([Ticket]) -> ()) {
@@ -178,7 +264,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    private func getFlightClientTickets(clientId: String, loadedClientTickets: @escaping ([Ticket]) -> ()) {
+    func getFlightClientTickets(clientId: String, loadedClientTickets: @escaping ([Ticket]) -> ()) {
         let database = Firestore.firestore()
         
         let ticketsRef = database.collection("tickets").document(clientId).collection("tickets")
@@ -208,7 +294,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    private func getGeneralClientTickets(clientId: String, loadedClientTickets: @escaping ([Ticket]) -> ()) {
+    func getGeneralClientTickets(clientId: String, loadedClientTickets: @escaping ([Ticket]) -> ()) {
         let database = Firestore.firestore()
         
         let ticketsRef = database.collection("tickets").document(clientId).collection("tickets")
@@ -445,7 +531,7 @@ class FirestoreManager: ObservableObject{
         }
     }
     
-    func getMyChatMessages() {
+    func getMyChatMessages(loadedMessages: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
         do{
@@ -459,6 +545,7 @@ class FirestoreManager: ObservableObject{
             database.collection("chats").document(UserDefaultsUtils.shared.getUserId()).collection("messages").getDocuments() { (querySnapshot, error) in
                 if let error = error {
                     print("Error getting documents: \(error)")
+                    loadedMessages(false)
                 } else {
                     for document in querySnapshot!.documents {
                         //print("\(document.documentID): \(document.data())")
@@ -472,6 +559,7 @@ class FirestoreManager: ObservableObject{
                             realm.add(message)
                         }
                     }
+                    loadedMessages(true)
                 }
             }
         } catch let realmError as NSError{
