@@ -30,7 +30,7 @@ struct TabbarView: View {
                     
                     VStack {
                         
-                        if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
+                        if(UserDefaultsUtils.shared.isUserAdmin()) {
                             LazyVGrid(columns: columns, spacing: 20) {
                                 // 1
                                 ZStack {
@@ -86,6 +86,7 @@ struct TabbarView: View {
                             
                             // Not admin
                         } else {
+                            
                             LazyVGrid(columns: columns, spacing: 20) {
                                 // 1
                                 ZStack {
@@ -150,7 +151,7 @@ struct TabbarView: View {
                 }
                 .safeAreaInset(edge: .bottom) {
                     
-                    if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
+                    if(UserDefaultsUtils.shared.isUserAdmin() ) {
                         NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)) {
                             AdminButtonContent()
                                 .padding(8)
@@ -274,7 +275,7 @@ struct TabbarView: View {
                             }
                         }
                         // Admin
-                        if(isKeyPresentInUserDefaults(key: "user_role") && UserDefaults.standard.value(forKey: "user_role") as! Int >= 2 ) {
+                        if(UserDefaultsUtils.shared.isUserAdmin()) {
                             NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)) {
                                 HStack {
                                     Image(systemName: "gearshape")

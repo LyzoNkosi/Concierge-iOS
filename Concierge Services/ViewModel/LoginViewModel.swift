@@ -17,9 +17,6 @@ class LoginViewModel: ObservableObject{
     @Published var errorMessage = ""
     @Published var isLoggedIn = false
     
-    let domain = Bundle.main.bundleIdentifier!
-    let defaults = UserDefaults.standard
-    
     var firestoreManager: FirestoreManager? = nil
     
     var currentAuthUser: AuthUser {
@@ -27,7 +24,7 @@ class LoginViewModel: ObservableObject{
     }
     
     init() {
-        if(isUserLoggedIn()) {
+        if(UserDefaultsUtils.shared.getUserLoggedIn()) {
             self.isLoggedIn = true
         } else {
             self.isLoggedIn = false
@@ -63,10 +60,9 @@ class LoginViewModel: ObservableObject{
                 self._currentAuthUser = AuthUser(uid: authUser!.uid, email: authUser!.email!)
                 self.isLoggedIn = true
                 
-                self.defaults.set(authUser!.uid, forKey: "firebase_uid")
-                self.defaults.set(authUser!.email, forKey: "user_email")
-                self.defaults.set(true, forKey: "user_logged_in")
-                self.defaults.synchronize()
+                UserDefaultsUtils.shared.setUserId(uid: authUser!.uid)
+                UserDefaultsUtils.shared.setUserEmail(value: authUser!.email ?? "")
+                UserDefaultsUtils.shared.setUserLoggedIn(enable: true)
                 
                 self.firestoreManager?.fetchUserDetails(userID: authUser!.uid)
                 
@@ -96,7 +92,7 @@ class LoginViewModel: ObservableObject{
         do {
             try Auth.auth().signOut()
             
-            self.defaults.removePersistentDomain(forName: domain)
+            UserDefaultsUtils.shared.clearAllValues()
             
             do{
                 let realm = try await Realm()
@@ -115,17 +111,5 @@ class LoginViewModel: ObservableObject{
             errorMessage = error.localizedDescription
         }
         self.isLoggedIn = false
-    }
-    
-    private func isUserLoggedIn () -> Bool {
-        if(isKeyPresentInUserDefaults(key: "user_logged_in")) {
-            if(UserDefaults.standard.object(forKey: "user_logged_in") as! Bool) {
-                return true
-            } else {
-                return false
-            }
-        } else {
-            return false
-        }
     }
 }

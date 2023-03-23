@@ -9,7 +9,6 @@ class FirestoreManager: ObservableObject{
     
     func fetchUserDetails(userID: String) {
         let database = Firestore.firestore()
-        let defaults = UserDefaults.standard
         
         let userRef = database.collection("users").document(userID)
         
@@ -22,11 +21,9 @@ class FirestoreManager: ObservableObject{
             if let document = document, document.exists {
                 let data = document.data()
                 if let data = data {
-                    defaults.set(data["first_name"] as? String ?? "", forKey: "first_name")
-                    defaults.set(data["last_name"] as? String ?? "", forKey: "last_name")
-                    defaults.set(data["role"] as? Int ?? "", forKey: "user_role")
-                    
-                    defaults.synchronize()
+                    UserDefaultsUtils.shared.setUserFirstName(value: data["first_name"] as? String ?? "")
+                    UserDefaultsUtils.shared.setUserLastName(value: data["last_name"] as? String ?? "")
+                    UserDefaultsUtils.shared.setUserRole(value: data["role"] as? Int ?? 1)
                 }
             }
             
@@ -67,7 +64,7 @@ class FirestoreManager: ObservableObject{
             } else {
                 print("Document successfully written!")
                 
-                self.assignUserToAgent(agentId: UserDefaults.standard.value(forKey: "firebase_uid") as! String, userId: userId) { userAssigned in
+                self.assignUserToAgent(agentId: UserDefaultsUtils.shared.getUserId(), userId: userId) { userAssigned in
                     if(userAssigned) {
                         createdNewUser(true)
                     } else {
@@ -117,7 +114,7 @@ class FirestoreManager: ObservableObject{
                 realm.delete(flightTicketsToDelete)
             }
             
-            let ticketsRef = database.collection("tickets").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("tickets")
+            let ticketsRef = database.collection("tickets").document(UserDefaultsUtils.shared.getUserId()).collection("tickets")
             
             // Get Flight Tickets
             ticketsRef.whereField("ticket_type", isEqualTo: TicketType.FLIGHT.rawValue as Int).getDocuments() { (querySnapshot, error) in
@@ -126,14 +123,14 @@ class FirestoreManager: ObservableObject{
                         print("Error getting documents: \(error)")
                     } else {
                         let flightTicket = FlightTicket(id: flightDocument.documentID,
-                                                       name: flightDocument["ticket_name"] as? String ?? "",
-                                                       startDate: flightDocument["depart_date"] as? String ?? "",
-                                                       status: flightDocument["ticket_status"] as! Int,
-                                                       bookReturn: flightDocument["book_return"] as! Int,
-                                                       departureAirport: flightDocument["depart_airport"] as? String ?? "",
-                                                       returnAirport: flightDocument["return_airport"] as? String ?? "",
-                                                       returnDate: flightDocument["return_date"] as? String ?? "",
-                                                       ticketType: flightDocument["ticket_type"] as! Int)
+                                                        name: flightDocument["ticket_name"] as? String ?? "",
+                                                        startDate: flightDocument["depart_date"] as? String ?? "",
+                                                        status: flightDocument["ticket_status"] as! Int,
+                                                        bookReturn: flightDocument["book_return"] as! Int,
+                                                        departureAirport: flightDocument["depart_airport"] as? String ?? "",
+                                                        returnAirport: flightDocument["return_airport"] as? String ?? "",
+                                                        returnDate: flightDocument["return_date"] as? String ?? "",
+                                                        ticketType: flightDocument["ticket_type"] as! Int)
                         
                         try! realm.write {
                             realm.add(flightTicket)
@@ -171,51 +168,51 @@ class FirestoreManager: ObservableObject{
         let database = Firestore.firestore()
         
         /*database.collection("tickets").document(clientId).collection("tickets").getDocuments() { (querySnapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-                loadedTickets([])
-            } else {
-                var ticketsToReturn: [Ticket] = []
-                
-                for document in querySnapshot!.documents {
-                    
-                    if(document.value(forKey: "ticket_type") != nil) {
-                        switch(document.value(forKey: "ticket_type") as! Int) {
-                        case TicketType.FLIGHT.rawValue :
-                            
-                            let flightTicket = FlightTiket(id: document.documentID,
-                                                           name: document["ticket_name"] as? String ?? "",
-                                                           startDate: document["depart_date"] as? String ?? "",
-                                                           status: document["ticket_status"] as! Int,
-                                                           bookReturn: document["book_return"] as! Int,
-                                                           departureAirport: document["depart_airport"] as? String ?? "",
-                                                           returnAirport: document["return_airport"] as? String ?? "",
-                                                           returnDate: document["return_date"] as? String ?? "",
-                                                           ticketType: document["ticket_type"] as! Int)
-                            
-                            ticketsToReturn.append(flightTicket)
-                        default :
-                            // General ticket
-                            let ticket = Ticket(
-                                id: document.documentID,
-                                name: document["ticket_name"] as? String ?? "",
-                                startDate: document["start_date"] as? String ?? "",
-                                status: document["ticket_status"] as! Int)
-                            ticketsToReturn.append(ticket)
-                        }
-                    } else {
-                        // General ticket
-                        let ticket = Ticket(
-                            id: document.documentID,
-                            name: document["ticket_name"] as? String ?? "",
-                            startDate: document["start_date"] as? String ?? "",
-                            status: document["ticket_status"] as! Int)
-                        ticketsToReturn.append(ticket)
-                    }
-                }
-                loadedTickets(ticketsToReturn)
-            }
-        }*/
+         if let error = error {
+         print("Error getting documents: \(error)")
+         loadedTickets([])
+         } else {
+         var ticketsToReturn: [Ticket] = []
+         
+         for document in querySnapshot!.documents {
+         
+         if(document.value(forKey: "ticket_type") != nil) {
+         switch(document.value(forKey: "ticket_type") as! Int) {
+         case TicketType.FLIGHT.rawValue :
+         
+         let flightTicket = FlightTiket(id: document.documentID,
+         name: document["ticket_name"] as? String ?? "",
+         startDate: document["depart_date"] as? String ?? "",
+         status: document["ticket_status"] as! Int,
+         bookReturn: document["book_return"] as! Int,
+         departureAirport: document["depart_airport"] as? String ?? "",
+         returnAirport: document["return_airport"] as? String ?? "",
+         returnDate: document["return_date"] as? String ?? "",
+         ticketType: document["ticket_type"] as! Int)
+         
+         ticketsToReturn.append(flightTicket)
+         default :
+         // General ticket
+         let ticket = Ticket(
+         id: document.documentID,
+         name: document["ticket_name"] as? String ?? "",
+         startDate: document["start_date"] as? String ?? "",
+         status: document["ticket_status"] as! Int)
+         ticketsToReturn.append(ticket)
+         }
+         } else {
+         // General ticket
+         let ticket = Ticket(
+         id: document.documentID,
+         name: document["ticket_name"] as? String ?? "",
+         startDate: document["start_date"] as? String ?? "",
+         status: document["ticket_status"] as! Int)
+         ticketsToReturn.append(ticket)
+         }
+         }
+         loadedTickets(ticketsToReturn)
+         }
+         }*/
         
         let ticketsRef = database.collection("tickets").document(clientId).collection("tickets")
         
@@ -228,14 +225,14 @@ class FirestoreManager: ObservableObject{
                     print("Error getting documents: \(error)")
                 } else {
                     let flightTicket = FlightTicket(id: flightDocument.documentID,
-                                                   name: flightDocument["ticket_name"] as? String ?? "",
-                                                   startDate: flightDocument["depart_date"] as? String ?? "",
-                                                   status: flightDocument["ticket_status"] as! Int,
-                                                   bookReturn: flightDocument["book_return"] as! Int,
-                                                   departureAirport: flightDocument["depart_airport"] as? String ?? "",
-                                                   returnAirport: flightDocument["return_airport"] as? String ?? "",
-                                                   returnDate: flightDocument["return_date"] as? String ?? "",
-                                                   ticketType: flightDocument["ticket_type"] as! Int)
+                                                    name: flightDocument["ticket_name"] as? String ?? "",
+                                                    startDate: flightDocument["depart_date"] as? String ?? "",
+                                                    status: flightDocument["ticket_status"] as! Int,
+                                                    bookReturn: flightDocument["book_return"] as! Int,
+                                                    departureAirport: flightDocument["depart_airport"] as? String ?? "",
+                                                    returnAirport: flightDocument["return_airport"] as? String ?? "",
+                                                    returnDate: flightDocument["return_date"] as? String ?? "",
+                                                    ticketType: flightDocument["ticket_type"] as! Int)
                     
                     ticketsToReturn.append(flightTicket)
                 }
@@ -326,7 +323,7 @@ class FirestoreManager: ObservableObject{
                 realm.delete(clientsToDelete)
             }
             
-            database.collection("agent_clients").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("clients").getDocuments() { (querySnapshot, error) in
+            database.collection("agent_clients").document(UserDefaultsUtils.shared.getUserId()).collection("clients").getDocuments() { (querySnapshot, error) in
                 if let error = error {
                     print("Error getting documents: \(error)")
                 } else {
@@ -434,7 +431,7 @@ class FirestoreManager: ObservableObject{
                                    "message" : messageText,
                                    "timestamp" : dateString]
         
-        let ref = database.collection("chats").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("messages").document()
+        let ref = database.collection("chats").document(UserDefaultsUtils.shared.getUserId()).collection("messages").document()
         
         let messageId = ref.documentID
         
@@ -482,7 +479,7 @@ class FirestoreManager: ObservableObject{
                 realm.delete(messagesToDelete)
             }
             
-            database.collection("chats").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("messages").getDocuments() { (querySnapshot, error) in
+            database.collection("chats").document(UserDefaultsUtils.shared.getUserId()).collection("messages").getDocuments() { (querySnapshot, error) in
                 if let error = error {
                     print("Error getting documents: \(error)")
                 } else {
