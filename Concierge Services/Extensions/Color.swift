@@ -14,6 +14,9 @@ extension Color {
     static var ColorPrimary: Color  {
         return Color("ColorPrimary")
     }
+    static var ColorSecondary: Color  {
+        return Color("ColorSecondary")
+    }
     static var Accent: Color  {
         return Color("ColorAccent")
     }

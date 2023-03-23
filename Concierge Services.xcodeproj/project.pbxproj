@@ -15,8 +15,6 @@
 		0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0FF29B207B600DA8D50 /* TimelineView.swift */; };
 		0445A10229B207C400DA8D50 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10129B207C400DA8D50 /* ChatView.swift */; };
 		0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10329B207CE00DA8D50 /* BalanceView.swift */; };
-		0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10529B207E000DA8D50 /* SettingsView.swift */; };
-		0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10729B207F200DA8D50 /* DashboardView.swift */; };
 		0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A10929B2095F00DA8D50 /* TabbarView.swift */; };
 		04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791B5D29B8BD25007D0890 /* LoginViewModel.swift */; };
 		04B21D1C29B733EE00829AD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */; };
@@ -35,6 +33,8 @@
 		04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9CF9329C0B446009FB454 /* UsersListView.swift */; };
 		04D8688029C0601900027E73 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8687F29C0601900027E73 /* UserProfileView.swift */; };
 		04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8688429C07C8600027E73 /* UserProfileViewModel.swift */; };
+		F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */; };
+		F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */; };
 		F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEF829C315F000973290 /* FirestoreManager.swift */; };
 		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
 		F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFD29C32A1100973290 /* Ticket.swift */; };
@@ -45,6 +45,7 @@
 		F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0B29C3346200973290 /* DashboardViewModel.swift */; };
 		F48CBF0E29C340F300973290 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0D29C340F300973290 /* CreateTaskView.swift */; };
 		F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0F29C351F500973290 /* ClientChatView.swift */; };
+		F49D912A29CAE3AA009ED887 /* AdminDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */; };
 		F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */; };
 		F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */; };
 		F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */; };
@@ -57,12 +58,15 @@
 		F4BBAF7229C834A70036C06F /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BBAF6E29C834A70036C06F /* Poppins-Regular.ttf */; };
 		F4BBAF7429C834D20036C06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7329C834D20036C06F /* Constants.swift */; };
 		F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */; };
+		F4BBAF7929C888B20036C06F /* SelectTaskTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7829C888B20036C06F /* SelectTaskTypeView.swift */; };
 		F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */; };
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
 		F4C7EE5929C721C7003B517F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7EE5829C721C7003B517F /* Utils.swift */; };
 		F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7EE5D29C79451003B517F /* ActivityIndicatorView */; };
 		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
+		F4F1179B29C9FC8C00200ECB /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */; };
+		F4F1179D29CA119C00200ECB /* FlightTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1179C29CA119C00200ECB /* FlightTicket.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,8 +79,6 @@
 		0445A0FF29B207B600DA8D50 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		0445A10129B207C400DA8D50 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		0445A10329B207CE00DA8D50 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
-		0445A10529B207E000DA8D50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		0445A10729B207F200DA8D50 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		0445A10929B2095F00DA8D50 /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		04791B5D29B8BD25007D0890 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		04B21D1129B733EE00829AD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -91,6 +93,8 @@
 		04B9CF9329C0B446009FB454 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		04D8687F29C0601900027E73 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04D8688429C07C8600027E73 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUserDataView.swift; sourceTree = "<group>"; };
+		F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
 		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		F48CBEFD29C32A1100973290 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		F48CBEFF29C32B6E00973290 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		F48CBF0B29C3346200973290 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		F48CBF0D29C340F300973290 /* CreateTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
 		F48CBF0F29C351F500973290 /* ClientChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientChatView.swift; sourceTree = "<group>"; };
+		F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDashboardViewModel.swift; sourceTree = "<group>"; };
 		F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsView.swift; sourceTree = "<group>"; };
 		F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsViewModel.swift; sourceTree = "<group>"; };
 		F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
@@ -113,9 +118,12 @@
 		F4BBAF7329C834D20036C06F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
 		F4BBAF7729C869F30036C06F /* Concierge-Services-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Concierge-Services-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F4BBAF7829C888B20036C06F /* SelectTaskTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTaskTypeView.swift; sourceTree = "<group>"; };
 		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
 		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		F4C7EE5829C721C7003B517F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		F4F1179C29CA119C00200ECB /* FlightTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTicket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +192,7 @@
 		04D8687A29C05C0F00027E73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */,
 				F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */,
 				F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */,
 				F48CBF0929C3344100973290 /* ClientsViewModel.swift */,
@@ -192,6 +201,7 @@
 				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
 				F48CBF0529C333F500973290 /* TimelineViewModel.swift */,
 				04D8688429C07C8600027E73 /* UserProfileViewModel.swift */,
+				F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -207,11 +217,10 @@
 				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
-				0445A10729B207F200DA8D50 /* DashboardView.swift */,
+				F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */,
 				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
-				0445A10529B207E000DA8D50 /* SettingsView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
 				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
 				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
@@ -230,6 +239,7 @@
 				F48CBEFF29C32B6E00973290 /* Client.swift */,
 				F48CBEFD29C32A1100973290 /* Ticket.swift */,
 				04B21D1429B733EE00829AD7 /* User.swift */,
+				F4F1179C29CA119C00200ECB /* FlightTicket.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -238,10 +248,11 @@
 			isa = PBXGroup;
 			children = (
 				04B21D1929B733EE00829AD7 /* ChatHelper.swift */,
-				04B21D1A29B733EE00829AD7 /* KeyboardResponder.swift */,
-				F4C7EE5829C721C7003B517F /* Utils.swift */,
 				F4BBAF7329C834D20036C06F /* Constants.swift */,
+				04B21D1A29B733EE00829AD7 /* KeyboardResponder.swift */,
 				F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */,
+				F4C7EE5829C721C7003B517F /* Utils.swift */,
+				F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -264,8 +275,9 @@
 		F4BBAF6429C829F30036C06F /* Task Templates */ = {
 			isa = PBXGroup;
 			children = (
-				F48CBF0D29C340F300973290 /* CreateTaskView.swift */,
 				F4BBAF6529C82A280036C06F /* CreateFlightTaskView.swift */,
+				F48CBF0D29C340F300973290 /* CreateTaskView.swift */,
+				F4BBAF7829C888B20036C06F /* SelectTaskTypeView.swift */,
 			);
 			path = "Task Templates";
 			sourceTree = "<group>";
@@ -384,13 +396,13 @@
 				F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */,
 				F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
+				F49D912A29CAE3AA009ED887 /* AdminDashboardViewModel.swift in Sources */,
 				F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
 				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
 				F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */,
-				0445A10629B207E000DA8D50 /* SettingsView.swift in Sources */,
+				F4BBAF7929C888B20036C06F /* SelectTaskTypeView.swift in Sources */,
 				04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */,
-				0445A10829B207F200DA8D50 /* DashboardView.swift in Sources */,
 				F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */,
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
@@ -398,6 +410,7 @@
 				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
 				F4BBAF7429C834D20036C06F /* Constants.swift in Sources */,
 				04B21D2329B733EE00829AD7 /* ViewExtension.swift in Sources */,
+				F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				F4BBAF6929C832510036C06F /* Color.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
@@ -405,11 +418,13 @@
 				04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */,
 				F48CBF0E29C340F300973290 /* CreateTaskView.swift in Sources */,
 				F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */,
+				F4F1179B29C9FC8C00200ECB /* DateExtensions.swift in Sources */,
 				04B21D2229B733EE00829AD7 /* KeyboardResponder.swift in Sources */,
 				F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */,
 				F48CBF0629C333F500973290 /* TimelineViewModel.swift in Sources */,
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
+				F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */,
 				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
 				F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */,
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
@@ -421,6 +436,7 @@
 				0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */,
 				04B21D1E29B733EE00829AD7 /* User.swift in Sources */,
 				F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */,
+				F4F1179D29CA119C00200ECB /* FlightTicket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

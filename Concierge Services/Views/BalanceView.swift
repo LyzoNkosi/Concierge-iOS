@@ -69,20 +69,13 @@ struct BalanceView: View {
             .padding(.top, 8)
             
         }
-        .safeAreaInset(edge: .bottom) {
-            
-            PayButtonContent()
-                .onTapGesture {
-                    self.toastMessage = "This feature is coming soon"
-                    self.showToast = true
-                }
-            
-        } .padding(12)
-            .toast(isPresenting: $showToast) {
-                AlertToast(type: .regular, title: toastMessage)
-            }
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
-            .navigationTitle("Balance")
+        .padding(12)
+        .toast(isPresenting: $showToast) {
+            AlertToast(type: .regular, title: toastMessage,
+                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+        .navigationTitle("Balance")
     }
 }
 
@@ -99,7 +92,7 @@ struct PayButtonContent : View {
             .foregroundColor(Color.TextColorPrimary)
             .padding()
             .frame(width: 220, height: 60)
-            .background(Color.ColorPrimary)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
     }
 }

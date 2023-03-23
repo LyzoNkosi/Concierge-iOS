@@ -3,8 +3,6 @@ import SwiftUI
 
 struct UserProfileView: View {
     
-    let defaults = UserDefaults.standard
-    
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @State var userFullName: String = ""
@@ -30,8 +28,8 @@ struct UserProfileView: View {
     
     fileprivate func GetUserDetails() -> String
     {
-        let firstName = defaults.value(forKey: "first_name") as! String
-        let lastName = defaults.value(forKey: "last_name") as! String
+        let firstName = UserDefaultsUtils.shared.getUserFirstName()
+        let lastName = UserDefaultsUtils.shared.getUserLastName()
         return firstName + " " + lastName
     }
     
@@ -45,7 +43,7 @@ struct UserProfileView: View {
     }
     
     fileprivate func UserEmailInput() -> some View {
-        TextField(defaults.value(forKey: "user_email") as! String, text: $email)
+        TextField(UserDefaultsUtils.shared.getUserEmail(), text: $email)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
