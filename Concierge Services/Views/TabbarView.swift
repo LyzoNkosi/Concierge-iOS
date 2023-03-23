@@ -6,9 +6,6 @@ struct TabbarView: View {
     
     @EnvironmentObject var firestoreManager: FirestoreManager
     
-    @ObservedObject var dashboardViewModel: DashboardViewModel = DashboardViewModel()
-    @ObservedObject var adminDashboardViewModel: AdminDashboardViewModel = AdminDashboardViewModel()
-    
     @EnvironmentObject var loginViewModel: LoginViewModel
     
     @Environment(\.presentationMode) var settingsPresentation
@@ -18,135 +15,16 @@ struct TabbarView: View {
     
     var body: some View {
         
-        let columns = [
-            GridItem(.flexible()),
-            GridItem(.flexible()),
-        ]
-        
         if(loginViewModel.isLoggedIn) {
             TabView(selection: $tabSelection) {
                 
                 ScrollView {
                     
-                    VStack {
-                        
-                        if(UserDefaultsUtils.shared.isUserAdmin()) {
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                // 1
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 170, height: 170)
-                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-                                        .cornerRadius(30)
-                                    
-                                    VStack() {
-                                        Text("You have")
-                                            .font(Font.custom("Poppins-Light", size: 20))
-                                            .padding(2)
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        Text(String(adminDashboardViewModel.numberOfClients))
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Medium", size: 24))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        Text("clients")
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Light", size: 16))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                    }
-                                }
-                                
-                                // 2
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 170, height: 170)
-                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-                                        .cornerRadius(30)
-                                    
-                                    VStack() {
-                                        Text("You've created")
-                                            .font(Font.custom("Poppins-Light", size: 20))
-                                            .padding(2)
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        Text("10")
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Medium", size: 24))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        Text("tasks")
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Light", size: 16))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                    }
-                                }
-                            }
-                            .padding(.horizontal)
-                            
-                            // Not admin
-                        } else {
-                            
-                            LazyVGrid(columns: columns, spacing: 20) {
-                                // 1
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 170, height: 170)
-                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-                                        .cornerRadius(30)
-                                    
-                                    VStack() {
-                                        Text("You have")
-                                            .font(Font.custom("Poppins-Light", size: 20))
-                                            .padding(2)
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        Text(String(dashboardViewModel.numberOfPendingTasks))
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Medium", size: 24))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        Text("upcoming tasks")
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Light", size: 16))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                    }
-                                }
-                                
-                                // 2
-                                ZStack {
-                                    Rectangle()
-                                        .frame(width: 170, height: 170)
-                                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-                                        .cornerRadius(30)
-                                    
-                                    VStack() {
-                                        Text("Your balance")
-                                            .font(Font.custom("Poppins-Light", size: 20))
-                                            .padding(2)
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        Text("R123.45")
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Medium", size: 24))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                        
-                                        let calendar = Calendar.current
-                                        let date1 = calendar.startOfDay(for: Date.now)
-                                        let date2 = calendar.startOfDay(for: Date().getThisMonthEnd() ?? Date.now)
-                                        let components = calendar.dateComponents([.day], from: date1, to: date2)
-                                        
-                                        Text("due in " + String(components.day ?? 0) + " days")
-                                            .padding(2)
-                                            .font(Font.custom("Poppins-Light", size: 16))
-                                            .foregroundColor(Color.TextColorPrimary)
-                                    }
-                                }
-                            }
-                            .padding(.horizontal)
-                        }
+                    if (UserDefaultsUtils().isUserAdmin()) {
+                        AdminDashboardView()
+                    } else {
+                        UserDashboardView()
                     }
-                    .cornerRadius(12)
                     
                 }
                 .safeAreaInset(edge: .bottom) {
@@ -314,10 +192,6 @@ struct TabbarView: View {
                 }
                 .tag(Tabs.settingsTab)
             }
-            .onAppear {
-                dashboardViewModel.getNumberOfTickets(firestoreManager: firestoreManager)
-                adminDashboardViewModel.getNumberOfClients(firestoreManager: firestoreManager)
-            }
             .toast(isPresenting: $showToast) {
                 AlertToast(type: .regular, title: toastMessage,
                            style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
@@ -382,6 +256,160 @@ struct AdminButtonContent : View {
             .cornerRadius(15.0)
     }
 }
+
+struct AdminDashboardView : View {
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    
+    @ObservedObject var adminDashboardViewModel: AdminDashboardViewModel = AdminDashboardViewModel()
+    
+    var body: some View {
+        return VStack {
+            
+            LazyVGrid(columns: columns, spacing: 20) {
+                // 1
+                ZStack {
+                    Rectangle()
+                        .frame(width: 170, height: 170)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                        .cornerRadius(30)
+                    
+                    VStack() {
+                        Text("You have")
+                            .font(Font.custom("Poppins-Light", size: 20))
+                            .padding(2)
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        Text(String(adminDashboardViewModel.numberOfClients))
+                            .padding(2)
+                            .font(Font.custom("Poppins-Medium", size: 24))
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        Text("clients")
+                            .padding(2)
+                            .font(Font.custom("Poppins-Light", size: 16))
+                            .foregroundColor(Color.TextColorPrimary)
+                    }
+                }
+                
+                // 2
+                ZStack {
+                    Rectangle()
+                        .frame(width: 170, height: 170)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                        .cornerRadius(30)
+                    
+                    VStack() {
+                        Text("You've created")
+                            .font(Font.custom("Poppins-Light", size: 20))
+                            .padding(2)
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        Text("10")
+                            .padding(2)
+                            .font(Font.custom("Poppins-Medium", size: 24))
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        Text("tasks")
+                            .padding(2)
+                            .font(Font.custom("Poppins-Light", size: 16))
+                            .foregroundColor(Color.TextColorPrimary)
+                    }
+                }
+            }
+            .padding(.horizontal)
+            
+        }//end
+        .onAppear {
+            adminDashboardViewModel.getNumberOfClients()
+        }
+        .cornerRadius(12)
+    }
+}
+
+struct UserDashboardView : View {
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    
+    @ObservedObject var dashboardViewModel: DashboardViewModel = DashboardViewModel()
+    
+    var body: some View {
+        return VStack {
+            
+            LazyVGrid(columns: columns, spacing: 20) {
+                // 1
+                ZStack {
+                    Rectangle()
+                        .frame(width: 170, height: 170)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                        .cornerRadius(30)
+                    
+                    VStack() {
+                        Text("You have")
+                            .font(Font.custom("Poppins-Light", size: 20))
+                            .padding(2)
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        Text(String(dashboardViewModel.numberOfPendingTasks))
+                            .padding(2)
+                            .font(Font.custom("Poppins-Medium", size: 24))
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        Text("upcoming tasks")
+                            .padding(2)
+                            .font(Font.custom("Poppins-Light", size: 16))
+                            .foregroundColor(Color.TextColorPrimary)
+                    }
+                }
+                
+                // 2
+                ZStack {
+                    Rectangle()
+                        .frame(width: 170, height: 170)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
+                        .cornerRadius(30)
+                    
+                    VStack() {
+                        Text("Your balance")
+                            .font(Font.custom("Poppins-Light", size: 20))
+                            .padding(2)
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        Text("R123.45")
+                            .padding(2)
+                            .font(Font.custom("Poppins-Medium", size: 24))
+                            .foregroundColor(Color.TextColorPrimary)
+                        
+                        let calendar = Calendar.current
+                        let date1 = calendar.startOfDay(for: Date.now)
+                        let date2 = calendar.startOfDay(for: Date().getThisMonthEnd() ?? Date.now)
+                        let components = calendar.dateComponents([.day], from: date1, to: date2)
+                        
+                        Text("due in " + String(components.day ?? 0) + " days")
+                            .padding(2)
+                            .font(Font.custom("Poppins-Light", size: 16))
+                            .foregroundColor(Color.TextColorPrimary)
+                    }
+                }
+            }
+            .padding(.horizontal)
+            
+        }//end
+        .cornerRadius(12)
+        .onAppear {
+            dashboardViewModel.getNumberOfTickets()
+        }
+    }
+}
+/*
+ End Dashboard Content
+ */
 
 struct TabbarView_Previews: PreviewProvider {
     static var previews: some View {

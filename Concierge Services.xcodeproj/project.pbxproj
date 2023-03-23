@@ -188,6 +188,7 @@
 		04D8687A29C05C0F00027E73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */,
 				F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */,
 				F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */,
 				F48CBF0929C3344100973290 /* ClientsViewModel.swift */,
@@ -196,7 +197,6 @@
 				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
 				F48CBF0529C333F500973290 /* TimelineViewModel.swift */,
 				04D8688429C07C8600027E73 /* UserProfileViewModel.swift */,
-				F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

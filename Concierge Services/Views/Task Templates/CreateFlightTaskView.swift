@@ -114,11 +114,16 @@ struct CreateFlightTaskView: View {
                         let departureDateString = formatter.string(from: self.departureDate)
                         let returnDateString = formatter.string(from: self.returnDate)
                         
+                        var bookReturnInt = 0
+                        if(bookReturn) {
+                            bookReturnInt = 1
+                        }
+                        
                         let ticket = FlightTicket(id: "",
                                                  name: ticketName,
                                                  startDate: departureDateString,
                                                  status: TicketStatus.STATUS_NOT_STARTED.rawValue,
-                                                 bookReturn: Int(exactly: NSNumber(value: false)) ?? 0,
+                                                 bookReturn: bookReturnInt,
                                                  departureAirport: airport,
                                                  returnAirport: returnAirport,
                                                  returnDate: returnDateString,

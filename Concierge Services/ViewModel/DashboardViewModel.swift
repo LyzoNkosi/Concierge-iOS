@@ -5,7 +5,7 @@ class DashboardViewModel: ObservableObject{
     
     @Published var numberOfPendingTasks = 0
     
-    func getNumberOfTickets(firestoreManager: FirestoreManager) {
+    func getNumberOfTickets() {
         let realm = try! Realm()
         
         for task in realm.objects(Ticket.self) {
