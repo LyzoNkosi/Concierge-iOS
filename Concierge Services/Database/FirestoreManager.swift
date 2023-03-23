@@ -109,10 +109,12 @@ class FirestoreManager: ObservableObject{
         
         do {
             let realm = try Realm()
-            let objectsToDelete = realm.objects(Ticket.self)
+            let generalTicketsToDelete = realm.objects(Ticket.self)
+            let flightTicketsToDelete = realm.objects(FlightTicket.self)
             
             try! realm.write{
-                realm.delete(objectsToDelete)
+                realm.delete(generalTicketsToDelete)
+                realm.delete(flightTicketsToDelete)
             }
             
             let ticketsRef = database.collection("tickets").document(UserDefaults.standard.value(forKey: "firebase_uid") as! String).collection("tickets")

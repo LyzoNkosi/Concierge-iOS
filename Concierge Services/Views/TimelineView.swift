@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TimelineView: View {
-
+    
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @StateObject var ticketsViewModel: TimelineViewModel = TimelineViewModel()
@@ -58,14 +58,9 @@ struct TimelineView: View {
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(1)
                                 
-                                HStack {
-                                    // Add attachments here
-                                    
-                                }
-                                
                             })
                         }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                     
+                        
                     case TicketType.GENERAL.rawValue:
                         
                         HStack(alignment: .top, spacing: 0) {
@@ -122,7 +117,7 @@ struct TimelineView: View {
             }
         }
         .onAppear {
-            ticketsViewModel.getTickets(firestoreManager: firestoreManager)
+            ticketsViewModel.getTickets()
         }
     }
 }
