@@ -33,6 +33,9 @@
 		04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9CF9329C0B446009FB454 /* UsersListView.swift */; };
 		04D8688029C0601900027E73 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8687F29C0601900027E73 /* UserProfileView.swift */; };
 		04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8688429C07C8600027E73 /* UserProfileViewModel.swift */; };
+		F41D929F29D0AC7E00D74D75 /* SetPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D929E29D0AC7E00D74D75 /* SetPreferencesView.swift */; };
+		F41D92A829D0B52200D74D75 /* SFSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D92A729D0B52200D74D75 /* SFSymbolView.swift */; };
+		F41D92AA29D0CD1A00D74D75 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */; };
 		F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */; };
 		F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */; };
 		F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEF829C315F000973290 /* FirestoreManager.swift */; };
@@ -93,6 +96,9 @@
 		04B9CF9329C0B446009FB454 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		04D8687F29C0601900027E73 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04D8688429C07C8600027E73 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F41D929E29D0AC7E00D74D75 /* SetPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPreferencesView.swift; sourceTree = "<group>"; };
+		F41D92A729D0B52200D74D75 /* SFSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolView.swift; sourceTree = "<group>"; };
+		F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
 		F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUserDataView.swift; sourceTree = "<group>"; };
 		F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
 		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		0445A0E829B1EEE300DA8D50 /* Concierge Services */ = {
 			isa = PBXGroup;
 			children = (
+				F41D92A029D0B45D00D74D75 /* Experiments */,
 				F4BBAF7729C869F30036C06F /* Concierge-Services-Info.plist */,
 				F4BBAF6A29C832AA0036C06F /* Fonts */,
 				F4BBAF6729C8323C0036C06F /* Extensions */,
@@ -192,11 +199,11 @@
 		04D8687A29C05C0F00027E73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */,
 				F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */,
 				F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */,
 				F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */,
 				F48CBF0929C3344100973290 /* ClientsViewModel.swift */,
-				F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */,
 				F48CBF0B29C3346200973290 /* DashboardViewModel.swift */,
 				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
 				F48CBF0529C333F500973290 /* TimelineViewModel.swift */,
@@ -221,6 +228,7 @@
 				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
+				F41D929E29D0AC7E00D74D75 /* SetPreferencesView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
 				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
 				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
@@ -228,6 +236,7 @@
 				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
+				F41D92A729D0B52200D74D75 /* SFSymbolView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +272,14 @@
 				F48CBEF829C315F000973290 /* FirestoreManager.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		F41D92A029D0B45D00D74D75 /* Experiments */ = {
+			isa = PBXGroup;
+			children = (
+				F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */,
+			);
+			path = Experiments;
 			sourceTree = "<group>";
 		};
 		F48CBEFA29C3185500973290 /* Frameworks */ = {
@@ -400,8 +417,11 @@
 				F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
 				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
+				F41D92A829D0B52200D74D75 /* SFSymbolView.swift in Sources */,
+				F41D92AA29D0CD1A00D74D75 /* ActivityItem.swift in Sources */,
 				F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */,
 				F4BBAF7929C888B20036C06F /* SelectTaskTypeView.swift in Sources */,
+				F41D929F29D0AC7E00D74D75 /* SetPreferencesView.swift in Sources */,
 				04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */,
 				F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */,
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
@@ -581,7 +601,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -617,7 +637,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

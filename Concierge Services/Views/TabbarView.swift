@@ -415,7 +415,12 @@ struct UserDashboardView : View {
  */
 
 struct TabbarView_Previews: PreviewProvider {
+    static let loginViewModel = LoginViewModel()
+    static let firestoreManager = FirestoreManager()
+    
     static var previews: some View {
         TabbarView()
+            .environmentObject(loginViewModel)
+            .environmentObject(firestoreManager)
     }
 }
