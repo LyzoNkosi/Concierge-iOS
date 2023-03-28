@@ -1,0 +1,53 @@
+import Foundation
+
+struct ActivityItem: Hashable {
+    let image: String
+    let name: String
+    
+    static let sports: [ActivityItem] = [
+        ActivityItem(image: "figure.basketball", name: "basketball"),
+        ActivityItem(image: "figure.soccer", name: "soccer"),
+        ActivityItem(image: "figure.tennis", name: "tennis"),
+        ActivityItem(image: "figure.baseball", name: "baseball"),
+        ActivityItem(image: "figure.golf", name: "golf"),
+        ActivityItem(image: "figure.run", name: "running"),
+        ActivityItem(image: "figure.volleyball", name: "volleyball"),
+        ActivityItem(image: "figure.badminton", name: "badminton"),
+        ActivityItem(image: "figure.pool.swim", name: "swimming"),
+        ActivityItem(image: "figure.boxing", name: "boxing"),
+        ActivityItem(image: "figure.figure.table.tennis", name: "table tennis"),
+        ActivityItem(image: "figure.skiing.downhill", name: "skiing"),
+        ActivityItem(image: "figure.disc.sports", name: "ice skating"),
+        ActivityItem(image: "figure.disc.sports", name: "roller skating"),
+        ActivityItem(image: "figure.cricket", name: "cricket"),
+        ActivityItem(image: "figure.rugby", name: "rugby"),
+        ActivityItem(image: "figure.pool", name: "pool"),
+        ActivityItem(image: "figure.disc.sports", name: "darts"),
+        ActivityItem(image: "figure.figure.american.football", name: "football"),
+        ActivityItem(image: "figure.bowling", name: "bowling"),
+        ActivityItem(image: "figure.hockey", name: "ice hockey"),
+        ActivityItem(image: "figure.surfing", name: "surfing"),
+        ActivityItem(image: "figure.disc.sports", name: "karate"),
+        ActivityItem(image: "figure.disc.sports", name: "horse racing"),
+        ActivityItem(image: "figure.snownboarding", name: "snownboarding"),
+        ActivityItem(image: "figure.skating", name: "skateboarding"),
+        ActivityItem(image: "bicycle", name: "cycling"),
+        ActivityItem(image: "figure.archery", name: "archery"),
+        ActivityItem(image: "figure.figure.fishing", name: "fishing"),
+        ActivityItem(image: "figure.gymnastics", name: "gymnastics"),
+        ActivityItem(image: "figure.skating", name: "figure skating"),
+        ActivityItem(image: "figure.climbing", name: "rock climbing"),
+        ActivityItem(image: "figure.wrestling", name: "sumo wrestling"),
+        ActivityItem(image: "figure.disc.sports", name: "taekwondo"),
+        ActivityItem(image: "figure.figure.fencing", name: "fencing"),
+        ActivityItem(image: "figure.surfing", name: "water skiing"),
+        ActivityItem(image: "figure.disc.sports", name: "jet skiing"),
+        ActivityItem(image: "figure.disc.sports", name: "weight lifting"),
+        ActivityItem(image: "figure.open.water.swim", name: "scuba diving"),
+        ActivityItem(image: "figure.wrestling", name: "judo"),
+        ActivityItem(image: "figure.surfing", name: "wind surfing"),
+        ActivityItem(image: "figure.fall", name: "sky diving"),
+        ActivityItem(image: "figure.disc.sports", name: "hang gliding"),
+        ActivityItem(image: "figure.disc.sports", name: "bungee jumping"),
+    ]
+}
