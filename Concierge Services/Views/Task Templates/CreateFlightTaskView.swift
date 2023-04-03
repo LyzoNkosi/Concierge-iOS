@@ -17,7 +17,12 @@ struct CreateFlightTaskView: View {
     
     @State var ticketName: String = ""
     @State var destination: String = ""
+    @State var destinationAirport: String = ""
     @State var airport: String = ""
+    @State var flightNumber: String = ""
+    @State var returnFlightNumber: String = ""
+    @State var seatNumber: String = ""
+    @State var returnSeatNumber: String = ""
     @State var returnAirport: String = ""
     @State var bookReturn: Bool = false
     
@@ -44,6 +49,18 @@ struct CreateFlightTaskView: View {
                 DatePicker("Departure Date", selection: $departureDate, in: dateClosedRange)
                     .padding()
                 
+                AirportInput()
+                
+                DestinationInput()
+                
+                DestinationAirportInput()
+                
+                HStack {
+                    FlightNumberInput()
+                    
+                    SeatNumberInput()
+                }
+                
                 Toggle("Book Return", isOn: $bookReturn)
                     .padding(4)
                 
@@ -52,12 +69,14 @@ struct CreateFlightTaskView: View {
                         .padding()
                 }
                 
-                DestinationInput()
-                
-                AirportInput()
-                
                 if(bookReturn) {
                     ReturnAirportInput()
+                    
+                    HStack {
+                        ReturnFlightNumberInput()
+                        
+                        ReturnSeatNumberInput()
+                    }
                 }
                 
             }
@@ -72,24 +91,49 @@ struct CreateFlightTaskView: View {
                 .onTapGesture {
                     if(!showLoadingIndicator) {
                         
+                        // Task Name
                         if(self.ticketName.count < 5) {
                             self.toastMessage = "Task name is too short"
                             self.showToast = true
                             return
                         }
                         
+                        // Destination
                         if(self.destination.count < 3) {
                             self.toastMessage = "Destination is too short"
                             self.showToast = true
                             return
                         }
                         
+                        // Departure Airport
                         if(self.airport.count < 3) {
                             self.toastMessage = "Departure airport name is too short"
                             self.showToast = true
                             return
                         }
                         
+                        // Destination Airport
+                        if(self.destinationAirport.count < 3) {
+                            self.toastMessage = "Destination airport is too short"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        // Flight Number
+                        if(self.flightNumber.count < 3) {
+                            self.toastMessage = "Flight number is too short"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        // Seat Number
+                        if(self.seatNumber.count < 3) {
+                            self.toastMessage = "Seat number is too short"
+                            self.showToast = true
+                            return
+                        }
+                        
+                        // Return Date
                         if(bookReturn) {
                             if (departureDate == returnDate) {
                                 self.toastMessage = "Departure date is similar to return date"
@@ -98,9 +142,28 @@ struct CreateFlightTaskView: View {
                             }
                         }
                         
+                        // Return Airport
                         if(bookReturn) {
                             if(self.returnAirport.count < 3) {
                                 self.toastMessage = "Return airport name is too short"
+                                self.showToast = true
+                                return
+                            }
+                        }
+                        
+                        // Return flight number
+                        if(bookReturn) {
+                            if(self.returnFlightNumber.count < 3) {
+                                self.toastMessage = "Return flight number is too short"
+                                self.showToast = true
+                                return
+                            }
+                        }
+                        
+                        // Return seat number
+                        if(bookReturn) {
+                            if(self.returnSeatNumber.count < 3) {
+                                self.toastMessage = "Return seat number is too short"
                                 self.showToast = true
                                 return
                             }
@@ -120,14 +183,14 @@ struct CreateFlightTaskView: View {
                         }
                         
                         let ticket = FlightTicket(id: "",
-                                                 name: ticketName,
-                                                 startDate: departureDateString,
-                                                 status: TicketStatus.STATUS_NOT_STARTED.rawValue,
-                                                 bookReturn: bookReturnInt,
-                                                 departureAirport: airport,
-                                                 returnAirport: returnAirport,
-                                                 returnDate: returnDateString,
-                                                 ticketType: TicketType.FLIGHT.rawValue)
+                                                  name: ticketName,
+                                                  startDate: departureDateString,
+                                                  status: TicketStatus.STATUS_NOT_STARTED.rawValue,
+                                                  bookReturn: bookReturnInt,
+                                                  departureAirport: airport,
+                                                  returnAirport: returnAirport,
+                                                  returnDate: returnDateString,
+                                                  ticketType: TicketType.FLIGHT.rawValue)
                         
                         firestoreManager.createFlightTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
                             if(ticketCreated) {
@@ -174,8 +237,53 @@ struct CreateFlightTaskView: View {
             .padding(.bottom, 20)
     }
     
+    fileprivate func DestinationAirportInput() -> some View {
+        TextField("Destination Airport", text: $destinationAirport)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
     fileprivate func AirportInput() -> some View {
         TextField("Departure Airport", text: $airport)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func FlightNumberInput() -> some View {
+        TextField("Flight Number", text: $flightNumber)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func SeatNumberInput() -> some View {
+        TextField("Seat Number", text: $seatNumber)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func ReturnFlightNumberInput() -> some View {
+        TextField("Flight Number", text: $returnFlightNumber)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disableAutocorrection(true)
+            .padding(.bottom, 20)
+    }
+    
+    fileprivate func ReturnSeatNumberInput() -> some View {
+        TextField("Seat Number", text: $returnSeatNumber)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
