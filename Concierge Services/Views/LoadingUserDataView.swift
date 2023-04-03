@@ -97,5 +97,6 @@ struct LoadingUserDataView: View {
 struct LoadingUserDataView_Previews: PreviewProvider {
     static var previews: some View {
         LoadingUserDataView(firestoreManager: FirestoreManager())
+            .environmentObject(LoginViewModel())
     }
 }

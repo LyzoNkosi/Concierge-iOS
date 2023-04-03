@@ -46,7 +46,7 @@ struct CreateTaskView: View {
             CreateTaskButtonContent()
                 .onTapGesture {
                     if(!showLoadingIndicator) {
-                    
+                        
                         if(self.ticketName.count < 5) {
                             self.toastMessage = "Task name is too short"
                             self.showToast = true
@@ -60,7 +60,13 @@ struct CreateTaskView: View {
                         formatter.dateFormat = "yyyy-MM-dd HH:mm"
                         let dateString = formatter.string(from: self.date)
                         
-                        let ticket = Ticket(id: "", name: ticketName, startDate: dateString, status: TicketStatus.STATUS_NOT_STARTED.rawValue)
+                        let ticket = Ticket(
+                            id: "",
+                            name: ticketName,
+                            startDate: dateString,
+                            status: TicketStatus.STATUS_NOT_STARTED.rawValue,
+                            ticketType: TicketType.GENERAL.rawValue
+                        )
                         
                         firestoreManager.createTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
                             if(ticketCreated) {

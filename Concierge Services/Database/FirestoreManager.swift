@@ -1,5 +1,6 @@
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseCore
 import RealmSwift
 
 class FirestoreManager: ObservableObject{
@@ -236,8 +237,14 @@ class FirestoreManager: ObservableObject{
                                                         status: flightDocument["ticket_status"] as! Int,
                                                         bookReturn: flightDocument["book_return"] as! Int,
                                                         departureAirport: flightDocument["depart_airport"] as? String ?? "",
+                                                        destination: flightDocument["destination"] as? String ?? "",
+                                                        destinationAirport: flightDocument["destination_airport"] as? String ?? "",
+                                                        flightNumber: flightDocument["flight_number"] as? String ?? "",
+                                                        seatNumber: flightDocument["seat_number"] as? String ?? "",
                                                         returnAirport: flightDocument["return_airport"] as? String ?? "",
                                                         returnDate: flightDocument["return_date"] as? String ?? "",
+                                                        returnFlightNumber: flightDocument["return_flight_number"] as? String ?? "",
+                                                        returnSeatNumber: flightDocument["return_seat_number"] as? String ?? "",
                                                         ticketType: flightDocument["ticket_type"] as! Int)
                         
                         try! realm.write {
@@ -285,8 +292,14 @@ class FirestoreManager: ObservableObject{
                                                     status: flightDocument["ticket_status"] as! Int,
                                                     bookReturn: flightDocument["book_return"] as! Int,
                                                     departureAirport: flightDocument["depart_airport"] as? String ?? "",
+                                                    destination: flightDocument["destination"] as? String ?? "",
+                                                    destinationAirport: flightDocument["destination_airport"] as? String ?? "",
+                                                    flightNumber: flightDocument["flight_number"] as? String ?? "",
+                                                    seatNumber: flightDocument["seat_number"] as? String ?? "",
                                                     returnAirport: flightDocument["return_airport"] as? String ?? "",
                                                     returnDate: flightDocument["return_date"] as? String ?? "",
+                                                    returnFlightNumber: flightDocument["return_flight_number"] as? String ?? "",
+                                                    returnSeatNumber: flightDocument["return_seat_number"] as? String ?? "",
                                                     ticketType: flightDocument["ticket_type"] as! Int)
                     
                     ticketsToReturn.append(flightTicket)
@@ -355,13 +368,19 @@ class FirestoreManager: ObservableObject{
     func createFlightTicket(clientId: String, ticket: FlightTicket, ticketCreated: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
-        let data: [String: Any] = ["ticket_name" : ticket.name!,
-                                   "depart_date" : ticket.startDate!,
-                                   "return_date" : ticket.returnDate!,
+        let data: [String: Any] = ["ticket_name" : ticket.name ?? "",
+                                   "depart_date" : ticket.startDate ?? "",
+                                   "return_date" : ticket.returnDate ?? "",
                                    "book_return" : ticket.bookReturn,
-                                   "depart_airport" : ticket.departureAirport!,
-                                   "return_airport" : ticket.returnAirport!,
+                                   "depart_airport" : ticket.departureAirport ?? "",
+                                   "return_airport" : ticket.returnAirport ?? "",
                                    "ticket_type" : ticket.ticketType,
+                                   "destination" : ticket.destination ?? "",
+                                   "destination_airport" : ticket.departureAirport ?? "",
+                                   "flight_number" : ticket.flightNumber ?? "",
+                                   "seat_number" : ticket.seatNumber ?? "",
+                                   "return_flight_number" : ticket.returnFlightNumber ?? "",
+                                   "return_seat_number" : ticket.returnSeatNumber ?? "",
                                    "ticket_status" : TicketStatus.STATUS_NOT_STARTED.rawValue]
         
         let ref = database.collection("tickets").document(clientId).collection("tickets").document()
