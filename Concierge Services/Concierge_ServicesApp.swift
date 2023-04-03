@@ -36,7 +36,7 @@ struct Concierge_ServicesApp: SwiftUI.App {
                 }
             })
         Realm.Configuration.defaultConfiguration = config
-        let realm = try! Realm()
+        _ = try! Realm()
     }
     
     // MARK: - UI Elements
