@@ -1,5 +1,6 @@
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseCore
 import RealmSwift
 
 class FirestoreManager: ObservableObject{

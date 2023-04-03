@@ -1,5 +1,6 @@
 import SwiftUI
-import Firebase
+import FirebaseCore
+import RealmSwift
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -9,7 +10,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 }
 @main
-struct Concierge_ServicesApp: App {
+struct Concierge_ServicesApp: SwiftUI.App {
     
     @StateObject var firestoreManager = FirestoreManager()
     @StateObject var loginViewModel = LoginViewModel()
@@ -20,6 +21,22 @@ struct Concierge_ServicesApp: App {
     // MARK: - Life Cycle
     init() {
         FirebaseApp.configure()
+        
+        initRealm()
+    }
+    
+    private func initRealm() {
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if (oldSchemaVersion < 2) {
+                    // Nothing to do!
+                    // Realm will automatically detect new properties and removed properties
+                    // And will update the schema on disk automatically
+                }
+            })
+        Realm.Configuration.defaultConfiguration = config
+        let realm = try! Realm()
     }
     
     // MARK: - UI Elements
@@ -41,21 +58,10 @@ struct ApplicationSwitcher: View {
         
         ZStack {
             if (loginViewModel.isLoggedIn) {
-                // TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel)
-                
-                
                 LoadingUserDataView(firestoreManager: firestoreManager)
-                
             } else {
                 LoginView().environmentObject(firestoreManager).environmentObject(loginViewModel)
             }
         }
-    }
-    
-    private func isUserAdmin() -> Bool {
-        if(UserDefaultsUtils.shared.isUserAdmin()) {
-            return true
-        }
-        return false
     }
 }
