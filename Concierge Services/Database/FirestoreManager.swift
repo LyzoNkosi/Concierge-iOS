@@ -1,4 +1,3 @@
-import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 import RealmSwift
@@ -7,7 +6,7 @@ class FirestoreManager: ObservableObject{
     
     @Published var someStr: String = ""
     
-    func fetchUserDetails(userID: String) {
+    func fetchUserDetails(userID: String, userDetailsLoaded: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
         let userRef = database.collection("users").document(userID)
@@ -15,6 +14,7 @@ class FirestoreManager: ObservableObject{
         userRef.getDocument { (document, error) in
             guard error == nil else {
                 print("error", error ?? "")
+                userDetailsLoaded(false)
                 return
             }
             
@@ -24,6 +24,8 @@ class FirestoreManager: ObservableObject{
                     UserDefaultsUtils.shared.setUserFirstName(value: data["first_name"] as? String ?? "")
                     UserDefaultsUtils.shared.setUserLastName(value: data["last_name"] as? String ?? "")
                     UserDefaultsUtils.shared.setUserRole(value: data["role"] as? Int ?? 1)
+                    
+                    userDetailsLoaded(true)
                 }
             }
             
@@ -382,7 +384,7 @@ class FirestoreManager: ObservableObject{
             let realm = try Realm()
             let clientsToDelete = realm.objects(Client.self)
             
-            try! realm.write{
+            try! realm.write {
                 realm.delete(clientsToDelete)
             }
             
