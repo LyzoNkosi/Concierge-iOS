@@ -74,25 +74,33 @@ struct TabbarView: View {
                 }
                 .tag(Tabs.chatTab)
                 
-                ScrollView {
-                    BalanceView().environmentObject(firestoreManager)
-                }
-                .safeAreaInset(edge: .bottom) {
-                    
-                    PayButtonContent()
-                        .onTapGesture {
-                            self.toastMessage = "This feature is coming soon"
-                            self.showToast = true
-                        }
-                        .padding(8)
-                    
-                }
-                .tabItem {
-                    Image(systemName: "creditcard")
-                    Text("Balance")
-                        .font(Font.custom("Poppins-Light", size: 10))
-                }
-                .tag(Tabs.balanceTab)
+                /*
+                 Start Balance Screen
+                 */
+                /*
+                 ScrollView {
+                 BalanceView().environmentObject(firestoreManager)
+                 }
+                 .safeAreaInset(edge: .bottom) {
+                 
+                 PayButtonContent()
+                 .onTapGesture {
+                 self.toastMessage = "This feature is coming soon"
+                 self.showToast = true
+                 }
+                 .padding(8)
+                 
+                 }
+                 .tabItem {
+                 Image(systemName: "creditcard")
+                 Text("Balance")
+                 .font(Font.custom("Poppins-Light", size: 10))
+                 }
+                 .tag(Tabs.balanceTab)
+                 */
+                /*
+                 End Balance Screen
+                 */
                 
                 //SettingsView().environmentObject(firestoreManager)
                 /*

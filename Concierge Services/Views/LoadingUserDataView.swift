@@ -42,38 +42,49 @@ struct LoadingUserDataView: View {
             
             if(UserDefaultsUtils().getUserLoggedIn()) {
                 
-                firestoreManager.fetchUserDetails(userID: UserDefaultsUtils().getUserId())
-                
-                if(UserDefaultsUtils().isUserAdmin()) {
-                    firestoreManager.getAgentClients() { clientsSynced in
-                        if(clientsSynced) {
-                            print("Clients synced")
-                        } else {
-                            print("Clients sync error")
+                firestoreManager.fetchUserDetails(userID: UserDefaultsUtils().getUserId()) { userDetailsLoaded in
+                    if(userDetailsLoaded) {
+                        // If user is an admin
+                        if(UserDefaultsUtils().isUserAdmin()) {
+                            firestoreManager.getAgentClients() { clientsSynced in
+                                if(clientsSynced) {
+                                    print("Clients synced")
+                                } else {
+                                    print("Clients sync error")
+                                }
+                            }
                         }
-                    }
-                }
-                
-                firestoreManager.getGeneralTickets() { loadedTickets in
-                    if(loadedTickets) {
-                        print("Loaded general tickets")
-                    } else {
-                        print("Error loading general tickets")
-                    }
-                }
-                
-                firestoreManager.getFlightTickets() { loadedTickets in
-                    if(loadedTickets) {
-                        print("Loaded flight tickets")
                         
+                        // Load general tickets
+                        firestoreManager.getGeneralTickets() { loadedTickets in
+                            if(loadedTickets) {
+                                print("Loaded general tickets")
+                            } else {
+                                print("Error loading general tickets")
+                            }
+                        }
+                        
+                        // Load flight tickets
+                        firestoreManager.getFlightTickets() { loadedTickets in
+                            if(loadedTickets) {
+                                print("Loaded flight tickets")
+                                
+                                self.launchScreenState.dismiss()
+                                
+                                self.isActive.toggle()
+                                
+                            } else {
+                                print("Error loading general tickets")
+                            }
+                        }
+                    } else {
                         self.launchScreenState.dismiss()
                         
                         self.isActive.toggle()
-                        
-                    } else {
-                        print("Error loading general tickets")
                     }
                 }
+                
+                
             } else {
                 self.launchScreenState.dismiss()
                 self.isActive.toggle()

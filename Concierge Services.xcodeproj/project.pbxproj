@@ -201,16 +201,16 @@
 		04D8687A29C05C0F00027E73 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */,
 				F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */,
 				F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */,
 				F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */,
 				F48CBF0929C3344100973290 /* ClientsViewModel.swift */,
+				F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */,
 				F48CBF0B29C3346200973290 /* DashboardViewModel.swift */,
+				F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */,
 				04791B5D29B8BD25007D0890 /* LoginViewModel.swift */,
 				F48CBF0529C333F500973290 /* TimelineViewModel.swift */,
 				04D8688429C07C8600027E73 /* UserProfileViewModel.swift */,
-				F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -587,7 +587,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
@@ -605,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -623,7 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
@@ -641,7 +641,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
