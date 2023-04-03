@@ -19,7 +19,7 @@ struct SetPreferencesView: View {
                 }
                 
             }
-            
+            .padding()
         }
     }
 }
@@ -29,23 +29,24 @@ struct makeGridItemImageWithText : View {
     @State var activityItem : ActivityItem
     
     var body: some View {
-        return ZStack {
+        return ZStack(alignment: .center) {
             Rectangle()
-                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(minWidth: 0, maxWidth: 128)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
                 .cornerRadius(16)
             
             VStack() {
-                Image(systemName: "books.vertical.circle")
+                Image(systemName: activityItem.image)
                     .foregroundColor(.white)
-                    .font(.system(size: 84))
+                    .font(.system(size: 64))
                 
-                Text("upcoming tasks")
-                    .padding(4)
-                    .font(Font.custom("Poppins-Light", size: 16))
+                Spacer()
+                
+                Text(activityItem.name)
+                    .font(Font.custom("Poppins-Light", size: 15))
                     .foregroundColor(Color.TextColorPrimary)
+                    .padding()
             }
-            .padding(4)
         }
     }
 }

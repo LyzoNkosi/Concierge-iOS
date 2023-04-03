@@ -33,6 +33,7 @@
 		04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9CF9329C0B446009FB454 /* UsersListView.swift */; };
 		04D8688029C0601900027E73 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8687F29C0601900027E73 /* UserProfileView.swift */; };
 		04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8688429C07C8600027E73 /* UserProfileViewModel.swift */; };
+		F416A51129DAEABE00C40751 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F416A51029DAEABE00C40751 /* SFSymbol.swift */; };
 		F41D929F29D0AC7E00D74D75 /* SetPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D929E29D0AC7E00D74D75 /* SetPreferencesView.swift */; };
 		F41D92A829D0B52200D74D75 /* SFSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D92A729D0B52200D74D75 /* SFSymbolView.swift */; };
 		F41D92AA29D0CD1A00D74D75 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */; };
@@ -96,6 +97,7 @@
 		04B9CF9329C0B446009FB454 /* UsersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListView.swift; sourceTree = "<group>"; };
 		04D8687F29C0601900027E73 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		04D8688429C07C8600027E73 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F416A51029DAEABE00C40751 /* SFSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
 		F41D929E29D0AC7E00D74D75 /* SetPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPreferencesView.swift; sourceTree = "<group>"; };
 		F41D92A729D0B52200D74D75 /* SFSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolView.swift; sourceTree = "<group>"; };
 		F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
 				F41D929E29D0AC7E00D74D75 /* SetPreferencesView.swift */,
+				F41D92A729D0B52200D74D75 /* SFSymbolView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
 				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
 				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
@@ -236,7 +239,6 @@
 				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
-				F41D92A729D0B52200D74D75 /* SFSymbolView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,6 +246,7 @@
 		04D8687C29C05C2400027E73 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F416A51029DAEABE00C40751 /* SFSymbol.swift */,
 				F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */,
 				F48CBEFF29C32B6E00973290 /* Client.swift */,
 				F48CBEFD29C32A1100973290 /* Ticket.swift */,
@@ -425,6 +428,7 @@
 				04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */,
 				F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */,
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
+				F416A51129DAEABE00C40751 /* SFSymbol.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
 				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
