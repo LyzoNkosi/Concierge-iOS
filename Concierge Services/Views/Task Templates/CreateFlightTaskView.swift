@@ -182,15 +182,23 @@ struct CreateFlightTaskView: View {
                             bookReturnInt = 1
                         }
                         
-                        let ticket = FlightTicket(id: "",
-                                                  name: ticketName,
-                                                  startDate: departureDateString,
-                                                  status: TicketStatus.STATUS_NOT_STARTED.rawValue,
-                                                  bookReturn: bookReturnInt,
-                                                  departureAirport: airport,
-                                                  returnAirport: returnAirport,
-                                                  returnDate: returnDateString,
-                                                  ticketType: TicketType.FLIGHT.rawValue)
+                        let ticket = FlightTicket(
+                            id: "",
+                            name: self.ticketName,
+                            startDate: departureDateString,
+                            status: TicketStatus.STATUS_NOT_STARTED.rawValue,
+                            bookReturn: bookReturnInt,
+                            departureAirport: self.airport,
+                            destination: self.destination,
+                            destinationAirport: self.destinationAirport,
+                            flightNumber: self.flightNumber,
+                            seatNumber: self.seatNumber,
+                            returnAirport: self.returnAirport,
+                            returnDate: returnDateString,
+                            returnFlightNumber: self.returnFlightNumber,
+                            returnSeatNumber: self.returnSeatNumber,
+                            ticketType: TicketType.FLIGHT.rawValue
+                        )
                         
                         firestoreManager.createFlightTicket(clientId: selectedClient?.id ?? "", ticket: ticket) { ticketCreated in
                             if(ticketCreated) {

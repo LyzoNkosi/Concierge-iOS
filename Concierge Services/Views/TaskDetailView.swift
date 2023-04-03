@@ -14,6 +14,7 @@ struct TaskDetailView: View {
                 VStack (alignment: .leading, spacing: 8) {
                     
                     switch(selectedTask.ticketType) {
+                        
                     case TicketType.FLIGHT.rawValue:
                         
                         let flightTicket = selectedTask as? FlightTicket
@@ -60,31 +61,95 @@ struct TaskDetailView: View {
                                 Divider()
                                     .padding(8)
                                 
-                                Label {
-                                    Text("Departure Airport: " + (flightTicket?.departureAirport ?? "No departure airport"))
-                                        .font(Font.custom("Poppins-Regular", size: 14))
-                                        .foregroundColor(Color.ColorPrimary)
-                                } icon: {
-                                    Image(systemName: "figure.walk.departure")
-                                        .foregroundColor(Color.ColorPrimary)
-                                }
-                                
-                                Divider()
-                                    .padding(8)
-                                
-                                if(flightTicket?.bookReturn != 0) {
-                                    
+                                HStack {
                                     Label {
-                                        Text("Return Airport: " + (flightTicket?.returnAirport ?? "No return airport"))
-                                            .font(Font.custom("Poppins-Regular", size: 14))
+                                        Text("Departure Airport: ")
+                                            .font(Font.custom("Poppins-Bold", size: 14))
                                             .foregroundColor(Color.ColorPrimary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(1)
+                                    } icon: {
+                                        Image(systemName: "airplane.departure")
+                                            .foregroundColor(Color.ColorPrimary)
+                                    }
+                                    
+                                    Text(flightTicket?.departureAirport ?? "No departure airport")
+                                        .font(Font.custom("Poppins-Regular", size: 16))
+                                        .foregroundColor(Color.ColorPrimary)
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(1)
+                                }
+                                .padding(4)
+                                
+                                HStack {
+                                    Label {
+                                        Text("Arrival Airport: ")
+                                            .font(Font.custom("Poppins-Bold", size: 14))
+                                            .foregroundColor(Color.ColorPrimary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(1)
                                     } icon: {
                                         Image(systemName: "airplane.arrival")
                                             .foregroundColor(Color.ColorPrimary)
                                     }
                                     
-                                    Divider()
-                                        .padding(8)
+                                    Text(flightTicket?.destinationAirport ?? "No arrival airport")
+                                        .font(Font.custom("Poppins-Regular", size: 16))
+                                        .foregroundColor(Color.ColorPrimary)
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(1)
+                                }
+                                .padding(4)
+                                
+                                HStack {
+                                    Label {
+                                        Text("Destination: ")
+                                            .font(Font.custom("Poppins-Bold", size: 14))
+                                            .foregroundColor(Color.ColorPrimary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(1)
+                                    } icon: {
+                                        Image(systemName: "figure.walk.arrival")
+                                            .foregroundColor(Color.ColorPrimary)
+                                    }
+                                    
+                                    Text(flightTicket?.destination ?? "No arrival airport")
+                                        .font(Font.custom("Poppins-Regular", size: 16))
+                                        .foregroundColor(Color.ColorPrimary)
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(1)
+                                }
+                                .padding(4)
+                                
+                                HStack {
+                                    Label {
+                                        Text(flightTicket?.flightNumber ?? "None")
+                                            .font(Font.custom("Poppins-Bold", size: 14))
+                                            .foregroundColor(Color.ColorPrimary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(1)
+                                    } icon: {
+                                        Image(systemName: "airplane")
+                                            .foregroundColor(Color.ColorPrimary)
+                                    }
+                                    
+                                    Label {
+                                        Text(flightTicket?.seatNumber ?? "None")
+                                            .font(Font.custom("Poppins-Bold", size: 14))
+                                            .foregroundColor(Color.ColorPrimary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(1)
+                                    } icon: {
+                                        Image(systemName: "chair.fill")
+                                            .foregroundColor(Color.ColorPrimary)
+                                    }
+                                }
+                                .padding(4)
+                                
+                                Divider()
+                                    .padding(8)
+                                
+                                if(flightTicket?.bookReturn != 0) {
                                     
                                     Label {
                                         Text("Return Date: " + (flightTicket?.returnDate ?? "No return date"))
@@ -95,8 +160,51 @@ struct TaskDetailView: View {
                                             .foregroundColor(Color.ColorPrimary)
                                     }
                                     
-                                    Divider()
-                                        .padding(8)
+                                    HStack {
+                                        Label {
+                                            Text("Return Airport: ")
+                                                .font(Font.custom("Poppins-Bold", size: 14))
+                                                .foregroundColor(Color.ColorPrimary)
+                                                .multilineTextAlignment(.leading)
+                                                .lineLimit(1)
+                                        } icon: {
+                                            Image(systemName: "airplane.arrival")
+                                                .foregroundColor(Color.ColorPrimary)
+                                                .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                                        }
+                                        
+                                        Text(flightTicket?.returnAirport ?? "No return airport")
+                                            .font(Font.custom("Poppins-Regular", size: 16))
+                                            .foregroundColor(Color.ColorPrimary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(1)
+                                    }
+                                    .padding(4)
+                                    
+                                    HStack {
+                                        Label {
+                                            Text(flightTicket?.returnFlightNumber ?? "None")
+                                                .font(Font.custom("Poppins-Bold", size: 14))
+                                                .foregroundColor(Color.ColorPrimary)
+                                                .multilineTextAlignment(.leading)
+                                                .lineLimit(1)
+                                        } icon: {
+                                            Image(systemName: "airplane")
+                                                .foregroundColor(Color.ColorPrimary)
+                                        }
+                                        
+                                        Label {
+                                            Text(flightTicket?.returnSeatNumber ?? "None")
+                                                .font(Font.custom("Poppins-Bold", size: 14))
+                                                .foregroundColor(Color.ColorPrimary)
+                                                .multilineTextAlignment(.leading)
+                                                .lineLimit(1)
+                                        } icon: {
+                                            Image(systemName: "chair.fill")
+                                                .foregroundColor(Color.ColorPrimary)
+                                        }
+                                    }
+                                    .padding(4)
                                 }
                                 
                                 
@@ -106,7 +214,7 @@ struct TaskDetailView: View {
                     case TicketType.GENERAL.rawValue:
                         
                         HStack(alignment: .top, spacing: 0) {
-                            VStack(alignment: .center, spacing: 0){
+                            VStack(alignment: .center, spacing: 0) {
                                 Rectangle()
                                     .frame(width: 1, height: 30, alignment: .center)
                                 Circle()
@@ -213,6 +321,30 @@ struct CancelTaskButtonContent : View {
 
 struct TaskDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskDetailView(selectedTask: Ticket(id: "123456", name: "Task Name"))
+        /*TaskDetailView(
+         selectedTask: Ticket(
+         id: "123456",
+         name: "Task Name",
+         startDate: "2023-03-28 11:09",
+         status: TicketStatus.STATUS_IN_PROGRESS.rawValue,
+         ticketType: TicketType.GENERAL.rawValue))*/
+        TaskDetailView(
+            selectedTask: FlightTicket(
+                id: "123456",
+                name: "Task Name",
+                startDate: "2023-03-28 11:09",
+                status: TicketStatus.STATUS_IN_PROGRESS.rawValue,
+                bookReturn: 1,
+                departureAirport: "Rand Airport",
+                destination: "Cape Town",
+                destinationAirport: "CPT International",
+                flightNumber: "NS 544123",
+                seatNumber: "C34",
+                returnAirport: "CPT International",
+                returnDate: "2023-03-28 11:09",
+                returnFlightNumber: "GL 1224",
+                returnSeatNumber: "A12",
+                ticketType: TicketType.FLIGHT.rawValue
+            ))
     }
 }
