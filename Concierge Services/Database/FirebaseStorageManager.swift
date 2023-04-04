@@ -7,7 +7,7 @@ class FirebaseStorageManager: ObservableObject {
     let storage = Storage.storage()
     
     func uploadImage(image: UIImage, userId: String, ownerId: String, imageUploaded: @escaping (Bool) -> ()) {
-        let storageRef = storage.reference().child("images").child(userId).child(ownerId).child(String(Date().millisecondsSince1970)+".jpg")
+        let storageRef = storage.reference().child("files").child(userId).child(ownerId).child(String(Date().millisecondsSince1970)+".jpg")
         
         //let resizedImage = image.aspectFittedToHeight(200)
         
@@ -36,7 +36,7 @@ class FirebaseStorageManager: ObservableObject {
         //let fileExtension = String(filepath[...filepath.lastIndex(of: ".")!])
         //print("File extension: " + fileExtension)
         
-        let storageRef = storage.reference().child("images").child(userId).child(ownerId).child(String(Date().millisecondsSince1970) + fileUrl.pathExtension)
+        let storageRef = storage.reference().child("files").child(userId).child(ownerId).child(String(Date().millisecondsSince1970) + "." + fileUrl.pathExtension)
         
         //let localFile = URL(string: filepath)!
         

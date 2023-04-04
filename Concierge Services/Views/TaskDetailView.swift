@@ -278,28 +278,6 @@ struct TaskDetailView: View {
                            style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
             }
         }
-        /*.safeAreaInset(edge: .bottom) {
-         HStack(alignment: .center, spacing: 8) {
-         
-         EditTaskButtonContent()
-         .onTapGesture {
-         self.toastMessage = "This feature is coming sooon"
-         self.showToast = true
-         }
-         
-         CancelTaskButtonContent()
-         .onTapGesture {
-         self.toastMessage = "This feature is coming sooon"
-         self.showToast = true
-         }
-         }
-         
-         }*/
-        /*.safeAreaInset(edge: .bottom) {
-         FilePicker(types: [.plainText], allowMultiple: false, title: "pick single file") { urls in
-         print("selected \(urls.count) files")
-         }
-         }*/
         .padding()
         .navigationTitle("Task Details")
         .font(Font.custom("Poppins-Regular", size: 20))
@@ -319,7 +297,7 @@ struct TaskDetailView: View {
             onPick: { url in
                 print("url : \(url)")
                 
-                let tempUrl = FileManager.default.temporaryDirectory.appendingPathComponent(String(Date().millisecondsSince1970))
+                let tempUrl = FileManager.default.temporaryDirectory.appendingPathComponent(String(Date().millisecondsSince1970) + "." + url.pathExtension)
                 
                 let docData = try? Data(contentsOf: url)
                 
