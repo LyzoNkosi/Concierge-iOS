@@ -33,12 +33,7 @@ class FirebaseStorageManager: ObservableObject {
     
     func uploadFile(fileUrl: URL, userId: String, ownerId: String, fileUploaded: @escaping (URL?) -> ()) {
         
-        //let fileExtension = String(filepath[...filepath.lastIndex(of: ".")!])
-        //print("File extension: " + fileExtension)
-        
         let storageRef = storage.reference().child("files").child(userId).child(ownerId).child(String(Date().millisecondsSince1970) + "." + fileUrl.pathExtension)
-        
-        //let localFile = URL(string: filepath)!
         
         let uploadTask = storageRef.putFile(from: fileUrl, metadata: nil) { metadata, error in
             guard let metadata = metadata else {
@@ -60,7 +55,7 @@ class FirebaseStorageManager: ObservableObject {
     }
     
     func listAllFiles(userId: String, ownerId: String, loadedFiles: @escaping ([URL]) -> ()) {
-        let storageRef = storage.reference().child("images").child(userId).child(ownerId)
+        let storageRef = storage.reference().child("files").child(userId).child(ownerId)
         
         var filenames: [URL] = []
         
@@ -77,10 +72,11 @@ class FirebaseStorageManager: ObservableObject {
                         print(urlError)
                     } else {
                         filenames.append(url!)
-                        print("Item in images folder: ", item)
+                        print("URLs in files folder: ", url!)
                     }
                 }
             }
+            print(filenames)
             loadedFiles(filenames)
         }
     }

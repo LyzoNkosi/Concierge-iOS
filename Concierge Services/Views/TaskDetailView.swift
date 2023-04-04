@@ -284,6 +284,7 @@ struct TaskDetailView: View {
         .onAppear {
             FirebaseStorageManager().listAllFiles(userId: userId, ownerId: selectedTask.id!) { loadedFiles in
                 self.taskFilesURLs = loadedFiles
+                print("Loaded files: ", loadedFiles)
             }
         }
         .padding()
