@@ -55,6 +55,15 @@ struct LoadingUserDataView: View {
                             }
                         }
                         
+                        // Load Chats
+                        firestoreManager.getMyChatMessages() { loadedMessages in
+                            if(loadedMessages){
+                                print("Messages synced")
+                            } else {
+                                print("Messages sync error")
+                            }
+                        }
+                        
                         // Load general tickets
                         firestoreManager.getGeneralTickets() { loadedTickets in
                             if(loadedTickets) {
