@@ -13,7 +13,7 @@ struct ClientTicketsView: View {
             
             List(clientTicketsViewModel.tickets) { task in
                 NavigationLink(
-                    destination: TaskDetailView(selectedTask: task)
+                    destination: TaskDetailView(selectedTask: task, userId: selectedClient.id!)
                 ) {
                     switch(task.ticketType) {
                     case TicketType.FLIGHT.rawValue:
@@ -133,6 +133,7 @@ struct ClientTicketsView: View {
 struct ClientTicketsView_Previews: PreviewProvider {
     static var previews: some View {
         ClientTicketsView(selectedClient: Client(id: "123456", firstName: "John", lastName: "Doe"))
+            .environmentObject(FirestoreManager())
     }
 }
 

@@ -1,12 +1,17 @@
 import SwiftUI
 import AlertToast
+import MobileCoreServices
+import FirebaseStorage
 
 struct TaskDetailView: View {
     
     var selectedTask: Ticket
+    var userId: String
     
     @State private var showToast = false
     @State private var toastMessage = ""
+    
+    @State private var taskFiles: [StorageReference] = []
     
     var body: some View {
         NavigationView {
@@ -273,25 +278,123 @@ struct TaskDetailView: View {
                            style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
             }
         }
-        .safeAreaInset(edge: .bottom) {
-            HStack(alignment: .center, spacing: 8) {
-                
-                EditTaskButtonContent()
-                    .onTapGesture {
-                        self.toastMessage = "This feature is coming sooon"
-                        self.showToast = true
-                    }
-                
-                CancelTaskButtonContent()
-                    .onTapGesture {
-                        self.toastMessage = "This feature is coming sooon"
-                        self.showToast = true
-                    }
+        /*.safeAreaInset(edge: .bottom) {
+         HStack(alignment: .center, spacing: 8) {
+         
+         EditTaskButtonContent()
+         .onTapGesture {
+         self.toastMessage = "This feature is coming sooon"
+         self.showToast = true
+         }
+         
+         CancelTaskButtonContent()
+         .onTapGesture {
+         self.toastMessage = "This feature is coming sooon"
+         self.showToast = true
+         }
+         }
+         
+         }*/
+        /*.safeAreaInset(edge: .bottom) {
+         FilePicker(types: [.plainText], allowMultiple: false, title: "pick single file") { urls in
+         print("selected \(urls.count) files")
+         }
+         }*/
+        .padding()
+        .navigationTitle("Task Details")
+        .font(Font.custom("Poppins-Regular", size: 20))
+        .toolbar {
+            Menu("Options") {
+                Button("Add File", action: uploadFile)
+                Button("Edit Task", action: editTask)
+                Button("Cancel Task", action: cancelTask)
             }
-            
-        } .padding(12)
-            .navigationTitle("Task Details")
-            .font(Font.custom("Poppins-Regular", size: 20))
+        }
+    }
+    
+    private func uploadFile() {
+        /*FilePicker(types: [.plainText], allowMultiple: true) { urls in
+         print("selected \(urls.count) files")
+         } label: {
+         HStack {
+         Image(systemName: "doc.on.doc")
+         Text("Pick Files")
+         }
+         }*/
+        
+        /*let picker = FilePicker(types: [.plainText], allowMultiple: false, title: "pick single file") { urls in
+         print("selected \(urls.count) files")
+         }*/
+        
+        let picker = DocumentPickerViewController(
+            supportedTypes: [String(kUTTypePNG), String(kUTTypeJPEG), String(kUTTypePDF)],
+            onPick: { url in
+                print("url : \(url)")
+                
+                //let tempUrl = copyBundleResourceToTemporaryDirectory(resourceName: String(Date().millisecond), fileExtension: url.pathExtension)
+                //let tempUrl = copyFileToTemporaryDirectory(resourceName: String(Date().millisecond), fileExtension: url.pathExtension)
+                
+                let tempUrl = FileManager.default.temporaryDirectory.appendingPathComponent(String(Date().millisecondsSince1970))
+                
+                let docData = try? Data(contentsOf: url)
+                
+                storeFileToTemporaryFolder(fileData: docData!, tempUrl: tempUrl)
+                
+                FirebaseStorageManager().uploadFile(
+                    fileUrl: tempUrl,
+                    userId: userId,
+                    ownerId: selectedTask.id!) { uploadedFileURL in
+                        if(uploadedFileURL != nil) {
+                            self.toastMessage = "File uploaded"
+                            self.showToast = true
+                        } else {
+                            self.toastMessage = "Error uploading file"
+                            self.showToast = true
+                            
+                            return
+                        }
+                    }
+                
+            },
+            onDismiss: {
+                print("dismiss")
+            }
+        )
+        picker.allowsMultipleSelection = false
+        
+        UIApplication.shared.windows.first?.rootViewController?.present(picker, animated: true)
+    }
+    
+    private func editTask() { }
+    
+    private func cancelTask() { }
+}
+
+public func storeFileToTemporaryFolder(fileData: Data, tempUrl: URL) {
+    guard !FileManager.default.fileExists(atPath: tempUrl.path) else {
+        return
+    }
+    do {
+        try fileData.write(to: tempUrl)
+    }
+    catch {
+        fatalError()
+    }
+}
+
+public func loadFileFromTemporaryFolder(tempUrl: URL) -> Data? {
+    if let data = try? Data(contentsOf: tempUrl) {
+        return data
+    }
+    return nil
+}
+
+public func deleteFileFromTemporaryFolder(fileURL: URL) {
+    do {
+        try FileManager.default.removeItem(at: fileURL)
+    }
+    catch {
+        fatalError()
     }
 }
 
@@ -304,6 +407,52 @@ struct EditTaskButtonContent : View {
             .frame(width: 160, height: 60)
             .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
+    }
+}
+
+/// Copy file to temp directory
+///
+///
+public func copyBundleResourceToTemporaryDirectory(resourceName: String, fileExtension: String) -> URL? {
+    // Get the file path in the bundle
+    if let bundleURL = Bundle.main.url(forResource: resourceName, withExtension: fileExtension) {
+        
+        let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        
+        // Create a destination URL.
+        let targetURL = tempDirectoryURL.appendingPathComponent(resourceName).appendingPathExtension(fileExtension)
+        
+        // Copy the file.
+        do {
+            try FileManager.default.copyItem(at: bundleURL, to: targetURL)
+            return targetURL
+        } catch let error {
+            print("Unable to copy file: \(error)")
+        }
+    }
+    
+    return nil
+}
+
+public func copyFileToTemporaryDirectory (resourceName: String, fileExtension: String) -> URL? {
+    guard let bundleURL = Bundle.main.url(forResource: resourceName, withExtension: fileExtension) else { return nil }
+    let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+    
+    let targetURL = tempDirectoryURL.appendingPathComponent("\(resourceName).\(fileExtension)")
+    do {
+        try FileManager.default.copyItem(at: bundleURL, to: targetURL)
+    } catch {
+        print("Could not write file", error.localizedDescription)
+    }
+    
+    return nil
+}
+
+struct TaskFileViewContent : View {
+    var body: some View {
+        return HStack {
+            
+        }
     }
 }
 
@@ -345,6 +494,6 @@ struct TaskDetailView_Previews: PreviewProvider {
                 returnFlightNumber: "GL 1224",
                 returnSeatNumber: "A12",
                 ticketType: TicketType.FLIGHT.rawValue
-            ))
+            ), userId: "")
     }
 }

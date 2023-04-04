@@ -11,7 +11,7 @@ struct TimelineView: View {
         VStack {
             List(ticketsViewModel.tickets) { task in
                 NavigationLink(
-                    destination: TaskDetailView(selectedTask: task)
+                    destination: TaskDetailView(selectedTask: task, userId: UserDefaultsUtils().getUserId())
                 ) {
                     
                     switch(task.ticketType) {

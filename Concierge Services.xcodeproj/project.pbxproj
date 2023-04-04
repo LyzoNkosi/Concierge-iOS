@@ -54,6 +54,9 @@
 		F49E6C5129C4500D0081CE03 /* ClientTicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */; };
 		F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */; };
 		F49E6C5529C4A8A10081CE03 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */; };
+		F4A97B2F29DC0C0400D85017 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A97B2E29DC0C0400D85017 /* FirebaseStorageManager.swift */; };
+		F4A97B3129DC0CDC00D85017 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F4A97B3029DC0CDC00D85017 /* FirebaseStorage */; };
+		F4A97B3829DC2AE600D85017 /* DocumentPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A97B3729DC2AE600D85017 /* DocumentPickerViewController.swift */; };
 		F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF6529C82A280036C06F /* CreateFlightTaskView.swift */; };
 		F4BBAF6929C832510036C06F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF6829C832510036C06F /* Color.swift */; };
 		F4BBAF6F29C834A70036C06F /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4BBAF6B29C834A60036C06F /* Poppins-Bold.ttf */; };
@@ -117,6 +120,8 @@
 		F49E6C5029C4500D0081CE03 /* ClientTicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTicketsViewModel.swift; sourceTree = "<group>"; };
 		F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		F49E6C5429C4A8A10081CE03 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		F4A97B2E29DC0C0400D85017 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
+		F4A97B3729DC2AE600D85017 /* DocumentPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerViewController.swift; sourceTree = "<group>"; };
 		F4BBAF6529C82A280036C06F /* CreateFlightTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFlightTaskView.swift; sourceTree = "<group>"; };
 		F4BBAF6829C832510036C06F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F4BBAF6B29C834A60036C06F /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 			files = (
 				F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */,
 				F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */,
+				F4A97B3129DC0CDC00D85017 /* FirebaseStorage in Frameworks */,
 				F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */,
 				04B21D3229B737EA00829AD7 /* FirebaseAnalyticsSwift in Frameworks */,
 				04B21D3829B737EA00829AD7 /* FirebaseCrashlytics in Frameworks */,
@@ -173,6 +179,7 @@
 		0445A0E829B1EEE300DA8D50 /* Concierge Services */ = {
 			isa = PBXGroup;
 			children = (
+				F4A97B3229DC1F8C00D85017 /* FilePicker */,
 				F41D92A029D0B45D00D74D75 /* Experiments */,
 				F4BBAF7729C869F30036C06F /* Concierge-Services-Info.plist */,
 				F4BBAF6A29C832AA0036C06F /* Fonts */,
@@ -273,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				F48CBEF829C315F000973290 /* FirestoreManager.swift */,
+				F4A97B2E29DC0C0400D85017 /* FirebaseStorageManager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -290,6 +298,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4A97B3229DC1F8C00D85017 /* FilePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F4A97B3729DC2AE600D85017 /* DocumentPickerViewController.swift */,
+			);
+			path = FilePicker;
 			sourceTree = "<group>";
 		};
 		F4BBAF6429C829F30036C06F /* Task Templates */ = {
@@ -346,6 +362,7 @@
 				F4E9C06C29C3AD3000DF72A8 /* RealmSwift */,
 				F4BC090829C4F7BF00745EFB /* AlertToast */,
 				F4C7EE5D29C79451003B517F /* ActivityIndicatorView */,
+				F4A97B3029DC0CDC00D85017 /* FirebaseStorage */,
 			);
 			productName = "Concierge Services";
 			productReference = 0445A0E629B1EEE300DA8D50 /* Concierge Services.app */;
@@ -434,6 +451,7 @@
 				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
 				F4BBAF7429C834D20036C06F /* Constants.swift in Sources */,
 				04B21D2329B733EE00829AD7 /* ViewExtension.swift in Sources */,
+				F4A97B2F29DC0C0400D85017 /* FirebaseStorageManager.swift in Sources */,
 				F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				F4BBAF6929C832510036C06F /* Color.swift in Sources */,
@@ -450,6 +468,7 @@
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
 				F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */,
 				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
+				F4A97B3829DC2AE600D85017 /* DocumentPickerViewController.swift in Sources */,
 				F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */,
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
@@ -736,6 +755,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		F4A97B3029DC0CDC00D85017 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04B21D3029B737EA00829AD7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 		F4BC090829C4F7BF00745EFB /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
