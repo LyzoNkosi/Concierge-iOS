@@ -313,26 +313,11 @@ struct TaskDetailView: View {
     }
     
     private func uploadFile() {
-        /*FilePicker(types: [.plainText], allowMultiple: true) { urls in
-         print("selected \(urls.count) files")
-         } label: {
-         HStack {
-         Image(systemName: "doc.on.doc")
-         Text("Pick Files")
-         }
-         }*/
-        
-        /*let picker = FilePicker(types: [.plainText], allowMultiple: false, title: "pick single file") { urls in
-         print("selected \(urls.count) files")
-         }*/
         
         let picker = DocumentPickerViewController(
             supportedTypes: [String(kUTTypePNG), String(kUTTypeJPEG), String(kUTTypePDF)],
             onPick: { url in
                 print("url : \(url)")
-                
-                //let tempUrl = copyBundleResourceToTemporaryDirectory(resourceName: String(Date().millisecond), fileExtension: url.pathExtension)
-                //let tempUrl = copyFileToTemporaryDirectory(resourceName: String(Date().millisecond), fileExtension: url.pathExtension)
                 
                 let tempUrl = FileManager.default.temporaryDirectory.appendingPathComponent(String(Date().millisecondsSince1970))
                 
@@ -345,6 +330,9 @@ struct TaskDetailView: View {
                     userId: userId,
                     ownerId: selectedTask.id!) { uploadedFileURL in
                         if(uploadedFileURL != nil) {
+                            
+                            deleteFileFromTemporaryFolder(fileURL: tempUrl)
+                            
                             self.toastMessage = "File uploaded"
                             self.showToast = true
                         } else {
@@ -408,30 +396,6 @@ struct EditTaskButtonContent : View {
             .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
     }
-}
-
-/// Copy file to temp directory
-///
-///
-public func copyBundleResourceToTemporaryDirectory(resourceName: String, fileExtension: String) -> URL? {
-    // Get the file path in the bundle
-    if let bundleURL = Bundle.main.url(forResource: resourceName, withExtension: fileExtension) {
-        
-        let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-        
-        // Create a destination URL.
-        let targetURL = tempDirectoryURL.appendingPathComponent(resourceName).appendingPathExtension(fileExtension)
-        
-        // Copy the file.
-        do {
-            try FileManager.default.copyItem(at: bundleURL, to: targetURL)
-            return targetURL
-        } catch let error {
-            print("Unable to copy file: \(error)")
-        }
-    }
-    
-    return nil
 }
 
 public func copyFileToTemporaryDirectory (resourceName: String, fileExtension: String) -> URL? {
