@@ -59,10 +59,10 @@ class FirebaseStorageManager: ObservableObject {
         }
     }
     
-    func listAllFiles(userId: String, ownerId: String, loadedFiles: @escaping ([StorageReference]) -> ()) {
+    func listAllFiles(userId: String, ownerId: String, loadedFiles: @escaping ([URL]) -> ()) {
         let storageRef = storage.reference().child("images").child(userId).child(ownerId)
         
-        var filenames: [StorageReference] = []
+        var filenames: [URL] = []
         
         // List all items in the images folder
         storageRef.listAll { (result, error) in
@@ -72,8 +72,14 @@ class FirebaseStorageManager: ObservableObject {
             }
             
             for item in result!.items {
-                filenames.append(item)
-                print("Item in images folder: ", item)
+                item.downloadURL { url, urlError in
+                    if let urlError = urlError {
+                        print(urlError)
+                    } else {
+                        filenames.append(url!)
+                        print("Item in images folder: ", item)
+                    }
+                }
             }
             loadedFiles(filenames)
         }
