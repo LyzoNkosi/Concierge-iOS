@@ -109,7 +109,7 @@ struct TabbarView: View {
                 VStack {
                     List {
                         // 1
-                        NavigationLink(destination: UserProfileView().environmentObject(firestoreManager)) {
+                        NavigationLink(destination: UserPreferencesView().environmentObject(firestoreManager)) {
                             HStack {
                                 Image(systemName: "person")
                                 Text("User Details")
