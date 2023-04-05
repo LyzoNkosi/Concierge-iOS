@@ -1,12 +1,17 @@
 import SwiftUI
 import AlertToast
+import MobileCoreServices
+import FirebaseStorage
 
 struct TaskDetailView: View {
     
     var selectedTask: Ticket
+    var userId: String
     
     @State private var showToast = false
     @State private var toastMessage = ""
+    
+    @State private var taskFilesURLs: [URL] = []
     
     var body: some View {
         NavigationView {
@@ -63,6 +68,26 @@ struct TaskDetailView: View {
                                 
                                 HStack {
                                     Label {
+                                        Text("Destination: ")
+                                            .font(Font.custom("Poppins-Bold", size: 14))
+                                            .foregroundColor(Color.ColorPrimary)
+                                            .multilineTextAlignment(.leading)
+                                            .lineLimit(1)
+                                    } icon: {
+                                        Image(systemName: "figure.walk.arrival")
+                                            .foregroundColor(Color.ColorPrimary)
+                                    }
+                                    
+                                    Text(flightTicket?.destination ?? "No arrival airport")
+                                        .font(Font.custom("Poppins-Regular", size: 16))
+                                        .foregroundColor(Color.ColorPrimary)
+                                        .multilineTextAlignment(.leading)
+                                        .lineLimit(1)
+                                }
+                                .padding(4)
+                                
+                                HStack {
+                                    Label {
                                         Text("Departure Airport: ")
                                             .font(Font.custom("Poppins-Bold", size: 14))
                                             .foregroundColor(Color.ColorPrimary)
@@ -94,26 +119,6 @@ struct TaskDetailView: View {
                                     }
                                     
                                     Text(flightTicket?.destinationAirport ?? "No arrival airport")
-                                        .font(Font.custom("Poppins-Regular", size: 16))
-                                        .foregroundColor(Color.ColorPrimary)
-                                        .multilineTextAlignment(.leading)
-                                        .lineLimit(1)
-                                }
-                                .padding(4)
-                                
-                                HStack {
-                                    Label {
-                                        Text("Destination: ")
-                                            .font(Font.custom("Poppins-Bold", size: 14))
-                                            .foregroundColor(Color.ColorPrimary)
-                                            .multilineTextAlignment(.leading)
-                                            .lineLimit(1)
-                                    } icon: {
-                                        Image(systemName: "figure.walk.arrival")
-                                            .foregroundColor(Color.ColorPrimary)
-                                    }
-                                    
-                                    Text(flightTicket?.destination ?? "No arrival airport")
                                         .font(Font.custom("Poppins-Regular", size: 16))
                                         .foregroundColor(Color.ColorPrimary)
                                         .multilineTextAlignment(.leading)
@@ -207,6 +212,9 @@ struct TaskDetailView: View {
                                     .padding(4)
                                 }
                                 
+                                ForEach(taskFilesURLs, id: \.self) { fileURL in
+                                    TaskFileViewContent(fileURL: fileURL)
+                                }
                                 
                             })
                         }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
@@ -273,25 +281,97 @@ struct TaskDetailView: View {
                            style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
             }
         }
-        .safeAreaInset(edge: .bottom) {
-            HStack(alignment: .center, spacing: 8) {
-                
-                EditTaskButtonContent()
-                    .onTapGesture {
-                        self.toastMessage = "This feature is coming sooon"
-                        self.showToast = true
-                    }
-                
-                CancelTaskButtonContent()
-                    .onTapGesture {
-                        self.toastMessage = "This feature is coming sooon"
-                        self.showToast = true
-                    }
+        .onAppear {
+            FirebaseStorageManager().listAllFiles(userId: userId, ownerId: selectedTask.id!) { loadedFiles in
+                self.taskFilesURLs = loadedFiles
+                print("Loaded files: ", loadedFiles)
             }
-            
-        } .padding(12)
-            .navigationTitle("Task Details")
-            .font(Font.custom("Poppins-Regular", size: 20))
+        }
+        .padding()
+        .navigationTitle("Task Details")
+        .font(Font.custom("Poppins-Regular", size: 20))
+        .toolbar {
+            Menu("Options") {
+                Button("Add File", action: uploadFile)
+                //Button("Edit Task", action: editTask)
+                //Button("Cancel Task", action: cancelTask)
+            }
+        }
+    }
+    
+    private func uploadFile() {
+        
+        let picker = DocumentPickerViewController(
+            supportedTypes: [String(kUTTypePNG), String(kUTTypeJPEG), String(kUTTypePDF)],
+            onPick: { url in
+                print("url : \(url)")
+                
+                let tempUrl = FileManager.default.temporaryDirectory.appendingPathComponent(String(Date().millisecondsSince1970) + "." + url.pathExtension)
+                
+                let docData = try? Data(contentsOf: url)
+                
+                storeFileToTemporaryFolder(fileData: docData!, tempUrl: tempUrl)
+                
+                FirebaseStorageManager().uploadFile(
+                    fileUrl: tempUrl,
+                    userId: userId,
+                    ownerId: selectedTask.id!) { uploadedFileURL in
+                        if(uploadedFileURL != nil) {
+                            
+                            deleteFileFromTemporaryFolder(fileURL: tempUrl)
+                            
+                            self.toastMessage = "File uploaded"
+                            self.showToast = true
+                            
+                            taskFilesURLs.append(uploadedFileURL!)
+                        } else {
+                            self.toastMessage = "Error uploading file"
+                            self.showToast = true
+                            
+                            return
+                        }
+                    }
+                
+            },
+            onDismiss: {
+                print("dismiss")
+            }
+        )
+        picker.allowsMultipleSelection = false
+        
+        UIApplication.shared.windows.first?.rootViewController?.present(picker, animated: true)
+    }
+    
+    private func editTask() { }
+    
+    private func cancelTask() { }
+}
+
+public func storeFileToTemporaryFolder(fileData: Data, tempUrl: URL) {
+    guard !FileManager.default.fileExists(atPath: tempUrl.path) else {
+        return
+    }
+    do {
+        try fileData.write(to: tempUrl)
+    }
+    catch {
+        fatalError()
+    }
+}
+
+public func loadFileFromTemporaryFolder(tempUrl: URL) -> Data? {
+    if let data = try? Data(contentsOf: tempUrl) {
+        return data
+    }
+    return nil
+}
+
+public func deleteFileFromTemporaryFolder(fileURL: URL) {
+    do {
+        try FileManager.default.removeItem(at: fileURL)
+    }
+    catch {
+        fatalError()
     }
 }
 
@@ -304,6 +384,35 @@ struct EditTaskButtonContent : View {
             .frame(width: 160, height: 60)
             .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
             .cornerRadius(15.0)
+    }
+}
+
+public func copyFileToTemporaryDirectory (resourceName: String, fileExtension: String) -> URL? {
+    guard let bundleURL = Bundle.main.url(forResource: resourceName, withExtension: fileExtension) else { return nil }
+    let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+    
+    let targetURL = tempDirectoryURL.appendingPathComponent("\(resourceName).\(fileExtension)")
+    do {
+        try FileManager.default.copyItem(at: bundleURL, to: targetURL)
+    } catch {
+        print("Could not write file", error.localizedDescription)
+    }
+    
+    return nil
+}
+
+struct TaskFileViewContent : View {
+    @State var fileURL: URL
+    
+    var body: some View {
+        return Label {
+            Text(fileURL.pathExtension.capitalized)
+                .font(Font.custom("Poppins-Regular", size: 14))
+                .foregroundColor(Color.ColorPrimary)
+        } icon: {
+            Image(systemName: "doc.richtext")
+                .foregroundColor(Color.ColorPrimary)
+        }
     }
 }
 
@@ -320,6 +429,12 @@ struct CancelTaskButtonContent : View {
 }
 
 struct TaskDetailView_Previews: PreviewProvider {
+    @State private var taskFilesURLs: [URL] =
+    [
+        URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/20/Re_example.pdf")!,
+        URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/20/Re_example.pdf")!
+    ]
+    
     static var previews: some View {
         /*TaskDetailView(
          selectedTask: Ticket(
@@ -345,6 +460,6 @@ struct TaskDetailView_Previews: PreviewProvider {
                 returnFlightNumber: "GL 1224",
                 returnSeatNumber: "A12",
                 ticketType: TicketType.FLIGHT.rawValue
-            ))
+            ), userId: "")
     }
 }

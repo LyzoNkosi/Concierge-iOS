@@ -23,19 +23,23 @@ struct LoadingUserDataView: View {
         VStack {
             
             Image("AfricanSun")
-                .frame(width: 164, height: 164)
-            
-            ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
-                .frame(width: 32, height: 32)
-                .foregroundColor(Color.ColorPrimary)
-                .padding(12)
-            
-            Text("Loading your info...")
-                .font(Font.custom("Poppins-Medium", size: 18))
-                .padding(12)
+                .resizable()
+                .frame(width: 512, height: 512)
             
             NavigationLink(destination: TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel), isActive: self.$isActive) {
                 EmptyView()
+            }
+        }
+        .safeAreaInset(edge: .bottom) {
+            VStack {
+                ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
+                    .frame(width: 32, height: 32)
+                    .foregroundColor(Color.ColorPrimary)
+                    .padding(12)
+                
+                Text("Loading your info...")
+                    .font(Font.custom("Poppins-Medium", size: 18))
+                    .padding(12)
             }
         }
         .onAppear {
@@ -52,6 +56,15 @@ struct LoadingUserDataView: View {
                                 } else {
                                     print("Clients sync error")
                                 }
+                            }
+                        }
+                        
+                        // Load Chats
+                        firestoreManager.getMyChatMessages() { loadedMessages in
+                            if(loadedMessages){
+                                print("Messages synced")
+                            } else {
+                                print("Messages sync error")
                             }
                         }
                         
