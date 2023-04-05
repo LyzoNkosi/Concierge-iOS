@@ -76,6 +76,27 @@ struct UsersListView: View {
                  }
                  }*/
                 
+            case "Manage Preferences":
+                List(usersViewModel.clients) { client in
+                    
+                    let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
+                    
+                    HStack {
+                        NavigationLink(destination: ManagePreferencesView(selectedClient: client).environmentObject(firestoreManager)){
+                            HStack {
+                                Image(systemName: "person")
+                                
+                                Text(fullName)
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.ColorPrimary)
+                            }
+                        }
+                        .navigationTitle("Chat")
+                    }.padding(8)
+                    
+                }
+                
+                
             default:
                 EmptyView()
                 

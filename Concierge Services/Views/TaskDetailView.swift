@@ -1,6 +1,9 @@
 import SwiftUI
+import Firebase
+import Foundation
 import AlertToast
 import MobileCoreServices
+import FirebaseCore
 import FirebaseStorage
 
 struct TaskDetailView: View {
@@ -75,7 +78,7 @@ struct TaskDetailView: View {
                                             .lineLimit(1)
                                     } icon: {
                                         Image(systemName: "figure.walk.arrival")
-                                            .foregroundColor(Color.ColorPrimary)
+                                            .foregroundColor(Color.Accent)
                                     }
                                     
                                     Text(flightTicket?.destination ?? "No arrival airport")
@@ -95,7 +98,7 @@ struct TaskDetailView: View {
                                             .lineLimit(1)
                                     } icon: {
                                         Image(systemName: "airplane.departure")
-                                            .foregroundColor(Color.ColorPrimary)
+                                            .foregroundColor(Color.Accent)
                                     }
                                     
                                     Text(flightTicket?.departureAirport ?? "No departure airport")
@@ -115,7 +118,7 @@ struct TaskDetailView: View {
                                             .lineLimit(1)
                                     } icon: {
                                         Image(systemName: "airplane.arrival")
-                                            .foregroundColor(Color.ColorPrimary)
+                                            .foregroundColor(Color.Accent)
                                     }
                                     
                                     Text(flightTicket?.destinationAirport ?? "No arrival airport")
@@ -135,7 +138,7 @@ struct TaskDetailView: View {
                                             .lineLimit(1)
                                     } icon: {
                                         Image(systemName: "airplane")
-                                            .foregroundColor(Color.ColorPrimary)
+                                            .foregroundColor(Color.Accent)
                                     }
                                     
                                     Label {
@@ -145,8 +148,10 @@ struct TaskDetailView: View {
                                             .multilineTextAlignment(.leading)
                                             .lineLimit(1)
                                     } icon: {
-                                        Image(systemName: "chair.fill")
-                                            .foregroundColor(Color.ColorPrimary)
+                                        Image("flight_seat")
+                                            .resizable()
+                                            .frame(width: 20, height: 24)
+                                            
                                     }
                                 }
                                 .padding(4)
@@ -174,7 +179,7 @@ struct TaskDetailView: View {
                                                 .lineLimit(1)
                                         } icon: {
                                             Image(systemName: "airplane.arrival")
-                                                .foregroundColor(Color.ColorPrimary)
+                                                .foregroundColor(Color.Accent)
                                                 .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
                                         }
                                         
@@ -195,7 +200,7 @@ struct TaskDetailView: View {
                                                 .lineLimit(1)
                                         } icon: {
                                             Image(systemName: "airplane")
-                                                .foregroundColor(Color.ColorPrimary)
+                                                .foregroundColor(Color.Accent)
                                         }
                                         
                                         Label {
@@ -205,8 +210,9 @@ struct TaskDetailView: View {
                                                 .multilineTextAlignment(.leading)
                                                 .lineLimit(1)
                                         } icon: {
-                                            Image(systemName: "chair.fill")
-                                                .foregroundColor(Color.ColorPrimary)
+                                            Image("flight_seat")
+                                                .resizable()
+                                                .frame(width: 20, height: 24)
                                         }
                                     }
                                     .padding(4)

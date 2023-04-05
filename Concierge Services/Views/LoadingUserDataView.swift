@@ -22,10 +22,10 @@ struct LoadingUserDataView: View {
         
         VStack {
             
-            Image("AfricanSun")
+            Image("african_sun_svg")
                 .resizable()
-                .frame(width: 512, height: 512)
-            
+                .frame(width: 320, height: 128)
+             
             NavigationLink(destination: TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel), isActive: self.$isActive) {
                 EmptyView()
             }

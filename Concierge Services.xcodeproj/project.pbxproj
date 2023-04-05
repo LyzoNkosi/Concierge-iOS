@@ -71,6 +71,8 @@
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
 		F4C7EE5929C721C7003B517F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7EE5829C721C7003B517F /* Utils.swift */; };
 		F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7EE5D29C79451003B517F /* ActivityIndicatorView */; };
+		F4C9523729DD8DED00428697 /* ManagePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */; };
+		F4C9523929DD8E4E00428697 /* UserPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */; };
 		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 		F4F1179B29C9FC8C00200ECB /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */; };
 		F4F1179D29CA119C00200ECB /* FlightTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1179C29CA119C00200ECB /* FlightTicket.swift */; };
@@ -135,6 +137,8 @@
 		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
 		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		F4C7EE5829C721C7003B517F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePreferencesView.swift; sourceTree = "<group>"; };
+		F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesView.swift; sourceTree = "<group>"; };
 		F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F4F1179C29CA119C00200ECB /* FlightTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTicket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +239,7 @@
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
 				F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */,
 				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
+				F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
 				F41D929E29D0AC7E00D74D75 /* SetPreferencesView.swift */,
@@ -246,6 +251,7 @@
 				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
+				F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 				F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F4BC090729C4F7BF00745EFB /* XCRemoteSwiftPackageReference "AlertToast" */,
 				F4C7EE5C29C79451003B517F /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				F4C9523229DD677E00428697 /* XCRemoteSwiftPackageReference "SVGKit" */,
 			);
 			productRefGroup = 0445A0E729B1EEE300DA8D50 /* Products */;
 			projectDirPath = "";
@@ -445,6 +452,7 @@
 				04B9CF9229C0AB98009FB454 /* CreateAccountView.swift in Sources */,
 				F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */,
 				0445A10A29B2095F00DA8D50 /* TabbarView.swift in Sources */,
+				F4C9523929DD8E4E00428697 /* UserPreferencesView.swift in Sources */,
 				F416A51129DAEABE00C40751 /* SFSymbol.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
@@ -453,6 +461,7 @@
 				04B21D2329B733EE00829AD7 /* ViewExtension.swift in Sources */,
 				F4A97B2F29DC0C0400D85017 /* FirebaseStorageManager.swift in Sources */,
 				F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */,
+				F4C9523729DD8DED00428697 /* ManagePreferencesView.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				F4BBAF6929C832510036C06F /* Color.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
@@ -718,6 +727,14 @@
 			requirement = {
 				kind = upToNextMinorVersion;
 				minimumVersion = 1.1.0;
+			};
+		};
+		F4C9523229DD677E00428697 /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.0.0;
 			};
 		};
 		F4E9C06B29C3AD3000DF72A8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {

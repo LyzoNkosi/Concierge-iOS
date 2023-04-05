@@ -36,6 +36,15 @@ struct AdminTasksView: View {
                             .foregroundColor(Color.ColorPrimary)
                     }
                 }
+                // 4
+                NavigationLink(destination: UsersListView(selectedView: "Manage Preferences").environmentObject(firestoreManager)){
+                    HStack {
+                        Image(systemName: "person.fill.questionmark")
+                        Text("Manage Preferences")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundColor(Color.ColorPrimary)
+                    }
+                }
             }
         }
         .navigationBarTitle("Admin")
