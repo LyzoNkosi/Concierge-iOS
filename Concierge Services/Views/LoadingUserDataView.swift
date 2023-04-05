@@ -30,11 +30,12 @@ struct LoadingUserDataView: View {
                 EmptyView()
             }
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .safeAreaInset(edge: .bottom) {
             VStack {
                 ActivityIndicatorView(isVisible: $showLoadingIndicator, type: .default())
                     .frame(width: 32, height: 32)
-                    .foregroundColor(Color.ColorPrimary)
+                    .foregroundColor(Color.Accent)
                     .padding(12)
                 
                 Text("Loading your info...")
