@@ -873,7 +873,7 @@ struct UserPreferencesView: View {
             .disabled(true)
     }
     
-    // Activities
+    // Activities Preferences
     
     
 }
