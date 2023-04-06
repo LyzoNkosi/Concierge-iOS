@@ -109,10 +109,10 @@ struct TabbarView: View {
                 VStack {
                     List {
                         // 1
-                        NavigationLink(destination: UserPreferencesView().environmentObject(firestoreManager)) {
+                        NavigationLink(destination: UserDataListView().environmentObject(firestoreManager)) {
                             HStack {
                                 Image(systemName: "person")
-                                Text("User Details")
+                                Text("User Data")
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
                             }

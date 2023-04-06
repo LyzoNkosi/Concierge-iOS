@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SetPreferencesView: View {
+struct SetActivitiesView: View {
     
     let columns = [
         GridItem(.flexible()),
@@ -53,6 +53,6 @@ struct makeGridItemImageWithText : View {
 
 struct SetPreferencesView_Previews: PreviewProvider {
     static var previews: some View {
-        SetPreferencesView()
+        SetActivitiesView()
     }
 }
