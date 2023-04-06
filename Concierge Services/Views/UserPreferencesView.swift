@@ -88,21 +88,23 @@ struct UserPreferencesView: View {
                     }
                     .padding()
                     
-                    VStack(alignment: .leading) {
-                        Text("First Name")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        FirstNameInput()
-                    }
-                    .padding()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Last Name")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        LastNameInput()
-                    }
-                    .padding()
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("First Name")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            FirstNameInput()
+                        }
+                        .padding()
+                        
+                        VStack(alignment: .leading) {
+                            Text("Last Name")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            LastNameInput()
+                        }
+                        .padding()
+                    }.padding()
                     
                     VStack(alignment: .leading) {
                         Text("Email")
@@ -135,35 +137,29 @@ struct UserPreferencesView: View {
                     }
                     .padding()
                     
-                    VStack(alignment: .leading) {
-                        Text("City")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        CityInput()
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("City")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            CityInput()
+                        }
+                        .padding()
+                        
+                        VStack(alignment: .leading) {
+                            Text("Province/State")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            ProvinceInput()
+                        }
+                        .padding()
                     }
-                    .padding()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Province/State")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        ProvinceInput()
-                    }
-                    .padding()
                     
                     VStack(alignment: .leading) {
                         Text("Postal Code")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
                         ZipInput()
-                    }
-                    .padding()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Home Phone")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        HomePhoneInput()
                     }
                     .padding()
                     
@@ -175,11 +171,22 @@ struct UserPreferencesView: View {
                     }
                     .padding()
                     
-                    VStack(alignment: .leading) {
-                        Text("Work Phone")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        WorkPhoneInput()
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Home Phone")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            HomePhoneInput()
+                        }
+                        .padding()
+                        
+                        VStack(alignment: .leading) {
+                            Text("Work Phone")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            WorkPhoneInput()
+                        }
+                        .padding()
                     }
                     .padding()
                     
@@ -268,21 +275,23 @@ struct UserPreferencesView: View {
                     }
                     .padding()
                     
-                    VStack(alignment: .leading) {
-                        Text("Seating Class")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        SeatingClassInput()
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Seating Class")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            SeatingClassInput()
+                        }
+                        .padding()
+                        
+                        VStack(alignment: .leading) {
+                            Text("Seat Type")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            SeatTypeInput()
+                        }
+                        .padding()
                     }
-                    .padding()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Seat Type")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        SeatTypeInput()
-                    }
-                    .padding()
                     
                     VStack(alignment: .leading) {
                         Text("Preffered Meal")

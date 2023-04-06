@@ -69,6 +69,12 @@
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
 		F4C10E9129DEAC25004AEE56 /* SetActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */; };
+		F4C10E9929DEF2E1004AEE56 /* SelectTaskTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9329DEF2E1004AEE56 /* SelectTaskTypeView.swift */; };
+		F4C10E9A29DEF2E1004AEE56 /* CreateFlightTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9429DEF2E1004AEE56 /* CreateFlightTaskView.swift */; };
+		F4C10E9B29DEF2E1004AEE56 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9529DEF2E1004AEE56 /* CreateTaskView.swift */; };
+		F4C10E9C29DEF2E1004AEE56 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9629DEF2E1004AEE56 /* TermsOfServiceView.swift */; };
+		F4C10E9D29DEF2E1004AEE56 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9729DEF2E1004AEE56 /* ChangePasswordView.swift */; };
+		F4C10E9E29DEF2E1004AEE56 /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9829DEF2E1004AEE56 /* PrivacyPolicyView.swift */; };
 		F4C7EE5929C721C7003B517F /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C7EE5829C721C7003B517F /* Utils.swift */; };
 		F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7EE5D29C79451003B517F /* ActivityIndicatorView */; };
 		F4C9523729DD8DED00428697 /* ManagePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */; };
@@ -136,6 +142,12 @@
 		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
 		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetActivitiesView.swift; sourceTree = "<group>"; };
+		F4C10E9329DEF2E1004AEE56 /* SelectTaskTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTaskTypeView.swift; sourceTree = "<group>"; };
+		F4C10E9429DEF2E1004AEE56 /* CreateFlightTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFlightTaskView.swift; sourceTree = "<group>"; };
+		F4C10E9529DEF2E1004AEE56 /* CreateTaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTaskView.swift; sourceTree = "<group>"; };
+		F4C10E9629DEF2E1004AEE56 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
+		F4C10E9729DEF2E1004AEE56 /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		F4C10E9829DEF2E1004AEE56 /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		F4C7EE5829C721C7003B517F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePreferencesView.swift; sourceTree = "<group>"; };
 		F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesView.swift; sourceTree = "<group>"; };
@@ -231,6 +243,7 @@
 			children = (
 				04B9CF8F29C0AA63009FB454 /* AdminTasksView.swift */,
 				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
+				F4C10E9729DEF2E1004AEE56 /* ChangePasswordView.swift */,
 				0445A10129B207C400DA8D50 /* ChatView.swift */,
 				F48CBF0F29C351F500973290 /* ClientChatView.swift */,
 				F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */,
@@ -242,15 +255,18 @@
 				F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
+				F4C10E9829DEF2E1004AEE56 /* PrivacyPolicyView.swift */,
 				F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */,
 				F41D92A729D0B52200D74D75 /* SFSymbolView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
 				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
+				F4C10E9629DEF2E1004AEE56 /* TermsOfServiceView.swift */,
 				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
 				F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */,
 				04D8687F29C0601900027E73 /* UserProfileView.swift */,
 				04B9CF9329C0B446009FB454 /* UsersListView.swift */,
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
+				F4C10E9229DEF2E1004AEE56 /* Task Templates */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
 			);
 			path = Views;
@@ -341,6 +357,16 @@
 				F4BBAF6E29C834A70036C06F /* Poppins-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F4C10E9229DEF2E1004AEE56 /* Task Templates */ = {
+			isa = PBXGroup;
+			children = (
+				F4C10E9329DEF2E1004AEE56 /* SelectTaskTypeView.swift */,
+				F4C10E9429DEF2E1004AEE56 /* CreateFlightTaskView.swift */,
+				F4C10E9529DEF2E1004AEE56 /* CreateTaskView.swift */,
+			);
+			path = "Task Templates";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
+				F4C10E9B29DEF2E1004AEE56 /* CreateTaskView.swift in Sources */,
 				F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */,
 				F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
@@ -444,6 +471,7 @@
 				F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
 				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
+				F4C10E9E29DEF2E1004AEE56 /* PrivacyPolicyView.swift in Sources */,
 				F41D92A829D0B52200D74D75 /* SFSymbolView.swift in Sources */,
 				F41D92AA29D0CD1A00D74D75 /* ActivityItem.swift in Sources */,
 				F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */,
@@ -454,6 +482,7 @@
 				F4C9523929DD8E4E00428697 /* UserPreferencesView.swift in Sources */,
 				F4C10E9129DEAC25004AEE56 /* SetActivitiesView.swift in Sources */,
 				F416A51129DAEABE00C40751 /* SFSymbol.swift in Sources */,
+				F4C10E9A29DEF2E1004AEE56 /* CreateFlightTaskView.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
 				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
@@ -463,6 +492,8 @@
 				F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */,
 				F4C9523729DD8DED00428697 /* ManagePreferencesView.swift in Sources */,
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
+				F4C10E9D29DEF2E1004AEE56 /* ChangePasswordView.swift in Sources */,
+				F4C10E9929DEF2E1004AEE56 /* SelectTaskTypeView.swift in Sources */,
 				F4BBAF6929C832510036C06F /* Color.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
 				F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */,
@@ -477,6 +508,7 @@
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
 				F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */,
 				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
+				F4C10E9C29DEF2E1004AEE56 /* TermsOfServiceView.swift in Sources */,
 				F4A97B3829DC2AE600D85017 /* DocumentPickerViewController.swift in Sources */,
 				F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */,
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
