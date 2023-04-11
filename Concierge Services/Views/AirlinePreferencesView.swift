@@ -21,7 +21,7 @@ struct AirlinePreferencesView: View {
     
     @State var buttonText: String = "Edit"
     
-    @State var inEditMode: Bool = false
+    @State var notInEditMode: Bool = true
     
     var body: some View {
         
@@ -112,11 +112,11 @@ struct AirlinePreferencesView: View {
         }
         .toolbar {
             Button(self.buttonText) {
-                if(self.inEditMode) {
-                    self.inEditMode = false
+                if(self.notInEditMode) {
+                    self.notInEditMode = true
                     self.buttonText = "Edit"
                 } else {
-                    self.inEditMode = true
+                    self.notInEditMode = false
                     self.buttonText = "Save"
                 }
             }
@@ -131,7 +131,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func SeatingClassInput() -> some View {
@@ -141,7 +141,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func SeatTypeInput() -> some View {
@@ -151,7 +151,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlightMealInput() -> some View {
@@ -161,7 +161,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlightSpecialNeedsInput() -> some View {
@@ -171,7 +171,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlyerProgramInput() -> some View {
@@ -181,7 +181,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlyerProgramNameInput() -> some View {
@@ -191,7 +191,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlyerProgramNumberInput() -> some View {
@@ -201,7 +201,7 @@ struct AirlinePreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
 }
 

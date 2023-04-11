@@ -259,6 +259,7 @@
 				04B9CF8F29C0AA63009FB454 /* AdminTasksView.swift */,
 				F4C10EA729DF0761004AEE56 /* AirlinePreferencesView.swift */,
 				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
+				F4837A4029E56BF1003E71AA /* CarPreferencesView.swift */,
 				F4C10E9729DEF2E1004AEE56 /* ChangePasswordView.swift */,
 				0445A10129B207C400DA8D50 /* ChatView.swift */,
 				F48CBF0F29C351F500973290 /* ClientChatView.swift */,
@@ -288,7 +289,6 @@
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4C10E9229DEF2E1004AEE56 /* Task Templates */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
-				F4837A4029E56BF1003E71AA /* CarPreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

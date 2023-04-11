@@ -18,7 +18,7 @@ struct PersonalDetailsView: View {
     
     @State var buttonText: String = "Edit"
     
-    @State var inEditMode: Bool = false
+    @State var notInEditMode: Bool = true
     
     var body: some View {
         
@@ -97,11 +97,11 @@ struct PersonalDetailsView: View {
         }
         .toolbar {
             Button(self.buttonText) {
-                if(self.inEditMode) {
-                    self.inEditMode = false
+                if(self.notInEditMode) {
+                    self.notInEditMode = true
                     self.buttonText = "Edit"
                 } else {
-                    self.inEditMode = true
+                    self.notInEditMode = false
                     self.buttonText = "Save"
                 }
             }
@@ -116,7 +116,7 @@ struct PersonalDetailsView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(notInEditMode)
     }
     
     fileprivate func LastNameInput() -> some View {
@@ -126,7 +126,7 @@ struct PersonalDetailsView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(notInEditMode)
     }
     
     fileprivate func UserEmailInput() -> some View {
@@ -136,7 +136,7 @@ struct PersonalDetailsView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
     fileprivate func NatRegInput() -> some View {
@@ -146,7 +146,7 @@ struct PersonalDetailsView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
     fileprivate func PassportInput() -> some View {
@@ -156,7 +156,7 @@ struct PersonalDetailsView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
     fileprivate func DateOfBirthInput() -> some View {
@@ -166,7 +166,7 @@ struct PersonalDetailsView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
 }

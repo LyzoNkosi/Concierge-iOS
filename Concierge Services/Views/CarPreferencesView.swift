@@ -18,7 +18,7 @@ struct CarPreferencesView: View {
     
     @State var buttonText: String = "Edit"
     
-    @State var inEditMode: Bool = false
+    @State var notInEditMode: Bool = true
     
     var body: some View {
         ScrollView {
@@ -80,11 +80,11 @@ struct CarPreferencesView: View {
         }
         .toolbar {
             Button(self.buttonText) {
-                if(self.inEditMode) {
-                    self.inEditMode = false
+                if(self.notInEditMode) {
+                    self.notInEditMode = true
                     self.buttonText = "Edit"
                 } else {
-                    self.inEditMode = true
+                    self.notInEditMode = false
                     self.buttonText = "Save"
                 }
             }
@@ -99,7 +99,7 @@ struct CarPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarTypeInput() -> some View {
@@ -109,7 +109,7 @@ struct CarPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarProgramNameInput() -> some View {
@@ -119,7 +119,7 @@ struct CarPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarProgramNumberInput() -> some View {
@@ -129,7 +129,7 @@ struct CarPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarRentalRequestsInput() -> some View {
@@ -139,7 +139,7 @@ struct CarPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
 }
 

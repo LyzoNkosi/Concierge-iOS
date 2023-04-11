@@ -21,7 +21,7 @@ struct AddressView: View {
     
     @State var buttonText: String = "Edit"
     
-    @State var inEditMode: Bool = false
+    @State var notInEditMode: Bool = true
     
     var body: some View {
         
@@ -114,11 +114,11 @@ struct AddressView: View {
         }
         .toolbar {
             Button(self.buttonText) {
-                if(self.inEditMode) {
-                    self.inEditMode = false
+                if(self.notInEditMode) {
+                    self.notInEditMode = true
                     self.buttonText = "Edit"
                 } else {
-                    self.inEditMode = true
+                    self.notInEditMode = false
                     self.buttonText = "Save"
                 }
             }
@@ -133,7 +133,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CityInput() -> some View {
@@ -143,7 +143,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func ProvinceInput() -> some View {
@@ -153,7 +153,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func ZipInput() -> some View {
@@ -163,7 +163,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HomePhoneInput() -> some View {
@@ -173,7 +173,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CellphoneInput() -> some View {
@@ -183,7 +183,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func WorkPhoneInput() -> some View {
@@ -193,7 +193,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func AltEmailInput() -> some View {
@@ -203,7 +203,7 @@ struct AddressView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
 }
 

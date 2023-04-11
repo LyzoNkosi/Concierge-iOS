@@ -11,6 +11,8 @@ struct UserPreferencesView: View {
     
     @EnvironmentObject var firestoreManager: FirestoreManager
     
+    @State var selectedClient: Client
+    
     @State var placeholderText: String = "Placeholder"
     
     @State var firstName: String = ""
@@ -64,7 +66,9 @@ struct UserPreferencesView: View {
     @State var carProgramNumber: String = ""
     @State var carRentalRequests: String = ""
     
+    @State var buttonText: String = "Edit"
     
+    @State var notInEditMode: Bool = true
     
     var body: some View {
         
@@ -111,6 +115,30 @@ struct UserPreferencesView: View {
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
                         UserEmailInput()
+                    }
+                    .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text("ID Number")
+                            .font(Font.custom("Poppins-Regular", size: 14))
+                            .foregroundColor(Color.ColorPrimary)
+                        NatRegInput()
+                    }
+                    .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text("Passport Number")
+                            .font(Font.custom("Poppins-Regular", size: 14))
+                            .foregroundColor(Color.ColorPrimary)
+                        PassportInput()
+                    }
+                    .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text("Date of Birth")
+                            .font(Font.custom("Poppins-Regular", size: 14))
+                            .foregroundColor(Color.ColorPrimary)
+                        DateOfBirthInput()
                     }
                     .padding()
                     
@@ -493,6 +521,17 @@ struct UserPreferencesView: View {
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .top)
         }
         .navigationTitle("Profile")
+        .toolbar {
+            Button(self.buttonText) {
+                if(self.notInEditMode) {
+                    self.notInEditMode = true
+                    self.buttonText = "Edit"
+                } else {
+                    self.notInEditMode = false
+                    self.buttonText = "Save"
+                }
+            }
+        }
     }
     
     fileprivate func PlaceholderInput() -> some View {
@@ -502,7 +541,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     // Personal Details
@@ -513,7 +552,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func LastNameInput() -> some View {
@@ -523,7 +562,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func UserEmailInput() -> some View {
@@ -533,7 +572,37 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
+    }
+    
+    fileprivate func NatRegInput() -> some View {
+        TextField("ID Number", text: $idNumber)
+            .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundColor(Color.ColorPrimary)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disabled(notInEditMode)
+    }
+    
+    fileprivate func PassportInput() -> some View {
+        TextField("Passport Number", text: $passportNumber)
+            .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundColor(Color.ColorPrimary)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disabled(notInEditMode)
+    }
+    
+    fileprivate func DateOfBirthInput() -> some View {
+        TextField("Date of Birth", text: $dob)
+            .font(Font.custom("Poppins-Regular", size: 16))
+            .foregroundColor(Color.ColorPrimary)
+            .padding()
+            .background(Color.LightGreyColor)
+            .cornerRadius(5.0)
+            .disabled(notInEditMode)
     }
     
     // Address
@@ -544,7 +613,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CityInput() -> some View {
@@ -554,7 +623,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func ProvinceInput() -> some View {
@@ -564,7 +633,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func ZipInput() -> some View {
@@ -574,7 +643,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HomePhoneInput() -> some View {
@@ -584,7 +653,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CellphoneInput() -> some View {
@@ -594,7 +663,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func WorkPhoneInput() -> some View {
@@ -604,7 +673,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func AltEmailInput() -> some View {
@@ -614,7 +683,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     // Next of Kin
@@ -626,7 +695,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func KinAddressInput() -> some View {
@@ -636,7 +705,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func KinHomePhoneInput() -> some View {
@@ -646,7 +715,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func KinCellphoneInput() -> some View {
@@ -656,7 +725,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func KinEmailInput() -> some View {
@@ -666,7 +735,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     // Airline Prefs
@@ -677,7 +746,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func SeatingClassInput() -> some View {
@@ -687,7 +756,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func SeatTypeInput() -> some View {
@@ -697,7 +766,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlightMealInput() -> some View {
@@ -707,7 +776,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlightSpecialNeedsInput() -> some View {
@@ -717,7 +786,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlyerProgramInput() -> some View {
@@ -727,7 +796,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlyerProgramNameInput() -> some View {
@@ -737,7 +806,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func FlyerProgramNumberInput() -> some View {
@@ -747,7 +816,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     // Hotel Prefs
@@ -758,7 +827,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HotelRequestsInput() -> some View {
@@ -768,7 +837,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HotelDietRequestsInput() -> some View {
@@ -778,7 +847,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HotelBedCountInput() -> some View {
@@ -788,7 +857,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HotelBedSizeInput() -> some View {
@@ -798,7 +867,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HotelPillowTypeInput() -> some View {
@@ -808,7 +877,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HotelSmokingInput() -> some View {
@@ -818,7 +887,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func HotelPetsInput() -> some View {
@@ -828,7 +897,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     // Car Rental Prefs
@@ -839,7 +908,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarTypeInput() -> some View {
@@ -849,7 +918,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarProgramNameInput() -> some View {
@@ -859,7 +928,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarProgramNumberInput() -> some View {
@@ -869,7 +938,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     fileprivate func CarRentalRequestsInput() -> some View {
@@ -879,7 +948,7 @@ struct UserPreferencesView: View {
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(true)
+            .disabled(notInEditMode)
     }
     
     // Activities Preferences
@@ -889,6 +958,6 @@ struct UserPreferencesView: View {
 
 struct UserPreferencesView_Previews: PreviewProvider {
     static var previews: some View {
-        UserPreferencesView().environmentObject(FirestoreManager())
+        UserPreferencesView(selectedClient: Client(id: "", firstName: "", lastName: "")).environmentObject(FirestoreManager())
     }
 }
