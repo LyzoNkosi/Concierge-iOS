@@ -19,6 +19,15 @@ struct AdminTasksView: View {
                     }
                 }
                 // 2
+                NavigationLink(destination: UsersListView(selectedView: "User Data").environmentObject(firestoreManager)){
+                    HStack {
+                        Image(systemName: "doc.richtext.fill")
+                        Text("Manage User Data")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundColor(Color.ColorPrimary)
+                    }
+                }
+                // 3
                 NavigationLink(destination: UsersListView(selectedView: "Create Task").environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "note.text.badge.plus")
@@ -27,7 +36,7 @@ struct AdminTasksView: View {
                             .foregroundColor(Color.ColorPrimary)
                     }
                 }
-                // 3
+                // 4
                 NavigationLink(destination: UsersListView(selectedView: "Client Chat").environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "message.badge")
@@ -36,7 +45,7 @@ struct AdminTasksView: View {
                             .foregroundColor(Color.ColorPrimary)
                     }
                 }
-                // 4
+                // 5
                 NavigationLink(destination: UsersListView(selectedView: "Manage Preferences").environmentObject(firestoreManager)){
                     HStack {
                         Image(systemName: "person.fill.questionmark")

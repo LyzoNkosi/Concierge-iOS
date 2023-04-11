@@ -23,14 +23,12 @@ struct UsersListView: View {
                 
                 List(usersViewModel.clients) { client in
                     
-                    let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
-                    
                     HStack {
                         NavigationLink(destination: ClientTicketsView(selectedClient: client).environmentObject(firestoreManager)){
                             HStack {
                                 Image(systemName: "person")
                                 
-                                Text(fullName)
+                                Text(getClientFullName(client: client))
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
                             }
@@ -39,26 +37,16 @@ struct UsersListView: View {
                     }.padding(8)
                     
                 }
-                /*.refreshable {
-                 if(!refreshing) {
-                 refreshClients()
-                 } else {
-                 self.toastMessage = "Refresh already in progress"
-                 self.showToast = true
-                 }
-                 }*/
                 
             case "Client Chat":
                 List(usersViewModel.clients) { client in
-                    
-                    let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
                     
                     HStack {
                         NavigationLink(destination: ClientChatView(selectedClient: client).environmentObject(firestoreManager)){
                             HStack {
                                 Image(systemName: "person")
                                 
-                                Text(fullName)
+                                Text(getClientFullName(client: client))
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
                             }
@@ -67,26 +55,16 @@ struct UsersListView: View {
                     }.padding(8)
                     
                 }
-                /*.refreshable {
-                 if(!refreshing) {
-                 refreshClients()
-                 } else {
-                 self.toastMessage = "Refresh already in progress"
-                 self.showToast = true
-                 }
-                 }*/
                 
             case "Manage Preferences":
                 List(usersViewModel.clients) { client in
                     
-                    let fullName = (client.firstName ?? "") + " " + (client.lastName ?? "")
-                    
                     HStack {
-                        NavigationLink(destination: ManagePreferencesView(selectedClient: client).environmentObject(firestoreManager)){
+                        NavigationLink(destination: ManagePreferencesView(selectedClient: client).environmentObject(firestoreManager)) {
                             HStack {
                                 Image(systemName: "person")
                                 
-                                Text(fullName)
+                                Text(getClientFullName(client: client))
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
                             }
@@ -96,6 +74,24 @@ struct UsersListView: View {
                     
                 }
                 
+            case "User Data":
+                Text("")
+                List(usersViewModel.clients) { client in
+                    
+                    HStack {
+                        NavigationLink(destination: UserPreferencesView(selectedClient: client).environmentObject(firestoreManager)){
+                            HStack {
+                                Image(systemName: "person")
+                                
+                                Text(getClientFullName(client: client))
+                                    .font(Font.custom("Poppins-Regular", size: 16))
+                                    .foregroundColor(Color.ColorPrimary)
+                            }
+                        }
+                        .navigationTitle("Manage User Data")
+                    }.padding(8)
+                    
+                }
                 
             default:
                 EmptyView()
@@ -109,6 +105,10 @@ struct UsersListView: View {
         .onAppear {
             refreshRealmClients()
         }
+    }
+    
+    private func getClientFullName(client: Client) -> String {
+        return (client.firstName ?? "") + " " + (client.lastName ?? "")
     }
     
     private func refreshRealmClients() {
