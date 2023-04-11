@@ -172,7 +172,7 @@ struct WelcomeText : View {
 
 struct UserImage : View {
     var body: some View {
-        return Image("AfricanSun")
+        return Image("african_sun_logo_no_bg")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: 256, height: 256)
