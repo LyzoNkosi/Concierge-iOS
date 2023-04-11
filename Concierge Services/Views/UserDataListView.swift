@@ -49,6 +49,15 @@ struct UserDataListView: View {
                             .foregroundColor(Color.ColorPrimary)
                     }
                 }
+                // 5
+                NavigationLink(destination: CarPreferencesView()) {
+                    HStack {
+                        Image(systemName: "airplane")
+                        Text("Car Rental Preferences")
+                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .foregroundColor(Color.ColorPrimary)
+                    }
+                }
                 // 
                 NavigationLink(destination: SetActivitiesView()) {
                     HStack {

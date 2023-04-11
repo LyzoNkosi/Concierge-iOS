@@ -1,98 +1,81 @@
 //
-//  PersonalDetailsView.swift
+//  CarPreferencesView.swift
 //  Concierge Services
 //
-//  Created by Van Lee Chigwada on 2023/04/06.
+//  Created by Van Lee Chigwada on 2023/04/11.
 //
 
 import SwiftUI
 
-struct PersonalDetailsView: View {
+struct CarPreferencesView: View {
     
-    @State var firstName: String = ""
-    @State var lastName: String = ""
-    @State var email: String = ""
-    @State var idNumber: String = ""
-    @State var dob: String = ""
-    @State var passportNumber: String = ""
+    // Car Rental
+    @State var carCompany: String = ""
+    @State var carType: String = ""
+    @State var carProgram: String = ""
+    @State var carProgramNumber: String = ""
+    @State var carRentalRequests: String = ""
     
     @State var buttonText: String = "Edit"
     
     @State var inEditMode: Bool = false
     
     var body: some View {
-        
         ScrollView {
             VStack {
-                
-                VStack(alignment: .leading, spacing: 24) {
-                    ProfileImage()
-                        .padding(16)
-                }
-                
-                // Personal Details
+                // Car & Taxi Prefs
                 VStack(alignment: .leading) {
+                    
                     Label {
-                        Text("Personal Details")
+                        Text("Car Preferences")
                             .font(Font.custom("Poppins-Bold", size: 18))
                             .foregroundColor(Color.ColorPrimary)
                     } icon: {
-                        Image(systemName: "person.fill")
+                        Image(systemName: "car.fill")
                             .foregroundColor(Color.Accent)
                     }
                     .padding()
                     
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("First Name")
-                                .font(Font.custom("Poppins-Regular", size: 14))
-                                .foregroundColor(Color.ColorPrimary)
-                            FirstNameInput()
-                        }
-                        
-                        VStack(alignment: .leading) {
-                            Text("Last Name")
-                                .font(Font.custom("Poppins-Regular", size: 14))
-                                .foregroundColor(Color.ColorPrimary)
-                            LastNameInput()
-                        }
-                        
-                    }.padding()
-                    
                     VStack(alignment: .leading) {
-                        Text("Email")
+                        Text("Car Rental Company")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        UserEmailInput()
+                        CarRentalCompanyInput()
                     }
                     .padding()
                     
                     VStack(alignment: .leading) {
-                        Text("ID Number")
+                        Text("Car Type")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        NatRegInput()
+                        CarTypeInput()
                     }
                     .padding()
                     
                     VStack(alignment: .leading) {
-                        Text("Passport Number")
+                        Text("Rental Car Rewards Program")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        PassportInput()
+                        CarProgramNameInput()
                     }
                     .padding()
                     
                     VStack(alignment: .leading) {
-                        Text("Date of Birth")
+                        Text("Rental Car Rewards Number")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        DateOfBirthInput()
+                        CarProgramNumberInput()
                     }
                     .padding()
                     
+                    VStack(alignment: .leading) {
+                        Text("Car Rental Special Requests/Needs")
+                            .font(Font.custom("Poppins-Regular", size: 14))
+                            .foregroundColor(Color.ColorPrimary)
+                        CarRentalRequestsInput()
+                    }
+                    .padding()
                 }
-                
             }
         }
         .toolbar {
@@ -106,73 +89,62 @@ struct PersonalDetailsView: View {
                 }
             }
         }
-        
     }
     
-    fileprivate func FirstNameInput() -> some View {
-        TextField(UserDefaultsUtils.shared.getUserFirstName(), text: $firstName)
+    // Car Rental Prefs
+    fileprivate func CarRentalCompanyInput() -> some View {
+        TextField("Car Rental Company", text: $carCompany)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color.ColorPrimary)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
-    fileprivate func LastNameInput() -> some View {
-        TextField(UserDefaultsUtils.shared.getUserLastName(), text: $lastName)
+    fileprivate func CarTypeInput() -> some View {
+        TextField("Car Type", text: $carType)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color.ColorPrimary)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
-    fileprivate func UserEmailInput() -> some View {
-        TextField(UserDefaultsUtils.shared.getUserEmail(), text: $email)
+    fileprivate func CarProgramNameInput() -> some View {
+        TextField("Car Rental Rewards Program", text: $carProgram)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color.ColorPrimary)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
-    fileprivate func NatRegInput() -> some View {
-        TextField("ID Number", text: $idNumber)
+    fileprivate func CarProgramNumberInput() -> some View {
+        TextField("Car Rental Rewards Number", text: $carProgramNumber)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color.ColorPrimary)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
     
-    fileprivate func PassportInput() -> some View {
-        TextField("Passport Number", text: $passportNumber)
+    fileprivate func CarRentalRequestsInput() -> some View {
+        TextField("Car Rental Special Needs/Requests", text: $carRentalRequests)
             .font(Font.custom("Poppins-Regular", size: 16))
             .foregroundColor(Color.ColorPrimary)
             .padding()
             .background(Color.LightGreyColor)
             .cornerRadius(5.0)
-            .disabled(inEditMode)
+            .disabled(true)
     }
-    
-    fileprivate func DateOfBirthInput() -> some View {
-        TextField("Date of Birth", text: $dob)
-            .font(Font.custom("Poppins-Regular", size: 16))
-            .foregroundColor(Color.ColorPrimary)
-            .padding()
-            .background(Color.LightGreyColor)
-            .cornerRadius(5.0)
-            .disabled(inEditMode)
-    }
-    
 }
 
-struct PersonalDetailsView_Previews: PreviewProvider {
+struct CarPreferencesView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonalDetailsView()
+        CarPreferencesView()
     }
 }

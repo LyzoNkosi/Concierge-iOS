@@ -38,6 +38,7 @@
 		F41D92AA29D0CD1A00D74D75 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */; };
 		F481DD3329CC83E800D39319 /* LoadingUserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */; };
 		F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */; };
+		F4837A4129E56BF1003E71AA /* CarPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4837A4029E56BF1003E71AA /* CarPreferencesView.swift */; };
 		F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEF829C315F000973290 /* FirestoreManager.swift */; };
 		F48CBEFC29C3185500973290 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F48CBEFB29C3185500973290 /* FirebaseFirestoreSwift */; };
 		F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBEFD29C32A1100973290 /* Ticket.swift */; };
@@ -119,6 +120,7 @@
 		F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
 		F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUserDataView.swift; sourceTree = "<group>"; };
 		F481DD3429CC8CD300D39319 /* LaunchScreenStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenStateManager.swift; sourceTree = "<group>"; };
+		F4837A4029E56BF1003E71AA /* CarPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPreferencesView.swift; sourceTree = "<group>"; };
 		F48CBEF829C315F000973290 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		F48CBEFD29C32A1100973290 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		F48CBEFF29C32B6E00973290 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -253,7 +255,9 @@
 		04D8687B29C05C1C00027E73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4C10EA329DEF7D6004AEE56 /* AddressView.swift */,
 				04B9CF8F29C0AA63009FB454 /* AdminTasksView.swift */,
+				F4C10EA729DF0761004AEE56 /* AirlinePreferencesView.swift */,
 				0445A10329B207CE00DA8D50 /* BalanceView.swift */,
 				F4C10E9729DEF2E1004AEE56 /* ChangePasswordView.swift */,
 				0445A10129B207C400DA8D50 /* ChatView.swift */,
@@ -262,10 +266,13 @@
 				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
+				F4C10EA529DF05AB004AEE56 /* EmergencyContactView.swift */,
+				F4C10EA929DF08BE004AEE56 /* HotelPreferencesView.swift */,
 				F481DD3229CC83E800D39319 /* LoadingUserDataView.swift */,
 				0445A0EB29B1EEE300DA8D50 /* LoginView.swift */,
 				F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */,
 				04B21D1729B733EE00829AD7 /* MessageView.swift */,
+				F4C10EA129DEF66D004AEE56 /* PersonalDetailsView.swift */,
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
 				F4C10E9829DEF2E1004AEE56 /* PrivacyPolicyView.swift */,
 				F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */,
@@ -281,11 +288,7 @@
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4C10E9229DEF2E1004AEE56 /* Task Templates */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
-				F4C10EA129DEF66D004AEE56 /* PersonalDetailsView.swift */,
-				F4C10EA329DEF7D6004AEE56 /* AddressView.swift */,
-				F4C10EA529DF05AB004AEE56 /* EmergencyContactView.swift */,
-				F4C10EA729DF0761004AEE56 /* AirlinePreferencesView.swift */,
-				F4C10EA929DF08BE004AEE56 /* HotelPreferencesView.swift */,
+				F4837A4029E56BF1003E71AA /* CarPreferencesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				F416A51129DAEABE00C40751 /* SFSymbol.swift in Sources */,
 				F4C10E9A29DEF2E1004AEE56 /* CreateFlightTaskView.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
+				F4837A4129E56BF1003E71AA /* CarPreferencesView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
 				F4C7EE5929C721C7003B517F /* Utils.swift in Sources */,
 				F4BBAF7429C834D20036C06F /* Constants.swift in Sources */,
