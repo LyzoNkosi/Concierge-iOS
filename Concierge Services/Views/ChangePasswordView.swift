@@ -84,6 +84,7 @@ struct ChangePasswordView: View {
             
 
         }
+        .padding()
     }
     
     struct ChangePasswordView_Previews: PreviewProvider {
