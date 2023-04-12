@@ -118,29 +118,33 @@ struct UserPreferencesView: View {
                     }
                     .padding()
                     
-                    //HStack {
-                        VStack(alignment: .leading) {
-                            Text("ID Number")
-                                .font(Font.custom("Poppins-Regular", size: 14))
-                                .foregroundColor(Color.ColorPrimary)
-                            
-                            HStack {
-                                NatRegInput()
-                                Image("cloud_document")
-                                    .resizable()
-                                    .frame(width: 24, height: 24)
-                            }
+                    VStack(alignment: .leading) {
+                        Text("ID Number")
+                            .font(Font.custom("Poppins-Regular", size: 14))
+                            .foregroundColor(Color.ColorPrimary)
+                        
+                        HStack {
+                            NatRegInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
                         }
-                        .padding()
-                        //IdButtonContent()
-                    //}
-                    //.padding()
+                    }
+                    .padding()
                     
                     VStack(alignment: .leading) {
                         Text("Passport Number")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        PassportInput()
+                        
+                        HStack {
+                            PassportInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     
@@ -171,7 +175,15 @@ struct UserPreferencesView: View {
                         Text("Street Address")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        StreetInput()
+                        
+                        
+                        HStack {
+                            StreetInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     

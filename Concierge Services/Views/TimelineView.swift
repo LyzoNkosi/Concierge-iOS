@@ -29,6 +29,7 @@ struct TimelineView: View {
                                     .frame(width: 1, height: 20, alignment: .center)
                                 Circle()
                                     .frame(width: 30, height: 30)
+                                    .foregroundColor(Color.Accent)
                                     .overlay(
                                         Image(systemName: "airplane")
                                             .foregroundColor(.white)
@@ -65,7 +66,7 @@ struct TimelineView: View {
                     case TicketType.GENERAL.rawValue:
                         
                         HStack(alignment: .top, spacing: 0) {
-                            VStack(alignment: .center, spacing: 0){
+                            VStack(alignment: .center, spacing: 0) {
                                 Rectangle()
                                     .frame(width: 1, height: 30, alignment: .center)
                                 Circle()
@@ -74,6 +75,7 @@ struct TimelineView: View {
                                     .frame(width: 1, height: 20, alignment: .center)
                                 Circle()
                                     .frame(width: 30, height: 30)
+                                    .foregroundColor(Color.Accent)
                                     .overlay(
                                         Image("hourglass")
                                             .resizable()

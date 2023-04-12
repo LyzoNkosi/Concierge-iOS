@@ -37,9 +37,10 @@ struct TaskDetailView: View {
                                     .frame(width: 1, height: 10, alignment: .center)
                                 Circle()
                                     .frame(width: 30, height: 30)
+                                    .foregroundColor(Color.Accent)
                                     .overlay(
                                         Image(systemName: "airplane")
-                                            .foregroundColor(.white)
+                                            .foregroundColor(Color.ColorPrimary)
                                             .font(.system(size: 16, weight: .light , design: .rounded))
                                             .frame(width: 30, height: 30)
                                     )
@@ -56,8 +57,9 @@ struct TaskDetailView: View {
                                         .font(Font.custom("Poppins-Regular", size: 14))
                                         .foregroundColor(Color.ColorPrimary)
                                 } icon: {
-                                    Image(systemName: "calendar.badge.clock")
-                                        .foregroundColor(Color.ColorPrimary)
+                                    Image("calendar")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
                                 }
                                 
                                 Text(flightTicket?.name ?? "")
@@ -173,8 +175,9 @@ struct TaskDetailView: View {
                                     .font(Font.custom("Poppins-Regular", size: 14))
                                     .foregroundColor(Color.ColorPrimary)
                             } icon: {
-                                Image(systemName: "calendar.badge.clock")
-                                    .foregroundColor(Color.ColorPrimary)
+                                Image("calendar")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
                             }
                             
                             HStack {
@@ -244,11 +247,11 @@ struct TaskDetailView: View {
                                     .frame(width: 1, height: 10, alignment: .center)
                                 Circle()
                                     .frame(width: 30, height: 30)
+                                    .foregroundColor(Color.Accent)
                                     .overlay(
-                                        Image(systemName: "airplane")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .light , design: .rounded))
-                                            .frame(width: 30, height: 30)
+                                        Image("hourglass")
+                                            .resizable()
+                                            .frame(width: 18, height: 18)
                                     )
                                 Rectangle()
                                     .frame(width: 1, height: 10, alignment: .center)
@@ -263,8 +266,9 @@ struct TaskDetailView: View {
                                         .font(Font.custom("Poppins-Regular", size: 14))
                                         .foregroundColor(Color.ColorPrimary)
                                 } icon: {
-                                    Image(systemName: "calendar.badge.clock")
-                                        .foregroundColor(Color.ColorPrimary)
+                                    Image("calendar")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
                                 }
                                 
                                 Text(selectedTask.name ?? "")

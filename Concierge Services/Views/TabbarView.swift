@@ -75,35 +75,6 @@ struct TabbarView: View {
                 .tag(Tabs.chatTab)
                 
                 /*
-                 Start Balance Screen
-                 */
-                /*
-                 ScrollView {
-                 BalanceView().environmentObject(firestoreManager)
-                 }
-                 .safeAreaInset(edge: .bottom) {
-                 
-                 PayButtonContent()
-                 .onTapGesture {
-                 self.toastMessage = "This feature is coming soon"
-                 self.showToast = true
-                 }
-                 .padding(8)
-                 
-                 }
-                 .tabItem {
-                 Image(systemName: "creditcard")
-                 Text("Balance")
-                 .font(Font.custom("Poppins-Light", size: 10))
-                 }
-                 .tag(Tabs.balanceTab)
-                 */
-                /*
-                 End Balance Screen
-                 */
-                
-                //SettingsView().environmentObject(firestoreManager)
-                /*
                  Start Settings Screen
                  */
                 VStack {
@@ -120,7 +91,11 @@ struct TabbarView: View {
                         // 2
                         NavigationLink(destination: PlaceholderView()) {
                             HStack {
-                                Image(systemName: "creditcard")
+                                Image("credit_card")
+                                    .resizable()
+                                    .frame(width: 24, height: 18)
+                                    .padding(2)
+                                
                                 Text("Payment Methods")
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
@@ -129,7 +104,11 @@ struct TabbarView: View {
                         // 3
                         NavigationLink(destination: ChangePasswordView()) {
                             HStack {
-                                Image(systemName: "lock.rotation")
+                                Image("change_password")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                    .padding(2)
+                                
                                 Text("Change Password")
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
@@ -138,7 +117,11 @@ struct TabbarView: View {
                         // 4
                         NavigationLink(destination: PrivacyPolicyView()) {
                             HStack {
-                                Image(systemName: "lock.doc")
+                                Image("privacy_policy")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                    .padding(2)
+                                
                                 Text("Privacy Policy")
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
@@ -147,7 +130,11 @@ struct TabbarView: View {
                         // 5
                         NavigationLink(destination: TermsOfServiceView()) {
                             HStack {
-                                Image(systemName: "doc.badge.ellipsis")
+                                Image("terms_of_service")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                    .padding(2)
+                                
                                 Text("Terms of Service")
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
@@ -156,7 +143,11 @@ struct TabbarView: View {
                         // 6
                         NavigationLink(destination: PlaceholderView()) {
                             HStack {
-                                Image(systemName: "info.circle")
+                                Image("about")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                    .padding(2)
+                                
                                 Text("About")
                                     .font(Font.custom("Poppins-Regular", size: 16))
                                     .foregroundColor(Color.ColorPrimary)
@@ -166,7 +157,11 @@ struct TabbarView: View {
                         if(UserDefaultsUtils.shared.isUserAdmin()) {
                             NavigationLink(destination: AdminTasksView().environmentObject(firestoreManager)) {
                                 HStack {
-                                    Image(systemName: "gearshape")
+                                    Image("settings")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
+                                        .padding(2)
+                                    
                                     Text("Admin")
                                         .font(Font.custom("Poppins-Regular", size: 16))
                                         .foregroundColor(Color.ColorPrimary)
@@ -175,7 +170,11 @@ struct TabbarView: View {
                         }
                         // 7
                         HStack {
-                            Image(systemName: "pip.exit")
+                            Image("logout")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .padding(2)
+                            
                             Text("Logout")
                                 .font(Font.custom("Poppins-Regular", size: 16))
                                 .foregroundColor(Color.ColorPrimary)
