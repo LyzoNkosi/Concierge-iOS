@@ -55,7 +55,7 @@ struct UserProfileView: View {
 struct ProfileImage : View {
     
     var body: some View {
-        return Image("profile 1")
+        return Image(systemName: "person.fill")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: 150, height: 150)

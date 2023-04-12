@@ -47,7 +47,6 @@
 		F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0729C3342F00973290 /* ClientChatViewModel.swift */; };
 		F48CBF0A29C3344100973290 /* ClientsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0929C3344100973290 /* ClientsViewModel.swift */; };
 		F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0B29C3346200973290 /* DashboardViewModel.swift */; };
-		F48CBF0E29C340F300973290 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0D29C340F300973290 /* CreateTaskView.swift */; };
 		F48CBF1029C351F500973290 /* ClientChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48CBF0F29C351F500973290 /* ClientChatView.swift */; };
 		F49D912A29CAE3AA009ED887 /* AdminDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D912929CAE3AA009ED887 /* AdminDashboardViewModel.swift */; };
 		F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */; };
@@ -70,8 +69,6 @@
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
 		F4C10E9129DEAC25004AEE56 /* SetActivitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */; };
-		F4C10E9929DEF2E1004AEE56 /* SelectTaskTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9329DEF2E1004AEE56 /* SelectTaskTypeView.swift */; };
-		F4C10E9A29DEF2E1004AEE56 /* CreateFlightTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9429DEF2E1004AEE56 /* CreateFlightTaskView.swift */; };
 		F4C10E9B29DEF2E1004AEE56 /* CreateTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9529DEF2E1004AEE56 /* CreateTaskView.swift */; };
 		F4C10E9C29DEF2E1004AEE56 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9629DEF2E1004AEE56 /* TermsOfServiceView.swift */; };
 		F4C10E9D29DEF2E1004AEE56 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C10E9729DEF2E1004AEE56 /* ChangePasswordView.swift */; };
@@ -429,7 +426,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					0445A0E529B1EEE300DA8D50 = {
 						CreatedOnToolsVersion = 14.2;
@@ -505,7 +502,6 @@
 				F4C9523929DD8E4E00428697 /* UserPreferencesView.swift in Sources */,
 				F4C10E9129DEAC25004AEE56 /* SetActivitiesView.swift in Sources */,
 				F416A51129DAEABE00C40751 /* SFSymbol.swift in Sources */,
-				F4C10E9A29DEF2E1004AEE56 /* CreateFlightTaskView.swift in Sources */,
 				0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */,
 				F4837A4129E56BF1003E71AA /* CarPreferencesView.swift in Sources */,
 				04B21D2029B733EE00829AD7 /* MessageView.swift in Sources */,
@@ -518,13 +514,11 @@
 				0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */,
 				F4C10E9D29DEF2E1004AEE56 /* ChangePasswordView.swift in Sources */,
 				F4C10EA629DF05AB004AEE56 /* EmergencyContactView.swift in Sources */,
-				F4C10E9929DEF2E1004AEE56 /* SelectTaskTypeView.swift in Sources */,
 				F4BBAF6929C832510036C06F /* Color.swift in Sources */,
 				04B21D1F29B733EE00829AD7 /* ContentMessageView.swift in Sources */,
 				F49E6C4F29C44DEE0081CE03 /* ClientTicketsView.swift in Sources */,
 				04B9CF9429C0B446009FB454 /* UsersListView.swift in Sources */,
 				F4C10EA429DEF7D6004AEE56 /* AddressView.swift in Sources */,
-				F48CBF0E29C340F300973290 /* CreateTaskView.swift in Sources */,
 				F4C10EA029DEF432004AEE56 /* UserDataListView.swift in Sources */,
 				F48CBF0829C3342F00973290 /* ClientChatViewModel.swift in Sources */,
 				F4F1179B29C9FC8C00200ECB /* DateExtensions.swift in Sources */,
@@ -675,7 +669,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
@@ -693,7 +687,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -711,7 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
@@ -729,7 +723,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -56,7 +56,7 @@ struct UsersListView: View {
                     
                 }
                 
-            case "Manage Preferences":
+            /*case "Manage Preferences":
                 List(usersViewModel.clients) { client in
                     
                     HStack {
@@ -72,7 +72,7 @@ struct UsersListView: View {
                         .navigationTitle("Chat")
                     }.padding(8)
                     
-                }
+                }*/
                 
             case "User Data":
                 Text("")

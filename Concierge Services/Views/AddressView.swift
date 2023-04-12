@@ -4,6 +4,7 @@
 //
 //  Created by Van Lee Chigwada on 2023/04/06.
 //
+// User preferences address view
 
 import SwiftUI
 
@@ -44,7 +45,15 @@ struct AddressView: View {
                         Text("Street Address")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        StreetInput()
+                        
+                        
+                        HStack {
+                            StreetInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     

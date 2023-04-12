@@ -49,6 +49,7 @@ struct PersonalDetailsView: View {
                                 .foregroundColor(Color.ColorPrimary)
                             FirstNameInput()
                         }
+                        .padding()
                         
                         VStack(alignment: .leading) {
                             Text("Last Name")
@@ -56,8 +57,8 @@ struct PersonalDetailsView: View {
                                 .foregroundColor(Color.ColorPrimary)
                             LastNameInput()
                         }
-                        
-                    }.padding()
+                        .padding()
+                    }
                     
                     VStack(alignment: .leading) {
                         Text("Email")
@@ -71,7 +72,14 @@ struct PersonalDetailsView: View {
                         Text("ID Number")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        NatRegInput()
+                        
+                        HStack {
+                            NatRegInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     
@@ -79,7 +87,14 @@ struct PersonalDetailsView: View {
                         Text("Passport Number")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        PassportInput()
+                        
+                        HStack {
+                            PassportInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     

@@ -108,7 +108,7 @@ struct UserPreferencesView: View {
                             LastNameInput()
                         }
                         .padding()
-                    }.padding()
+                    }
                     
                     VStack(alignment: .leading) {
                         Text("Email")
@@ -122,7 +122,14 @@ struct UserPreferencesView: View {
                         Text("ID Number")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        NatRegInput()
+                        
+                        HStack {
+                            NatRegInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     
@@ -130,7 +137,14 @@ struct UserPreferencesView: View {
                         Text("Passport Number")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        PassportInput()
+                        
+                        HStack {
+                            PassportInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     
@@ -161,7 +175,15 @@ struct UserPreferencesView: View {
                         Text("Street Address")
                             .font(Font.custom("Poppins-Regular", size: 14))
                             .foregroundColor(Color.ColorPrimary)
-                        StreetInput()
+                        
+                        
+                        HStack {
+                            StreetInput()
+                            Image("cloud_document")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .padding(2)
+                        }
                     }
                     .padding()
                     
@@ -524,10 +546,10 @@ struct UserPreferencesView: View {
         .toolbar {
             Button(self.buttonText) {
                 if(self.notInEditMode) {
-                    self.notInEditMode = true
+                    self.notInEditMode = false
                     self.buttonText = "Edit"
                 } else {
-                    self.notInEditMode = false
+                    self.notInEditMode = true
                     self.buttonText = "Save"
                 }
             }
@@ -954,6 +976,16 @@ struct UserPreferencesView: View {
     // Activities Preferences
     
     
+}
+
+struct IdButtonContent : View {
+    var body: some View {
+        return VStack {
+            Image(systemName: "arrow.up.doc.fill")
+                .resizable()
+        }
+        .frame(width: 42, height: 42)
+    }
 }
 
 struct UserPreferencesView_Previews: PreviewProvider {

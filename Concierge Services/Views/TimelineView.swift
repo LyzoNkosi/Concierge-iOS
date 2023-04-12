@@ -29,6 +29,7 @@ struct TimelineView: View {
                                     .frame(width: 1, height: 20, alignment: .center)
                                 Circle()
                                     .frame(width: 30, height: 30)
+                                    .foregroundColor(Color.Accent)
                                     .overlay(
                                         Image(systemName: "airplane")
                                             .foregroundColor(.white)
@@ -48,8 +49,9 @@ struct TimelineView: View {
                                         .font(Font.custom("Poppins-Regular", size: 14))
                                         .foregroundColor(Color.ColorPrimary)
                                 } icon: {
-                                    Image(systemName: "calendar.badge.clock")
-                                        .foregroundColor(Color.ColorPrimary)
+                                    Image("calendar")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
                                 }
                                 
                                 Text(flightTicket?.name ?? "")
@@ -64,7 +66,7 @@ struct TimelineView: View {
                     case TicketType.GENERAL.rawValue:
                         
                         HStack(alignment: .top, spacing: 0) {
-                            VStack(alignment: .center, spacing: 0){
+                            VStack(alignment: .center, spacing: 0) {
                                 Rectangle()
                                     .frame(width: 1, height: 30, alignment: .center)
                                 Circle()
@@ -73,11 +75,11 @@ struct TimelineView: View {
                                     .frame(width: 1, height: 20, alignment: .center)
                                 Circle()
                                     .frame(width: 30, height: 30)
+                                    .foregroundColor(Color.Accent)
                                     .overlay(
-                                        Image(systemName: "hourglass.bottomhalf.filled")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .light , design: .rounded))
-                                            .frame(width: 30, height: 30)
+                                        Image("hourglass")
+                                            .resizable()
+                                            .frame(width: 16, height: 16)
                                     )
                                 Rectangle()
                                     .frame(width: 1, height: 40, alignment: .center)
@@ -92,8 +94,9 @@ struct TimelineView: View {
                                         .font(Font.custom("Poppins-Regular", size: 14))
                                         .foregroundColor(Color.ColorPrimary)
                                 } icon: {
-                                    Image(systemName: "calendar.badge.clock")
-                                        .foregroundColor(Color.ColorPrimary)
+                                    Image("calendar")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
                                 }
                                 
                                 Text(task.name ?? "")

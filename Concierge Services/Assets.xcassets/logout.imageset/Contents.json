@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "logoutImage-1.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "logoutImage-2.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "logoutImage-3.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "logout.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
