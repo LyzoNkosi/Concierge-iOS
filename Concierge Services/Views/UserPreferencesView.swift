@@ -108,7 +108,7 @@ struct UserPreferencesView: View {
                             LastNameInput()
                         }
                         .padding()
-                    }.padding()
+                    }
                     
                     VStack(alignment: .leading) {
                         Text("Email")
@@ -118,13 +118,23 @@ struct UserPreferencesView: View {
                     }
                     .padding()
                     
-                    VStack(alignment: .leading) {
-                        Text("ID Number")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                        NatRegInput()
-                    }
-                    .padding()
+                    //HStack {
+                        VStack(alignment: .leading) {
+                            Text("ID Number")
+                                .font(Font.custom("Poppins-Regular", size: 14))
+                                .foregroundColor(Color.ColorPrimary)
+                            
+                            HStack {
+                                NatRegInput()
+                                Image("cloud_document")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                            }
+                        }
+                        .padding()
+                        //IdButtonContent()
+                    //}
+                    //.padding()
                     
                     VStack(alignment: .leading) {
                         Text("Passport Number")
@@ -524,10 +534,10 @@ struct UserPreferencesView: View {
         .toolbar {
             Button(self.buttonText) {
                 if(self.notInEditMode) {
-                    self.notInEditMode = true
+                    self.notInEditMode = false
                     self.buttonText = "Edit"
                 } else {
-                    self.notInEditMode = false
+                    self.notInEditMode = true
                     self.buttonText = "Save"
                 }
             }
@@ -954,6 +964,16 @@ struct UserPreferencesView: View {
     // Activities Preferences
     
     
+}
+
+struct IdButtonContent : View {
+    var body: some View {
+        return VStack {
+            Image(systemName: "arrow.up.doc.fill")
+                .resizable()
+        }
+        .frame(width: 42, height: 42)
+    }
 }
 
 struct UserPreferencesView_Previews: PreviewProvider {

@@ -48,8 +48,9 @@ struct TimelineView: View {
                                         .font(Font.custom("Poppins-Regular", size: 14))
                                         .foregroundColor(Color.ColorPrimary)
                                 } icon: {
-                                    Image(systemName: "calendar.badge.clock")
-                                        .foregroundColor(Color.ColorPrimary)
+                                    Image("calendar")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
                                 }
                                 
                                 Text(flightTicket?.name ?? "")
@@ -74,10 +75,9 @@ struct TimelineView: View {
                                 Circle()
                                     .frame(width: 30, height: 30)
                                     .overlay(
-                                        Image(systemName: "hourglass.bottomhalf.filled")
-                                            .foregroundColor(.white)
-                                            .font(.system(size: 16, weight: .light , design: .rounded))
-                                            .frame(width: 30, height: 30)
+                                        Image("hourglass")
+                                            .resizable()
+                                            .frame(width: 16, height: 16)
                                     )
                                 Rectangle()
                                     .frame(width: 1, height: 40, alignment: .center)
@@ -92,8 +92,9 @@ struct TimelineView: View {
                                         .font(Font.custom("Poppins-Regular", size: 14))
                                         .foregroundColor(Color.ColorPrimary)
                                 } icon: {
-                                    Image(systemName: "calendar.badge.clock")
-                                        .foregroundColor(Color.ColorPrimary)
+                                    Image("calendar")
+                                        .resizable()
+                                        .frame(width: 24, height: 24)
                                 }
                                 
                                 Text(task.name ?? "")

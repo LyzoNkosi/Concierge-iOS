@@ -4,6 +4,7 @@
 //
 //  Created by Van Lee Chigwada on 2023/04/06.
 //
+// User preferences address view
 
 import SwiftUI
 
