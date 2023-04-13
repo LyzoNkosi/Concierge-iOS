@@ -65,6 +65,7 @@
 		F4BBAF7429C834D20036C06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7329C834D20036C06F /* Constants.swift */; };
 		F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */; };
 		F4BBAF7929C888B20036C06F /* SelectTaskTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BBAF7829C888B20036C06F /* SelectTaskTypeView.swift */; };
+		F4BBDA2829E802090018A0E5 /* privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = F4BBDA2729E802090018A0E5 /* privacy.html */; };
 		F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */; };
 		F4BC090929C4F7BF00745EFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = F4BC090829C4F7BF00745EFB /* AlertToast */; };
 		F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BC090A29C5125100745EFB /* PlaceholderView.swift */; };
@@ -144,6 +145,7 @@
 		F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
 		F4BBAF7729C869F30036C06F /* Concierge-Services-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Concierge-Services-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F4BBAF7829C888B20036C06F /* SelectTaskTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTaskTypeView.swift; sourceTree = "<group>"; };
+		F4BBDA2729E802090018A0E5 /* privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy.html; sourceTree = "<group>"; };
 		F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientMessageView.swift; sourceTree = "<group>"; };
 		F4BC090A29C5125100745EFB /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetActivitiesView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		0445A0DD29B1EEE300DA8D50 = {
 			isa = PBXGroup;
 			children = (
+				F4BBDA2629E802090018A0E5 /* Resources */,
 				0445A0E829B1EEE300DA8D50 /* Concierge Services */,
 				F48CBEFA29C3185500973290 /* Frameworks */,
 				0445A0E729B1EEE300DA8D50 /* Products */,
@@ -377,6 +380,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F4BBDA2629E802090018A0E5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4BBDA2729E802090018A0E5 /* privacy.html */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F4C10E9229DEF2E1004AEE56 /* Task Templates */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +479,7 @@
 				F4BBAF7229C834A70036C06F /* Poppins-Regular.ttf in Resources */,
 				0445A0EE29B1EEE500DA8D50 /* Assets.xcassets in Resources */,
 				F4BBAF7129C834A70036C06F /* Poppins-Medium.ttf in Resources */,
+				F4BBDA2829E802090018A0E5 /* privacy.html in Resources */,
 				04B21D1C29B733EE00829AD7 /* GoogleService-Info.plist in Resources */,
 				F4BBAF6F29C834A70036C06F /* Poppins-Bold.ttf in Resources */,
 			);
