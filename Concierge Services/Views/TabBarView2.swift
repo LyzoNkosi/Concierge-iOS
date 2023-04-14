@@ -35,21 +35,11 @@ struct TabBarView2: View {
                 }
                 .tag(Tabs.homeTab)
                 .background(Color.white)
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        VStack(alignment: .trailing) {
-                            Image("african_sun_logo_no_bg")
-                                .resizable()
-                                .frame(width: 128, height: 112)
-                            
-                        }
-                    }
-                }
                 .padding()
                 
                 // Tab 2
                 VStack {
-                    ChatView().environmentObject(firestoreManager)
+                    ChatView().environmentObject(firestoreManager).environmentObject(loginViewModel)
                 }
                 .tabItem {
                     Image("keys_")
@@ -60,18 +50,18 @@ struct TabBarView2: View {
                     Text("Concierge")
                         .font(Font.custom("Poppins-Light", size: 10))
                 }
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        VStack(alignment: .trailing) {
-                            Image("african_sun_logo_no_bg")
-                                .resizable()
-                                .frame(width: 128, height: 112)
-                            
-                        }
-                    }
-                }
                 .tag(Tabs.chatTab)
                 
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    VStack(alignment: .trailing) {
+                        Image("african_sun_logo_no_bg")
+                            .resizable()
+                            .frame(width: 128, height: 112)
+                        
+                    }
+                }
             }
             .navigationBarBackButtonHidden(true)
             

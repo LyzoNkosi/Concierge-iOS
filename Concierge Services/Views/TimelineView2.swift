@@ -58,15 +58,15 @@ struct UserToolbarView : View {
     let userDefaultUtils = UserDefaultsUtils()
     
     var body: some View {
-        return HStack {
+        return VStack {
             let fullName = userDefaultUtils.getUserFirstName() + " " + userDefaultUtils.getUserLastName()
             
-            Image(systemName: "person.circle")
+            /*Image(systemName: "person.circle")
                 .font(.system(size: 24))
-                .padding(4)
+                .padding(4)*/
             
             Text(fullName)
-                .font(Font.custom("Poppins-Regular", size: 16))
+                .font(Font.custom("Poppins-Medium", size: 16))
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(4)
             
