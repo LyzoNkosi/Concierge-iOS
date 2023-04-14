@@ -26,7 +26,9 @@ struct LoadingUserDataView: View {
                 .resizable()
                 .frame(width: 320, height: 128)
              
-            NavigationLink(destination: TabbarView().environmentObject(firestoreManager).environmentObject(loginViewModel), isActive: self.$isActive) {
+            NavigationLink(destination: TabBarView2()
+                .environmentObject(firestoreManager)
+                .environmentObject(loginViewModel), isActive: self.$isActive) {
                 EmptyView()
             }
         }

@@ -371,87 +371,6 @@ struct TaskDetailView: View {
     private func cancelTask() { }
 }
 
-public func storeFileToTemporaryFolder(fileData: Data, tempUrl: URL) {
-    guard !FileManager.default.fileExists(atPath: tempUrl.path) else {
-        return
-    }
-    do {
-        try fileData.write(to: tempUrl)
-    }
-    catch {
-        fatalError()
-    }
-}
-
-public func loadFileFromTemporaryFolder(tempUrl: URL) -> Data? {
-    if let data = try? Data(contentsOf: tempUrl) {
-        return data
-    }
-    return nil
-}
-
-public func deleteFileFromTemporaryFolder(fileURL: URL) {
-    do {
-        try FileManager.default.removeItem(at: fileURL)
-    }
-    catch {
-        fatalError()
-    }
-}
-
-struct EditTaskButtonContent : View {
-    var body: some View {
-        return Text("Modify")
-            .font(Font.custom("Poppins-Medium", size: 18))
-            .foregroundColor(Color.TextColorPrimary)
-            .padding()
-            .frame(width: 160, height: 60)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-            .cornerRadius(15.0)
-    }
-}
-
-public func copyFileToTemporaryDirectory (resourceName: String, fileExtension: String) -> URL? {
-    guard let bundleURL = Bundle.main.url(forResource: resourceName, withExtension: fileExtension) else { return nil }
-    let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-    
-    let targetURL = tempDirectoryURL.appendingPathComponent("\(resourceName).\(fileExtension)")
-    do {
-        try FileManager.default.copyItem(at: bundleURL, to: targetURL)
-    } catch {
-        print("Could not write file", error.localizedDescription)
-    }
-    
-    return nil
-}
-
-struct TaskFileViewContent : View {
-    @State var fileURL: URL
-    
-    var body: some View {
-        return Label {
-            Text(fileURL.pathExtension.capitalized)
-                .font(Font.custom("Poppins-Regular", size: 14))
-                .foregroundColor(Color.ColorPrimary)
-        } icon: {
-            Image(systemName: "doc.richtext")
-                .foregroundColor(Color.ColorPrimary)
-        }
-    }
-}
-
-struct CancelTaskButtonContent : View {
-    var body: some View {
-        return Text("Cancel")
-            .font(Font.custom("Poppins-Medium", size: 18))
-            .foregroundColor(Color.TextColorPrimary)
-            .padding()
-            .frame(width: 160, height: 60)
-            .background(LinearGradient(gradient: Gradient(colors: [Color.ColorPrimary, Color.ColorSecondary]), startPoint: .top, endPoint: .bottom))
-            .cornerRadius(15.0)
-    }
-}
-
 struct TaskDetailView_Previews: PreviewProvider {
     @State private var taskFilesURLs: [URL] =
     [
@@ -467,6 +386,7 @@ struct TaskDetailView_Previews: PreviewProvider {
          startDate: "2023-03-28 11:09",
          status: TicketStatus.STATUS_IN_PROGRESS.rawValue,
          ticketType: TicketType.GENERAL.rawValue))*/
+        
         TaskDetailView(
             selectedTask: FlightTicket(
                 id: "123456",

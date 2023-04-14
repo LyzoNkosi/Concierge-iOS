@@ -84,6 +84,12 @@
 		F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7EE5D29C79451003B517F /* ActivityIndicatorView */; };
 		F4C9523729DD8DED00428697 /* ManagePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */; };
 		F4C9523929DD8E4E00428697 /* UserPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */; };
+		F4E4207A29E93D1E00D07047 /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4207929E93D1E00D07047 /* CollapsibleView.swift */; };
+		F4E4207C29E93D6100D07047 /* TaskHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4207B29E93D6100D07047 /* TaskHeaderView.swift */; };
+		F4E4207E29E9424D00D07047 /* TimelineView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4207D29E9424D00D07047 /* TimelineView2.swift */; };
+		F4E4208029E9427200D07047 /* TabBarView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4207F29E9427200D07047 /* TabBarView2.swift */; };
+		F4E4208229E94FFD00D07047 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4208129E94FFD00D07047 /* SettingsView.swift */; };
+		F4E4208429E9577000D07047 /* TaskContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4208329E9577000D07047 /* TaskContentView.swift */; };
 		F4E9C06D29C3AD3000DF72A8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4E9C06C29C3AD3000DF72A8 /* RealmSwift */; };
 		F4F1179B29C9FC8C00200ECB /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */; };
 		F4F1179D29CA119C00200ECB /* FlightTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1179C29CA119C00200ECB /* FlightTicket.swift */; };
@@ -164,6 +170,12 @@
 		F4C7EE5829C721C7003B517F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePreferencesView.swift; sourceTree = "<group>"; };
 		F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesView.swift; sourceTree = "<group>"; };
+		F4E4207929E93D1E00D07047 /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
+		F4E4207B29E93D6100D07047 /* TaskHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeaderView.swift; sourceTree = "<group>"; };
+		F4E4207D29E9424D00D07047 /* TimelineView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView2.swift; sourceTree = "<group>"; };
+		F4E4207F29E9427200D07047 /* TabBarView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView2.swift; sourceTree = "<group>"; };
+		F4E4208129E94FFD00D07047 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F4E4208329E9577000D07047 /* TaskContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskContentView.swift; sourceTree = "<group>"; };
 		F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F4F1179C29CA119C00200ECB /* FlightTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTicket.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -265,6 +277,7 @@
 				F48CBF0F29C351F500973290 /* ClientChatView.swift */,
 				F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */,
 				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
+				F4E4207929E93D1E00D07047 /* CollapsibleView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
 				F4C10EA529DF05AB004AEE56 /* EmergencyContactView.swift */,
@@ -277,11 +290,15 @@
 				F4BC090A29C5125100745EFB /* PlaceholderView.swift */,
 				F4C10E9829DEF2E1004AEE56 /* PrivacyPolicyView.swift */,
 				F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */,
+				F4E4208129E94FFD00D07047 /* SettingsView.swift */,
 				F41D92A729D0B52200D74D75 /* SFSymbolView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
+				F4E4207F29E9427200D07047 /* TabBarView2.swift */,
 				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
+				F4E4207B29E93D6100D07047 /* TaskHeaderView.swift */,
 				F4C10E9629DEF2E1004AEE56 /* TermsOfServiceView.swift */,
 				0445A0FF29B207B600DA8D50 /* TimelineView.swift */,
+				F4E4207D29E9424D00D07047 /* TimelineView2.swift */,
 				F4C10E9F29DEF432004AEE56 /* UserDataListView.swift */,
 				F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */,
 				04D8687F29C0601900027E73 /* UserProfileView.swift */,
@@ -289,6 +306,7 @@
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4C10E9229DEF2E1004AEE56 /* Task Templates */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
+				F4E4208329E9577000D07047 /* TaskContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -492,10 +510,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4E4208429E9577000D07047 /* TaskContentView.swift in Sources */,
 				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
 				F4C10E9B29DEF2E1004AEE56 /* CreateTaskView.swift in Sources */,
 				F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */,
 				F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */,
+				F4E4207E29E9424D00D07047 /* TimelineView2.swift in Sources */,
+				F4E4208229E94FFD00D07047 /* SettingsView.swift in Sources */,
 				043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */,
 				F49D912A29CAE3AA009ED887 /* AdminDashboardViewModel.swift in Sources */,
 				F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */,
@@ -541,15 +562,18 @@
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
 				F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */,
+				F4E4208029E9427200D07047 /* TabBarView2.swift in Sources */,
 				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,
 				F4C10E9C29DEF2E1004AEE56 /* TermsOfServiceView.swift in Sources */,
 				F4A97B3829DC2AE600D85017 /* DocumentPickerViewController.swift in Sources */,
 				F4BC090B29C5125100745EFB /* PlaceholderView.swift in Sources */,
+				F4E4207A29E93D1E00D07047 /* CollapsibleView.swift in Sources */,
 				04D8688529C07C8600027E73 /* UserProfileViewModel.swift in Sources */,
 				0445A10429B207CE00DA8D50 /* BalanceView.swift in Sources */,
 				F49E6C5329C4A3B30081CE03 /* ChatMessage.swift in Sources */,
 				F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */,
 				04B21D2129B733EE00829AD7 /* ChatHelper.swift in Sources */,
+				F4E4207C29E93D6100D07047 /* TaskHeaderView.swift in Sources */,
 				04B9CF9029C0AA63009FB454 /* AdminTasksView.swift in Sources */,
 				0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */,
 				04B21D1E29B733EE00829AD7 /* User.swift in Sources */,
