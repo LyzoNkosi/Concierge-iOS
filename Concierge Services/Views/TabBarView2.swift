@@ -49,7 +49,7 @@ struct TabBarView2: View {
                 
                 // Tab 2
                 VStack {
-                    
+                    ChatView().environmentObject(firestoreManager)
                 }
                 .tabItem {
                     Image("keys_")

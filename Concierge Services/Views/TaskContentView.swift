@@ -184,7 +184,8 @@ struct TaskContentView: View {
             case TicketType.GENERAL.rawValue:
                 
                 VStack {
-                    
+                    Text("No extra details")
+                    .font(Font.custom("Poppins-Light", size: 18))
                 }
                 
             default:
