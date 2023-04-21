@@ -207,10 +207,10 @@
 		0445A0DD29B1EEE300DA8D50 = {
 			isa = PBXGroup;
 			children = (
-				F4BBDA2629E802090018A0E5 /* Resources */,
 				0445A0E829B1EEE300DA8D50 /* Concierge Services */,
 				F48CBEFA29C3185500973290 /* Frameworks */,
 				0445A0E729B1EEE300DA8D50 /* Products */,
+				F4BBDA2629E802090018A0E5 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -283,6 +283,7 @@
 				F4BC090029C4E4AA00745EFB /* ClientMessageView.swift */,
 				F49E6C4E29C44DEE0081CE03 /* ClientTicketsView.swift */,
 				F4E4207929E93D1E00D07047 /* CollapsibleView.swift */,
+				F4E122BD29F28F3100510D27 /* ContactUsView.swift */,
 				04B21D1629B733EE00829AD7 /* ContentMessageView.swift */,
 				04B9CF9129C0AB98009FB454 /* CreateAccountView.swift */,
 				F4C10EA529DF05AB004AEE56 /* EmergencyContactView.swift */,
@@ -312,7 +313,6 @@
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4C10E9229DEF2E1004AEE56 /* Task Templates */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
-				F4E122BD29F28F3100510D27 /* ContactUsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,12 +320,12 @@
 		04D8687C29C05C2400027E73 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				F416A51029DAEABE00C40751 /* SFSymbol.swift */,
 				F49E6C5229C4A3B30081CE03 /* ChatMessage.swift */,
 				F48CBEFF29C32B6E00973290 /* Client.swift */,
+				F4F1179C29CA119C00200ECB /* FlightTicket.swift */,
+				F416A51029DAEABE00C40751 /* SFSymbol.swift */,
 				F48CBEFD29C32A1100973290 /* Ticket.swift */,
 				04B21D1429B733EE00829AD7 /* User.swift */,
-				F4F1179C29CA119C00200ECB /* FlightTicket.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -335,10 +335,10 @@
 			children = (
 				04B21D1929B733EE00829AD7 /* ChatHelper.swift */,
 				F4BBAF7329C834D20036C06F /* Constants.swift */,
+				F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */,
 				04B21D1A29B733EE00829AD7 /* KeyboardResponder.swift */,
 				F4BBAF7529C834FB0036C06F /* UserDefaultsUtils.swift */,
 				F4C7EE5829C721C7003B517F /* Utils.swift */,
-				F4F1179A29C9FC8C00200ECB /* DateExtensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -346,8 +346,8 @@
 		04D8687E29C05C4300027E73 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				F48CBEF829C315F000973290 /* FirestoreManager.swift */,
 				F4A97B2E29DC0C0400D85017 /* FirebaseStorageManager.swift */,
+				F48CBEF829C315F000973290 /* FirestoreManager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -396,10 +396,6 @@
 		F4BBAF6A29C832AA0036C06F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				F4BBAF6B29C834A60036C06F /* Poppins-Bold.ttf */,
-				F4BBAF6C29C834A60036C06F /* Poppins-Light.ttf */,
-				F4BBAF6D29C834A70036C06F /* Poppins-Medium.ttf */,
-				F4BBAF6E29C834A70036C06F /* Poppins-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -408,6 +404,10 @@
 			isa = PBXGroup;
 			children = (
 				F4BBDA2729E802090018A0E5 /* privacy.html */,
+				F4BBAF6B29C834A60036C06F /* Poppins-Bold.ttf */,
+				F4BBAF6C29C834A60036C06F /* Poppins-Light.ttf */,
+				F4BBAF6D29C834A70036C06F /* Poppins-Medium.ttf */,
+				F4BBAF6E29C834A70036C06F /* Poppins-Regular.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

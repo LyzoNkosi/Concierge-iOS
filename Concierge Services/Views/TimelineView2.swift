@@ -22,16 +22,7 @@ struct TimelineView2: View {
             NavigationLink (destination: SettingsView().environmentObject(firestoreManager).environmentObject(loginViewModel)) {
                 UserToolbarView()
                     .environmentObject(firestoreManager)
-                .padding()
             }
-            
-            Divider()
-                .foregroundColor(Color.ColorPrimary)
-                .padding(.leading, 24)
-                .padding(.trailing, 24)
-                .padding(.top, 2)
-                .padding(.bottom, 2)
-                .frame(height: 2)
             
             List(ticketsViewModel.tickets) { ticket in
                 CollapsibleView(
@@ -70,10 +61,16 @@ struct UserToolbarView : View {
              .padding(4)*/
             
             Text(fullName)
-                .font(Font.custom("Poppins-Medium", size: 16))
+                .font(Font.custom("Poppins-Bold", size: 16))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(2)
+                .padding(.leading, 24)
+                .padding(.trailing, 24)
             
+            Divider()
+                .frame(height: 3)
+                .overlay(Color.gray)
+                .padding(.leading, 24)
+                .padding(.trailing, 24)
         }
     }
 }

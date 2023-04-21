@@ -29,7 +29,10 @@ struct TabBarView2: View {
                     
                 }
                 .tabItem {
-                    Image(systemName: "house")
+                    Image("timeline")
+                        .resizable()
+                        .font(.system(size: 16))
+                    
                     Text("Home")
                         .font(Font.custom("Poppins-Light", size: 10))
                 }
@@ -45,7 +48,6 @@ struct TabBarView2: View {
                     Image("keys_")
                         .resizable()
                         .font(.system(size: 16))
-                    //.frame(width: 18, height: 18)
                     
                     Text("Concierge")
                         .font(Font.custom("Poppins-Light", size: 10))

@@ -45,7 +45,6 @@ struct AboutView: View {
                         NavigationLink(destination: ContactUsView(), isActive: $openContactScreen) {}
                         NavigationLink(destination: PlaceholderView(), isActive: $openLicenseScreen) {}
                     })
-                    
                     .padding()
                     
                     //Licenses
@@ -62,13 +61,12 @@ struct AboutView: View {
                                     .stroke(Color.black, lineWidth: 1)
                             )
                     })
-                    
                     .padding()
-                    Text("© 2023 Norrinradd")
-                        .font(Font.custom("Poppins-Bold", size: 14))
-                        .padding(140)
                 }
                 
+                Text("© 2023 Norrinradd")
+                    .font(Font.custom("Poppins-Regular", size: 14))
+                    .padding(140)
             }
         }
         
