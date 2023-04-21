@@ -29,7 +29,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text("Destination: ")
-                            .font(Font.custom("Poppins-Bold", size: 16))
+                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -39,7 +39,7 @@ struct TaskContentView: View {
                     }
                     
                     Text(flightTicket?.destination ?? "No arrival airport")
-                        .font(Font.custom("Poppins-Regular", size: 18))
+                        .font(Font.custom("Poppins-Regular", size: Constants.TASK_NAME_FONT_SIZE))
                         .foregroundColor(Color.ColorPrimary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
@@ -49,7 +49,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text("Departure Airport: ")
-                            .font(Font.custom("Poppins-Bold", size: 14))
+                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -59,7 +59,7 @@ struct TaskContentView: View {
                     }
                     
                     Text(flightTicket?.departureAirport ?? "No departure airport")
-                        .font(Font.custom("Poppins-Regular", size: 16))
+                        .font(Font.custom("Poppins-Regular", size: Constants.TASK_NAME_FONT_SIZE))
                         .foregroundColor(Color.ColorPrimary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
@@ -69,7 +69,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text("Arrival Airport: ")
-                            .font(Font.custom("Poppins-Bold", size: 14))
+                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -79,7 +79,7 @@ struct TaskContentView: View {
                     }
                     
                     Text(flightTicket?.destinationAirport ?? "No arrival airport")
-                        .font(Font.custom("Poppins-Regular", size: 16))
+                        .font(Font.custom("Poppins-Regular", size: Constants.TASK_NAME_FONT_SIZE))
                         .foregroundColor(Color.ColorPrimary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
@@ -89,7 +89,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text(flightTicket?.flightNumber ?? "None")
-                            .font(Font.custom("Poppins-Bold", size: 14))
+                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -100,7 +100,7 @@ struct TaskContentView: View {
                     
                     Label {
                         Text(flightTicket?.seatNumber ?? "None")
-                            .font(Font.custom("Poppins-Bold", size: 14))
+                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -121,7 +121,7 @@ struct TaskContentView: View {
                     
                     Label {
                         Text("Return Date: " + (flightTicket?.returnDate ?? "No return date"))
-                            .font(Font.custom("Poppins-Regular", size: 14))
+                            .font(Font.custom("Poppins-Regular", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                     } icon: {
                         Image("calendar")
@@ -132,7 +132,7 @@ struct TaskContentView: View {
                     HStack {
                         Label {
                             Text("Return Airport: ")
-                                .font(Font.custom("Poppins-Bold", size: 14))
+                                .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                                 .foregroundColor(Color.ColorPrimary)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
@@ -143,7 +143,7 @@ struct TaskContentView: View {
                         }
                         
                         Text(flightTicket?.returnAirport ?? "No return airport")
-                            .font(Font.custom("Poppins-Regular", size: 16))
+                            .font(Font.custom("Poppins-Regular", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -153,7 +153,7 @@ struct TaskContentView: View {
                     HStack {
                         Label {
                             Text(flightTicket?.returnFlightNumber ?? "None")
-                                .font(Font.custom("Poppins-Bold", size: 14))
+                                .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                                 .foregroundColor(Color.ColorPrimary)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
@@ -164,7 +164,7 @@ struct TaskContentView: View {
                         
                         Label {
                             Text(flightTicket?.returnSeatNumber ?? "None")
-                                .font(Font.custom("Poppins-Bold", size: 14))
+                                .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
                                 .foregroundColor(Color.ColorPrimary)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
@@ -185,7 +185,7 @@ struct TaskContentView: View {
                 
                 VStack {
                     Text("No extra details")
-                    .font(Font.custom("Poppins-Light", size: 18))
+                    .font(Font.custom("Poppins-Light", size: Constants.TASK_NAME_FONT_SIZE))
                 }
                 
             default:

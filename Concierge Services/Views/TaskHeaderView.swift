@@ -19,40 +19,51 @@ struct TaskHeaderView : View  {
             case TicketType.GENERAL.rawValue:
                 VStack(alignment: .center, spacing: 0) {
                     Rectangle()
-                        .frame(width: 1, height: 20, alignment: .center)
+                        .frame(width: 1, height: 10, alignment: .center)
                     Circle()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(Color.Accent)
+                        .frame(width: 10, height: 10)
+                        .foregroundColor(Color.ColorPrimary)
+                    Rectangle()
+                        .frame(width: 1, height: 10, alignment: .center)
+                    Circle()
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(Color.ColorPrimary)
                         .overlay(
                             Image("hourglass")
                                 .resizable()
-                                .frame(width: 16, height: 16)
+                                .foregroundColor(.white)
+                                .frame(width: 14, height: 14)
+                                
                         )
                     Rectangle()
                         .frame(width: 1, height: 20, alignment: .center)
                         .foregroundColor(Color.ColorPrimary)
                 }
-                .frame(width: 32, height: .infinity, alignment: .center)
+                .frame(width: 24, height: .infinity, alignment: .center)
                 .foregroundColor(Color.ColorPrimary)
                 
                 VStack(alignment: .leading, spacing: 8, content: {
-                    Label {
-                        Text(ticket.startDate ?? "No start date")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                    } icon: {
+                    
+                    HStack {
                         Image("calendar")
                             .resizable()
-                            .frame(width: 18, height: 18)
+                            .frame(width: 14, height: 14)
+                        
+                        Text(ticket.startDate ?? "No start date")
+                            .font(Font.custom("Poppins-Regular", size: Constants.TASK_DATE_FONT_SIZE))
+                            .foregroundColor(Color.ColorPrimary)
+                    
+                        
                     }
                     
                     Text(ticket.name ?? "No task name")
-                        .font(Font.custom("Poppins-Medium", size: 18))
+                        .font(Font.custom("Poppins-Medium", size: Constants.TASK_NAME_FONT_SIZE))
                         .foregroundColor(Color.ColorPrimary)
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
                     
                 })
+                .padding(4)
                 
             case TicketType.FLIGHT.rawValue:
                 
@@ -60,47 +71,87 @@ struct TaskHeaderView : View  {
                 
                 VStack(alignment: .center, spacing: 0) {
                     Rectangle()
-                        .frame(width: 1, height: 20, alignment: .center)
+                        .frame(width: 1, height: 10, alignment: .center)
                     Circle()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(Color.Accent)
+                        .frame(width: 10, height: 10)
+                        .foregroundColor(Color.ColorPrimary)
+                    Rectangle()
+                        .frame(width: 1, height: 10, alignment: .center)
+                    Circle()
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(Color.ColorPrimary)
                         .overlay(
                             Image(systemName: "airplane")
-                                .foregroundColor(Color.ColorPrimary)
+                                .foregroundColor(Color.white)
                                 .font(.system(size: 16, weight: .light , design: .rounded))
-                                .frame(width: 30, height: 30)
+                                .frame(width: 24, height: 24)
                         )
                     Rectangle()
                         .frame(width: 1, height: 20, alignment: .center)
                         .foregroundColor(Color.ColorPrimary)
                 }
-                .frame(width: 32, height: .infinity, alignment: .center)
+                .frame(width: 24, height: .infinity, alignment: .center)
                 .foregroundColor(Color.ColorPrimary)
                 
                 VStack(alignment: .leading, spacing: 8, content: {
-                    Label {
-                        Text(flightTicket?.startDate ?? "No departure date")
-                            .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(Color.ColorPrimary)
-                    } icon: {
+                    HStack {
+                        
                         Image("calendar")
                             .resizable()
-                            .frame(width: 18, height: 18)
+                            .frame(width: 14, height: 14)
+                        
+                        Text(flightTicket?.startDate ?? "No departure date")
+                            .font(Font.custom("Poppins-Regular", size: Constants.TASK_DATE_FONT_SIZE))
+                            .foregroundColor(Color.ColorPrimary)
                     }
                     
-                    Text(flightTicket?.name ?? "No task name")
-                        .font(Font.custom("Poppins-Medium", size: 18))
-                        .foregroundColor(Color.ColorPrimary)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
+                    HStack {
+                        
+                        Text(flightTicket?.name ?? "No task name")
+                            .font(Font.custom("Poppins-Medium", size: Constants.TASK_NAME_FONT_SIZE))
+                            .foregroundColor(Color.ColorPrimary)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(1)
+                        
+                        HStack {
+                            HStack {
+                                Image(systemName: "airplane")
+                                    .foregroundColor(Color.Accent)
+                                
+                                Text(flightTicket?.flightNumber ?? "None")
+                                    .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                                    .foregroundColor(Color.ColorPrimary)
+                                    .multilineTextAlignment(.leading)
+                                    .lineLimit(1)
+                            }
+                            
+                            HStack {
+                                Image("flight_seat")
+                                    .resizable()
+                                    .frame(width: 14, height: 18)
+                                
+                                Text(flightTicket?.seatNumber ?? "None")
+                                    .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                                    .foregroundColor(Color.ColorPrimary)
+                                    .multilineTextAlignment(.leading)
+                                    .lineLimit(1)
+                            
+                                
+                                
+                            }
+                        }
+                        
+                    }
                     
                 })
+                .padding(4)
                 
             default:
                 EmptyView()
             }
             
-        }.padding(4)
+        }
+        //.padding(4)
             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
 }
@@ -108,7 +159,7 @@ struct TaskHeaderView : View  {
 struct TaskHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         
-        TaskHeaderView(
+        /*TaskHeaderView(
             ticket: Ticket(
                 id: "123456",
                 name: "Task Name",
@@ -116,9 +167,9 @@ struct TaskHeaderView_Previews: PreviewProvider {
                 status: TicketStatus.STATUS_IN_PROGRESS.rawValue,
                 ticketType: TicketType.GENERAL.rawValue
             )
-        )
+        )*/
         
-        /*TaskHeaderView(
+        TaskHeaderView(
          ticket: FlightTicket(
          id: "123456",
          name: "Task Name",
@@ -136,7 +187,7 @@ struct TaskHeaderView_Previews: PreviewProvider {
          returnSeatNumber: "A12",
          ticketType: TicketType.FLIGHT.rawValue
          )
-         )*/
+         )
         
     }
 }

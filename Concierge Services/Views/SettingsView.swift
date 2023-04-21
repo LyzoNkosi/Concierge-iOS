@@ -90,7 +90,7 @@ struct SettingsView: View {
                     }
                 }
                 // 6
-                NavigationLink(destination: PlaceholderView()) {
+                NavigationLink(destination: AboutView()) {
                     HStack {
                         Image("about")
                             .resizable()
@@ -145,6 +145,7 @@ struct SettingsView: View {
                     Image("african_sun_logo_no_bg")
                         .resizable()
                         .frame(width: 128, height: 112)
+                        .padding(.top, 8)
                     
                 }
             }

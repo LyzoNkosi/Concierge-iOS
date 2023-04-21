@@ -35,7 +35,7 @@ struct TabBarView2: View {
                 }
                 .tag(Tabs.homeTab)
                 .background(Color.white)
-                .padding()
+                //.padding()
                 
                 // Tab 2
                 VStack {
@@ -59,6 +59,7 @@ struct TabBarView2: View {
                         Image("african_sun_logo_no_bg")
                             .resizable()
                             .frame(width: 128, height: 112)
+                            .padding(.top, 8)
                         
                     }
                 }

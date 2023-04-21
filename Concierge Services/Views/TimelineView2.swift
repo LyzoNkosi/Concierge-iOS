@@ -22,7 +22,7 @@ struct TimelineView2: View {
             NavigationLink (destination: SettingsView().environmentObject(firestoreManager).environmentObject(loginViewModel)) {
                 UserToolbarView()
                     .environmentObject(firestoreManager)
-                    .padding()
+                .padding()
             }
             
             Divider()
@@ -38,10 +38,14 @@ struct TimelineView2: View {
                     label: { TaskHeaderView(ticket: ticket) },
                     content: { TaskContentView(selectedTask: ticket, userId: UserDefaultsUtils().getUserId())}
                 )
+                //.listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
                 .frame(maxWidth: .infinity)
                 
             }
+            .padding(.top, 0)
+            .listStyle(PlainListStyle())
+            
             
             Spacer()
         }
@@ -62,13 +66,13 @@ struct UserToolbarView : View {
             let fullName = userDefaultUtils.getUserFirstName() + " " + userDefaultUtils.getUserLastName()
             
             /*Image(systemName: "person.circle")
-                .font(.system(size: 24))
-                .padding(4)*/
+             .font(.system(size: 24))
+             .padding(4)*/
             
             Text(fullName)
                 .font(Font.custom("Poppins-Medium", size: 16))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(4)
+                .padding(2)
             
         }
     }

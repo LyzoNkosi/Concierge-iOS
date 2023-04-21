@@ -84,6 +84,8 @@
 		F4C7EE5E29C79451003B517F /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = F4C7EE5D29C79451003B517F /* ActivityIndicatorView */; };
 		F4C9523729DD8DED00428697 /* ManagePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */; };
 		F4C9523929DD8E4E00428697 /* UserPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */; };
+		F4E122BC29F28E6500510D27 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E122BB29F28E6500510D27 /* AboutView.swift */; };
+		F4E122BE29F28F3100510D27 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E122BD29F28F3100510D27 /* ContactUsView.swift */; };
 		F4E4207A29E93D1E00D07047 /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4207929E93D1E00D07047 /* CollapsibleView.swift */; };
 		F4E4207C29E93D6100D07047 /* TaskHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4207B29E93D6100D07047 /* TaskHeaderView.swift */; };
 		F4E4207E29E9424D00D07047 /* TimelineView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E4207D29E9424D00D07047 /* TimelineView2.swift */; };
@@ -170,6 +172,8 @@
 		F4C7EE5829C721C7003B517F /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F4C9523629DD8DED00428697 /* ManagePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePreferencesView.swift; sourceTree = "<group>"; };
 		F4C9523829DD8E4E00428697 /* UserPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesView.swift; sourceTree = "<group>"; };
+		F4E122BB29F28E6500510D27 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		F4E122BD29F28F3100510D27 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		F4E4207929E93D1E00D07047 /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
 		F4E4207B29E93D6100D07047 /* TaskHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeaderView.swift; sourceTree = "<group>"; };
 		F4E4207D29E9424D00D07047 /* TimelineView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView2.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 		04D8687B29C05C1C00027E73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4E122BB29F28E6500510D27 /* AboutView.swift */,
 				F4C10EA329DEF7D6004AEE56 /* AddressView.swift */,
 				04B9CF8F29C0AA63009FB454 /* AdminTasksView.swift */,
 				F4C10EA729DF0761004AEE56 /* AirlinePreferencesView.swift */,
@@ -294,6 +299,7 @@
 				F41D92A729D0B52200D74D75 /* SFSymbolView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
 				F4E4207F29E9427200D07047 /* TabBarView2.swift */,
+				F4E4208329E9577000D07047 /* TaskContentView.swift */,
 				043E7A4729B60ED900AB2737 /* TaskDetailView.swift */,
 				F4E4207B29E93D6100D07047 /* TaskHeaderView.swift */,
 				F4C10E9629DEF2E1004AEE56 /* TermsOfServiceView.swift */,
@@ -306,7 +312,7 @@
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4C10E9229DEF2E1004AEE56 /* Task Templates */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
-				F4E4208329E9577000D07047 /* TaskContentView.swift */,
+				F4E122BD29F28F3100510D27 /* ContactUsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 			files = (
 				F4E4208429E9577000D07047 /* TaskContentView.swift in Sources */,
 				F48CBEF929C315F000973290 /* FirestoreManager.swift in Sources */,
+				F4E122BE29F28F3100510D27 /* ContactUsView.swift in Sources */,
 				F4C10E9B29DEF2E1004AEE56 /* CreateTaskView.swift in Sources */,
 				F4BBAF7629C834FB0036C06F /* UserDefaultsUtils.swift in Sources */,
 				F4BC090129C4E4AA00745EFB /* ClientMessageView.swift in Sources */,
@@ -574,6 +581,7 @@
 				F48CBEFE29C32A1100973290 /* Ticket.swift in Sources */,
 				04B21D2129B733EE00829AD7 /* ChatHelper.swift in Sources */,
 				F4E4207C29E93D6100D07047 /* TaskHeaderView.swift in Sources */,
+				F4E122BC29F28E6500510D27 /* AboutView.swift in Sources */,
 				04B9CF9029C0AA63009FB454 /* AdminTasksView.swift in Sources */,
 				0445A10029B207B600DA8D50 /* TimelineView.swift in Sources */,
 				04B21D1E29B733EE00829AD7 /* User.swift in Sources */,
@@ -705,7 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
@@ -723,7 +731,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -741,7 +749,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Concierge Services/Preview Content\"";
 				DEVELOPMENT_TEAM = XR858YJCJC;
 				ENABLE_PREVIEWS = YES;
@@ -759,7 +767,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.0.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "co.norrinradd.concierge-services-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

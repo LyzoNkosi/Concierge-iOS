@@ -64,6 +64,18 @@ struct ProfileImage : View {
     }
 }
 
+struct AfricanSun : View {
+
+    var body: some View {
+        return Image("african_sun_svg")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 200, height: 200)
+            .clipped()
+            .padding(.bottom, 75)
+    }
+}
+
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
         UserProfileView()

@@ -18,7 +18,7 @@ struct CollapsibleView<TaskContentView: View>: View {
         HStack {
             self.label()
             Spacer()
-            Image(systemName: self.collapsed ? "chevron.down" : "chevron.up")
+            //Image(systemName: self.collapsed ? "chevron.down" : "chevron.up")
         }
         .onTapGesture {
             self.collapsed.toggle()
