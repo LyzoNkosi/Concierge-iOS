@@ -4,6 +4,8 @@ import AlertToast
 struct ChatView: View {
     @State var typingMessage: String = ""
     
+    @EnvironmentObject var loginViewModel: LoginViewModel
+    
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     @ObservedObject var chatsViewModel: ChatsViewModel = ChatsViewModel()
@@ -20,6 +22,12 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
+            NavigationLink (destination: SettingsView().environmentObject(firestoreManager).environmentObject(loginViewModel)) {
+                UserToolbarView()
+                    .environmentObject(firestoreManager)
+                    .padding()
+            }
+            
             List(chatsViewModel.messages) { chat in
                 MessageView(currentMessage: chat)
             }
@@ -33,6 +41,16 @@ struct ChatView: View {
                 }
             }.frame(minHeight: CGFloat(50)).padding()
         }//.navigationBarTitle(Text("Chat"), displayMode: .inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                VStack(alignment: .trailing) {
+                    Image("african_sun_logo_no_bg")
+                        .resizable()
+                        .frame(width: 128, height: 112)
+                    
+                }
+            }
+        }
         .padding(.bottom, keyboard.currentHeight)
         .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
         .onAppear{

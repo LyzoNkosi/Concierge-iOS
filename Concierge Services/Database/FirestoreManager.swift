@@ -52,6 +52,45 @@ class FirestoreManager: ObservableObject{
         })
     }
     
+    func changePassword(email : String, password : String, newPassword : String, passwordChanged : @escaping(Bool) ->())  {
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            if (error != nil) {
+                print(error?.localizedDescription as Any)
+                passwordChanged(false)
+                return
+            }
+            
+            if(authResult?.user == nil) {
+                passwordChanged(false)
+                return
+            }
+            
+            let authUser = authResult?.user
+            
+            // User successfully reauthenticated, change the password
+            authUser?.updatePassword(to: newPassword) { (error) in
+                if let error = error {
+                    // Failed to update the password
+                    print("Failed to update the password: \(error)")
+                    passwordChanged(false)
+                    return
+                }
+                
+                // Password successfully updated
+                passwordChanged(true)
+                
+            }
+        }
+        
+    }
+    
+    
+    
+    func resetPassword(newPass: String, passwordChanged: @escaping (Bool) -> ()){
+        
+    }
+    
     private func addNewUser(userId: String, firstName: String, lastName: String, createdNewUser: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()
         
@@ -103,69 +142,6 @@ class FirestoreManager: ObservableObject{
             }
         }
     }
-    
-    /*func getTickets() {
-        let database = Firestore.firestore()
-        
-        do {
-            let realm = try Realm()
-            let generalTicketsToDelete = realm.objects(Ticket.self)
-            let flightTicketsToDelete = realm.objects(FlightTicket.self)
-            
-            try! realm.write{
-                realm.delete(generalTicketsToDelete)
-                realm.delete(flightTicketsToDelete)
-            }
-            
-            let ticketsRef = database.collection("tickets").document(UserDefaultsUtils.shared.getUserId()).collection("tickets")
-            
-            // Get Flight Tickets
-            ticketsRef.whereField("ticket_type", isEqualTo: TicketType.FLIGHT.rawValue as Int).getDocuments() { (querySnapshot, error) in
-                for flightDocument in querySnapshot!.documents {
-                    if let error = error {
-                        print("Error getting documents: \(error)")
-                    } else {
-                        let flightTicket = FlightTicket(id: flightDocument.documentID,
-                                                        name: flightDocument["ticket_name"] as? String ?? "",
-                                                        startDate: flightDocument["depart_date"] as? String ?? "",
-                                                        status: flightDocument["ticket_status"] as! Int,
-                                                        bookReturn: flightDocument["book_return"] as! Int,
-                                                        departureAirport: flightDocument["depart_airport"] as? String ?? "",
-                                                        returnAirport: flightDocument["return_airport"] as? String ?? "",
-                                                        returnDate: flightDocument["return_date"] as? String ?? "",
-                                                        ticketType: flightDocument["ticket_type"] as! Int)
-                        
-                        try! realm.write {
-                            realm.add(flightTicket)
-                        }
-                    }
-                }
-            }
-            
-            // Get General Tickets
-            ticketsRef.whereField("ticket_type", isEqualTo: TicketType.GENERAL.rawValue as Int).getDocuments() { (querySnapshot, error) in
-                if let error = error {
-                    print("Error getting documents: \(error)")
-                } else {
-                    for ticketDocument in querySnapshot!.documents {
-                        // General ticket
-                        let ticket = Ticket(
-                            id: ticketDocument.documentID,
-                            name: ticketDocument["ticket_name"] as? String ?? "",
-                            startDate: ticketDocument["start_date"] as? String ?? "",
-                            status: ticketDocument["ticket_status"] as! Int,
-                            ticketType: ticketDocument["ticket_type"] as! Int)
-                        
-                        try! realm.write {
-                            realm.add(ticket)
-                        }
-                    }
-                }
-            }
-        } catch let realmError as NSError{
-            print("error - \(realmError.localizedDescription)")
-        }
-    } */
     
     func getGeneralTickets(loadedGeneralTickets: @escaping (Bool) -> ()) {
         let database = Firestore.firestore()

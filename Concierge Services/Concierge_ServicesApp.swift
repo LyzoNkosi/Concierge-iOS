@@ -58,7 +58,7 @@ struct ApplicationSwitcher: View {
         
         ZStack {
             if (loginViewModel.isLoggedIn) {
-                LoadingUserDataView(firestoreManager: firestoreManager)
+                LoadingUserDataView(firestoreManager: firestoreManager).environmentObject(loginViewModel)
             } else {
                 LoginView().environmentObject(firestoreManager).environmentObject(loginViewModel)
             }
