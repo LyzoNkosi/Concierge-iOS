@@ -52,8 +52,7 @@ struct TaskHeaderView : View  {
                         Text(ticket.startDate ?? "No start date")
                             .font(Font.custom("Poppins-Regular", size: Constants.TASK_DATE_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
-                        
-                        
+   
                     }
                     
                     Text(ticket.name ?? "No task name")
@@ -63,7 +62,10 @@ struct TaskHeaderView : View  {
                         .lineLimit(1)
                     
                 })
-                .padding(4)
+                .padding(.top, 4)
+                .padding(.bottom, 4)
+                .padding(.leading, 12)
+                .padding(.trailing, 4)
                 
             case TicketType.FLIGHT.rawValue:
                 
@@ -142,7 +144,10 @@ struct TaskHeaderView : View  {
                     }
                     
                 })
-                .padding(4)
+                .padding(.top, 4)
+                .padding(.bottom, 4)
+                .padding(.leading, 12)
+                .padding(.trailing, 4)
                 
             default:
                 EmptyView()

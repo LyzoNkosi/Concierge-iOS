@@ -29,7 +29,6 @@ struct TimelineView2: View {
                     label: { TaskHeaderView(ticket: ticket) },
                     content: { TaskContentView(selectedTask: ticket, userId: UserDefaultsUtils().getUserId())}
                 )
-                //.listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
                 .frame(maxWidth: .infinity)
                 
@@ -53,7 +52,7 @@ struct UserToolbarView : View {
     let userDefaultUtils = UserDefaultsUtils()
     
     var body: some View {
-        return VStack {
+        return VStack(spacing: 0) {
             let fullName = userDefaultUtils.getUserFirstName() + " " + userDefaultUtils.getUserLastName()
             
             /*Image(systemName: "person.circle")
@@ -65,12 +64,27 @@ struct UserToolbarView : View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 24)
                 .padding(.trailing, 24)
+                .padding(.top, 4)
+                .padding(.bottom, 0)
             
             Divider()
                 .frame(height: 3)
                 .overlay(Color.gray)
                 .padding(.leading, 24)
                 .padding(.trailing, 24)
+                .padding(.top, 0)
+        }
+    }
+}
+
+struct HeaderLogo : View {
+    var body: some View {
+        return VStack(alignment: .trailing) {
+            Image("african_sun_logo_no_bg")
+                .resizable()
+                .frame(width: 148, height: 132)
+                .padding(.top, 8)
+            
         }
     }
 }

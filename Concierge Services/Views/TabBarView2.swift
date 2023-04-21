@@ -33,8 +33,8 @@ struct TabBarView2: View {
                         .resizable()
                         .font(.system(size: 16))
                     
-                    Text("Home")
-                        .font(Font.custom("Poppins-Light", size: 10))
+                    //Text("Home")
+                    //    .font(Font.custom("Poppins-Light", size: 10))
                 }
                 .tag(Tabs.homeTab)
                 .background(Color.white)
@@ -49,21 +49,15 @@ struct TabBarView2: View {
                         .resizable()
                         .font(.system(size: 16))
                     
-                    Text("Concierge")
-                        .font(Font.custom("Poppins-Light", size: 10))
+                    //Text("Concierge")
+                    //    .font(Font.custom("Poppins-Light", size: 10))
                 }
                 .tag(Tabs.chatTab)
                 
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    VStack(alignment: .trailing) {
-                        Image("african_sun_logo_no_bg")
-                            .resizable()
-                            .frame(width: 128, height: 112)
-                            .padding(.top, 8)
-                        
-                    }
+                    HeaderLogo()
                 }
             }
             .navigationBarBackButtonHidden(true)

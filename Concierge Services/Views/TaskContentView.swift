@@ -193,8 +193,8 @@ struct TaskContentView: View {
             }
             
         }
-        .padding(.leading, 24)
-        .padding(.trailing, 24)
+        .padding(.leading, 48)
+        .padding(.trailing, 4)
         .padding(.top, 4)
         .padding(.bottom, 4)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)

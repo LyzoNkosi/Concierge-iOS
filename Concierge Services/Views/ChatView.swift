@@ -1,5 +1,4 @@
 import SwiftUI
-import AlertToast
 
 struct ChatView: View {
     @State var typingMessage: String = ""
@@ -12,25 +11,19 @@ struct ChatView: View {
     
     @ObservedObject private var keyboard = KeyboardResponder()
     
-    @State private var showToast = false
-    @State private var toastMessage = ""
-    
-    init() {
-        UITableView.appearance().separatorStyle = .none
-        UITableView.appearance().tableFooterView = UIView()
-    }
-    
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             NavigationLink (destination: SettingsView().environmentObject(firestoreManager).environmentObject(loginViewModel)) {
                 UserToolbarView()
                     .environmentObject(firestoreManager)
-                    .padding()
             }
             
             List(chatsViewModel.messages) { chat in
                 MessageView(currentMessage: chat)
             }
+            .padding(.top, 0)
+            .listStyle(PlainListStyle())
+            
             HStack {
                 TextField("Message...", text: $typingMessage)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -40,28 +33,19 @@ struct ChatView: View {
                         .font(Font.custom("Poppins-Regular", size: 16))
                 }
             }.frame(minHeight: CGFloat(50)).padding()
-        }//.navigationBarTitle(Text("Chat"), displayMode: .inline)
+        }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                VStack(alignment: .trailing) {
-                    Image("african_sun_logo_no_bg")
-                        .resizable()
-                        .frame(width: 128, height: 112)
-                    
-                }
+                HeaderLogo()
             }
         }
-        .padding(.bottom, keyboard.currentHeight)
-        .edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
-        .onAppear{
+        //.padding(.bottom, keyboard.currentHeight)
+        //.edgesIgnoringSafeArea(keyboard.currentHeight == 0.0 ? .leading: .bottom)
+        .onAppear {
             chatsViewModel.getChatMessages(firestoreManager: firestoreManager)
         }
         .onTapGesture {
             self.endEditing(true)
-        }
-        .toast(isPresenting: $showToast) {
-            AlertToast(type: .regular, title: toastMessage,
-                       style: AlertToast.AlertStyle.style(backgroundColor: Color.ColorPrimary, titleColor: Color.TextColorPrimary, subTitleColor: Color.TextColorPrimary, titleFont: Font.custom("Poppins-Regular", size: 12), subTitleFont: Font.custom("Poppins-Light", size: 12)))
         }
     }
     
@@ -79,9 +63,6 @@ struct ChatView: View {
                 }
                 
             }
-        } else {
-            self.toastMessage = "Please type in a message"
-            self.showToast = true
         }
     }
 }

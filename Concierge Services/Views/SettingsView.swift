@@ -141,13 +141,7 @@ struct SettingsView: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                VStack(alignment: .trailing) {
-                    Image("african_sun_logo_no_bg")
-                        .resizable()
-                        .frame(width: 128, height: 112)
-                        .padding(.top, 8)
-                    
-                }
+                HeaderLogo()
             }
         }
     }
