@@ -18,7 +18,7 @@ struct TaskContentView: View {
     @State private var taskFilesURLs: [URL] = []
     
     var body: some View {
-        VStack (alignment: .leading, spacing: 8) {
+        VStack (alignment: .leading) {
             
             switch(selectedTask.ticketType) {
                 
@@ -29,7 +29,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text("Destination: ")
-                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                            .font(Font.custom("Poppins-Medium", size: Constants.TASK_HEADERS_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -49,7 +49,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text("Departure Airport: ")
-                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                            .font(Font.custom("Poppins-Medium", size: Constants.TASK_HEADERS_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -69,7 +69,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text("Arrival Airport: ")
-                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                            .font(Font.custom("Poppins-Medium", size: Constants.TASK_HEADERS_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -89,7 +89,7 @@ struct TaskContentView: View {
                 HStack {
                     Label {
                         Text(flightTicket?.flightNumber ?? "None")
-                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                            .font(Font.custom("Poppins-Medium", size: Constants.TASK_HEADERS_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -100,7 +100,7 @@ struct TaskContentView: View {
                     
                     Label {
                         Text(flightTicket?.seatNumber ?? "None")
-                            .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                            .font(Font.custom("Poppins-Medium", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -121,18 +121,18 @@ struct TaskContentView: View {
                     
                     Label {
                         Text("Return Date: " + (flightTicket?.returnDate ?? "No return date"))
-                            .font(Font.custom("Poppins-Regular", size: Constants.TASK_NAME_FONT_SIZE))
+                            .font(Font.custom("Poppins-Medium", size: Constants.TASK_NAME_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                     } icon: {
                         Image("calendar")
                             .resizable()
-                            .frame(width: 24, height: 24)
+                            .frame(width: 12, height: 12)
                     }
                     
                     HStack {
                         Label {
                             Text("Return Airport: ")
-                                .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                                .font(Font.custom("Poppins-Medium", size: Constants.TASK_HEADERS_FONT_SIZE))
                                 .foregroundColor(Color.ColorPrimary)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
@@ -143,7 +143,7 @@ struct TaskContentView: View {
                         }
                         
                         Text(flightTicket?.returnAirport ?? "No return airport")
-                            .font(Font.custom("Poppins-Regular", size: Constants.TASK_NAME_FONT_SIZE))
+                            .font(Font.custom("Poppins-Regular", size: Constants.TASK_HEADERS_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
@@ -153,7 +153,7 @@ struct TaskContentView: View {
                     HStack {
                         Label {
                             Text(flightTicket?.returnFlightNumber ?? "None")
-                                .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                                .font(Font.custom("Poppins-Medium", size: Constants.TASK_HEADERS_FONT_SIZE))
                                 .foregroundColor(Color.ColorPrimary)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
@@ -164,7 +164,7 @@ struct TaskContentView: View {
                         
                         Label {
                             Text(flightTicket?.returnSeatNumber ?? "None")
-                                .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                                .font(Font.custom("Poppins-Medium", size: Constants.TASK_HEADERS_FONT_SIZE))
                                 .foregroundColor(Color.ColorPrimary)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(1)
@@ -185,7 +185,7 @@ struct TaskContentView: View {
                 
                 VStack {
                     Text("No extra details")
-                    .font(Font.custom("Poppins-Light", size: Constants.TASK_NAME_FONT_SIZE))
+                    .font(Font.custom("Poppins-Light", size: Constants.TASK_HEADERS_FONT_SIZE))
                 }
                 
             default:
@@ -193,6 +193,10 @@ struct TaskContentView: View {
             }
             
         }
+        .padding(.leading, 24)
+        .padding(.trailing, 24)
+        .padding(.top, 4)
+        .padding(.bottom, 4)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
     }
 }

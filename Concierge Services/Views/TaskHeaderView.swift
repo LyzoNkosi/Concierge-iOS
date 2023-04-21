@@ -33,7 +33,7 @@ struct TaskHeaderView : View  {
                                 .resizable()
                                 .foregroundColor(.white)
                                 .frame(width: 14, height: 14)
-                                
+                            
                         )
                     Rectangle()
                         .frame(width: 1, height: 20, alignment: .center)
@@ -47,12 +47,12 @@ struct TaskHeaderView : View  {
                     HStack {
                         Image("calendar")
                             .resizable()
-                            .frame(width: 14, height: 14)
+                            .frame(width: 12, height: 12)
                         
                         Text(ticket.startDate ?? "No start date")
                             .font(Font.custom("Poppins-Regular", size: Constants.TASK_DATE_FONT_SIZE))
                             .foregroundColor(Color.ColorPrimary)
-                    
+                        
                         
                     }
                     
@@ -98,7 +98,7 @@ struct TaskHeaderView : View  {
                         
                         Image("calendar")
                             .resizable()
-                            .frame(width: 14, height: 14)
+                            .frame(width: 12, height: 12)
                         
                         Text(flightTicket?.startDate ?? "No departure date")
                             .font(Font.custom("Poppins-Regular", size: Constants.TASK_DATE_FONT_SIZE))
@@ -119,7 +119,7 @@ struct TaskHeaderView : View  {
                                     .foregroundColor(Color.Accent)
                                 
                                 Text(flightTicket?.flightNumber ?? "None")
-                                    .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                                    .font(Font.custom("Poppins-Light", size: Constants.TASK_NAME_FONT_SIZE))
                                     .foregroundColor(Color.ColorPrimary)
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(1)
@@ -131,12 +131,10 @@ struct TaskHeaderView : View  {
                                     .frame(width: 14, height: 18)
                                 
                                 Text(flightTicket?.seatNumber ?? "None")
-                                    .font(Font.custom("Poppins-Bold", size: Constants.TASK_NAME_FONT_SIZE))
+                                    .font(Font.custom("Poppins-Light", size: Constants.TASK_NAME_FONT_SIZE))
                                     .foregroundColor(Color.ColorPrimary)
                                     .multilineTextAlignment(.leading)
                                     .lineLimit(1)
-                            
-                                
                                 
                             }
                         }
@@ -152,7 +150,7 @@ struct TaskHeaderView : View  {
             
         }
         //.padding(4)
-            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
     }
 }
 
@@ -160,34 +158,34 @@ struct TaskHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         
         /*TaskHeaderView(
-            ticket: Ticket(
-                id: "123456",
-                name: "Task Name",
-                startDate: "2023-03-28 11:09",
-                status: TicketStatus.STATUS_IN_PROGRESS.rawValue,
-                ticketType: TicketType.GENERAL.rawValue
-            )
-        )*/
-        
-        TaskHeaderView(
-         ticket: FlightTicket(
+         ticket: Ticket(
          id: "123456",
          name: "Task Name",
          startDate: "2023-03-28 11:09",
          status: TicketStatus.STATUS_IN_PROGRESS.rawValue,
-         bookReturn: 1,
-         departureAirport: "Rand Airport",
-         destination: "Cape Town",
-         destinationAirport: "CPT International",
-         flightNumber: "NS 544123",
-         seatNumber: "C34",
-         returnAirport: "CPT International",
-         returnDate: "2023-03-28 11:09",
-         returnFlightNumber: "GL 1224",
-         returnSeatNumber: "A12",
-         ticketType: TicketType.FLIGHT.rawValue
+         ticketType: TicketType.GENERAL.rawValue
          )
-         )
+         )*/
+        
+        TaskHeaderView(
+            ticket: FlightTicket(
+                id: "123456",
+                name: "Task Name",
+                startDate: "2023-03-28 11:09",
+                status: TicketStatus.STATUS_IN_PROGRESS.rawValue,
+                bookReturn: 1,
+                departureAirport: "Rand Airport",
+                destination: "Cape Town",
+                destinationAirport: "CPT International",
+                flightNumber: "NS 544123",
+                seatNumber: "C34",
+                returnAirport: "CPT International",
+                returnDate: "2023-03-28 11:09",
+                returnFlightNumber: "GL 1224",
+                returnSeatNumber: "A12",
+                ticketType: TicketType.FLIGHT.rawValue
+            )
+        )
         
     }
 }

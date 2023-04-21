@@ -38,7 +38,7 @@ struct SettingsView: View {
                     }
                 }
                 // 2
-                NavigationLink(destination: PlaceholderView()) {
+                NavigationLink(destination: BalanceView()) {
                     HStack {
                         Image("credit_card")
                             .resizable()
