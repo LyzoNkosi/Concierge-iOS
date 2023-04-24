@@ -13,7 +13,7 @@ struct ChatView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationLink (destination: SettingsView().environmentObject(firestoreManager).environmentObject(loginViewModel)) {
+            NavigationLink (destination: SettingsView2().environmentObject(firestoreManager).environmentObject(loginViewModel)) {
                 UserToolbarView()
                     .environmentObject(firestoreManager)
             }

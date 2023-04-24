@@ -37,6 +37,7 @@
 		F40223EA29F6927D00FC34E2 /* HeaderLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40223E929F6927D00FC34E2 /* HeaderLogo.swift */; };
 		F40223EC29F6936F00FC34E2 /* ScreenTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40223EB29F6936F00FC34E2 /* ScreenTitleView.swift */; };
 		F40223EE29F69B1500FC34E2 /* SomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40223ED29F69B1500FC34E2 /* SomeView.swift */; };
+		F40223F029F6A2BD00FC34E2 /* SettingsView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40223EF29F6A2BD00FC34E2 /* SettingsView2.swift */; };
 		F416A51129DAEABE00C40751 /* SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F416A51029DAEABE00C40751 /* SFSymbol.swift */; };
 		F41D92A829D0B52200D74D75 /* SFSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D92A729D0B52200D74D75 /* SFSymbolView.swift */; };
 		F41D92AA29D0CD1A00D74D75 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */; };
@@ -129,6 +130,7 @@
 		F40223E929F6927D00FC34E2 /* HeaderLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLogo.swift; sourceTree = "<group>"; };
 		F40223EB29F6936F00FC34E2 /* ScreenTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTitleView.swift; sourceTree = "<group>"; };
 		F40223ED29F69B1500FC34E2 /* SomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeView.swift; sourceTree = "<group>"; };
+		F40223EF29F6A2BD00FC34E2 /* SettingsView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView2.swift; sourceTree = "<group>"; };
 		F416A51029DAEABE00C40751 /* SFSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFSymbol.swift; sourceTree = "<group>"; };
 		F41D92A729D0B52200D74D75 /* SFSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolView.swift; sourceTree = "<group>"; };
 		F41D92A929D0CD1A00D74D75 /* ActivityItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				F4C10E9029DEAC24004AEE56 /* SetActivitiesView.swift */,
 				F4E4208129E94FFD00D07047 /* SettingsView.swift */,
 				F41D92A729D0B52200D74D75 /* SFSymbolView.swift */,
+				F40223ED29F69B1500FC34E2 /* SomeView.swift */,
 				0445A10929B2095F00DA8D50 /* TabbarView.swift */,
 				F4E4207F29E9427200D07047 /* TabBarView2.swift */,
 				F4E4208329E9577000D07047 /* TaskContentView.swift */,
@@ -324,7 +327,7 @@
 				04B21D1B29B733EE00829AD7 /* ViewExtension.swift */,
 				F4C10E9229DEF2E1004AEE56 /* Task Templates */,
 				F4BBAF6429C829F30036C06F /* Task Templates */,
-				F40223ED29F69B1500FC34E2 /* SomeView.swift */,
+				F40223EF29F6A2BD00FC34E2 /* SettingsView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				04791B5E29B8BD25007D0890 /* LoginViewModel.swift in Sources */,
 				0445A10229B207C400DA8D50 /* ChatView.swift in Sources */,
 				F481DD3529CC8CD300D39319 /* LaunchScreenStateManager.swift in Sources */,
+				F40223F029F6A2BD00FC34E2 /* SettingsView2.swift in Sources */,
 				F40223EC29F6936F00FC34E2 /* ScreenTitleView.swift in Sources */,
 				F4E4208029E9427200D07047 /* TabBarView2.swift in Sources */,
 				F48CBF0C29C3346200973290 /* DashboardViewModel.swift in Sources */,

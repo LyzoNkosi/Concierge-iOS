@@ -10,14 +10,11 @@ import SwiftUI
 struct SomeView: View {
     var body: some View {
         VStack(alignment: .leading) {
-        
             
-                UserToolbarView()
-            
+            UserToolbarView()
             
             ScreenTitleView(screenTitle: "Some View")
                 .padding(.top, 0)
-            
             
         }
         .toolbar {
