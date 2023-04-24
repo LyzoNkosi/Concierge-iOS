@@ -18,6 +18,8 @@ struct ChatView: View {
                     .environmentObject(firestoreManager)
             }
             
+            ScreenTitleView(screenTitle: "Concierge")
+            
             List(chatsViewModel.messages) { chat in
                 MessageView(currentMessage: chat)
             }

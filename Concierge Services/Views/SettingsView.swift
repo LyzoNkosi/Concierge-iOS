@@ -21,11 +21,15 @@ struct SettingsView: View {
     @State private var toastMessage = ""
     
     var body: some View {
+        
         VStack {
             
             UserToolbarView()
                 .padding()
                 .environmentObject(firestoreManager)
+            
+            ScreenTitleView(screenTitle: "Settings")
+                .padding(.top, 0)
             
             List {
                 // 1
@@ -135,9 +139,12 @@ struct SettingsView: View {
                         self.settingsPresentation.wrappedValue.dismiss()
                     }
                 }
-                .navigationBarTitle("Settings")
+                .navigationBarTitle("")
                 .environment(\.defaultMinListRowHeight, 50)
             }
+            .padding(.top, 0)
+            .listStyle(PlainListStyle())
+            
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
