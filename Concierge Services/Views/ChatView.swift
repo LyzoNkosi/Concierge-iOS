@@ -33,6 +33,9 @@ struct ChatView: View {
                 Button(action: sendMessage) {
                     Text("Send")
                         .font(Font.custom("Poppins-Regular", size: 16))
+                        
+                    
+                    
                 }
             }.frame(minHeight: CGFloat(50)).padding()
         }
@@ -71,6 +74,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        ChatView().environmentObject(FirestoreManager()).environmentObject(LoginViewModel())
     }
 }

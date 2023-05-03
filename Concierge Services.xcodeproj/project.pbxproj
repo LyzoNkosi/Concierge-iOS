@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040B516B2A02893E001987A0 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040B516A2A02893E001987A0 /* NavigationBarColor.swift */; };
 		043E7A4829B60ED900AB2737 /* TaskDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043E7A4729B60ED900AB2737 /* TaskDetailView.swift */; };
 		0445A0EA29B1EEE300DA8D50 /* Concierge_ServicesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */; };
 		0445A0EC29B1EEE300DA8D50 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445A0EB29B1EEE300DA8D50 /* LoginView.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040B516A2A02893E001987A0 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		043E7A4729B60ED900AB2737 /* TaskDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailView.swift; sourceTree = "<group>"; };
 		0445A0E629B1EEE300DA8D50 /* Concierge Services.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Concierge Services.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0445A0E929B1EEE300DA8D50 /* Concierge_ServicesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concierge_ServicesApp.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		0445A0DD29B1EEE300DA8D50 = {
 			isa = PBXGroup;
 			children = (
+				040B516A2A02893E001987A0 /* NavigationBarColor.swift */,
 				0445A0E829B1EEE300DA8D50 /* Concierge Services */,
 				F48CBEFA29C3185500973290 /* Frameworks */,
 				0445A0E729B1EEE300DA8D50 /* Products */,
@@ -547,6 +550,7 @@
 				F49D912A29CAE3AA009ED887 /* AdminDashboardViewModel.swift in Sources */,
 				F4BBAF6629C82A280036C06F /* CreateFlightTaskView.swift in Sources */,
 				04983DBB29F6B71400F88EDB /* PaymentMethodView.swift in Sources */,
+				040B516B2A02893E001987A0 /* NavigationBarColor.swift in Sources */,
 				04D8688029C0601900027E73 /* UserProfileView.swift in Sources */,
 				F4C10EA829DF0761004AEE56 /* AirlinePreferencesView.swift in Sources */,
 				F48CBF0029C32B6E00973290 /* Client.swift in Sources */,
